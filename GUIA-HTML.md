@@ -40,17 +40,400 @@ Uma tag é um elemento HTML que define o início e o fim de um bloco de conteúd
 - Devem ser **fechadas** na ordem correta (LIFO - Last In, First Out)
 - Algumas são **auto-fecháveis** e não precisam de tag de fechamento
 
-### Estrutura de uma Tag
-- **Tag de abertura**: `<tagname>` - Marca o início do elemento
-- **Conteúdo**: texto ou outros elementos HTML
-- **Tag de fechamento**: `</tagname>` - Marca o fim do elemento (note a barra `/`)
+### Estrutura de uma Tag - Anatomia Completa
 
-**Exemplo com aninhamento:**
+Uma tag HTML é composta por **elementos específicos** que definem como o navegador deve interpretar e exibir o conteúdo:
+
+#### **🏗️ Componentes Básicos:**
+
+```html
+<tagname atributo="valor">conteúdo</tagname>
+    ↑         ↑        ↑        ↑
+    1         2        3        4
+```
+
+1. **Tag de abertura**: `<tagname>` - Marca o início do elemento
+2. **Atributos**: `atributo="valor"` - Informações adicionais (opcional)
+3. **Conteúdo**: texto ou outros elementos HTML (pode estar vazio)
+4. **Tag de fechamento**: `</tagname>` - Marca o fim do elemento (note a barra `/`)
+
+#### **📋 Detalhamento de Cada Parte:**
+
+**1. Tag de Abertura `<tagname>`:**
+- Sempre inicia com `<` e termina com `>`
+- Nome da tag define o **tipo de elemento** (p, div, h1, etc.)
+- Não diferencia maiúsculas/minúsculas, mas **convenção é minúsculas**
+- Pode conter **atributos** para configurar o elemento
+
+**2. Atributos (opcionais):**
+- Fornecem **informações extras** sobre o elemento
+- Formato: `nome="valor"` (sempre entre aspas)
+- Múltiplos atributos separados por **espaços**
+- Alguns são **obrigatórios** (como `alt` em imagens)
+
+**3. Conteúdo:**
+- Pode ser **texto simples**, **outras tags HTML** ou **ambos**
+- Algumas tags **não têm conteúdo** (tags auto-fecháveis)
+- Pode ser **aninhado** (tags dentro de tags)
+
+**4. Tag de Fechamento `</tagname>`:**
+- Sempre inicia com `</` e termina com `>`
+- **Nome idêntico** à tag de abertura
+- **Obrigatória** para a maioria das tags
+- **Não contém atributos**
+
+#### **🎯 Exemplos Práticos por Complexidade:**
+
+**Nível 1 - Tag Simples:**
+```html
+<p>Este é um parágrafo simples.</p>
+↑                               ↑
+Tag de abertura                Tag de fechamento
+```
+
+**Nível 2 - Tag com Atributos:**
+```html
+<a href="https://google.com" target="_blank">Clique aqui</a>
+↑  ↑                         ↑              ↑            ↑
+|  |                         |              |            |
+|  Atributo 1                Atributo 2     Conteúdo     Tag de fechamento
+Tag de abertura
+```
+
+**Nível 3 - Tags Aninhadas (Análise Detalhada):**
+
+O aninhamento de tags é como **"caixas dentro de caixas"** - cada elemento pode conter outros elementos, criando uma estrutura hierárquica.
+
+```html
+<div class="container">
+    <h1 id="titulo">Bem-vindo</h1>
+    <p>Este é um <strong>texto importante</strong> no parágrafo.</p>
+</div>
+```
+
+#### **🔍 Decomposição Visual do Aninhamento:**
+
+```
+<div class="container">              ← Elemento PAI (nível 1)
+    ↓
+    <h1 id="titulo">Bem-vindo</h1>    ← Elemento FILHO (nível 2)
+    ↓
+    <p>Este é um <strong>texto importante</strong> no parágrafo.</p>
+    ↑                ↑                ↑
+    |                |                |
+    |                FILHO do <p>     |
+    |                (nível 3)        |
+    |                                 |
+    FILHO do <div> (nível 2)         |
+                                     |
+                    Texto do <p> (nível 2)
+</div>                              ← Fechamento do PAI
+```
+
+#### **📊 Hierarquia de Relacionamentos:**
+
+**Terminologia Familiar:**
+- **Elemento PAI**: Contém outros elementos (`<div>` no exemplo)
+- **Elemento FILHO**: Está dentro de outro elemento (`<h1>` e `<p>`)
+- **Elemento NETO**: Filho de um filho (`<strong>` dentro do `<p>`)
+- **Elementos IRMÃOS**: Estão no mesmo nível (`<h1>` e `<p>` são irmãos)
+
+#### **🎯 Exemplos Práticos de Aninhamento:**
+
+**Exemplo 1 - Aninhamento Simples (2 níveis):**
+```html
+<div class="caixa">                    ← Nível 1: Container principal
+    <p>Texto do parágrafo</p>          ← Nível 2: Conteúdo
+</div>
+```
+
+**Exemplo 2 - Aninhamento Médio (3 níveis):**
+```html
+<div class="card">                     ← Nível 1: Container do card
+    <h2>Título do Card</h2>            ← Nível 2: Título
+    <p>Este é um <em>texto</em> no parágrafo.</p>  ← Nível 2: Parágrafo
+                  ↑                                ← Nível 3: Ênfase
+</div>
+```
+
+**Exemplo 3 - Aninhamento Complexo (4+ níveis):**
+```html
+<section class="produto">              ← Nível 1: Seção do produto
+    <div class="produto-info">         ← Nível 2: Container de informações
+        <h3 class="nome">Smartphone</h3>  ← Nível 3: Nome do produto
+        <div class="preco-container">  ← Nível 3: Container do preço
+            <span class="moeda">R$</span>     ← Nível 4: Símbolo da moeda
+            <span class="valor">899</span>    ← Nível 4: Valor
+        </div>
+        <p class="descricao">Este smartphone possui <strong>128GB</strong> de armazenamento.</p>
+                                      ↑                   ↑
+                                      Nível 3: Parágrafo  Nível 4: Destaque
+    </div>
+</section>
+```
+
+#### **⚖️ Regras do Aninhamento (LIFO - Last In, First Out):**
+
+**Princípio Fundamental:**
+- A **última tag aberta** deve ser a **primeira a ser fechada**
+- É como empilhar pratos: o último que você coloca é o primeiro que você tira
+
+**Visualização do LIFO:**
+```html
+<div>          ← 1ª tag aberta
+    <p>        ← 2ª tag aberta  
+        <strong>texto</strong>  ← 3ª aberta, 1ª fechada ✅
+    </p>       ← 2ª fechada ✅
+</div>         ← 1ª fechada ✅
+```
+
+#### **✅ Exemplos CORRETOS de Aninhamento:**
+
+**Correto - Ordem de fechamento respeitada:**
+```html
+<div class="container">
+    <header class="cabecalho">
+        <h1 class="titulo">Meu Site</h1>
+        <nav class="menu">
+            <ul class="lista">
+                <li class="item"><a href="#home">Início</a></li>
+                <li class="item"><a href="#about">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+```
+
+**Análise da ordem de fechamento:**
+```
+Abertura: div → header → h1 → nav → ul → li → a
+Fechamento: a → li → ul → nav → header → div ✅
+```
+
+#### **❌ Exemplos INCORRETOS de Aninhamento:**
+
+**Erro 1 - Tags cruzadas:**
 ```html
 <div>
-    <h1>Título Principal</h1>
-    <p>Este é um <strong>parágrafo</strong> com texto em negrito.</p>
+    <p>
+        <strong>Texto importante
+    </p>
+</strong>  ← ERRO: strong deveria fechar antes do p
 </div>
+```
+
+**Erro 2 - Tag não fechada:**
+```html
+<div>
+    <p>Parágrafo sem fechamento
+    <span>Outro elemento</span>
+</div>  ← ERRO: p não foi fechado
+```
+
+**Erro 3 - Fechamento em ordem errada:**
+```html
+<div>
+    <header>
+        <h1>Título</h1>
+    </div>  ← ERRO: div fechou antes do header
+</header>
+```
+
+#### **🎨 Indentação para Visualizar Aninhamento:**
+
+**Boa prática - Indentação clara:**
+```html
+<main class="conteudo-principal">                    ← 0 espaços (base)
+    <section class="introducao">                     ← 4 espaços (nível 1)
+        <h2 class="titulo-secao">Introdução</h2>     ← 8 espaços (nível 2)
+        <p class="paragrafo">                        ← 8 espaços (nível 2)
+            Este é um parágrafo com                  ← 12 espaços (nível 3)
+            <strong class="destaque">texto importante</strong>
+            para demonstrar aninhamento.
+        </p>
+        <div class="imagem-container">               ← 8 espaços (nível 2)
+            <img src="exemplo.jpg"                   ← 12 espaços (nível 3)
+                 alt="Exemplo de imagem"
+                 class="imagem-responsiva">
+            <figcaption class="legenda">             ← 12 espaços (nível 3)
+                Legenda da imagem
+            </figcaption>
+        </div>
+    </section>
+</main>
+```
+
+#### **🧠 Compreendendo a Lógica do Aninhamento:**
+
+**Analogia da Estrutura de Pastas:**
+```
+📁 Projeto Website (div principal)
+  📁 Header (cabeçalho)
+    📄 Logo (h1)
+    📁 Navegação (nav)
+      📄 Menu Item 1 (a)
+      📄 Menu Item 2 (a)
+  📁 Main Content (main)
+    📁 Artigo (article)
+      📄 Título (h2)
+      📄 Parágrafo (p)
+        📄 Texto importante (strong)
+```
+
+**Analogia da Casa:**
+```html
+<house>              ← Casa
+    <room>           ← Quarto
+        <furniture>  ← Móvel
+            <drawer>texto</drawer>  ← Gaveta com conteúdo
+        </furniture>
+    </room>
+</house>
+```
+
+#### **🔧 Ferramentas para Verificar Aninhamento:**
+
+**1. Validador HTML do W3C**: Detecta erros de aninhamento
+**2. Editor de código**: Destaque de sintaxe mostra problemas
+**3. Developer Tools**: Navegador mostra estrutura DOM
+**4. Extensões**: Auto-fechamento e indentação automática
+
+#### **💡 Dicas Práticas:**
+
+1. **Use indentação consistente** (2 ou 4 espaços)
+2. **Uma tag por linha** quando há muitos atributos
+3. **Comente estruturas complexas**:
+   ```html
+   <!-- Início da seção de produtos -->
+   <section class="produtos">
+       <!-- Produto individual -->
+       <div class="produto">
+           <!-- Fim do produto -->
+       </div>
+   <!-- Fim da seção de produtos -->
+   </section>
+   ```
+4. **Use ferramentas de formatação** automática
+5. **Valide frequentemente** seu HTML
+
+**Nível 4 - Estrutura Complexa:**
+```html
+<article class="post" data-id="123">
+    <header>
+        <h2 class="titulo">Título do Artigo</h2>
+        <time datetime="2025-01-15">15 de Janeiro, 2025</time>
+    </header>
+    <section class="conteudo">
+        <p>Este é o <em>primeiro parágrafo</em> do artigo.</p>
+        <img src="imagem.jpg" alt="Imagem do artigo" width="300">
+        <p>Este é o segundo parágrafo com um <a href="#link">link interno</a>.</p>
+    </section>
+</article>
+```
+
+#### **🔍 Aninhamento - Regras Importantes:**
+
+**Princípio LIFO (Last In, First Out):**
+- A **última tag aberta** deve ser a **primeira a fechar**
+- Como "caixas dentro de caixas" - feche de dentro para fora
+
+```html
+<!-- ✅ CORRETO: Aninhamento adequado -->
+<div>
+    <p>
+        <strong>Texto em negrito</strong>
+    </p>
+</div>
+
+<!-- ❌ ERRADO: Aninhamento incorreto -->
+<div>
+    <p>
+        <strong>Texto em negrito
+    </p>
+</strong>  <!-- Tag strong fechada fora do p -->
+</div>
+```
+
+#### **⚠️ Regras de Aninhamento por Tipo:**
+
+**Block Elements (Elementos de Bloco):**
+- Podem conter outros block elements e inline elements
+- Exemplos: `<div>`, `<p>`, `<h1>`, `<section>`
+
+**Inline Elements (Elementos em Linha):**
+- Só podem conter outros inline elements e texto
+- Exemplos: `<span>`, `<strong>`, `<em>`, `<a>`
+
+```html
+<!-- ✅ CORRETO -->
+<div>          <!-- Block element -->
+    <p>        <!-- Block element dentro de block -->
+        <strong>Texto</strong>  <!-- Inline dentro de block -->
+    </p>
+</div>
+
+<!-- ❌ ERRADO -->
+<strong>       <!-- Inline element -->
+    <div>      <!-- Block dentro de inline - INVÁLIDO -->
+        Texto
+    </div>
+</strong>
+```
+
+#### **🎨 Exemplos Visuais da Estrutura:**
+
+**Tag com Múltiplos Atributos:**
+```html
+<img src="foto.jpg" 
+     alt="Descrição da foto" 
+     width="300" 
+     height="200" 
+     loading="lazy"
+     class="imagem-responsiva">
+```
+
+**Decomposição visual:**
+```
+<img ← Tag de abertura
+ │
+ ├─ src="foto.jpg" ← Atributo obrigatório (caminho)
+ ├─ alt="Descrição da foto" ← Atributo obrigatório (acessibilidade)
+ ├─ width="300" ← Atributo opcional (largura)
+ ├─ height="200" ← Atributo opcional (altura)
+ ├─ loading="lazy" ← Atributo opcional (performance)
+ └─ class="imagem-responsiva" ← Atributo opcional (CSS)
+>
+```
+
+#### **💡 Boas Práticas para Estrutura:**
+
+1. **Indentação consistente**: Use 2 ou 4 espaços para aninhar
+2. **Uma tag por linha** quando há múltiplos atributos
+3. **Aspas consistentes**: Use sempre aspas duplas `"`
+4. **Nomes descritivos**: Use classes e IDs significativos
+5. **Validação**: Sempre feche as tags na ordem correta
+
+**Exemplo bem estruturado:**
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Página Bem Estruturada</title>
+</head>
+<body>
+    <header class="cabecalho">
+        <h1 class="titulo-principal">Meu Site</h1>
+        <nav class="navegacao">
+            <ul class="menu">
+                <li class="item-menu">
+                    <a href="#inicio" class="link-menu">Início</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>
 ```
 
 ### Tags Auto-fecháveis
@@ -463,6 +846,8 @@ Os links são fundamentais para conectar páginas e criar navegação:
 
 ### 5. Imagens
 
+As imagens são elementos fundamentais da web moderna. O uso correto dos atributos, especialmente o `alt`, é crucial para acessibilidade:
+
 ```html
 <!-- Imagem básica -->
 <img src="imagem.jpg" alt="Descrição da imagem">
@@ -480,6 +865,84 @@ Os links são fundamentais para conectar páginas e criar navegação:
     <img src="imagem-grande.jpg" alt="Descrição">
 </picture>
 ```
+
+#### 🔍 **O Atributo `alt` - Fundamental para Acessibilidade**
+
+O atributo `alt` (alternative text) é **obrigatório** e extremamente importante:
+
+**O que é o `alt`?**
+- **Texto alternativo** que descreve o conteúdo da imagem
+- **Substituto textual** quando a imagem não pode ser vista ou carregada
+- **Informação essencial** para pessoas que usam leitores de tela
+
+**Por que usar `alt`?**
+
+1. **♿ Acessibilidade**: Leitores de tela leem o texto do `alt` para pessoas com deficiência visual
+2. **🌐 Conexões lentas**: Se a imagem não carregar, o `alt` é exibido no lugar
+3. **🔍 SEO**: Mecanismos de busca usam o `alt` para entender o conteúdo da imagem
+4. **📱 Dispositivos limitados**: Alguns dispositivos podem não exibir imagens
+
+**Como escrever um bom `alt`?**
+
+```html
+<!-- ❌ RUIM: Muito genérico -->
+<img src="foto.jpg" alt="foto">
+<img src="grafico.jpg" alt="imagem">
+
+<!-- ❌ RUIM: Redundante -->
+<img src="logo.jpg" alt="Imagem do logo da empresa">
+
+<!-- ✅ BOM: Descritivo e útil -->
+<img src="logo.jpg" alt="Logo da Empresa XYZ">
+<img src="grafico-vendas.jpg" alt="Gráfico mostrando crescimento de 25% nas vendas de 2024">
+<img src="produto-smartphone.jpg" alt="Smartphone XYZ na cor preta com tela de 6.5 polegadas">
+
+<!-- ✅ BOM: Imagem decorativa -->
+<img src="decoracao.jpg" alt="" role="presentation">
+```
+
+**Regras importantes para o `alt`:**
+
+- **Seja específico**: Descreva o que realmente importa na imagem
+- **Seja conciso**: Máximo de 125 caracteres (limite dos leitores de tela)
+- **Contexto importa**: Adapte a descrição ao propósito da imagem na página
+- **Imagens decorativas**: Use `alt=""` (vazio) para imagens puramente decorativas
+- **Evite redundância**: Não use "imagem de" ou "foto de"
+
+**Exemplos práticos por tipo de imagem:**
+
+```html
+<!-- Logo/Marca -->
+<img src="logo.png" alt="Empresa ABC">
+
+<!-- Foto de produto -->
+<img src="tenis-azul.jpg" alt="Tênis esportivo azul Nike Air Max tamanho 42">
+
+<!-- Gráfico/Infográfico -->
+<img src="crescimento.jpg" alt="Gráfico de barras: vendas cresceram 30% em 2024">
+
+<!-- Foto de pessoa -->
+<img src="joao.jpg" alt="João Silva, CEO da empresa">
+
+<!-- Ícone funcional -->
+<img src="buscar.png" alt="Buscar">
+
+<!-- Imagem decorativa -->
+<img src="ornamento.jpg" alt="" role="presentation">
+
+<!-- Mapa -->
+<img src="mapa.jpg" alt="Mapa mostrando localização da loja na Rua das Flores, 123">
+```
+
+**Atributos importantes das imagens:**
+
+- **`src`** - Caminho do arquivo de imagem (obrigatório)
+- **`alt`** - Texto alternativo (obrigatório)
+- **`width`** e **`height`** - Dimensões em pixels
+- **`loading`** - "lazy" para carregamento sob demanda
+- **`title`** - Tooltip ao passar o mouse (opcional)
+- **`srcset`** - Imagens em diferentes resoluções
+- **`sizes`** - Tamanhos para diferentes viewports
 
 ### 6. Tabelas
 

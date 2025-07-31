@@ -415,19 +415,370 @@
                 </ul>
             </div>
 
-            <h3>Estrutura de uma Tag</h3>
-            <ul>
-                <li><strong>Tag de abertura</strong>: <code class="inline-code">&lt;tagname&gt;</code> - Marca o início do elemento</li>
-                <li><strong>Conteúdo</strong>: texto ou outros elementos HTML</li>
-                <li><strong>Tag de fechamento</strong>: <code class="inline-code">&lt;/tagname&gt;</code> - Marca o fim do elemento (note a barra /)</li>
-            </ul>
+            <h3>Estrutura de uma Tag - Anatomia Completa</h3>
+            
+            <p>Uma tag HTML é composta por <strong>elementos específicos</strong> que definem como o navegador deve interpretar e exibir o conteúdo:</p>
 
-            <h4>Exemplo com aninhamento:</h4>
+            <h4>🏗️ Componentes Básicos:</h4>
+            
             <div class="code-block">
-                <pre><code class="language-html">&lt;div&gt;
-    &lt;h1&gt;Título Principal&lt;/h1&gt;
-    &lt;p&gt;Este é um &lt;strong&gt;parágrafo&lt;/strong&gt; com texto em negrito.&lt;/p&gt;
+                <pre><code class="language-html">&lt;tagname atributo="valor"&gt;conteúdo&lt;/tagname&gt;
+    ↑         ↑        ↑        ↑
+    1         2        3        4</code></pre>
+            </div>
+
+            <div class="info-box">
+                <h4>Decomposição dos Componentes:</h4>
+                <ol>
+                    <li><strong>Tag de abertura</strong>: <code>&lt;tagname&gt;</code> - Marca o início do elemento</li>
+                    <li><strong>Atributos</strong>: <code>atributo="valor"</code> - Informações adicionais (opcional)</li>
+                    <li><strong>Conteúdo</strong>: texto ou outros elementos HTML (pode estar vazio)</li>
+                    <li><strong>Tag de fechamento</strong>: <code>&lt;/tagname&gt;</code> - Marca o fim do elemento (note a barra /)</li>
+                </ol>
+            </div>
+
+            <h4>📋 Detalhamento de Cada Parte:</h4>
+
+            <div class="info-box">
+                <h4>1. Tag de Abertura <code>&lt;tagname&gt;</code>:</h4>
+                <ul>
+                    <li>Sempre inicia com <code>&lt;</code> e termina com <code>&gt;</code></li>
+                    <li>Nome da tag define o <strong>tipo de elemento</strong> (p, div, h1, etc.)</li>
+                    <li>Não diferencia maiúsculas/minúsculas, mas <strong>convenção é minúsculas</strong></li>
+                    <li>Pode conter <strong>atributos</strong> para configurar o elemento</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h4>2. Atributos (opcionais):</h4>
+                <ul>
+                    <li>Fornecem <strong>informações extras</strong> sobre o elemento</li>
+                    <li>Formato: <code>nome="valor"</code> (sempre entre aspas)</li>
+                    <li>Múltiplos atributos separados por <strong>espaços</strong></li>
+                    <li>Alguns são <strong>obrigatórios</strong> (como <code>alt</code> em imagens)</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h4>3. Conteúdo:</h4>
+                <ul>
+                    <li>Pode ser <strong>texto simples</strong>, <strong>outras tags HTML</strong> ou <strong>ambos</strong></li>
+                    <li>Algumas tags <strong>não têm conteúdo</strong> (tags auto-fecháveis)</li>
+                    <li>Pode ser <strong>aninhado</strong> (tags dentro de tags)</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h4>4. Tag de Fechamento <code>&lt;/tagname&gt;</code>:</h4>
+                <ul>
+                    <li>Sempre inicia com <code>&lt;/</code> e termina com <code>&gt;</code></li>
+                    <li><strong>Nome idêntico</strong> à tag de abertura</li>
+                    <li><strong>Obrigatória</strong> para a maioria das tags</li>
+                    <li><strong>Não contém atributos</strong></li>
+                </ul>
+            </div>
+
+            <h4>🎯 Exemplos Práticos por Complexidade:</h4>
+
+            <h5>Nível 1 - Tag Simples:</h5>
+            <div class="code-block">
+                <pre><code class="language-html">&lt;p&gt;Este é um parágrafo simples.&lt;/p&gt;
+↑                               ↑
+Tag de abertura                Tag de fechamento</code></pre>
+            </div>
+
+            <h5>Nível 2 - Tag com Atributos:</h5>
+            <div class="code-block">
+                <pre><code class="language-html">&lt;a href="https://google.com" target="_blank"&gt;Clique aqui&lt;/a&gt;
+↑  ↑                         ↑              ↑            ↑
+|  |                         |              |            |
+|  Atributo 1                Atributo 2     Conteúdo     Tag de fechamento
+Tag de abertura</code></pre>
+            </div>
+
+            <h5>Nível 3 - Tags Aninhadas (Análise Detalhada):</h5>
+            
+            <p>O aninhamento de tags é como <strong>"caixas dentro de caixas"</strong> - cada elemento pode conter outros elementos, criando uma estrutura hierárquica.</p>
+            
+            <div class="code-block">
+                <pre><code class="language-html">&lt;div class="container"&gt;
+    &lt;h1 id="titulo"&gt;Bem-vindo&lt;/h1&gt;
+    &lt;p&gt;Este é um &lt;strong&gt;texto importante&lt;/strong&gt; no parágrafo.&lt;/p&gt;
 &lt;/div&gt;</code></pre>
+            </div>
+
+            <h6>🔍 Decomposição Visual do Aninhamento:</h6>
+            
+            <div class="code-block">
+                <pre><code>&lt;div class="container"&gt;              ← Elemento PAI (nível 1)
+    ↓
+    &lt;h1 id="titulo"&gt;Bem-vindo&lt;/h1&gt;    ← Elemento FILHO (nível 2)
+    ↓
+    &lt;p&gt;Este é um &lt;strong&gt;texto importante&lt;/strong&gt; no parágrafo.&lt;/p&gt;
+    ↑                ↑                ↑
+    |                |                |
+    |                FILHO do &lt;p&gt;     |
+    |                (nível 3)        |
+    |                                 |
+    FILHO do &lt;div&gt; (nível 2)         |
+                                     |
+                    Texto do &lt;p&gt; (nível 2)
+&lt;/div&gt;                              ← Fechamento do PAI</code></pre>
+            </div>
+
+            <div class="info-box">
+                <h6>📊 Hierarquia de Relacionamentos (Terminologia Familiar):</h6>
+                <ul>
+                    <li><strong>Elemento PAI</strong>: Contém outros elementos (<code>&lt;div&gt;</code> no exemplo)</li>
+                    <li><strong>Elemento FILHO</strong>: Está dentro de outro elemento (<code>&lt;h1&gt;</code> e <code>&lt;p&gt;</code>)</li>
+                    <li><strong>Elemento NETO</strong>: Filho de um filho (<code>&lt;strong&gt;</code> dentro do <code>&lt;p&gt;</code>)</li>
+                    <li><strong>Elementos IRMÃOS</strong>: Estão no mesmo nível (<code>&lt;h1&gt;</code> e <code>&lt;p&gt;</code> são irmãos)</li>
+                </ul>
+            </div>
+
+            <h6>🎯 Exemplos Práticos de Aninhamento por Complexidade:</h6>
+
+            <h6>Exemplo 1 - Aninhamento Simples (2 níveis):</h6>
+            <div class="code-block">
+                <pre><code class="language-html">&lt;div class="caixa"&gt;                    ← Nível 1: Container principal
+    &lt;p&gt;Texto do parágrafo&lt;/p&gt;          ← Nível 2: Conteúdo
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <h6>Exemplo 2 - Aninhamento Médio (3 níveis):</h6>
+            <div class="code-block">
+                <pre><code class="language-html">&lt;div class="card"&gt;                     ← Nível 1: Container do card
+    &lt;h2&gt;Título do Card&lt;/h2&gt;            ← Nível 2: Título
+    &lt;p&gt;Este é um &lt;em&gt;texto&lt;/em&gt; no parágrafo.&lt;/p&gt;  ← Nível 2: Parágrafo
+                  ↑                                ← Nível 3: Ênfase
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <h6>Exemplo 3 - Aninhamento Complexo (4+ níveis):</h6>
+            <div class="code-block">
+                <pre><code class="language-html">&lt;section class="produto"&gt;              ← Nível 1: Seção do produto
+    &lt;div class="produto-info"&gt;         ← Nível 2: Container de informações
+        &lt;h3 class="nome"&gt;Smartphone&lt;/h3&gt;  ← Nível 3: Nome do produto
+        &lt;div class="preco-container"&gt;  ← Nível 3: Container do preço
+            &lt;span class="moeda"&gt;R$&lt;/span&gt;     ← Nível 4: Símbolo da moeda
+            &lt;span class="valor"&gt;899&lt;/span&gt;    ← Nível 4: Valor
+        &lt;/div&gt;
+        &lt;p class="descricao"&gt;Este smartphone possui &lt;strong&gt;128GB&lt;/strong&gt; de armazenamento.&lt;/p&gt;
+                                      ↑                   ↑
+                                      Nível 3: Parágrafo  Nível 4: Destaque
+    &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+            </div>
+
+            <div class="info-box">
+                <h6>⚖️ Regras do Aninhamento (LIFO - Last In, First Out):</h6>
+                <p><strong>Princípio Fundamental:</strong></p>
+                <ul>
+                    <li>A <strong>última tag aberta</strong> deve ser a <strong>primeira a ser fechada</strong></li>
+                    <li>É como empilhar pratos: o último que você coloca é o primeiro que você tira</li>
+                </ul>
+            </div>
+
+            <h6>Visualização do LIFO:</h6>
+            <div class="code-block">
+                <pre><code class="language-html">&lt;div&gt;          ← 1ª tag aberta
+    &lt;p&gt;        ← 2ª tag aberta  
+        &lt;strong&gt;texto&lt;/strong&gt;  ← 3ª aberta, 1ª fechada ✅
+    &lt;/p&gt;       ← 2ª fechada ✅
+&lt;/div&gt;         ← 1ª fechada ✅</code></pre>
+            </div>
+
+            <h6>✅ Exemplo CORRETO de Aninhamento:</h6>
+            <div class="code-block">
+                <pre><code class="language-html">&lt;div class="container"&gt;
+    &lt;header class="cabecalho"&gt;
+        &lt;h1 class="titulo"&gt;Meu Site&lt;/h1&gt;
+        &lt;nav class="menu"&gt;
+            &lt;ul class="lista"&gt;
+                &lt;li class="item"&gt;&lt;a href="#home"&gt;Início&lt;/a&gt;&lt;/li&gt;
+                &lt;li class="item"&gt;&lt;a href="#about"&gt;Sobre&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="code-block">
+                <h6>Análise da ordem de fechamento:</h6>
+                <pre><code>Abertura: div → header → h1 → nav → ul → li → a
+Fechamento: a → li → ul → nav → header → div ✅</code></pre>
+            </div>
+
+            <h6>❌ Exemplos INCORRETOS de Aninhamento:</h6>
+            
+            <div class="code-block">
+                <h6>Erro 1 - Tags cruzadas:</h6>
+                <pre><code class="language-html">&lt;div&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Texto importante
+    &lt;/p&gt;
+&lt;/strong&gt;  ← ERRO: strong deveria fechar antes do p
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="code-block">
+                <h6>Erro 2 - Tag não fechada:</h6>
+                <pre><code class="language-html">&lt;div&gt;
+    &lt;p&gt;Parágrafo sem fechamento
+    &lt;span&gt;Outro elemento&lt;/span&gt;
+&lt;/div&gt;  ← ERRO: p não foi fechado</code></pre>
+            </div>
+
+            <h6>🎨 Indentação para Visualizar Aninhamento:</h6>
+            
+            <div class="code-block">
+                <h6>Boa prática - Indentação clara:</h6>
+                <pre><code class="language-html">&lt;main class="conteudo-principal"&gt;                    ← 0 espaços (base)
+    &lt;section class="introducao"&gt;                     ← 4 espaços (nível 1)
+        &lt;h2 class="titulo-secao"&gt;Introdução&lt;/h2&gt;     ← 8 espaços (nível 2)
+        &lt;p class="paragrafo"&gt;                        ← 8 espaços (nível 2)
+            Este é um parágrafo com                  ← 12 espaços (nível 3)
+            &lt;strong class="destaque"&gt;texto importante&lt;/strong&gt;
+            para demonstrar aninhamento.
+        &lt;/p&gt;
+        &lt;div class="imagem-container"&gt;               ← 8 espaços (nível 2)
+            &lt;img src="exemplo.jpg"                   ← 12 espaços (nível 3)
+                 alt="Exemplo de imagem"
+                 class="imagem-responsiva"&gt;
+            &lt;figcaption class="legenda"&gt;             ← 12 espaços (nível 3)
+                Legenda da imagem
+            &lt;/figcaption&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/main&gt;</code></pre>
+            </div>
+
+            <div class="info-box">
+                <h6>🧠 Analogias para Compreender Aninhamento:</h6>
+                
+                <h6>Analogia da Estrutura de Pastas:</h6>
+                <pre>📁 Projeto Website (div principal)
+  📁 Header (cabeçalho)
+    📄 Logo (h1)
+    📁 Navegação (nav)
+      📄 Menu Item 1 (a)
+      📄 Menu Item 2 (a)
+  📁 Main Content (main)
+    📁 Artigo (article)
+      📄 Título (h2)
+      📄 Parágrafo (p)
+        📄 Texto importante (strong)</pre>
+            </div>
+
+            <div class="info-box">
+                <h6>💡 Dicas Práticas para Aninhamento:</h6>
+                <ol>
+                    <li><strong>Use indentação consistente</strong> (2 ou 4 espaços)</li>
+                    <li><strong>Uma tag por linha</strong> quando há muitos atributos</li>
+                    <li><strong>Comente estruturas complexas</strong></li>
+                    <li><strong>Use ferramentas de formatação</strong> automática</li>
+                    <li><strong>Valide frequentemente</strong> seu HTML</li>
+                    <li><strong>Use Developer Tools</strong> para visualizar a estrutura DOM</li>
+                </ol>
+            </div>
+
+            <h5>Nível 4 - Estrutura Complexa:</h5>
+            <div class="code-block">
+                <pre><code class="language-html">&lt;article class="post" data-id="123"&gt;
+    &lt;header&gt;
+        &lt;h2 class="titulo"&gt;Título do Artigo&lt;/h2&gt;
+        &lt;time datetime="2025-01-15"&gt;15 de Janeiro, 2025&lt;/time&gt;
+    &lt;/header&gt;
+    &lt;section class="conteudo"&gt;
+        &lt;p&gt;Este é o &lt;em&gt;primeiro parágrafo&lt;/em&gt; do artigo.&lt;/p&gt;
+        &lt;img src="imagem.jpg" alt="Imagem do artigo" width="300"&gt;
+        &lt;p&gt;Este é o segundo parágrafo com um &lt;a href="#link"&gt;link interno&lt;/a&gt;.&lt;/p&gt;
+    &lt;/section&gt;
+&lt;/article&gt;</code></pre>
+            </div>
+
+            <h4>🔍 Aninhamento - Regras Importantes:</h4>
+
+            <div class="info-box">
+                <h4>Princípio LIFO (Last In, First Out):</h4>
+                <ul>
+                    <li>A <strong>última tag aberta</strong> deve ser a <strong>primeira a fechar</strong></li>
+                    <li>Como "caixas dentro de caixas" - feche de dentro para fora</li>
+                </ul>
+            </div>
+
+            <div class="code-block">
+                <h5>Exemplos de Aninhamento:</h5>
+                <pre><code class="language-html">&lt;!-- ✅ CORRETO: Aninhamento adequado --&gt;
+&lt;div&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Texto em negrito&lt;/strong&gt;
+    &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- ❌ ERRADO: Aninhamento incorreto --&gt;
+&lt;div&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Texto em negrito
+    &lt;/p&gt;
+&lt;/strong&gt;  &lt;!-- Tag strong fechada fora do p --&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <h4>⚠️ Regras de Aninhamento por Tipo:</h4>
+
+            <div class="info-box">
+                <h4>Block Elements (Elementos de Bloco):</h4>
+                <ul>
+                    <li>Podem conter outros block elements e inline elements</li>
+                    <li>Exemplos: <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;section&gt;</code></li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h4>Inline Elements (Elementos em Linha):</h4>
+                <ul>
+                    <li>Só podem conter outros inline elements e texto</li>
+                    <li>Exemplos: <code>&lt;span&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>, <code>&lt;a&gt;</code></li>
+                </ul>
+            </div>
+
+            <div class="code-block">
+                <pre><code class="language-html">&lt;!-- ✅ CORRETO --&gt;
+&lt;div&gt;          &lt;!-- Block element --&gt;
+    &lt;p&gt;        &lt;!-- Block element dentro de block --&gt;
+        &lt;strong&gt;Texto&lt;/strong&gt;  &lt;!-- Inline dentro de block --&gt;
+    &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- ❌ ERRADO --&gt;
+&lt;strong&gt;       &lt;!-- Inline element --&gt;
+    &lt;div&gt;      &lt;!-- Block dentro de inline - INVÁLIDO --&gt;
+        Texto
+    &lt;/div&gt;
+&lt;/strong&gt;</code></pre>
+            </div>
+
+            <h4>🎨 Tag com Múltiplos Atributos:</h4>
+            
+            <div class="code-block">
+                <pre><code class="language-html">&lt;img src="foto.jpg" 
+     alt="Descrição da foto" 
+     width="300" 
+     height="200" 
+     loading="lazy"
+     class="imagem-responsiva"&gt;</code></pre>
+            </div>
+
+            <div class="info-box">
+                <h4>💡 Boas Práticas para Estrutura:</h4>
+                <ol>
+                    <li><strong>Indentação consistente</strong>: Use 2 ou 4 espaços para aninhar</li>
+                    <li><strong>Uma tag por linha</strong> quando há múltiplos atributos</li>
+                    <li><strong>Aspas consistentes</strong>: Use sempre aspas duplas <code>"</code></li>
+                    <li><strong>Nomes descritivos</strong>: Use classes e IDs significativos</li>
+                    <li><strong>Validação</strong>: Sempre feche as tags na ordem correta</li>
+                </ol>
             </div>
 
             <h3>Tags Auto-fecháveis</h3>
@@ -723,6 +1074,8 @@
             </div>
 
             <h3>5. Imagens</h3>
+            <p>As imagens são elementos fundamentais da web moderna. O uso correto dos atributos, especialmente o <code>alt</code>, é crucial para acessibilidade:</p>
+            
             <div class="code-block">
                 <pre><code class="language-html">&lt;!-- Imagem básica --&gt;
 &lt;img src="imagem.jpg" alt="Descrição da imagem"&gt;
@@ -739,6 +1092,95 @@
     &lt;source media="(max-width: 1200px)" srcset="imagem-media.jpg"&gt;
     &lt;img src="imagem-grande.jpg" alt="Descrição"&gt;
 &lt;/picture&gt;</code></pre>
+            </div>
+
+            <h4>🔍 O Atributo <code>alt</code> - Fundamental para Acessibilidade</h4>
+            
+            <div class="info-box">
+                <h4>O que é o <code>alt</code>?</h4>
+                <ul>
+                    <li><strong>Texto alternativo</strong> que descreve o conteúdo da imagem</li>
+                    <li><strong>Substituto textual</strong> quando a imagem não pode ser vista ou carregada</li>
+                    <li><strong>Informação essencial</strong> para pessoas que usam leitores de tela</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h4>Por que usar <code>alt</code>?</h4>
+                <ol>
+                    <li><strong>♿ Acessibilidade</strong>: Leitores de tela leem o texto do <code>alt</code> para pessoas com deficiência visual</li>
+                    <li><strong>🌐 Conexões lentas</strong>: Se a imagem não carregar, o <code>alt</code> é exibido no lugar</li>
+                    <li><strong>🔍 SEO</strong>: Mecanismos de busca usam o <code>alt</code> para entender o conteúdo da imagem</li>
+                    <li><strong>📱 Dispositivos limitados</strong>: Alguns dispositivos podem não exibir imagens</li>
+                </ol>
+            </div>
+
+            <h4>Como escrever um bom <code>alt</code>?</h4>
+            
+            <div class="code-block">
+                <pre><code class="language-html">&lt;!-- ❌ RUIM: Muito genérico --&gt;
+&lt;img src="foto.jpg" alt="foto"&gt;
+&lt;img src="grafico.jpg" alt="imagem"&gt;
+
+&lt;!-- ❌ RUIM: Redundante --&gt;
+&lt;img src="logo.jpg" alt="Imagem do logo da empresa"&gt;
+
+&lt;!-- ✅ BOM: Descritivo e útil --&gt;
+&lt;img src="logo.jpg" alt="Logo da Empresa XYZ"&gt;
+&lt;img src="grafico-vendas.jpg" alt="Gráfico mostrando crescimento de 25% nas vendas de 2024"&gt;
+&lt;img src="produto-smartphone.jpg" alt="Smartphone XYZ na cor preta com tela de 6.5 polegadas"&gt;
+
+&lt;!-- ✅ BOM: Imagem decorativa --&gt;
+&lt;img src="decoracao.jpg" alt="" role="presentation"&gt;</code></pre>
+            </div>
+
+            <div class="info-box">
+                <h4>📋 Regras importantes para o <code>alt</code>:</h4>
+                <ul>
+                    <li><strong>Seja específico</strong>: Descreva o que realmente importa na imagem</li>
+                    <li><strong>Seja conciso</strong>: Máximo de 125 caracteres (limite dos leitores de tela)</li>
+                    <li><strong>Contexto importa</strong>: Adapte a descrição ao propósito da imagem na página</li>
+                    <li><strong>Imagens decorativas</strong>: Use <code>alt=""</code> (vazio) para imagens puramente decorativas</li>
+                    <li><strong>Evite redundância</strong>: Não use "imagem de" ou "foto de"</li>
+                </ul>
+            </div>
+
+            <h4>Exemplos práticos por tipo de imagem:</h4>
+            
+            <div class="code-block">
+                <pre><code class="language-html">&lt;!-- Logo/Marca --&gt;
+&lt;img src="logo.png" alt="Empresa ABC"&gt;
+
+&lt;!-- Foto de produto --&gt;
+&lt;img src="tenis-azul.jpg" alt="Tênis esportivo azul Nike Air Max tamanho 42"&gt;
+
+&lt;!-- Gráfico/Infográfico --&gt;
+&lt;img src="crescimento.jpg" alt="Gráfico de barras: vendas cresceram 30% em 2024"&gt;
+
+&lt;!-- Foto de pessoa --&gt;
+&lt;img src="joao.jpg" alt="João Silva, CEO da empresa"&gt;
+
+&lt;!-- Ícone funcional --&gt;
+&lt;img src="buscar.png" alt="Buscar"&gt;
+
+&lt;!-- Imagem decorativa --&gt;
+&lt;img src="ornamento.jpg" alt="" role="presentation"&gt;
+
+&lt;!-- Mapa --&gt;
+&lt;img src="mapa.jpg" alt="Mapa mostrando localização da loja na Rua das Flores, 123"&gt;</code></pre>
+            </div>
+
+            <div class="info-box">
+                <h4>🔧 Atributos importantes das imagens:</h4>
+                <ul>
+                    <li><strong><code>src</code></strong> - Caminho do arquivo de imagem (obrigatório)</li>
+                    <li><strong><code>alt</code></strong> - Texto alternativo (obrigatório)</li>
+                    <li><strong><code>width</code></strong> e <strong><code>height</code></strong> - Dimensões em pixels</li>
+                    <li><strong><code>loading</code></strong> - "lazy" para carregamento sob demanda</li>
+                    <li><strong><code>title</code></strong> - Tooltip ao passar o mouse (opcional)</li>
+                    <li><strong><code>srcset</code></strong> - Imagens em diferentes resoluções</li>
+                    <li><strong><code>sizes</code></strong> - Tamanhos para diferentes viewports</li>
+                </ul>
             </div>
         </section>
 
