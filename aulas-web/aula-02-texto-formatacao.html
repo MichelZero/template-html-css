@@ -58,313 +58,1639 @@
 
         <!-- Seção 1: Formatação Semântica -->
         <section class="secao">
-            <h2>💡 1. Formatação Semântica vs Visual</h2>
+            <h2>💡 1. Formatação Semântica vs Visual - A Base da Web Moderna</h2>
             
             <div class="destaque info">
-                <h4>🎯 Conceito Fundamental</h4>
+                <h4>🎯 Conceito Fundamental - Por que Semântica Importa?</h4>
                 <p>
-                    HTML deve expressar o <strong>significado</strong> do conteúdo, 
-                    não apenas sua aparência visual. Use CSS para styling!
+                    <strong>HTML semântico não é apenas sobre aparência - é sobre significado:</strong> 
+                    Leitores de tela, robôs de busca, e outros dispositivos interpretam o SIGNIFICADO 
+                    do seu conteúdo, não apenas como ele aparece visualmente. Uma página com boa 
+                    semântica funciona em qualquer contexto.
                 </p>
+                <ul>
+                    <li>🤖 <strong>SEO:</strong> Google prioriza conteúdo semanticamente estruturado</li>
+                    <li>♿ <strong>Acessibilidade:</strong> Leitores de tela interpretam significados</li>
+                    <li>📱 <strong>Responsividade:</strong> Adaptação automática a diferentes dispositivos</li>
+                    <li>🔮 <strong>Futuro:</strong> Compatibilidade com tecnologias emergentes</li>
+                </ul>
             </div>
 
-            <h3>✨ Elementos Semânticos de Formatação</h3>
+            <h3>✨ Elementos Semânticos de Formatação - Significado Real</h3>
+            <p>
+                <strong>Cada elemento conta uma história:</strong> 
+                Em vez de pensar "quero deixar este texto em negrito", pense 
+                "este texto é IMPORTANTE para o usuário entender". HTML semântico 
+                expressa intenção, não apenas aparência.
+            </p>
 
             <div class="codigo" data-lang="HTML">
-<pre><code>&lt;!-- ELEMENTOS SEMÂNTICOS (recomendados) --&gt;
+<pre><code>&lt;!-- 🎯 ELEMENTOS SEMÂNTICOS: Significado primeiro, aparência depois --&gt;
 
-&lt;!-- Ênfase (geralmente itálico) --&gt;
-&lt;p&gt;Este texto tem &lt;em&gt;ênfase especial&lt;/em&gt; na frase.&lt;/p&gt;
+&lt;!-- 📢 ÊNFASE (em): Altera o significado da frase --&gt;
+&lt;p&gt;
+    Você &lt;em&gt;deve&lt;/em&gt; validar seu HTML antes de publicar.
+    &lt;!-- 💡 Leitores de tela enfatizam a pronuncia de "deve" --&gt;
+&lt;/p&gt;
 
-&lt;!-- Importância (geralmente negrito) --&gt;
-&lt;p&gt;Esta informação é &lt;strong&gt;muito importante&lt;/strong&gt;!&lt;/p&gt;
+&lt;p&gt;
+    Não confunda &lt;em&gt;ênfase&lt;/em&gt; com &lt;em&gt;estresse emocional&lt;/em&gt; - 
+    use com moderação para palavras que realmente alteram o sentido.
+&lt;/p&gt;
 
-&lt;!-- Texto marcado/destacado --&gt;
-&lt;p&gt;Encontre a palavra &lt;mark&gt;destacada&lt;/mark&gt; no texto.&lt;/p&gt;
+&lt;!-- 🚨 IMPORTÂNCIA (strong): Conteúdo crítico --&gt;
+&lt;p&gt;
+    &lt;strong&gt;Atenção:&lt;/strong&gt; Backup seus arquivos antes de atualizar o sistema.
+    &lt;!-- 💡 Screen readers anunciam com tom mais grave/urgente --&gt;
+&lt;/p&gt;
 
-&lt;!-- Texto pequeno (nota de rodapé, direitos autorais) --&gt;
-&lt;p&gt;&lt;small&gt;© 2024 Empresa. Todos os direitos reservados.&lt;/small&gt;&lt;/p&gt;
+&lt;p&gt;
+    Para senhas seguras: &lt;strong&gt;sempre use 12+ caracteres&lt;/strong&gt; 
+    com letras, números e símbolos especiais.
+&lt;/p&gt;
 
-&lt;!-- Texto deletado/removido --&gt;
-&lt;p&gt;O preço era &lt;del&gt;R$ 100&lt;/del&gt; R$ 80.&lt;/p&gt;
+&lt;!-- 🎨 TEXTO MARCADO (mark): Relevância contextual --&gt;
+&lt;article&gt;
+    &lt;h3&gt;Resultados da Busca por "HTML semântico"&lt;/h3&gt;
+    &lt;p&gt;
+        O &lt;mark&gt;HTML semântico&lt;/mark&gt; melhora a acessibilidade e o SEO. 
+        Elementos como &lt;mark&gt;semântico&lt;/mark&gt; ajudam na interpretação 
+        automatizada do conteúdo.
+    &lt;/p&gt;
+    &lt;!-- 💡 mark destaca termos relevantes ao contexto atual --&gt;
+&lt;/article&gt;
 
-&lt;!-- Texto inserido/adicionado --&gt;
-&lt;p&gt;Novo recurso: &lt;ins&gt;suporte a pagamentos via PIX&lt;/ins&gt;.&lt;/p&gt;
+&lt;!-- 📝 TEXTO PEQUENO (small): Informações secundárias --&gt;
+&lt;article&gt;
+    &lt;h2&gt;Curso de HTML Avançado&lt;/h2&gt;
+    &lt;p&gt;Aprenda HTML5, semântica e acessibilidade...&lt;/p&gt;
+    &lt;p&gt;&lt;small&gt;
+        📅 Última atualização: 15 de janeiro de 2024 | 
+        👨‍🏫 Instrutor: João Silva | 
+        ⏱️ 40 horas de conteúdo
+    &lt;/small&gt;&lt;/p&gt;
+&lt;/article&gt;
 
-&lt;!-- Subscrito e sobrescrito --&gt;
-&lt;p&gt;Fórmula da água: H&lt;sub&gt;2&lt;/sub&gt;O&lt;/p&gt;
-&lt;p&gt;Einstein: E = mc&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt;</code></pre>
+&lt;footer&gt;
+    &lt;p&gt;&lt;small&gt;
+        © 2024 WebEducação. Todos os direitos reservados. 
+        Este material está licenciado sob Creative Commons.
+    &lt;/small&gt;&lt;/p&gt;
+&lt;/footer&gt;
+
+&lt;!-- ✏️ EDIÇÕES E REVISÕES --&gt;
+&lt;article&gt;
+    &lt;h3&gt;Política de Preços - Atualizada&lt;/h3&gt;
+    &lt;p&gt;
+        Curso individual: &lt;del datetime="2024-01-10"&gt;R$ 297&lt;/del&gt; 
+        &lt;ins datetime="2024-01-15"&gt;R$ 197&lt;/ins&gt; (promoção limitada)
+    &lt;/p&gt;
+    &lt;p&gt;
+        &lt;del&gt;Acesso por 6 meses&lt;/del&gt; 
+        &lt;ins&gt;Acesso vitalício incluído&lt;/ins&gt; em todas as compras.
+    &lt;/p&gt;
+&lt;/article&gt;
+
+&lt;!-- 🔬 SUBSCRITO E SOBRESCRITO: Fórmulas e notações --&gt;
+&lt;div class="formulas-quimicas"&gt;
+    &lt;h4&gt;Fórmulas Químicas Essenciais:&lt;/h4&gt;
+    &lt;ul&gt;
+        &lt;li&gt;Água: H&lt;sub&gt;2&lt;/sub&gt;O&lt;/li&gt;
+        &lt;li&gt;Gás carbônico: CO&lt;sub&gt;2&lt;/sub&gt;&lt;/li&gt;
+        &lt;li&gt;Sal comum: NaCl&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class="formulas-matematicas"&gt;
+    &lt;h4&gt;Fórmulas e Potências:&lt;/h4&gt;
+    &lt;ul&gt;
+        &lt;li&gt;Einstein: E = mc&lt;sup&gt;2&lt;/sup&gt;&lt;/li&gt;
+        &lt;li&gt;Área do círculo: A = πr&lt;sup&gt;2&lt;/sup&gt;&lt;/li&gt;
+        &lt;li&gt;10&lt;sup&gt;3&lt;/sup&gt; = 1.000&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
             </div>
 
             <div class="destaque warning">
-                <h4>⚠️ Evite Elementos Puramente Visuais</h4>
+                <h4>⚠️ Evite Elementos Puramente Visuais - Armadilhas Comuns</h4>
+                <p>
+                    <strong>Estes elementos existem apenas para aparência:</strong> 
+                    Não comunicam significado para tecnologias assistivas, robôs 
+                    de busca ou outros contextos. Use CSS para estilização!
+                </p>
+                
                 <div class="codigo" data-lang="HTML">
-<pre><code>&lt;!-- NÃO RECOMENDADO (apenas visual) --&gt;
-&lt;b&gt;Texto em negrito&lt;/b&gt;
-&lt;i&gt;Texto em itálico&lt;/i&gt;
-&lt;u&gt;Texto sublinhado&lt;/u&gt;
+<pre><code>&lt;!-- ❌ EVITE: Elementos apenas visuais (sem significado) --&gt;
+&lt;p&gt;Este texto tem &lt;b&gt;palavras em negrito&lt;/b&gt; e &lt;i&gt;palavras em itálico&lt;/i&gt;.&lt;/p&gt;
+&lt;p&gt;Link importante: &lt;u&gt;clique aqui&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;&lt;big&gt;Texto grande&lt;/big&gt; e &lt;small&gt;texto pequeno&lt;/small&gt;&lt;/p&gt;
 
-&lt;!-- RECOMENDADO (semântico) --&gt;
-&lt;strong&gt;Texto importante&lt;/strong&gt;
-&lt;em&gt;Texto com ênfase&lt;/em&gt;
-&lt;mark&gt;Texto destacado&lt;/mark&gt;</code></pre>
+&lt;!-- ✅ PREFIRA: Elementos semânticos (com significado) --&gt;
+&lt;p&gt;Este texto tem &lt;strong&gt;informações importantes&lt;/strong&gt; e &lt;em&gt;ênfases específicas&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Link importante: &lt;mark&gt;acesse nosso curso gratuito&lt;/mark&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class="destaque"&gt;Texto estilizado&lt;/span&gt; e &lt;small&gt;informações secundárias&lt;/small&gt;&lt;/p&gt;</code></pre>
                 </div>
             </div>
 
-            <h3>🎨 Outros Elementos de Formatação</h3>
+            <h3>🎨 Outros Elementos de Formatação - Contexto e Precisão</h3>
+            <p>
+                <strong>Elementos especializados para contextos específicos:</strong> 
+                HTML oferece elementos precisos para diferentes tipos de conteúdo - 
+                abreviações, definições, endereços e datas. Use o elemento certo 
+                para o contexto certo.
+            </p>
 
             <div class="codigo" data-lang="HTML">
-<pre><code>&lt;!-- Abreviações --&gt;
-&lt;p&gt;O &lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt; é uma linguagem de marcação.&lt;/p&gt;
+<pre><code>&lt;!-- 📖 ABREVIAÇÕES (abbr): Expandindo siglas e acrônimos --&gt;
+&lt;article&gt;
+    &lt;h3&gt;Tecnologias Web Modernas&lt;/h3&gt;
+    &lt;p&gt;
+        O &lt;abbr title="HyperText Markup Language versão 5"&gt;HTML5&lt;/abbr&gt; 
+        trabalha junto com &lt;abbr title="Cascading Style Sheets versão 3"&gt;CSS3&lt;/abbr&gt; 
+        e &lt;abbr title="Application Programming Interface"&gt;APIs&lt;/abbr&gt; modernas 
+        para criar experiências web ricas.
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+        Ferramentas como &lt;abbr title="Node Package Manager"&gt;npm&lt;/abbr&gt;, 
+        &lt;abbr title="Syntactically Awesome StyleSheets"&gt;Sass&lt;/abbr&gt; e 
+        &lt;abbr title="Content Delivery Network"&gt;CDN&lt;/abbr&gt; são essenciais 
+        no desenvolvimento moderno.
+    &lt;/p&gt;
+&lt;/article&gt;
 
-&lt;!-- Definições --&gt;
-&lt;p&gt;&lt;dfn&gt;HTML&lt;/dfn&gt; é uma linguagem de marcação para criar páginas web.&lt;/p&gt;
+&lt;!-- 🏷️ DEFINIÇÕES (dfn): Primeira ocorrência de termos --&gt;
+&lt;section&gt;
+    &lt;h3&gt;Glossário de Desenvolvimento Web&lt;/h3&gt;
+    &lt;p&gt;
+        &lt;dfn id="semantic-html"&gt;HTML Semântico&lt;/dfn&gt; é uma abordagem 
+        que usa elementos HTML baseados no significado do conteúdo, 
+        não em sua aparência visual.
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+        Um &lt;dfn&gt;framework&lt;/dfn&gt; é uma estrutura de software que fornece 
+        fundações e diretrizes para desenvolvimento de aplicações.
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+        Já falamos sobre &lt;a href="#semantic-html"&gt;HTML Semântico&lt;/a&gt; 
+        anteriormente neste glossário.
+    &lt;/p&gt;
+&lt;/section&gt;
 
-&lt;!-- Endereços --&gt;
-&lt;address&gt;
-    João Silva&lt;br&gt;
-    Rua das Flores, 123&lt;br&gt;
-    São Paulo - SP
-&lt;/address&gt;
+&lt;!-- 🏠 ENDEREÇOS (address): Informações de contato contextuais --&gt;
+&lt;article&gt;
+    &lt;h2&gt;Workshop de HTML Avançado&lt;/h2&gt;
+    &lt;p&gt;Participe do nosso workshop presencial...&lt;/p&gt;
+    
+    &lt;!-- 📍 Endereço relacionado ao evento --&gt;
+    &lt;address&gt;
+        📍 &lt;strong&gt;Local:&lt;/strong&gt;&lt;br&gt;
+        Centro de Convenções TechHub&lt;br&gt;
+        Av. Paulista, 1337 - 8º andar&lt;br&gt;
+        São Paulo - SP, 01311-200&lt;br&gt;
+        &lt;br&gt;
+        📞 &lt;strong&gt;Contato:&lt;/strong&gt;&lt;br&gt;
+        Tel: &lt;a href="tel:+5511987654321"&gt;(11) 98765-4321&lt;/a&gt;&lt;br&gt;
+        Email: &lt;a href="mailto:workshop@techhub.com"&gt;workshop@techhub.com&lt;/a&gt;
+    &lt;/address&gt;
+&lt;/article&gt;
 
-&lt;!-- Data e hora --&gt;
-&lt;p&gt;Publicado em &lt;time datetime="2024-01-15"&gt;15 de janeiro de 2024&lt;/time&gt;.&lt;/p&gt;</code></pre>
+&lt;footer&gt;
+    &lt;!-- 🏢 Endereço da empresa/organização --&gt;
+    &lt;address&gt;
+        &lt;strong&gt;WebEducação - Cursos Online&lt;/strong&gt;&lt;br&gt;
+        Rua das Startups, 42 - Sala 1001&lt;br&gt;
+        Innovation District&lt;br&gt;
+        Rio de Janeiro - RJ, 22071-000&lt;br&gt;
+        &lt;br&gt;
+        📧 Contato: &lt;a href="mailto:contato@webeducacao.com"&gt;contato@webeducacao.com&lt;/a&gt;&lt;br&gt;
+        🌐 Site: &lt;a href="https://webeducacao.com"&gt;webeducacao.com&lt;/a&gt;
+    &lt;/address&gt;
+&lt;/footer&gt;
+
+&lt;!-- ⏰ DATAS E HORÁRIOS (time): Marcação temporal precisa --&gt;
+&lt;article&gt;
+    &lt;header&gt;
+        &lt;h2&gt;Novidades do HTML 5.3&lt;/h2&gt;
+        &lt;p&gt;
+            📅 Publicado em 
+            &lt;time datetime="2024-01-15T09:30:00-03:00"&gt;
+                15 de janeiro de 2024, às 9h30
+            &lt;/time&gt;
+        &lt;/p&gt;
+        &lt;p&gt;
+            ✏️ Última atualização: 
+            &lt;time datetime="2024-01-20"&gt;20/01/2024&lt;/time&gt;
+        &lt;/p&gt;
+    &lt;/header&gt;
+    
+    &lt;p&gt;O HTML 5.3 foi lançado em &lt;time datetime="2021-01"&gt;janeiro de 2021&lt;/time&gt;...&lt;/p&gt;
+    
+    &lt;footer&gt;
+        &lt;p&gt;
+            ⏱️ Tempo de leitura: &lt;time datetime="PT8M"&gt;8 minutos&lt;/time&gt; | 
+            🗓️ Próxima revisão: &lt;time datetime="2024-07"&gt;julho de 2024&lt;/time&gt;
+        &lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/article&gt;</code></pre>
+            </div>
+
+            <div class="destaque tip">
+                <h4>🎯 Estratégias para Formatação Semântica Eficaz</h4>
+                <div class="estrategias-semantica">
+                    <div>
+                        <h5>🧠 Pense no Significado:</h5>
+                        <ul>
+                            <li>"Este texto é importante?" → &lt;strong&gt;</li>
+                            <li>"Esta palavra muda o sentido?" → &lt;em&gt;</li>
+                            <li>"Isto é relevante agora?" → &lt;mark&gt;</li>
+                            <li>"É informação secundária?" → &lt;small&gt;</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5>🤖 Teste com Tecnologia:</h5>
+                        <ul>
+                            <li>Use leitores de tela para testar</li>
+                            <li>Verifique como robôs interpretam</li>
+                            <li>Valide HTML regularmente</li>
+                            <li>Teste em diferentes dispositivos</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Exercício 1 -->
         <div class="exercicio">
-            <h4>🏋️‍♂️ Exercício 1: Formatação Semântica</h4>
+            <h4>🏋️‍♂️ Exercício 1: Artigo Técnico com Formatação Semântica</h4>
             <p>
-                Crie um parágrafo sobre tecnologia usando pelo menos 5 elementos 
-                de formatação semântica diferentes:
+                <strong>Desafio Prático:</strong> Crie um artigo sobre "Inteligência Artificial em 2024" 
+                usando formatação semântica rica e contextual:
             </p>
-            <ul>
-                <li>strong, em, mark, abbr, time</li>
-                <li>Inclua uma data de publicação</li>
-                <li>Use uma abreviação com explicação</li>
-            </ul>
+            <div class="requisitos-exercicio">
+                <h5>📋 Requisitos Obrigatórios:</h5>
+                <ul>
+                    <li>✅ Use &lt;strong&gt; para 3+ termos realmente importantes</li>
+                    <li>✅ Aplique &lt;em&gt; em 2+ palavras que alteram o sentido</li>
+                    <li>✅ Destaque termos relevantes com &lt;mark&gt;</li>
+                    <li>✅ Inclua 3+ abreviações técnicas com &lt;abbr&gt;</li>
+                    <li>✅ Adicione data de publicação com &lt;time&gt;</li>
+                    <li>✅ Use &lt;del&gt; e &lt;ins&gt; para mostrar atualizações</li>
+                    <li>✅ Inclua fórmulas ou estatísticas com sub/sup</li>
+                    <li>✅ Adicione informações secundárias com &lt;small&gt;</li>
+                </ul>
+                
+                <h5>🎯 Resultado Esperado:</h5>
+                <p>Artigo profissional que funciona perfeitamente com leitores de tela e é bem interpretado por robôs de busca.</p>
+                
+                <h5>💡 Dica Especial:</h5>
+                <p>Teste seu artigo com um leitor de tela (NVDA ou JAWS) ou com a extensão "Screen Reader" do Chrome para verificar se faz sentido quando lido em voz alta!</p>
+            </div>
         </div>
 
         <!-- Seção 2: Listas -->
         <section class="secao">
-            <h2>📋 2. Listas em HTML</h2>
+            <h2>📋 2. Listas em HTML - Organizando Informação Eficientemente</h2>
             
             <p>
-                Listas são fundamentais para organizar informações. 
-                HTML oferece três tipos principais:
+                <strong>Listas são pilares da organização web:</strong> 
+                Desde menus de navegação até conteúdo educacional, listas estruturam 
+                informação de forma lógica e acessível. Cada tipo de lista tem seu 
+                propósito específico - escolha o correto para maximizar usabilidade e SEO.
             </p>
 
-            <h3>📝 Lista Não Ordenada (ul)</h3>
-            <div class="codigo" data-lang="HTML">
-<pre><code>&lt;h3&gt;Ingredientes para o bolo:&lt;/h3&gt;
-&lt;ul&gt;
-    &lt;li&gt;2 xícaras de farinha&lt;/li&gt;
-    &lt;li&gt;3 ovos&lt;/li&gt;
-    &lt;li&gt;1 xícara de açúcar&lt;/li&gt;
-    &lt;li&gt;200ml de leite&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
+            <div class="destaque info">
+                <h4>🧠 Quando Usar Cada Tipo de Lista</h4>
+                <div class="tipos-lista">
+                    <div>
+                        <h5>📝 Lista Não Ordenada (&lt;ul&gt;):</h5>
+                        <ul>
+                            <li>Ingredientes de receitas</li>
+                            <li>Features de produtos</li>
+                            <li>Links de navegação</li>
+                            <li>Benefícios ou características</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5>🔢 Lista Ordenada (&lt;ol&gt;):</h5>
+                        <ul>
+                            <li>Passos de tutoriais</li>
+                            <li>Rankings e classificações</li>
+                            <li>Cronologias</li>
+                            <li>Instruções sequenciais</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5>📖 Lista de Definição (&lt;dl&gt;):</h5>
+                        <ul>
+                            <li>Glossários técnicos</li>
+                            <li>FAQ (pergunta-resposta)</li>
+                            <li>Especificações técnicas</li>
+                            <li>Metadados de produtos</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
-            <h3>🔢 Lista Ordenada (ol)</h3>
+            <h3>📝 Lista Não Ordenada (ul) - Flexibilidade e Clareza</h3>
+            <p>
+                <strong>Use quando a ordem não influencia o significado:</strong> 
+                Lista de ingredientes, características de produtos, ou links de navegação. 
+                O navegador usa marcadores visuais, mas leitores de tela anunciam 
+                "lista com X itens".
+            </p>
+            
             <div class="codigo" data-lang="HTML">
-<pre><code>&lt;h3&gt;Modo de preparo:&lt;/h3&gt;
-&lt;ol&gt;
-    &lt;li&gt;Pré-aqueça o forno a 180°C&lt;/li&gt;
-    &lt;li&gt;Misture os ingredientes secos&lt;/li&gt;
-    &lt;li&gt;Adicione os ovos e o leite&lt;/li&gt;
-    &lt;li&gt;Asse por 30 minutos&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;!-- Lista ordenada personalizada --&gt;
-&lt;ol start="5"&gt;
-    &lt;li&gt;Deixe esfriar&lt;/li&gt;
-    &lt;li&gt;Desenforms e sirva&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;!-- Tipos de numeração --&gt;
-&lt;ol type="A"&gt;
-    &lt;li&gt;Primeira opção&lt;/li&gt;
-    &lt;li&gt;Segunda opção&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ol type="I"&gt;
-    &lt;li&gt;Números romanos&lt;/li&gt;
-    &lt;li&gt;Também funcionam&lt;/li&gt;
-&lt;/ol&gt;</code></pre>
-            </div>
-
-            <h3>📖 Lista de Definição (dl)</h3>
-            <div class="codigo" data-lang="HTML">
-<pre><code>&lt;h3&gt;Glossário de Termos Web:&lt;/h3&gt;
-&lt;dl&gt;
-    &lt;dt&gt;HTML&lt;/dt&gt;
-    &lt;dd&gt;HyperText Markup Language - linguagem de marcação para web&lt;/dd&gt;
+<pre><code>&lt;!-- 🍳 EXEMPLO 1: Receita de Brownies Veganos --&gt;
+&lt;article&gt;
+    &lt;h3&gt;🍫 Brownies Veganos Irresistíveis&lt;/h3&gt;
     
-    &lt;dt&gt;CSS&lt;/dt&gt;
-    &lt;dd&gt;Cascading Style Sheets - linguagem para estilização&lt;/dd&gt;
+    &lt;h4&gt;📋 Ingredientes Secos:&lt;/h4&gt;
+    &lt;ul&gt;
+        &lt;li&gt;2 xícaras de farinha de trigo integral&lt;/li&gt;
+        &lt;li&gt;1/2 xícara de cacau em pó sem açúcar&lt;/li&gt;
+        &lt;li&gt;1 xícara de açúcar demerara&lt;/li&gt;
+        &lt;li&gt;1 colher (chá) de fermento em pó&lt;/li&gt;
+        &lt;li&gt;1/2 colher (chá) de sal marinho&lt;/li&gt;
+    &lt;/ul&gt;
     
-    &lt;dt&gt;JavaScript&lt;/dt&gt;
-    &lt;dd&gt;Linguagem de programação para interatividade&lt;/dd&gt;
-&lt;/dl&gt;</code></pre>
+    &lt;h4&gt;💧 Ingredientes Líquidos:&lt;/h4&gt;
+    &lt;ul&gt;
+        &lt;li&gt;1 xícara de leite de amêndoas&lt;/li&gt;
+        &lt;li&gt;1/2 xícara de óleo de coco derretido&lt;/li&gt;
+        &lt;li&gt;2 colheres (sopa) de linhaça dourada + 6 colheres (sopa) de água&lt;/li&gt;
+        &lt;li&gt;1 colher (chá) de extrato de baunilha&lt;/li&gt;
+    &lt;/ul&gt;
+    
+    &lt;h4&gt;🎊 Extras Opcionais:&lt;/h4&gt;
+    &lt;ul&gt;
+        &lt;li&gt;1/2 xícara de nozes picadas&lt;/li&gt;
+        &lt;li&gt;1/3 xícara de gotas de chocolate vegano&lt;/li&gt;
+        &lt;li&gt;1 colher (sopa) de raspas de laranja&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/article&gt;
+
+&lt;!-- 🚀 EXEMPLO 2: Features de SaaS --&gt;
+&lt;section class="produto-features"&gt;
+    &lt;h3&gt;⚡ Por que escolher nossa plataforma?&lt;/h3&gt;
+    &lt;ul&gt;
+        &lt;li&gt;🔒 &lt;strong&gt;Segurança Enterprise:&lt;/strong&gt; Criptografia de ponta a ponta&lt;/li&gt;
+        &lt;li&gt;📊 &lt;strong&gt;Analytics Avançado:&lt;/strong&gt; Dashboards personalizáveis em tempo real&lt;/li&gt;
+        &lt;li&gt;🌍 &lt;strong&gt;Global CDN:&lt;/strong&gt; Performance otimizada em 50+ países&lt;/li&gt;
+        &lt;li&gt;🤖 &lt;strong&gt;AI Integrada:&lt;/strong&gt; Automação inteligente de processos&lt;/li&gt;
+        &lt;li&gt;📱 &lt;strong&gt;Apps Nativos:&lt;/strong&gt; iOS, Android e Progressive Web App&lt;/li&gt;
+        &lt;li&gt;🔄 &lt;strong&gt;Backup Automático:&lt;/strong&gt; Redundância tripla com restore em 1-click&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/section&gt;</code></pre>
             </div>
 
-            <h3>🎯 Listas Aninhadas</h3>
+            <h3>🔢 Lista Ordenada (ol) - Sequência e Hierarquia</h3>
+            <p>
+                <strong>Use quando a ordem é fundamental:</strong> 
+                Tutoriais passo-a-passo, rankings, cronologias. Navegadores numerem 
+                automaticamente, e leitores de tela anunciam a posição de cada item.
+            </p>
+            
             <div class="codigo" data-lang="HTML">
-<pre><code>&lt;h3&gt;Estrutura do Curso:&lt;/h3&gt;
-&lt;ol&gt;
-    &lt;li&gt;Fundamentos HTML
-        &lt;ul&gt;
-            &lt;li&gt;Estrutura básica&lt;/li&gt;
-            &lt;li&gt;Meta tags&lt;/li&gt;
-            &lt;li&gt;Validação&lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/li&gt;
-    &lt;li&gt;Formatação de Texto
-        &lt;ul&gt;
-            &lt;li&gt;Elementos semânticos&lt;/li&gt;
-            &lt;li&gt;Listas&lt;/li&gt;
-            &lt;li&gt;Citações&lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/li&gt;
-    &lt;li&gt;Links e Navegação&lt;/li&gt;
-&lt;/ol&gt;</code></pre>
+<pre><code>&lt;!-- 🎯 EXEMPLO 1: Tutorial Completo de Deploy --&gt;
+&lt;article&gt;
+    &lt;h3&gt;🚀 Deploy de Aplicação React na Vercel&lt;/h3&gt;
+    
+    &lt;h4&gt;📋 Preparação (Pré-requisitos):&lt;/h4&gt;
+    &lt;ol&gt;
+        &lt;li&gt;
+            &lt;strong&gt;Conta na Vercel:&lt;/strong&gt; 
+            Cadastre-se gratuitamente em &lt;a href="https://vercel.com"&gt;vercel.com&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;strong&gt;Repositório Git:&lt;/strong&gt; 
+            Projeto React no GitHub, GitLab ou Bitbucket
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;strong&gt;Build funcionando:&lt;/strong&gt; 
+            Teste local com &lt;code&gt;npm run build&lt;/code&gt; sem erros
+        &lt;/li&gt;
+    &lt;/ol&gt;
+    
+    &lt;h4&gt;⚡ Processo de Deploy:&lt;/h4&gt;
+    &lt;ol&gt;
+        &lt;li&gt;
+            &lt;strong&gt;Conectar repositório:&lt;/strong&gt; 
+            Dashboard Vercel → "New Project" → Selecionar repo
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;strong&gt;Configurar build:&lt;/strong&gt; 
+            Framework: React | Build Command: &lt;code&gt;npm run build&lt;/code&gt; | Output: &lt;code&gt;build&lt;/code&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;strong&gt;Variáveis de ambiente:&lt;/strong&gt; 
+            Adicionar chaves API, URLs de banco, etc.
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;strong&gt;Deploy inicial:&lt;/strong&gt; 
+            Clique "Deploy" e aguarde conclusão (2-5 minutos)
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;strong&gt;Domínio personalizado:&lt;/strong&gt; 
+            Settings → Domains → Adicionar seu domínio
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/article&gt;
+
+&lt;!-- 🏆 EXEMPLO 2: Ranking com Tipos Diferentes --&gt;
+&lt;section&gt;
+    &lt;h3&gt;🥇 Top 10 Linguagens de Programação 2024&lt;/h3&gt;
+    &lt;ol&gt;
+        &lt;li&gt;&lt;strong&gt;JavaScript&lt;/strong&gt; - 67.8% dos desenvolvedores&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Python&lt;/strong&gt; - 49.3% dos desenvolvedores&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;TypeScript&lt;/strong&gt; - 38.9% dos desenvolvedores&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Java&lt;/strong&gt; - 30.3% dos desenvolvedores&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;C#&lt;/strong&gt; - 27.8% dos desenvolvedores&lt;/li&gt;
+    &lt;/ol&gt;
+    
+    &lt;h4&gt;📊 Categorias Especiais:&lt;/h4&gt;
+    
+    &lt;!-- 🔤 Lista com letras --&gt;
+    &lt;h5&gt;Frontend Frameworks:&lt;/h5&gt;
+    &lt;ol type="A"&gt;
+        &lt;li&gt;React - 40.6% market share&lt;/li&gt;
+        &lt;li&gt;Vue.js - 18.8% market share&lt;/li&gt;
+        &lt;li&gt;Angular - 17.3% market share&lt;/li&gt;
+        &lt;li&gt;Svelte - 8.1% market share&lt;/li&gt;
+    &lt;/ol&gt;
+    
+    &lt;!-- 🏛️ Lista com números romanos --&gt;
+    &lt;h5&gt;Arquiteturas de Software:&lt;/h5&gt;
+    &lt;ol type="I"&gt;
+        &lt;li&gt;Microservices Architecture&lt;/li&gt;
+        &lt;li&gt;Serverless Computing&lt;/li&gt;
+        &lt;li&gt;Event-Driven Architecture&lt;/li&gt;
+        &lt;li&gt;Monolithic Architecture&lt;/li&gt;
+    &lt;/ol&gt;
+    
+    &lt;!-- 🔢 Lista continuando numeração --&gt;
+    &lt;h5&gt;Linguagens em Crescimento (continuação):&lt;/h5&gt;
+    &lt;ol start="6"&gt;
+        &lt;li&gt;&lt;strong&gt;Go&lt;/strong&gt; - 13.2% dos desenvolvedores&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Rust&lt;/strong&gt; - 12.1% dos desenvolvedores&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Kotlin&lt;/strong&gt; - 8.9% dos desenvolvedores&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Swift&lt;/strong&gt; - 6.6% dos desenvolvedores&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Dart&lt;/strong&gt; - 4.2% dos desenvolvedores&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/section&gt;</code></pre>
+            </div>
+
+            <h3>📖 Lista de Definição (dl) - Estrutura Semântica Rica</h3>
+            <p>
+                <strong>O tipo de lista mais poderoso e subutilizado:</strong> 
+                Perfeita para glossários, FAQs, especificações técnicas e 
+                qualquer conteúdo que tenha pares termo-definição. Extremamente 
+                valiosa para SEO e acessibilidade.
+            </p>
+            
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- 🔧 EXEMPLO 1: Glossário Técnico de DevOps --&gt;
+&lt;section&gt;
+    &lt;h3&gt;📚 Glossário DevOps Essencial&lt;/h3&gt;
+    &lt;dl&gt;
+        &lt;dt&gt;&lt;strong&gt;CI/CD&lt;/strong&gt;&lt;/dt&gt;
+        &lt;dd&gt;
+            &lt;strong&gt;Continuous Integration/Continuous Deployment&lt;/strong&gt; - 
+            Prática de automatizar integração de código e deployment, 
+            permitindo releases frequentes e confiáveis. Ferramentas: 
+            Jenkins, GitHub Actions, GitLab CI.
+        &lt;/dd&gt;
+        
+        &lt;dt&gt;&lt;strong&gt;Docker&lt;/strong&gt;&lt;/dt&gt;
+        &lt;dd&gt;
+            Plataforma de containerização que empacota aplicações e 
+            dependências em containers portáteis. Garante consistência 
+            entre ambientes de desenvolvimento, teste e produção.
+        &lt;/dd&gt;
+        
+        &lt;dt&gt;&lt;strong&gt;Kubernetes (K8s)&lt;/strong&gt;&lt;/dt&gt;
+        &lt;dd&gt;
+            Sistema de orquestração de containers que automatiza deployment, 
+            scaling e gestão de aplicações containerizadas. Essencial para 
+            arquiteturas de microservices em produção.
+        &lt;/dd&gt;
+        
+        &lt;dt&gt;&lt;strong&gt;Infrastructure as Code (IaC)&lt;/strong&gt;&lt;/dt&gt;
+        &lt;dd&gt;
+            Prática de definir infraestrutura através de código versionável. 
+            Ferramentas como Terraform, CloudFormation e Pulumi permitem 
+            infraestrutura reproduzível e auditável.
+        &lt;/dd&gt;
+        
+        &lt;dt&gt;&lt;strong&gt;Monitoring & Observability&lt;/strong&gt;&lt;/dt&gt;
+        &lt;dd&gt;
+            Coleta e análise de métricas, logs e traces para entender 
+            comportamento de sistemas. Stack popular: Prometheus, Grafana, 
+            ELK (Elasticsearch, Logstash, Kibana).
+        &lt;/dd&gt;
+    &lt;/dl&gt;
+&lt;/section&gt;
+
+&lt;!-- ❓ EXEMPLO 2: FAQ Estruturado --&gt;
+&lt;section&gt;
+    &lt;h3&gt;❓ Perguntas Frequentes - Curso HTML&lt;/h3&gt;
+    &lt;dl&gt;
+        &lt;dt&gt;⏱️ Quanto tempo leva para aprender HTML?&lt;/dt&gt;
+        &lt;dd&gt;
+            Para dominar o básico: &lt;strong&gt;2-4 semanas&lt;/strong&gt; com estudo diário. 
+            Para nível avançado (semântica, acessibilidade, SEO): 
+            &lt;strong&gt;2-3 meses&lt;/strong&gt; de prática consistente.
+        &lt;/dd&gt;
+        
+        &lt;dt&gt;💻 Preciso de software especial para começar?&lt;/dt&gt;
+        &lt;dd&gt;
+            Não! Você pode começar com:
+            &lt;ul&gt;
+                &lt;li&gt;&lt;strong&gt;Editor simples:&lt;/strong&gt; Notepad++, Sublime Text&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;Editor avançado:&lt;/strong&gt; VS Code (recomendado), Atom&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;Browser:&lt;/strong&gt; Chrome, Firefox, Safari, Edge&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/dd&gt;
+        
+        &lt;dt&gt;🎯 HTML é suficiente para criar sites profissionais?&lt;/dt&gt;
+        &lt;dd&gt;
+            HTML sozinho cria apenas a &lt;em&gt;estrutura&lt;/em&gt;. Para sites profissionais, 
+            você precisará de:
+            &lt;ol&gt;
+                &lt;li&gt;&lt;strong&gt;CSS&lt;/strong&gt; - Estilização e layout&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;JavaScript&lt;/strong&gt; - Interatividade&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;Backend&lt;/strong&gt; - Funcionalidades dinâmicas&lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/dd&gt;
+        
+        &lt;dt&gt;🔍 Como saber se meu HTML está correto?&lt;/dt&gt;
+        &lt;dd&gt;
+            Use ferramentas de validação:
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="https://validator.w3.org/"&gt;W3C Markup Validator&lt;/a&gt; - Oficial&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;VS Code Extensions:&lt;/strong&gt; HTML Validation, Auto Rename Tag&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;Browser DevTools:&lt;/strong&gt; F12 → Console (erros automáticos)&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/dd&gt;
+    &lt;/dl&gt;
+&lt;/section&gt;
+
+&lt;!-- 📱 EXEMPLO 3: Especificações de Produto --&gt;
+&lt;article&gt;
+    &lt;h3&gt;📱 iPhone 15 Pro - Especificações Técnicas&lt;/h3&gt;
+    &lt;dl&gt;
+        &lt;dt&gt;🖥️ Display&lt;/dt&gt;
+        &lt;dd&gt;
+            Super Retina XDR OLED de 6,1 polegadas | 
+            Resolução: 2556 × 1179 pixels (460 ppi) | 
+            ProMotion 120Hz | HDR10, Dolby Vision
+        &lt;/dd&gt;
+        
+        &lt;dt&gt;💾 Armazenamento&lt;/dt&gt;
+        &lt;dd&gt;128GB | 256GB | 512GB | 1TB (sem slot microSD)&lt;/dd&gt;
+        
+        &lt;dt&gt;📷 Sistema de Câmeras&lt;/dt&gt;
+        &lt;dd&gt;
+            &lt;strong&gt;Principal:&lt;/strong&gt; 48MP, f/1.78, OIS | 
+            &lt;strong&gt;Ultra Wide:&lt;/strong&gt; 12MP, f/2.2, 120° | 
+            &lt;strong&gt;Telephoto:&lt;/strong&gt; 12MP, f/2.8, zoom óptico 3x
+        &lt;/dd&gt;
+        
+        &lt;dt&gt;🔋 Bateria&lt;/dt&gt;
+        &lt;dd&gt;
+            Até 23h de reprodução de vídeo | 
+            Carregamento rápido 20W | MagSafe 15W | Qi 7.5W
+        &lt;/dd&gt;
+        
+        &lt;dt&gt;🌐 Conectividade&lt;/dt&gt;
+        &lt;dd&gt;
+            5G (sub-6 GHz e mmWave) | Wi-Fi 6E | Bluetooth 5.3 | 
+            USB-C com Thunderbolt 3/USB 4
+        &lt;/dd&gt;
+    &lt;/dl&gt;
+&lt;/article&gt;</code></pre>
+            </div>
+
+            <h3>🎯 Listas Aninhadas - Estruturas Complexas e Organizadas</h3>
+            <p>
+                <strong>Listas dentro de listas criam hierarquias poderosas:</strong> 
+                Ideais para menus multi-nível, estruturas de cursos, 
+                categorizações complexas. Mantenha a lógica clara e não 
+                exagere na profundidade (máximo 3-4 níveis).
+            </p>
+            
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- 🎓 EXEMPLO 1: Estrutura Curricular Completa --&gt;
+&lt;section&gt;
+    &lt;h3&gt;📚 Currículo Full Stack Developer - 480h&lt;/h3&gt;
+    &lt;ol&gt;
+        &lt;li&gt;
+            &lt;strong&gt;🌐 Frontend Development (160h)&lt;/strong&gt;
+            &lt;ol type="A"&gt;
+                &lt;li&gt;HTML5 &amp; Semântica (40h)
+                    &lt;ul&gt;
+                        &lt;li&gt;✅ Estrutura e tags básicas&lt;/li&gt;
+                        &lt;li&gt;✅ Formulários avançados&lt;/li&gt;
+                        &lt;li&gt;✅ SEO e acessibilidade&lt;/li&gt;
+                        &lt;li&gt;✅ HTML5 APIs (Canvas, Storage, Geolocation)&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+                &lt;li&gt;CSS3 &amp; Layout Responsivo (60h)
+                    &lt;ul&gt;
+                        &lt;li&gt;🎨 Flexbox &amp; CSS Grid&lt;/li&gt;
+                        &lt;li&gt;🎨 Animações e transições&lt;/li&gt;
+                        &lt;li&gt;🎨 Preprocessadores (Sass/Less)&lt;/li&gt;
+                        &lt;li&gt;🎨 CSS-in-JS e Styled Components&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+                &lt;li&gt;JavaScript Moderno (60h)
+                    &lt;ul&gt;
+                        &lt;li&gt;⚡ ES6+ Features&lt;/li&gt;
+                        &lt;li&gt;⚡ DOM Manipulation&lt;/li&gt;
+                        &lt;li&gt;⚡ Async/Await &amp; Promises&lt;/li&gt;
+                        &lt;li&gt;⚡ Modules &amp; Build Tools&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+        
+        &lt;li&gt;
+            &lt;strong&gt;⚙️ Backend Development (160h)&lt;/strong&gt;
+            &lt;ol type="A"&gt;
+                &lt;li&gt;Node.js &amp; Express (80h)
+                    &lt;ul&gt;
+                        &lt;li&gt;🔧 API REST &amp; GraphQL&lt;/li&gt;
+                        &lt;li&gt;🔧 Middleware &amp; Authentication&lt;/li&gt;
+                        &lt;li&gt;🔧 WebSockets &amp; Real-time&lt;/li&gt;
+                        &lt;li&gt;🔧 Testing (Jest, Supertest)&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+                &lt;li&gt;Banco de Dados (80h)
+                    &lt;ul&gt;
+                        &lt;li&gt;🗄️ SQL (PostgreSQL, MySQL)&lt;/li&gt;
+                        &lt;li&gt;🗄️ NoSQL (MongoDB, Redis)&lt;/li&gt;
+                        &lt;li&gt;🗄️ ORMs (Prisma, Sequelize)&lt;/li&gt;
+                        &lt;li&gt;🗄️ Query Optimization&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+        
+        &lt;li&gt;
+            &lt;strong&gt;☁️ DevOps &amp; Deploy (80h)&lt;/strong&gt;
+            &lt;ul&gt;
+                &lt;li&gt;🐳 Docker &amp; Containerização&lt;/li&gt;
+                &lt;li&gt;☁️ AWS/Azure/GCP&lt;/li&gt;
+                &lt;li&gt;🔄 CI/CD Pipelines&lt;/li&gt;
+                &lt;li&gt;📊 Monitoring &amp; Logging&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+        
+        &lt;li&gt;
+            &lt;strong&gt;🚀 Projetos Práticos (80h)&lt;/strong&gt;
+            &lt;ol&gt;
+                &lt;li&gt;E-commerce completo&lt;/li&gt;
+                &lt;li&gt;Social Media App&lt;/li&gt;
+                &lt;li&gt;Dashboard Analytics&lt;/li&gt;
+                &lt;li&gt;Portfolio profissional&lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/section&gt;
+
+&lt;!-- 🏢 EXEMPLO 2: Estrutura Organizacional --&gt;
+&lt;section&gt;
+    &lt;h3&gt;🏢 Organização TechCorp - Departamentos&lt;/h3&gt;
+    &lt;ul&gt;
+        &lt;li&gt;
+            &lt;strong&gt;💻 Tecnologia&lt;/strong&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Desenvolvimento
+                    &lt;ul&gt;
+                        &lt;li&gt;Frontend Team (React, Vue)&lt;/li&gt;
+                        &lt;li&gt;Backend Team (Node, Python)&lt;/li&gt;
+                        &lt;li&gt;Mobile Team (React Native, Flutter)&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+                &lt;li&gt;Infraestrutura
+                    &lt;ul&gt;
+                        &lt;li&gt;DevOps &amp; SRE&lt;/li&gt;
+                        &lt;li&gt;Cloud Architecture&lt;/li&gt;
+                        &lt;li&gt;Security &amp; Compliance&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+                &lt;li&gt;Quality Assurance
+                    &lt;ul&gt;
+                        &lt;li&gt;Manual Testing&lt;/li&gt;
+                        &lt;li&gt;Automation Testing&lt;/li&gt;
+                        &lt;li&gt;Performance Testing&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+        
+        &lt;li&gt;
+            &lt;strong&gt;📊 Produto &amp; Design&lt;/strong&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Product Management&lt;/li&gt;
+                &lt;li&gt;UX Research&lt;/li&gt;
+                &lt;li&gt;UI/UX Design&lt;/li&gt;
+                &lt;li&gt;Data Analytics&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+        
+        &lt;li&gt;
+            &lt;strong&gt;🎯 Negócios&lt;/strong&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Sales &amp; Marketing&lt;/li&gt;
+                &lt;li&gt;Customer Success&lt;/li&gt;
+                &lt;li&gt;HR &amp; People&lt;/li&gt;
+                &lt;li&gt;Finance &amp; Legal&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/section&gt;
+
+&lt;!-- 🍕 EXEMPLO 3: Menu de Restaurante (Lista Mista) --&gt;
+&lt;section&gt;
+    &lt;h3&gt;🍕 Cardápio Pizzaria do Código&lt;/h3&gt;
+    &lt;dl&gt;
+        &lt;dt&gt;🍕 Pizzas Tradicionais&lt;/dt&gt;
+        &lt;dd&gt;
+            &lt;ol&gt;
+                &lt;li&gt;Margherita - R$ 35,00
+                    &lt;ul&gt;
+                        &lt;li&gt;🧀 Mussarela, tomate, manjericão&lt;/li&gt;
+                        &lt;li&gt;⏱️ Tempo preparo: 15min&lt;/li&gt;
+                        &lt;li&gt;🌱 Opção vegana disponível&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+                &lt;li&gt;Pepperoni - R$ 42,00
+                    &lt;ul&gt;
+                        &lt;li&gt;🥩 Pepperoni, mussarela, orégano&lt;/li&gt;
+                        &lt;li&gt;⏱️ Tempo preparo: 18min&lt;/li&gt;
+                        &lt;li&gt;🌶️ Pimenta calabresa extra&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/dd&gt;
+        
+        &lt;dt&gt;👨‍💻 Pizzas do Desenvolvedor&lt;/dt&gt;
+        &lt;dd&gt;
+            &lt;ol&gt;
+                &lt;li&gt;JavaScript (Sweet &amp; Async) - R$ 48,00
+                    &lt;ul&gt;
+                        &lt;li&gt;🍯 Doce de leite, banana, canela&lt;/li&gt;
+                        &lt;li&gt;⚡ "Promessa de sabor incrível"&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+                &lt;li&gt;Python (Simple &amp; Clean) - R$ 45,00
+                    &lt;ul&gt;
+                        &lt;li&gt;🥬 Ingredientes simples e elegantes&lt;/li&gt;
+                        &lt;li&gt;🐍 "Readable e deliciosa"&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/dd&gt;
+    &lt;/dl&gt;
+&lt;/section&gt;</code></pre>
             </div>
 
             <div class="destaque tip">
-                <h4>💡 Dicas para Listas</h4>
-                <ul>
-                    <li>Use <strong>ul</strong> quando a ordem não importa</li>
-                    <li>Use <strong>ol</strong> para sequências e passos</li>
-                    <li>Use <strong>dl</strong> para glossários e pares termo-definição</li>
-                    <li>Evite listas com apenas um item</li>
-                    <li>Cada <code>&lt;li&gt;</code> pode conter qualquer elemento HTML</li>
-                </ul>
+                <h4>💡 Estratégias e Boas Práticas para Listas</h4>
+                <div class="praticas-listas">
+                    <div>
+                        <h5>🎯 Escolha o Tipo Certo:</h5>
+                        <ul>
+                            <li><strong>&lt;ul&gt;</strong> quando ordem não importa (ingredientes, features)</li>
+                            <li><strong>&lt;ol&gt;</strong> para sequências e hierarquias (tutoriais, rankings)</li>
+                            <li><strong>&lt;dl&gt;</strong> para pares termo-definição (glossários, specs)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5>♿ Acessibilidade em Listas:</h5>
+                        <ul>
+                            <li>Leitores de tela anunciam "lista com X itens"</li>
+                            <li>Navegação por item com setas ↑↓</li>
+                            <li>Use texto descritivo em cada &lt;li&gt;</li>
+                            <li>Evite listas muito longas (max 10-15 itens visíveis)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5>🚀 Performance e SEO:</h5>
+                        <ul>
+                            <li>Google adora listas bem estruturadas</li>
+                            <li>Rich snippets para FAQs (&lt;dl&gt;)</li>
+                            <li>Breadcrumbs com listas ordenadas</li>
+                            <li>Sitemaps HTML com listas aninhadas</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5>🎨 Estilização Inteligente:</h5>
+                        <ul>
+                            <li>CSS counters para numeração customizada</li>
+                            <li>Pseudo-elementos para marcadores únicos</li>
+                            <li>Grid/Flexbox para layouts modernos</li>
+                            <li>Animações sutis em hover/focus</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Exercício 2 -->
         <div class="exercicio">
-            <h4>🏋️‍♂️ Exercício 2: Receita Completa</h4>
+            <h4>🏋️‍♂️ Exercício 2: Documentação Técnica Completa</h4>
             <p>
-                Crie uma página de receita que contenha:
+                <strong>Projeto Real:</strong> Crie documentação para uma API RESTful 
+                usando todos os tipos de listas de forma profissional e semântica:
             </p>
-            <ul>
-                <li>Lista não ordenada com ingredientes</li>
-                <li>Lista ordenada com modo de preparo</li>
-                <li>Lista de definição com termos culinários</li>
-                <li>Lista aninhada organizando ingredientes por categoria</li>
-            </ul>
+            <div class="requisitos-exercicio">
+                <h5>📋 Estrutura Obrigatória:</h5>
+                <ol>
+                    <li>
+                        <strong>Lista Não Ordenada:</strong> Features da API
+                        <ul>
+                            <li>Autenticação JWT</li>
+                            <li>Rate limiting</li>
+                            <li>Documentação automática</li>
+                            <li>Versionamento</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Lista Ordenada:</strong> Setup da API (passo-a-passo)
+                        <ul>
+                            <li>Mínimo 5 passos detalhados</li>
+                            <li>Comandos específicos</li>
+                            <li>Verificações de funcionamento</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Lista de Definição:</strong> Glossário de endpoints
+                        <ul>
+                            <li>Mínimo 4 endpoints diferentes</li>
+                            <li>Método HTTP + descrição detalhada</li>
+                            <li>Parâmetros e exemplos</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Lista Aninhada:</strong> Estrutura de resposta JSON
+                        <ul>
+                            <li>Objetos com propriedades</li>
+                            <li>Arrays com tipos de dados</li>
+                            <li>Máximo 3 níveis de profundidade</li>
+                        </ul>
+                    </li>
+                </ol>
+                
+                <h5>🎯 Critérios de Qualidade:</h5>
+                <ul>
+                    <li>✅ Usar formatação semântica (&lt;strong&gt;, &lt;code&gt;, &lt;em&gt;)</li>
+                    <li>✅ Incluir exemplos de código reais</li>
+                    <li>✅ Navegação lógica e intuitiva</li>
+                    <li>✅ Validação HTML sem erros</li>
+                </ul>
+                
+                <h5>💡 Dica Profissional:</h5>
+                <p>Estude documentações reais como GitHub API, Stripe API ou Twitter API para inspiração na estrutura e linguagem!</p>
+            </div>
         </div>
 
         <!-- Seção 3: Citações -->
         <section class="secao">
-            <h2>💭 3. Citações e Referências</h2>
+            <h2>💭 3. Citações e Referências - Credibilidade e Contexto</h2>
             
-            <h3>📝 Citação em Bloco (blockquote)</h3>
+            <p>
+                <strong>Citações elevam a credibilidade do seu conteúdo:</strong> 
+                Seja para trabalhos acadêmicos, artigos técnicos ou documentação, 
+                referenciar fontes corretamente demonstra profissionalismo e 
+                permite verificação de informações.
+            </p>
+
+            <div class="destaque info">
+                <h4>🎯 Quando e Como Usar Cada Tipo de Citação</h4>
+                <div class="tipos-citacao">
+                    <div>
+                        <h5>📝 &lt;blockquote&gt; - Citações em Bloco:</h5>
+                        <ul>
+                            <li>Citações longas (40+ palavras)</li>
+                            <li>Trechos de documentos</li>
+                            <li>Depoimentos completos</li>
+                            <li>Sempre incluir fonte</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5>💬 &lt;q&gt; - Citações Inline:</h5>
+                        <ul>
+                            <li>Citações curtas no texto</li>
+                            <li>Frases memoráveis</li>
+                            <li>Aspas automáticas</li>
+                            <li>Flui com o parágrafo</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5>📚 &lt;cite&gt; - Títulos de Obras:</h5>
+                        <ul>
+                            <li>Livros, artigos, filmes</li>
+                            <li>Sites e documentos</li>
+                            <li>Palestras e apresentações</li>
+                            <li>Itálico automático</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>📝 Citação em Bloco (blockquote) - Autoridade e Impacto</h3>
+            <p>
+                <strong>Para citações substanciais que merecem destaque:</strong> 
+                Use quando a citação tem 40+ palavras ou quando quer dar peso 
+                visual especial a uma declaração importante.
+            </p>
+            
             <div class="codigo" data-lang="HTML">
-<pre><code>&lt;blockquote cite="https://www.w3.org/standards/webdesign/accessibility"&gt;
+<pre><code>&lt;!-- 🎯 EXEMPLO 1: Citação Técnica com Fonte Completa --&gt;
+&lt;article&gt;
+    &lt;h3&gt;A Importância da Acessibilidade Web&lt;/h3&gt;
+    
+    &lt;blockquote cite="https://www.w3.org/WAI/fundamentals/accessibility-intro/"&gt;
+        &lt;p&gt;
+            "A web é fundamentalmente projetada para funcionar para todas as pessoas, 
+            independentemente de seu hardware, software, idioma, localização ou capacidade. 
+            Quando a web atende a esse objetivo, ela é acessível a pessoas com uma 
+            ampla gama de audição, movimento, visão e habilidades cognitivas."
+        &lt;/p&gt;
+        &lt;footer&gt;
+            — &lt;cite&gt;&lt;a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/"&gt;
+                W3C Web Accessibility Initiative
+            &lt;/a&gt;&lt;/cite&gt;, Introduction to Web Accessibility
+        &lt;/footer&gt;
+    &lt;/blockquote&gt;
+    
     &lt;p&gt;
-        "A web é fundamentalmente projetada para funcionar para todas as pessoas, 
-        independentemente de seu hardware, software, idioma, localização ou capacidade."
+        Esta definição oficial demonstra que acessibilidade não é um "extra" - 
+        é a &lt;em&gt;intenção fundamental&lt;/em&gt; da web desde sua criação.
     &lt;/p&gt;
-    &lt;footer&gt;
-        — &lt;cite&gt;W3C Web Accessibility Initiative&lt;/cite&gt;
-    &lt;/footer&gt;
-&lt;/blockquote&gt;</code></pre>
+&lt;/article&gt;
+
+&lt;!-- 🚀 EXEMPLO 2: Depoimento de Cliente --&gt;
+&lt;section class="testimonials"&gt;
+    &lt;h3&gt;💬 O que nossos alunos dizem&lt;/h3&gt;
+    
+    &lt;blockquote&gt;
+        &lt;p&gt;
+            "Depois de 3 meses no curso de HTML/CSS, consegui minha primeira vaga 
+            como desenvolvedor frontend. A metodologia prática e os projetos reais 
+            fizeram toda a diferença. Hoje trabalho em uma startup e uso 
+            diariamente tudo que aprendi."
+        &lt;/p&gt;
+        &lt;footer&gt;
+            — &lt;cite&gt;Maria Silva&lt;/cite&gt;, 
+            &lt;strong&gt;Frontend Developer na TechStartup&lt;/strong&gt;&lt;br&gt;
+            &lt;small&gt;
+                📅 Formada em dezembro/2023 | 
+                💼 Contratada em janeiro/2024 | 
+                💰 Salário inicial: R$ 4.500
+            &lt;/small&gt;
+        &lt;/footer&gt;
+    &lt;/blockquote&gt;
+    
+    &lt;blockquote&gt;
+        &lt;p&gt;
+            "O curso superou minhas expectativas. Vim de uma área completamente 
+            diferente (administração) e em 6 meses estava desenvolvendo sistemas 
+            web completos. O suporte da comunidade e dos mentores foi fundamental."
+        &lt;/p&gt;
+        &lt;footer&gt;
+            — &lt;cite&gt;João Santos&lt;/cite&gt;, 
+            &lt;strong&gt;Full Stack Developer na CorpTech&lt;/strong&gt;&lt;br&gt;
+            &lt;small&gt;
+                🎯 Transição de carreira aos 35 anos | 
+                📈 Aumento salarial de 180% | 
+                🏆 Promovido a Tech Lead em 1 ano
+            &lt;/small&gt;
+        &lt;/footer&gt;
+    &lt;/blockquote&gt;
+&lt;/section&gt;
+
+&lt;!-- 📊 EXEMPLO 3: Dados Estatísticos com Fonte --&gt;
+&lt;article&gt;
+    &lt;h3&gt;📈 O Mercado de Desenvolvimento Web em 2024&lt;/h3&gt;
+    
+    &lt;blockquote cite="https://stackoverflow.com/insights/survey/2024"&gt;
+        &lt;p&gt;
+            "JavaScript permanece como a linguagem mais popular pelo 12º ano consecutivo, 
+            sendo usada por 65.36% dos desenvolvedores profissionais. TypeScript 
+            cresceu significativamente e agora é usado por 38.87% dos desenvolvedores, 
+            consolidando-se como essencial para desenvolvimento web moderno."
+        &lt;/p&gt;
+        &lt;footer&gt;
+            — &lt;cite&gt;&lt;a href="https://stackoverflow.com/insights/survey/2024"&gt;
+                Stack Overflow Developer Survey 2024
+            &lt;/a&gt;&lt;/cite&gt;&lt;br&gt;
+            &lt;small&gt;📊 Baseado em respostas de 87.585 desenvolvedores globalmente&lt;/small&gt;
+        &lt;/footer&gt;
+    &lt;/blockquote&gt;
+&lt;/article&gt;</code></pre>
             </div>
 
-            <h3>💬 Citação Inline (q)</h3>
+            <h3>💬 Citação Inline (q) - Integração Natural</h3>
+            <p>
+                <strong>Para citações curtas que fluem com o texto:</strong> 
+                O elemento &lt;q&gt; adiciona aspas automaticamente conforme as 
+                regras tipográficas do idioma. Perfeito para frases memoráveis 
+                ou conceitos importantes.
+            </p>
+            
             <div class="codigo" data-lang="HTML">
-<pre><code>&lt;p&gt;
-    Como Tim Berners-Lee disse: &lt;q&gt;A web foi projetada para ser descentralizada 
-    para que todos pudessem participar sem pedir permissão.&lt;/q&gt;
-&lt;/p&gt;</code></pre>
+<pre><code>&lt;!-- 🎯 EXEMPLO 1: Citações de Personalidades Tech --&gt;
+&lt;article&gt;
+    &lt;h3&gt;💡 Sabedoria dos Grandes da Tecnologia&lt;/h3&gt;
+    
+    &lt;p&gt;
+        Tim Berners-Lee, criador da World Wide Web, sempre defendeu que 
+        &lt;q cite="https://www.w3.org/People/Berners-Lee/"&gt;a web foi projetada 
+        para ser descentralizada para que todos pudessem participar sem 
+        pedir permissão&lt;/q&gt;. Essa visão democratizante ainda guia o 
+        desenvolvimento web hoje.
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+        Steve Jobs, co-fundador da Apple, frequentemente lembrava que 
+        &lt;q&gt;design não é apenas como algo parece ou como se sente - 
+        design é como funciona&lt;/q&gt;. Este princípio é fundamental 
+        no desenvolvimento de interfaces web eficazes.
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+        Linus Torvalds, criador do Linux, uma vez disse que 
+        &lt;q&gt;falar é barato, me mostre o código&lt;/q&gt;. Essa mentalidade 
+        prática é essencial para todo desenvolvedor web.
+    &lt;/p&gt;
+&lt;/article&gt;
+
+&lt;!-- 📚 EXEMPLO 2: Conceitos Técnicos --&gt;
+&lt;section&gt;
+    &lt;h3&gt;🎓 Definições Fundamentais&lt;/h3&gt;
+    
+    &lt;p&gt;
+        Douglas Crockford define JavaScript como 
+        &lt;q cite="https://crockford.com/javascript/"&gt;a linguagem de programação 
+        mais incompreendida do mundo&lt;/q&gt;, destacando a necessidade de 
+        estudar suas peculiaridades.
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+        Segundo a especificação HTML5, o propósito do HTML é 
+        &lt;q cite="https://html.spec.whatwg.org/"&gt;permitir autores a criar 
+        documentos e aplicações web ricos em conteúdo&lt;/q&gt;, sem depender 
+        de plugins proprietários.
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+        O mantra do CSS, como descrito na W3C, é que deve 
+        &lt;q cite="https://www.w3.org/Style/CSS/"&gt;separar conteúdo de 
+        apresentação&lt;/q&gt;, permitindo flexibilidade total no design.
+    &lt;/p&gt;
+&lt;/section&gt;</code></pre>
             </div>
 
-            <h3>📚 Elemento Cite</h3>
+            <h3>📚 Elemento Cite - Referenciando Obras e Fontes</h3>
+            <p>
+                <strong>Para títulos de trabalhos criativos e técnicos:</strong> 
+                Use &lt;cite&gt; para livros, artigos, filmes, músicas, apresentações 
+                e qualquer obra que tenha um título formal. Navegadores aplicam 
+                itálico automaticamente.
+            </p>
+            
             <div class="codigo" data-lang="HTML">
-<pre><code>&lt;p&gt;
-    Meu livro favorito é &lt;cite&gt;Clean Code&lt;/cite&gt; de Robert C. Martin. 
-    Recomendo também o artigo &lt;cite&gt;"A Dao of Web Design"&lt;/cite&gt; por John Allsopp.
-&lt;/p&gt;
+<pre><code>&lt;!-- 📖 EXEMPLO 1: Bibliografia Técnica --&gt;
+&lt;section&gt;
+    &lt;h3&gt;📚 Leituras Essenciais para Desenvolvedores&lt;/h3&gt;
+    
+    &lt;h4&gt;Livros Fundamentais:&lt;/h4&gt;
+    &lt;ul&gt;
+        &lt;li&gt;
+            &lt;cite&gt;Clean Code: A Handbook of Agile Software Craftsmanship&lt;/cite&gt; 
+            por Robert C. Martin - Define padrões para código legível e mantível.
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;cite&gt;JavaScript: The Good Parts&lt;/cite&gt; por Douglas Crockford - 
+            Explora as melhores características do JavaScript.
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;cite&gt;Don't Make Me Think: A Common Sense Approach to Web Usability&lt;/cite&gt; 
+            por Steve Krug - Guia prático para UX web.
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;cite&gt;Eloquent JavaScript: A Modern Introduction to Programming&lt;/cite&gt; 
+            por Marijn Haverbeke - Programação JavaScript do básico ao avançado.
+        &lt;/li&gt;
+    &lt;/ul&gt;
+    
+    &lt;h4&gt;Artigos Clássicos:&lt;/h4&gt;
+    &lt;ul&gt;
+        &lt;li&gt;
+            &lt;cite&gt;"A Dao of Web Design"&lt;/cite&gt; por John Allsopp (2000) - 
+            Manifesto sobre design responsivo antes mesmo do termo existir.
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;cite&gt;"Progressive Enhancement 2.0"&lt;/cite&gt; por Nicolas Zakas - 
+            Estratégias modernas para desenvolvimento inclusivo.
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;cite&gt;"The Web's Grain"&lt;/cite&gt; por Frank Chimero - 
+            Filosofia sobre design que respeita a natureza da web.
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/section&gt;
 
-&lt;!-- Citação com referência --&gt;
-&lt;blockquote&gt;
-    &lt;p&gt;"Código limpo sempre parece que foi escrito por alguém que se importa."&lt;/p&gt;
-    &lt;footer&gt;
-        — Robert C. Martin, &lt;cite&gt;Clean Code&lt;/cite&gt;
-    &lt;/footer&gt;
-&lt;/blockquote&gt;</code></pre>
+&lt;!-- 🎬 EXEMPLO 2: Referências Multimídia --&gt;
+&lt;section&gt;
+    &lt;h3&gt;📺 Recursos de Aprendizagem Audiovisual&lt;/h3&gt;
+    
+    &lt;p&gt;
+        O documentário &lt;cite&gt;Code Red: The Documentary&lt;/cite&gt; oferece uma 
+        perspectiva fascinante sobre a evolução da programação. Para quem 
+        prefere podcasts, &lt;cite&gt;Syntax&lt;/cite&gt; por Wes Bos e Scott Tolinski 
+        é essencial para desenvolvedores web.
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+        A série de palestras &lt;cite&gt;"Building Modern Web Applications"&lt;/cite&gt; 
+        na conferência &lt;cite&gt;JSConf 2024&lt;/cite&gt; apresenta as mais recentes 
+        tendências em desenvolvimento frontend.
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+        No YouTube, o canal &lt;cite&gt;Traversy Media&lt;/cite&gt; oferece tutoriais 
+        práticos, enquanto &lt;cite&gt;The Net Ninja&lt;/cite&gt; foca em conceitos 
+        fundamentais com explicações claras.
+    &lt;/p&gt;
+&lt;/section&gt;
+
+&lt;!-- 📊 EXEMPLO 3: Citação Acadêmica Completa --&gt;
+&lt;article&gt;
+    &lt;h3&gt;🎓 Pesquisa: Impacto da Performance Web na Conversão&lt;/h3&gt;
+    
+    &lt;blockquote cite="https://research.google.com/pubs/pub44678.html"&gt;
+        &lt;p&gt;
+            "Um atraso de 100 milissegundos no tempo de carregamento pode 
+            resultar em uma queda de 7% na taxa de conversão. Sites que 
+            carregam em menos de 2 segundos têm taxas de abandono 9% menores 
+            comparados àqueles que levam 5 segundos ou mais."
+        &lt;/p&gt;
+        &lt;footer&gt;
+            — &lt;cite&gt;"The Need for Speed: How Mobile Performance Impacts Publisher Revenue"&lt;/cite&gt;&lt;br&gt;
+            Google Research, 2018&lt;br&gt;
+            Disponível em: &lt;a href="https://research.google.com/pubs/pub44678.html"&gt;
+                research.google.com/pubs/pub44678.html
+            &lt;/a&gt;
+        &lt;/footer&gt;
+    &lt;/blockquote&gt;
+    
+    &lt;p&gt;
+        Este estudo, publicado no periódico &lt;cite&gt;Journal of Web Performance&lt;/cite&gt; 
+        e posteriormente referenciado no relatório &lt;cite&gt;"State of the Web 2024"&lt;/cite&gt; 
+        da Mozilla Foundation, demonstra a correlação direta entre performance 
+        técnica e resultados de negócio.
+    &lt;/p&gt;
+&lt;/article&gt;</code></pre>
+            </div>
+
+            <div class="destaque success">
+                <h4>✅ Checklist para Citações Profissionais</h4>
+                <div class="checklist-citacoes">
+                    <div>
+                        <h5>📝 Elementos Obrigatórios:</h5>
+                        <ul>
+                            <li>✅ Fonte sempre identificada claramente</li>
+                            <li>✅ URL ou referência verificável quando possível</li>
+                            <li>✅ Contexto e data da citação</li>
+                            <li>✅ Tipo de elemento adequado ao tamanho</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5>🎯 Melhores Práticas:</h5>
+                        <ul>
+                            <li>Use cite="" com URL da fonte original</li>
+                            <li>Inclua biografia breve do autor quando relevante</li>
+                            <li>Cite fontes primárias sempre que possível</li>
+                            <li>Mantenha formatação consistente</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5>⚠️ Evite Estas Armadilhas:</h5>
+                        <ul>
+                            <li>Citações sem fonte identificável</li>
+                            <li>Usar &lt;cite&gt; para nomes de pessoas</li>
+                            <li>Blockquotes para textos próprios</li>
+                            <li>Aspas manuais com elemento &lt;q&gt;</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Seção 4: Código e Pré-formatação -->
         <section class="secao">
-            <h2>💻 4. Código e Pré-formatação</h2>
+            <h2>💻 4. Código e Pré-formatação - Comunicação Técnica Precisa</h2>
             
-            <h3>🔧 Código Inline</h3>
-            <div class="codigo" data-lang="HTML">
-<pre><code>&lt;p&gt;
-    Use o elemento &lt;code&gt;&amp;lt;strong&amp;gt;&lt;/code&gt; para destacar texto importante.
-    Para variáveis em programação, use &lt;var&gt;nomeDaVariavel&lt;/var&gt;.
-&lt;/p&gt;
-
-&lt;p&gt;
-    Para mostrar entrada do teclado: &lt;kbd&gt;Ctrl + C&lt;/kbd&gt; para copiar.
-    Para saída do sistema: &lt;samp&gt;Erro 404: Página não encontrada&lt;/samp&gt;.
-&lt;/p&gt;</code></pre>
-            </div>
-
-            <h3>📋 Bloco de Código (pre)</h3>
-            <div class="codigo" data-lang="HTML">
-<pre><code>&lt;pre&gt;
-&lt;code&gt;
-function saudar(nome) {
-    return "Olá, " + nome + "!";
-}
-
-console.log(saudar("Mundo"));
-&lt;/code&gt;
-&lt;/pre&gt;</code></pre>
-            </div>
-
-            <h3>🎨 Código com Linguagem</h3>
-            <div class="codigo" data-lang="HTML">
-<pre><code>&lt;pre&gt;
-&lt;code class="language-javascript"&gt;
-// Exemplo de função em JavaScript
-const calcularIdade = (anoNascimento) =&gt; {
-    const anoAtual = new Date().getFullYear();
-    return anoAtual - anoNascimento;
-};
-&lt;/code&gt;
-&lt;/pre&gt;
-
-&lt;pre&gt;
-&lt;code class="language-html"&gt;
-&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html lang="pt-BR"&amp;gt;
-&amp;lt;head&amp;gt;
-    &amp;lt;meta charset="UTF-8"&amp;gt;
-    &amp;lt;title&amp;gt;Minha Página&amp;lt;/title&amp;gt;
-&amp;lt;/head&amp;gt;
-&amp;lt;/html&amp;gt;
-&lt;/code&gt;
-&lt;/pre&gt;</code></pre>
-            </div>
+            <p>
+                <strong>Documentação técnica exige elementos especializados:</strong> 
+                Seja para tutoriais, documentação de API ou artigos técnicos, 
+                HTML oferece elementos específicos para diferentes tipos de 
+                conteúdo relacionado a programação e sistemas.
+            </p>
 
             <div class="destaque info">
-                <h4>🎯 Quando Usar Cada Elemento</h4>
-                <ul>
-                    <li><code>&lt;code&gt;</code> - Código inline curto</li>
-                    <li><code>&lt;pre&gt;</code> - Preservar formatação (espaços, quebras)</li>
-                    <li><code>&lt;var&gt;</code> - Variáveis e placeholders</li>
-                    <li><code>&lt;kbd&gt;</code> - Entrada do teclado</li>
-                    <li><code>&lt;samp&gt;</code> - Saída do sistema</li>
-                </ul>
+                <h4>🎯 Guia Rápido: Qual Elemento Usar?</h4>
+                <div class="elementos-codigo">
+                    <div>
+                        <h5>💻 &lt;code&gt; - Código Inline:</h5>
+                        <ul>
+                            <li>Funções: <code>addEventListener()</code></li>
+                            <li>Variáveis: <code>userName</code></li>
+                            <li>Tags HTML: <code>&lt;div&gt;</code></li>
+                            <li>Comandos curtos: <code>npm install</code></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5>📋 &lt;pre&gt; - Blocos Preservados:</h5>
+                        <ul>
+                            <li>Código multi-linha</li>
+                            <li>ASCII art e diagramas</li>
+                            <li>Logs de sistema</li>
+                            <li>Configurações formatadas</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5>🔧 Elementos Especializados:</h5>
+                        <ul>
+                            <li><code>&lt;var&gt;</code> - Variáveis e placeholders</li>
+                            <li><code>&lt;kbd&gt;</code> - Entrada do teclado</li>
+                            <li><code>&lt;samp&gt;</code> - Saída do sistema</li>
+                            <li><code>&lt;output&gt;</code> - Resultado de cálculo</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </section>
+            
+            <h3>🔧 Código Inline - Integração Natural no Texto</h3>
+            <p>
+                <strong>Para referências rápidas a código dentro de parágrafos:</strong> 
+                Use &lt;code&gt; para destacar elementos de programação sem quebrar 
+                o fluxo da leitura. Fundamental em documentação técnica e tutoriais.
+            </p>
+            
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- 🎯 EXEMPLO 1: Tutorial JavaScript Prático --&gt;
+&lt;article&gt;
+    &lt;h3&gt;⚡ Manipulação de DOM com JavaScript&lt;/h3&gt;
+    
+    &lt;p&gt;
+        Para selecionar um elemento HTML, use o método &lt;code&gt;document.querySelector()&lt;/code&gt; 
+        passando um seletor CSS como parâmetro. Por exemplo, 
+        &lt;code&gt;document.querySelector('.minha-classe')&lt;/code&gt; retorna o primeiro 
+        elemento com a classe &lt;code&gt;minha-classe&lt;/code&gt;.
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+        Para modificar o conteúdo, use a propriedade &lt;code&gt;textContent&lt;/code&gt; 
+        para texto simples ou &lt;code&gt;innerHTML&lt;/code&gt; para HTML. 
+        A diferença é que &lt;code&gt;innerHTML&lt;/code&gt; interpreta tags HTML, 
+        enquanto &lt;code&gt;textContent&lt;/code&gt; trata tudo como texto literal.
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+        Para adicionar listeners de eventos, use &lt;code&gt;addEventListener()&lt;/code&gt; 
+        em vez do atributo &lt;code&gt;onclick&lt;/code&gt;. Isso permite múltiplos 
+        listeners no mesmo elemento e melhor controle sobre o comportamento.
+    &lt;/p&gt;
+&lt;/article&gt;
+
+&lt;!-- 🛠️ EXEMPLO 2: Documentação de API --&gt;
+&lt;section&gt;
+    &lt;h3&gt;🔌 Usando a API do GitHub&lt;/h3&gt;
+    
+    &lt;p&gt;
+        O endpoint &lt;code&gt;/users/{username}&lt;/code&gt; retorna informações 
+        básicas do usuário. Para dados mais detalhados, use o parâmetro 
+        &lt;code&gt;?include=repositories&lt;/code&gt; na URL.
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+        Todas as requisições devem incluir o header &lt;code&gt;Authorization: token {seu_token}&lt;/code&gt; 
+        e o header &lt;code&gt;Accept: application/vnd.github.v3+json&lt;/code&gt; 
+        para garantir compatibilidade com a versão 3 da API.
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+        Para tratamento de erros, verifique sempre o status code: 
+        &lt;code&gt;200&lt;/code&gt; indica sucesso, &lt;code&gt;404&lt;/code&gt; usuário não encontrado, 
+        e &lt;code&gt;403&lt;/code&gt; limite de rate exceeded.
+    &lt;/p&gt;
+&lt;/section&gt;
+
+&lt;!-- 🎨 EXEMPLO 3: Elementos Especializados em Contexto --&gt;
+&lt;section&gt;
+    &lt;h3&gt;⌨️ Atalhos e Comandos do VS Code&lt;/h3&gt;
+    
+    &lt;p&gt;
+        Para formatação automática de código, use &lt;kbd&gt;Shift&lt;/kbd&gt; + &lt;kbd&gt;Alt&lt;/kbd&gt; + &lt;kbd&gt;F&lt;/kbd&gt; 
+        no Windows/Linux ou &lt;kbd&gt;Shift&lt;/kbd&gt; + &lt;kbd&gt;Option&lt;/kbd&gt; + &lt;kbd&gt;F&lt;/kbd&gt; no macOS.
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+        Para abrir o terminal integrado, pressione &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;`&lt;/kbd&gt; 
+        (backtick). O output típico será algo como 
+        &lt;samp&gt;Terminal ready in workspace&lt;/samp&gt; quando carregado corretamente.
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+        Ao executar o comando &lt;code&gt;npm --version&lt;/code&gt;, você deve ver uma 
+        saída similar a &lt;samp&gt;9.6.2&lt;/samp&gt;. Se aparecer 
+        &lt;samp&gt;'npm' is not recognized as an internal or external command&lt;/samp&gt;, 
+        significa que o Node.js não está instalado ou não está no PATH.
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+        Para buscar em todo o projeto, use &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;Shift&lt;/kbd&gt; + &lt;kbd&gt;F&lt;/kbd&gt; 
+        e digite o termo na variável &lt;var&gt;busca&lt;/var&gt;. Substitua &lt;var&gt;termo_antigo&lt;/var&gt; 
+        por &lt;var&gt;termo_novo&lt;/var&gt; usando &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;Shift&lt;/kbd&gt; + &lt;kbd&gt;H&lt;/kbd&gt;.
+    &lt;/p&gt;
+&lt;/section&gt;</code></pre>
+            </div>
+
+            <h3>📋 Bloco de Código (pre) - Preservando Formatação</h3>
+            <p>
+                <strong>Para código multi-linha que precisa manter formatação:</strong> 
+                O elemento &lt;pre&gt; preserva espaços, quebras de linha e indentação. 
+                Essencial para exemplos de código, configurações e outputs de sistema.
+            </p>
+            
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- 🚀 EXEMPLO 1: Setup Completo de Projeto React --&gt;
+&lt;article&gt;
+    &lt;h3&gt;🎯 Criando Projeto React do Zero&lt;/h3&gt;
+    
+    &lt;h4&gt;📦 1. Criação e Setup Inicial:&lt;/h4&gt;
+    &lt;pre&gt;&lt;code class="language-bash"&gt;
+# Criar novo projeto React com TypeScript
+npx create-react-app meu-projeto --template typescript
+
+# Navegar para o diretório
+cd meu-projeto
+
+# Instalar dependências adicionais
+npm install @types/react @types/react-dom
+npm install -D @types/jest @types/node
+
+# Inicializar Git (se não foi criado automaticamente)
+git init
+git add .
+git commit -m "Initial commit: React TypeScript setup"
+    &lt;/code&gt;&lt;/pre&gt;
+    
+    &lt;h4&gt;⚛️ 2. Componente Funcional com TypeScript:&lt;/h4&gt;
+    &lt;pre&gt;&lt;code class="language-typescript"&gt;
+// src/components/UserCard.tsx
+import React from 'react';
+
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  avatar?: string;
+}
+
+interface UserCardProps {
+  user: User;
+  isActive?: boolean;
+  onUserClick: (userId: number) =&gt; void;
+}
+
+const UserCard: React.FC&lt;UserCardProps&gt; = ({ 
+  user, 
+  isActive = false, 
+  onUserClick 
+}) =&gt; {
+  const handleClick = () =&gt; {
+    onUserClick(user.id);
+  };
+
+  return (
+    &lt;div 
+      className={`user-card ${isActive ? 'active' : ''}`}
+      onClick={handleClick}
+      role="button"
+      tabIndex={0}
+    &gt;
+      &lt;img 
+        src={user.avatar || '/default-avatar.png'} 
+        alt={`Avatar de ${user.name}`}
+        className="user-avatar"
+      /&gt;
+      &lt;div className="user-info"&gt;
+        &lt;h3&gt;{user.name}&lt;/h3&gt;
+        &lt;p&gt;{user.email}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+};
+
+export default UserCard;
+    &lt;/code&gt;&lt;/pre&gt;
+    
+    &lt;h4&gt;🎨 3. CSS Module para Estilização:&lt;/h4&gt;
+    &lt;pre&gt;&lt;code class="language-css"&gt;
+/* src/components/UserCard.module.css */
+.user-card {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.user-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.user-card.active {
+  border-color: #007bff;
+  background-color: #f8f9fa;
+}
+
+.user-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+
+.user-info h3 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.user-info p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+    &lt;/code&gt;&lt;/pre&gt;
+&lt;/article&gt;
+
+&lt;!-- 🗄️ EXEMPLO 2: Configuração de Banco de Dados --&gt;
+&lt;section&gt;
+    &lt;h3&gt;🗄️ Setup PostgreSQL com Docker&lt;/h3&gt;
+    
+    &lt;h4&gt;🐳 Docker Compose Configuration:&lt;/h4&gt;
+    &lt;pre&gt;&lt;code class="language-yaml"&gt;
+# docker-compose.yml
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: my_postgres
+    environment:
+      POSTGRES_DB: myapp_development
+      POSTGRES_USER: developer
+      POSTGRES_PASSWORD: dev_password_2024
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d
+    networks:
+      - app-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: my_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - app-network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  app-network:
+    driver: bridge
+    &lt;/code&gt;&lt;/pre&gt;
+    
+    &lt;h4&gt;📊 SQL Schema Initial:&lt;/h4&gt;
+    &lt;pre&gt;&lt;code class="language-sql"&gt;
+-- db/init/01_schema.sql
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+CREATE TABLE users (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    email VARCHAR(255) UNIQUE NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    avatar_url TEXT,
+    is_active BOOLEAN DEFAULT true,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+CREATE TABLE posts (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    title VARCHAR(200) NOT NULL,
+    content TEXT NOT NULL,
+    author_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    published_at TIMESTAMP WITH TIME ZONE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Índices para performance
+CREATE INDEX idx_users_email ON users(email);
+CREATE INDEX idx_posts_author ON posts(author_id);
+CREATE INDEX idx_posts_published ON posts(published_at) WHERE published_at IS NOT NULL;
+
+-- Trigger para updated_at automático
+CREATE OR REPLACE FUNCTION update_updated_at_column()
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.updated_at = NOW();
+    RETURN NEW;
+END;
+$$ language 'plpgsql';
+
+CREATE TRIGGER update_users_updated_at 
+    BEFORE UPDATE ON users 
+    FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
+
+CREATE TRIGGER update_posts_updated_at 
+    BEFORE UPDATE ON posts 
+    FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
+    &lt;/code&gt;&lt;/pre&gt;
+&lt;/section&gt;
+
+&lt;!-- 📊 EXEMPLO 3: Logs e Debugging --&gt;
+&lt;section&gt;
+    &lt;h3&gt;🔍 Logs de Sistema e Debugging&lt;/h3&gt;
+    
+    &lt;h4&gt;📋 Log de Deploy Bem-sucedido:&lt;/h4&gt;
+    &lt;pre&gt;&lt;code class="language-log"&gt;
+[2024-01-15 14:32:10] INFO: Starting deployment process...
+[2024-01-15 14:32:11] INFO: Pulling latest code from main branch
+[2024-01-15 14:32:12] INFO: Running tests...
+[2024-01-15 14:32:25] SUCCESS: All 127 tests passed ✓
+[2024-01-15 14:32:26] INFO: Building production assets...
+[2024-01-15 14:32:45] INFO: Assets built successfully (2.3MB total)
+[2024-01-15 14:32:46] INFO: Deploying to production environment...
+[2024-01-15 14:32:50] INFO: Database migrations running...
+[2024-01-15 14:32:52] SUCCESS: 3 new migrations applied ✓
+[2024-01-15 14:32:53] INFO: Starting application servers...
+[2024-01-15 14:32:58] SUCCESS: Application deployed successfully ✓
+[2024-01-15 14:32:59] INFO: Deployment completed in 49 seconds
+[2024-01-15 14:33:00] INFO: Health check: https://myapp.com/health → 200 OK
+    &lt;/code&gt;&lt;/pre&gt;
+    
+    &lt;h4&gt;⚠️ Log de Erro com Stack Trace:&lt;/h4&gt;
+    &lt;pre&gt;&lt;code class="language-log"&gt;
+[2024-01-15 15:45:23] ERROR: Database connection failed
+TypeError: Cannot read property 'query' of null
+    at UserService.findById (src/services/UserService.js:45:23)
+    at UserController.getUser (src/controllers/UserController.js:28:31)
+    at Layer.handle [as handle_request] (express/lib/router/layer.js:95:5)
+    at next (express/lib/router/route.js:137:13)
+    at Route.dispatch (express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (express/lib/router/layer.js:95:5)
+    at express/lib/router/index.js:281:22
+
+Request Details:
+  Method: GET
+  URL: /api/users/550e8400-e29b-41d4-a716-446655440000
+  Headers: {
+    "authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGc...",
+    "content-type": "application/json",
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+  }
+  
+Environment: production
+Server: app-server-01
+Memory Usage: 245MB / 512MB
+CPU Usage: 12%
+    &lt;/code&gt;&lt;/pre&gt;
+&lt;/section&gt;</code></pre>
+            </div>
 
         <!-- Exercício 3 -->
         <div class="exercicio">
@@ -439,44 +1765,245 @@ const calcularIdade = (anoNascimento) =&gt; {
 
         <!-- Exercício 4 -->
         <div class="exercicio">
-            <h4>🏋️‍♂️ Exercício 4: Página de Documentação</h4>
+            <h4>🏋️‍♂️ Exercício 4: Projeto Final - Portal de Conhecimento</h4>
             <p>
-                Crie uma página de documentação técnica com:
+                <strong>Desafio Máximo:</strong> Crie um "Portal de Conhecimento sobre 
+                Desenvolvimento Web" que demonstre maestria em todos os elementos de 
+                formatação de texto. Este será seu showcase de HTML semântico!
             </p>
-            <ul>
-                <li>Seções details/summary para FAQ</li>
-                <li>Exemplos de código com figure/figcaption</li>
-                <li>Glossário usando dl</li>
-                <li>Citações de documentação oficial</li>
-                <li>Formatação semântica apropriada</li>
-            </ul>
+            <div class="requisitos-exercicio">
+                <h5>🎯 Estrutura do Portal:</h5>
+                <div class="estrutura-portal">
+                    <div>
+                        <h6>📖 Página Principal:</h6>
+                        <ul>
+                            <li>Introdução com citação inspiradora</li>
+                            <li>Glossário interativo (dl + details)</li>
+                            <li>Timeline de tecnologias (ol com datas)</li>
+                            <li>FAQ colapsável e navegável</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h6>💻 Seção Técnica:</h6>
+                        <ul>
+                            <li>Tutoriais com código completo</li>
+                            <li>Troubleshooting guide</li>
+                            <li>Benchmarks e comparações</li>
+                            <li>Exemplos práticos funcionais</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h6>📚 Recursos:</h6>
+                        <ul>
+                            <li>Bibliografia completa</li>
+                            <li>Links para documentação</li>
+                            <li>Comunidades recomendadas</li>
+                            <li>Ferramentas essenciais</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h5>✅ Checklist de Excelência:</h5>
+                <div class="checklist-final">
+                    <div>
+                        <h6>🎯 Semântica (25 pontos):</h6>
+                        <ul>
+                            <li>15+ elementos semânticos diferentes</li>
+                            <li>Zero elementos puramente visuais</li>
+                            <li>Estrutura lógica e hierárquica</li>
+                            <li>Contexto claro para cada formatação</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h6>📋 Listas (20 pontos):</h6>
+                        <ul>
+                            <li>Todos os 3 tipos de lista usados</li>
+                            <li>Listas aninhadas complexas</li>
+                            <li>dl para glossários/FAQs</li>
+                            <li>Numeração customizada onde apropriado</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h6>💬 Citações (15 pontos):</h6>
+                        <ul>
+                            <li>blockquote com fontes verificáveis</li>
+                            <li>q para citações inline</li>
+                            <li>cite para obras referenciadas</li>
+                            <li>Atribuição completa e profissional</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h6>💻 Código (20 pontos):</h6>
+                        <ul>
+                            <li>code inline para conceitos</li>
+                            <li>pre para blocos complexos</li>
+                            <li>kbd, samp, var contextualmente</li>
+                            <li>figure+figcaption para exemplos</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h6>🚀 Elementos Avançados (20 pontos):</h6>
+                        <ul>
+                            <li>details/summary para interatividade</li>
+                            <li>Formatação temporal com time</li>
+                            <li>Abreviações com explicações</li>
+                            <li>Endereços e contatos estruturados</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h5>🏆 Critérios de Avaliação:</h5>
+                <ul>
+                    <li><strong>90-100 pontos:</strong> 🥇 Especialista - HTML semântico exemplar</li>
+                    <li><strong>75-89 pontos:</strong> 🥈 Avançado - Domínio sólido dos conceitos</li>
+                    <li><strong>60-74 pontos:</strong> 🥉 Intermediário - Bom uso dos elementos</li>
+                    <li><strong>Abaixo de 60:</strong> 📚 Revisar conceitos e praticar mais</li>
+                </ul>
+                
+                <h5>💡 Dica Final:</h5>
+                <p>
+                    <strong>Pense como um usuário real:</strong> Teste seu portal com 
+                    leitores de tela, valide o HTML, e peça feedback de outros desenvolvedores. 
+                    Um bom HTML semântico melhora a vida de TODOS os usuários!
+                </p>
+            </div>
         </div>
 
-        <!-- Resumo da Aula -->
+        <!-- Resumo Completo e Aprimorado -->
         <section class="secao">
-            <h2>📋 Resumo da Aula</h2>
+            <h2>🎯 Resumo da Aula - Dominando Formatação de Texto</h2>
             
-            <div class="recursos">
-                <div class="recurso-card">
-                    <h4>💡 Formatação Semântica</h4>
-                    <p>strong, em, mark, abbr - significado antes da aparência visual.</p>
+            <div class="grid-resumo-completo">
+                <div class="topico-resumo-principal">
+                    <h3>💡 Formatação Semântica</h3>
+                    <div class="conteudo-resumo">
+                        <h4>Elementos Essenciais:</h4>
+                        <ul>
+                            <li><code>&lt;strong&gt;</code> - Importância real</li>
+                            <li><code>&lt;em&gt;</code> - Ênfase que altera significado</li>
+                            <li><code>&lt;mark&gt;</code> - Relevância contextual</li>
+                            <li><code>&lt;small&gt;</code> - Informações secundárias</li>
+                            <li><code>&lt;del&gt;/&lt;ins&gt;</code> - Edições e revisões</li>
+                        </ul>
+                        <h4>🎯 Princípio Fundamental:</h4>
+                        <p>Significado primeiro, aparência depois. Use CSS para styling!</p>
+                    </div>
                 </div>
                 
-                <div class="recurso-card">
-                    <h4>📋 Listas Organizadas</h4>
-                    <p>ul, ol, dl - estruturação adequada para diferentes tipos de conteúdo.</p>
+                <div class="topico-resumo-principal">
+                    <h3>📋 Listas Organizadas</h3>
+                    <div class="conteudo-resumo">
+                        <h4>Tipos e Aplicações:</h4>
+                        <ul>
+                            <li><code>&lt;ul&gt;</code> - Ordem irrelevante (ingredientes, features)</li>
+                            <li><code>&lt;ol&gt;</code> - Sequência importante (tutoriais, rankings)</li>
+                            <li><code>&lt;dl&gt;</code> - Termo-definição (glossários, FAQs)</li>
+                        </ul>
+                        <h4>💪 Poder das Listas Aninhadas:</h4>
+                        <p>Estruturas complexas mantendo semântica clara.</p>
+                    </div>
                 </div>
                 
-                <div class="recurso-card">
-                    <h4>💭 Citações</h4>
-                    <p>blockquote, q, cite - referências e atribuições corretas.</p>
+                <div class="topico-resumo-principal">
+                    <h3>💭 Citações Profissionais</h3>
+                    <div class="conteudo-resumo">
+                        <h4>Elementos de Citação:</h4>
+                        <ul>
+                            <li><code>&lt;blockquote&gt;</code> - Citações longas destacadas</li>
+                            <li><code>&lt;q&gt;</code> - Citações inline fluidas</li>
+                            <li><code>&lt;cite&gt;</code> - Títulos de obras</li>
+                        </ul>
+                        <h4>🔍 Sempre com Fonte:</h4>
+                        <p>Credibilidade depende de atribuição correta.</p>
+                    </div>
                 </div>
                 
-                <div class="recurso-card">
-                    <h4>💻 Código</h4>
-                    <p>code, pre, var, kbd, samp - elementos para conteúdo técnico.</p>
+                <div class="topico-resumo-principal">
+                    <h3>💻 Código e Técnico</h3>
+                    <div class="conteudo-resumo">
+                        <h4>Elementos Especializados:</h4>
+                        <ul>
+                            <li><code>&lt;code&gt;</code> - Código inline e referências</li>
+                            <li><code>&lt;pre&gt;</code> - Blocos preservando formatação</li>
+                            <li><code>&lt;kbd&gt;</code> - Entrada do teclado</li>
+                            <li><code>&lt;samp&gt;</code> - Saída do sistema</li>
+                            <li><code>&lt;var&gt;</code> - Variáveis e placeholders</li>
+                        </ul>
+                        <h4>📚 Documentação Clara:</h4>
+                        <p>Comunicação técnica precisa e acessível.</p>
+                    </div>
+                </div>
+                
+                <div class="topico-resumo-principal">
+                    <h3>🚀 Elementos Avançados</h3>
+                    <div class="conteudo-resumo">
+                        <h4>Interatividade Nativa:</h4>
+                        <ul>
+                            <li><code>&lt;details&gt;/&lt;summary&gt;</code> - Colapsáveis sem JS</li>
+                            <li><code>&lt;figure&gt;/&lt;figcaption&gt;</code> - Conteúdo legendado</li>
+                            <li><code>&lt;time&gt;</code> - Marcação temporal</li>
+                            <li><code>&lt;abbr&gt;</code> - Abreviações explicadas</li>
+                        </ul>
+                        <h4>🌐 Suporte Internacional:</h4>
+                        <p>Elementos para direção de texto e multilíngue.</p>
+                    </div>
+                </div>
+                
+                <div class="topico-resumo-principal">
+                    <h3>🎯 Próximos Passos</h3>
+                    <div class="conteudo-resumo">
+                        <h4>Continue Praticando:</h4>
+                        <ul>
+                            <li>Crie documentação técnica real</li>
+                            <li>Teste com leitores de tela</li>
+                            <li>Valide HTML regularmente</li>
+                            <li>Estude sites bem estruturados</li>
+                        </ul>
+                        <h4>🔗 Próxima Aula:</h4>
+                        <p>Links e Navegação - conectando conteúdo inteligentemente!</p>
+                    </div>
                 </div>
             </div>
+            
+            <div class="conceitos-chave">
+                <h3>🧠 Conceitos-Chave para Lembrar</h3>
+                <div class="conceitos-grid">
+                    <div class="conceito">
+                        <h4>🎯 Semântica Primeiro</h4>
+                        <p>HTML expressa <em>significado</em>, CSS cuida da <em>aparência</em></p>
+                    </div>
+                    <div class="conceito">
+                        <h4>♿ Acessibilidade Natural</h4>
+                        <p>Elementos semânticos funcionam automaticamente com tecnologias assistivas</p>
+                    </div>
+                    <div class="conceito">
+                        <h4>🤖 SEO Inteligente</h4>
+                        <p>Robôs de busca entendem e priorizam conteúdo bem estruturado</p>
+                    </div>
+                    <div class="conceito">
+                        <h4>🔮 Compatibilidade Futura</h4>
+                        <p>Código semântico se adapta a novas tecnologias automaticamente</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="proxima-aula-preview">
+                <h3>🔗 Preview: Aula 03 - Links e Navegação</h3>
+                <p>
+                    Na próxima aula, descobriremos como <strong>conectar conteúdo de forma inteligente</strong> 
+                    usando links semânticos, navegação acessível e estruturas que melhoram 
+                    tanto a experiência do usuário quanto o SEO. Prepare-se para criar 
+                    sistemas de navegação profissionais!
+                </p>
+                <div class="topicos-proxima-aula">
+                    <span>🌐 Links externos seguros</span>
+                    <span>🏠 Navegação interna eficiente</span>
+                    <span>♿ Acessibilidade em links</span>
+                    <span>🧭 Menus e breadcrumbs</span>
+                    <span>🚀 SEO e performance</span>
+                </div>
+            </div>
+        </section>
 
             <div class="checklist">
                 <h4>✅ Checklist de Boas Práticas</h4>

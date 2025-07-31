@@ -58,31 +58,41 @@
 
         <!-- Seção 1: Estrutura Básica -->
         <section class="secao">
-            <h2>🏗️ 1. Estrutura Básica de Tabelas</h2>
+            <h2>🏗️ 1. Estrutura Básica de Tabelas - Organizando Dados com Inteligência</h2>
             
             <div class="destaque info">
-                <h4>🎯 Quando Usar Tabelas</h4>
+                <h4>🎯 Quando Usar Tabelas - A Regra de Ouro</h4>
                 <p>
-                    Tabelas devem ser usadas apenas para dados tabulares - informações que fazem 
-                    sentido em linhas e colunas. Nunca use tabelas para layout da página.
+                    <strong>Tabelas são para dados, não para layout!</strong> Use tabelas apenas quando você tiver 
+                    dados que fazem sentido organizados em linhas e colunas - como relatórios, comparações, 
+                    listas de produtos, ou qualquer informação que você colocaria numa planilha Excel.
+                </p>
+                <p>
+                    <strong>Teste simples:</strong> Se você conseguir imaginar seus dados numa planilha, 
+                    então uma tabela HTML é apropriada. Se você está tentando posicionar elementos na página, 
+                    use CSS Grid ou Flexbox.
                 </p>
             </div>
 
-            <h3>📋 Elementos Fundamentais</h3>
+            <h3>📋 Elementos Fundamentais - A Anatomia de uma Tabela</h3>
+            <p>
+                <strong>Toda tabela HTML tem uma hierarquia:</strong> Como uma receita bem estruturada, 
+                cada elemento tem seu lugar e propósito específico. Vamos começar com o mais simples:
+            </p>
             <div class="codigo" data-lang="HTML">
-<pre><code>&lt;!-- Tabela básica --&gt;
+<pre><code>&lt;!-- 📊 Tabela básica - Os primeiros passos --&gt;
 &lt;table&gt;
-    &lt;tr&gt;
-        &lt;th&gt;Nome&lt;/th&gt;
+    &lt;tr&gt;                              &lt;!-- 📏 Primeira linha (cabeçalho) --&gt;
+        &lt;th&gt;Nome&lt;/th&gt;                  &lt;!-- 🏷️ Célula de cabeçalho --&gt;
         &lt;th&gt;Idade&lt;/th&gt;
         &lt;th&gt;Profissão&lt;/th&gt;
     &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;Ana Silva&lt;/td&gt;
+    &lt;tr&gt;                              &lt;!-- 📏 Segunda linha (dados) --&gt;
+        &lt;td&gt;Ana Silva&lt;/td&gt;             &lt;!-- 📝 Célula de dados --&gt;
         &lt;td&gt;28&lt;/td&gt;
         &lt;td&gt;Desenvolvedora&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr&gt;
+    &lt;tr&gt;                              &lt;!-- 📏 Terceira linha (mais dados) --&gt;
         &lt;td&gt;Carlos Santos&lt;/td&gt;
         &lt;td&gt;35&lt;/td&gt;
         &lt;td&gt;Designer&lt;/td&gt;
@@ -90,20 +100,38 @@
 &lt;/table&gt;</code></pre>
             </div>
 
-            <h3>🎯 Estrutura Semântica Completa</h3>
+            <div class="destaque success">
+                <h4>🎯 Elementos Essenciais Explicados</h4>
+                <ul>
+                    <li><strong>&lt;table&gt;:</strong> Container principal - "a mesa" onde os dados ficam</li>
+                    <li><strong>&lt;tr&gt;:</strong> Table Row - cada linha horizontal da tabela</li>
+                    <li><strong>&lt;th&gt;:</strong> Table Header - células de cabeçalho (negrito por padrão)</li>
+                    <li><strong>&lt;td&gt;:</strong> Table Data - células de dados normais</li>
+                </ul>
+            </div>
+
+            <h3>🎯 Estrutura Semântica Completa - Profissionalismo Total</h3>
+            <p>
+                <strong>Tabelas profissionais têm estrutura:</strong> Como um prédio bem construído, 
+                uma tabela profissional tem fundações (thead), corpo (tbody), rodapé (tfoot) e 
+                um título claro (caption). Isso não é apenas organização - é acessibilidade e SEO!
+            </p>
             <div class="codigo" data-lang="HTML">
 <pre><code>&lt;table&gt;
+    &lt;!-- 📋 Caption: O título que explica tudo --&gt;
     &lt;caption&gt;Funcionários da Empresa - Q1 2024&lt;/caption&gt;
     
+    &lt;!-- 🎭 THEAD: Cabeçalho da tabela --&gt;
     &lt;thead&gt;
         &lt;tr&gt;
-            &lt;th scope="col"&gt;ID&lt;/th&gt;
-            &lt;th scope="col"&gt;Nome Completo&lt;/th&gt;
-            &lt;th scope="col"&gt;Departamento&lt;/th&gt;
-            &lt;th scope="col"&gt;Salário&lt;/th&gt;
+            &lt;th scope="col"&gt;ID&lt;/th&gt;                    &lt;!-- 🆔 Identificador único --&gt;
+            &lt;th scope="col"&gt;Nome Completo&lt;/th&gt;         &lt;!-- 👤 Nome da pessoa --&gt;
+            &lt;th scope="col"&gt;Departamento&lt;/th&gt;          &lt;!-- 🏢 Setor de trabalho --&gt;
+            &lt;th scope="col"&gt;Salário&lt;/th&gt;               &lt;!-- 💰 Remuneração --&gt;
         &lt;/tr&gt;
     &lt;/thead&gt;
     
+    &lt;!-- 📊 TBODY: Corpo principal com os dados --&gt;
     &lt;tbody&gt;
         &lt;tr&gt;
             &lt;td&gt;001&lt;/td&gt;
@@ -125,23 +153,35 @@
         &lt;/tr&gt;
     &lt;/tbody&gt;
     
+    &lt;!-- 🧮 TFOOT: Rodapé com totais e resumos --&gt;
     &lt;tfoot&gt;
         &lt;tr&gt;
-            &lt;td colspan="3"&gt;&lt;strong&gt;Total Salários:&lt;/strong&gt;&lt;/td&gt;
-            &lt;td&gt;&lt;strong&gt;R$ 22.500&lt;/strong&gt;&lt;/td&gt;
+            &lt;td colspan="3"&gt;&lt;strong&gt;Total Salários:&lt;/strong&gt;&lt;/td&gt;  &lt;!-- 📊 Mescla 3 colunas --&gt;
+            &lt;td&gt;&lt;strong&gt;R$ 22.500&lt;/strong&gt;&lt;/td&gt;               &lt;!-- 💰 Soma total --&gt;
         &lt;/tr&gt;
     &lt;/tfoot&gt;
 &lt;/table&gt;</code></pre>
             </div>
 
-            <div class="destaque warning">
-                <h4>⚠️ Elementos Obrigatórios</h4>
+            <div class="destaque success">
+                <h4>🎯 Anatomia da Tabela Profissional</h4>
                 <ul>
-                    <li><strong>&lt;table&gt;:</strong> Container principal da tabela</li>
-                    <li><strong>&lt;tr&gt;:</strong> Linha da tabela (table row)</li>
-                    <li><strong>&lt;th&gt;:</strong> Célula de cabeçalho (table header)</li>
-                    <li><strong>&lt;td&gt;:</strong> Célula de dados (table data)</li>
-                    <li><strong>&lt;caption&gt;:</strong> Título/descrição da tabela</li>
+                    <li><strong>&lt;caption&gt;:</strong> Título da tabela - crucial para SEO e acessibilidade</li>
+                    <li><strong>&lt;thead&gt;:</strong> Cabeçalho - fica fixo ao fazer scroll em algumas implementações</li>
+                    <li><strong>&lt;tbody&gt;:</strong> Corpo principal - onde ficam os dados reais</li>
+                    <li><strong>&lt;tfoot&gt;:</strong> Rodapé - para totais, médias, resumos</li>
+                    <li><strong>scope="col":</strong> Indica que o cabeçalho se refere à coluna inteira</li>
+                    <li><strong>colspan="3":</strong> Mescla células horizontalmente</li>
+                </ul>
+            </div>
+
+            <div class="destaque warning">
+                <h4>⚠️ Elementos Obrigatórios vs Opcionais</h4>
+                <ul>
+                    <li><strong>✅ Obrigatórios:</strong> &lt;table&gt;, &lt;tr&gt;, &lt;td&gt; ou &lt;th&gt;</li>
+                    <li><strong>📋 Recomendados:</strong> &lt;caption&gt;, &lt;thead&gt;, &lt;tbody&gt;</li>
+                    <li><strong>📊 Opcionais:</strong> &lt;tfoot&gt; (só quando há totais/resumos)</li>
+                    <li><strong>♿ Acessibilidade:</strong> scope, headers (obrigatórios para tabelas complexas)</li>
                 </ul>
             </div>
         </section>
@@ -162,17 +202,36 @@
 
         <!-- Seção 2: Acessibilidade -->
         <section class="secao">
-            <h2>♿ 2. Tabelas Acessíveis</h2>
+            <h2>♿ 2. Tabelas Acessíveis - Inclusão Digital Verdadeira</h2>
             
-            <h3>🎯 Atributo Scope</h3>
+            <div class="destaque info">
+                <h4>🌍 Por que Acessibilidade em Tabelas é Crítica?</h4>
+                <p>
+                    <strong>Tabelas podem ser labirintos para usuários com deficiência visual.</strong> 
+                    Imagine navegar por uma planilha gigante usando apenas um leitor de tela - 
+                    sem as técnicas corretas, é como tentar montar um quebra-cabeças no escuro.
+                </p>
+                <p>
+                    <strong>Acessibilidade em tabelas beneficia todos:</strong> Headers bem definidos, 
+                    navegação clara e estrutura lógica tornam os dados mais compreensíveis para 
+                    qualquer pessoa, com ou sem deficiência.
+                </p>
+            </div>
+            
+            <h3>🎯 Atributo Scope - Criando Relacionamentos Claros</h3>
+            <p>
+                <strong>Scope conecta dados aos seus cabeçalhos:</strong> É como dizer ao leitor de tela 
+                "esta célula com o número 150 se refere ao cabeçalho 'Notebooks' na linha e 'Q1' na coluna". 
+                Sem scope, os dados ficam órfãos de contexto.
+            </p>
             <div class="codigo" data-lang="HTML">
 <pre><code>&lt;table&gt;
     &lt;caption&gt;Vendas por Trimestre - 2024&lt;/caption&gt;
     
     &lt;thead&gt;
         &lt;tr&gt;
-            &lt;th scope="col"&gt;Produto&lt;/th&gt;
-            &lt;th scope="col"&gt;Q1&lt;/th&gt;
+            &lt;th scope="col"&gt;Produto&lt;/th&gt;               &lt;!-- 🏷️ Cabeçalho de coluna --&gt;
+            &lt;th scope="col"&gt;Q1&lt;/th&gt;                    &lt;!-- 📊 Dados trimestrais --&gt;
             &lt;th scope="col"&gt;Q2&lt;/th&gt;
             &lt;th scope="col"&gt;Q3&lt;/th&gt;
             &lt;th scope="col"&gt;Q4&lt;/th&gt;
@@ -181,15 +240,15 @@
     
     &lt;tbody&gt;
         &lt;tr&gt;
-            &lt;th scope="row"&gt;Notebooks&lt;/th&gt;
-            &lt;td&gt;150&lt;/td&gt;
-            &lt;td&gt;200&lt;/td&gt;
+            &lt;th scope="row"&gt;Notebooks&lt;/th&gt;            &lt;!-- 🏷️ Cabeçalho de linha --&gt;
+            &lt;td&gt;150&lt;/td&gt;                             &lt;!-- 📊 Leitor lê: "Notebooks, Q1: 150" --&gt;
+            &lt;td&gt;200&lt;/td&gt;                             &lt;!-- 📊 Leitor lê: "Notebooks, Q2: 200" --&gt;
             &lt;td&gt;180&lt;/td&gt;
             &lt;td&gt;220&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;th scope="row"&gt;Smartphones&lt;/th&gt;
-            &lt;td&gt;300&lt;/td&gt;
+            &lt;th scope="row"&gt;Smartphones&lt;/th&gt;          &lt;!-- 🏷️ Outro produto --&gt;
+            &lt;td&gt;300&lt;/td&gt;                             &lt;!-- 📊 Contexto claro automaticamente --&gt;
             &lt;td&gt;350&lt;/td&gt;
             &lt;td&gt;280&lt;/td&gt;
             &lt;td&gt;400&lt;/td&gt;
@@ -198,20 +257,37 @@
 &lt;/table&gt;</code></pre>
             </div>
 
-            <h3>🏷️ Headers Complexos</h3>
+            <div class="destaque success">
+                <h4>🎯 Tipos de Scope Explicados</h4>
+                <ul>
+                    <li><strong>scope="col":</strong> Este cabeçalho se refere a toda a coluna abaixo</li>
+                    <li><strong>scope="row":</strong> Este cabeçalho se refere a toda a linha à direita</li>
+                    <li><strong>scope="colgroup":</strong> Para cabeçalhos que agrupam várias colunas</li>
+                    <li><strong>scope="rowgroup":</strong> Para cabeçalhos que agrupam várias linhas</li>
+                </ul>
+            </div>
+
+            <h3>🏷️ Headers Complexos - Navegando Estruturas Avançadas</h3>
+            <p>
+                <strong>Algumas tabelas são mais complexas:</strong> Quando você tem cabeçalhos aninhados, 
+                subgrupos ou estruturas em múltiplos níveis, precisa de técnicas mais sofisticadas 
+                para manter a acessibilidade.
+            </p>
             <div class="codigo" data-lang="HTML">
 <pre><code>&lt;table&gt;
     &lt;caption&gt;Relatório de Vendas por Região e Produto&lt;/caption&gt;
     
     &lt;thead&gt;
         &lt;tr&gt;
-            &lt;th rowspan="2" scope="col"&gt;Produto&lt;/th&gt;
-            &lt;th colspan="2" scope="colgroup"&gt;Sudeste&lt;/th&gt;
-            &lt;th colspan="2" scope="colgroup"&gt;Sul&lt;/th&gt;
+            &lt;th rowspan="2" scope="col"&gt;Produto&lt;/th&gt;       &lt;!-- 🎯 Atravessa 2 linhas --&gt;
+            &lt;th colspan="2" scope="colgroup"&gt;Sudeste&lt;/th&gt;   &lt;!-- 🌎 Agrupa 2 colunas --&gt;
+            &lt;th colspan="2" scope="colgroup"&gt;Sul&lt;/th&gt;      &lt;!-- 🌎 Outro agrupamento --&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;th scope="col"&gt;SP&lt;/th&gt;
+            &lt;!-- Subcabeçalhos da região Sudeste --&gt;
+            &lt;th scope="col"&gt;SP&lt;/th&gt;                       &lt;!-- 🏙️ Estados específicos --&gt;
             &lt;th scope="col"&gt;RJ&lt;/th&gt;
+            &lt;!-- Subcabeçalhos da região Sul --&gt;
             &lt;th scope="col"&gt;RS&lt;/th&gt;
             &lt;th scope="col"&gt;SC&lt;/th&gt;
         &lt;/tr&gt;
@@ -219,15 +295,15 @@
     
     &lt;tbody&gt;
         &lt;tr&gt;
-            &lt;th scope="row"&gt;Notebooks&lt;/th&gt;
-            &lt;td&gt;120&lt;/td&gt;
-            &lt;td&gt;85&lt;/td&gt;
-            &lt;td&gt;95&lt;/td&gt;
-            &lt;td&gt;60&lt;/td&gt;
+            &lt;th scope="row"&gt;Notebooks&lt;/th&gt;              &lt;!-- 📱 Produto como cabeçalho de linha --&gt;
+            &lt;td&gt;120&lt;/td&gt;                               &lt;!-- 📊 SP: 120 notebooks --&gt;
+            &lt;td&gt;85&lt;/td&gt;                                &lt;!-- 📊 RJ: 85 notebooks --&gt;
+            &lt;td&gt;95&lt;/td&gt;                                &lt;!-- 📊 RS: 95 notebooks --&gt;
+            &lt;td&gt;60&lt;/td&gt;                                &lt;!-- 📊 SC: 60 notebooks --&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;th scope="row"&gt;Tablets&lt;/th&gt;
-            &lt;td&gt;80&lt;/td&gt;
+            &lt;th scope="row"&gt;Tablets&lt;/th&gt;                &lt;!-- 📱 Outro produto --&gt;
+            &lt;td&gt;80&lt;/td&gt;                                &lt;!-- 📊 Leitores entendem a hierarquia --&gt;
             &lt;td&gt;65&lt;/td&gt;
             &lt;td&gt;70&lt;/td&gt;
             &lt;td&gt;45&lt;/td&gt;
@@ -236,52 +312,88 @@
 &lt;/table&gt;</code></pre>
             </div>
 
-            <h3>🗣️ ARIA para Tabelas Complexas</h3>
+            <div class="destaque info">
+                <h4>🎯 Estruturas Complexas Explicadas</h4>
+                <ul>
+                    <li><strong>rowspan="2":</strong> Cabeçalho que se estende por 2 linhas verticalmente</li>
+                    <li><strong>colspan="2":</strong> Cabeçalho que agrupa 2 colunas horizontalmente</li>
+                    <li><strong>scope="colgroup":</strong> Para cabeçalhos que representam grupos de colunas</li>
+                    <li><strong>Hierarquia clara:</strong> Região → Estado → Produto → Valor</li>
+                </ul>
+            </div>
+
+            <h3>🗣️ ARIA para Tabelas Complexas - Comunicação Avançada</h3>
+            <p>
+                <strong>Quando HTML não é suficiente:</strong> Para tabelas muito complexas, 
+                ARIA (Accessible Rich Internet Applications) oferece atributos extras que 
+                ajudam leitores de tela a navegar e compreender estruturas sofisticadas.
+            </p>
             <div class="codigo" data-lang="HTML">
 <pre><code>&lt;table role="table" aria-label="Dados financeiros da empresa"&gt;
     &lt;caption id="caption-financeiro"&gt;
         Demonstrativo Financeiro - Último Trimestre
-        &lt;div&gt;Valores em milhares de reais&lt;/div&gt;
+        &lt;div&gt;Valores em milhares de reais&lt;/div&gt;       &lt;!-- 💰 Contexto importante --&gt;
     &lt;/caption&gt;
     
     &lt;thead&gt;
-        &lt;tr role="row"&gt;
+        &lt;tr role="row"&gt;                               &lt;!-- 📏 Papel da linha --&gt;
             &lt;th scope="col" aria-describedby="caption-financeiro"&gt;
                 Mês
             &lt;/th&gt;
-            &lt;th scope="col"&gt;Receita&lt;/th&gt;
-            &lt;th scope="col"&gt;Despesas&lt;/th&gt;
-            &lt;th scope="col"&gt;Lucro&lt;/th&gt;
+            &lt;th scope="col"&gt;Receita&lt;/th&gt;                &lt;!-- 💵 Entrada de dinheiro --&gt;
+            &lt;th scope="col"&gt;Despesas&lt;/th&gt;               &lt;!-- 💸 Saída de dinheiro --&gt;
+            &lt;th scope="col"&gt;Lucro&lt;/th&gt;                  &lt;!-- 📈 Resultado final --&gt;
         &lt;/tr&gt;
     &lt;/thead&gt;
     
     &lt;tbody&gt;
         &lt;tr role="row"&gt;
-            &lt;th scope="row"&gt;Janeiro&lt;/th&gt;
-            &lt;td&gt;R$ 150k&lt;/td&gt;
+            &lt;th scope="row"&gt;Janeiro&lt;/th&gt;                &lt;!-- 📅 Período de referência --&gt;
+            &lt;td&gt;R$ 150k&lt;/td&gt;                           &lt;!-- 💰 Valores claramente formatados --&gt;
             &lt;td&gt;R$ 120k&lt;/td&gt;
             &lt;td&gt;R$ 30k&lt;/td&gt;
         &lt;/tr&gt;
+        &lt;!-- Mais linhas de dados... --&gt;
     &lt;/tbody&gt;
 &lt;/table&gt;</code></pre>
             </div>
 
             <div class="destaque tip">
-                <h4>💡 Dicas de Acessibilidade</h4>
+                <h4>💡 Dicas de Acessibilidade Avançada</h4>
                 <ul>
-                    <li>Sempre use <code>&lt;caption&gt;</code> para descrever o propósito da tabela</li>
-                    <li>Use <code>scope="col"</code> e <code>scope="row"</code> corretamente</li>
-                    <li>Para tabelas complexas, use <code>headers</code> attribute</li>
-                    <li>Mantenha estrutura lógica de leitura</li>
+                    <li><strong>&lt;caption&gt; sempre:</strong> Descreva o propósito e contexto da tabela</li>
+                    <li><strong>scope correto:</strong> "col" para colunas, "row" para linhas, "colgroup"/"rowgroup" para grupos</li>
+                    <li><strong>role="table":</strong> Garante que seja reconhecido como tabela</li>
+                    <li><strong>aria-label:</strong> Descrição adicional quando caption não é suficiente</li>
+                    <li><strong>aria-describedby:</strong> Conecta células a descrições extras</li>
+                    <li><strong>Teste com leitor de tela:</strong> Use NVDA (gratuito) ou JAWS para validar</li>
                 </ul>
             </div>
         </section>
 
         <!-- Seção 3: Colspan e Rowspan -->
         <section class="secao">
-            <h2>🔗 3. Mesclando Células</h2>
+            <h2>🔗 3. Mesclando Células - Criando Estruturas Inteligentes</h2>
             
-            <h3>↔️ Colspan - Mesclagem Horizontal</h3>
+            <div class="destaque info">
+                <h4>🎯 O Poder da Mesclagem</h4>
+                <p>
+                    <strong>Mesclar células é como arquitetura de dados:</strong> Você conecta informações 
+                    relacionadas, cria agrupamentos lógicos e organiza dados complexos de forma visual. 
+                    É a diferença entre uma planilha bagunçada e um relatório profissional.
+                </p>
+                <p>
+                    <strong>Mas cuidado:</strong> Mesclagem excessiva pode tornar tabelas inacessíveis. 
+                    Use com moderação e sempre mantenha a lógica clara.
+                </p>
+            </div>
+            
+            <h3>↔️ Colspan - Mesclagem Horizontal (Conectando Colunas)</h3>
+            <p>
+                <strong>Colspan é para spans horizontais:</strong> Quando uma informação se aplica 
+                a várias colunas adjacentes, use colspan. Perfeito para cronogramas, relatórios 
+                de período e agrupamentos de dados relacionados.
+            </p>
             <div class="codigo" data-lang="HTML">
 <pre><code>&lt;table&gt;
     &lt;caption&gt;Cronograma do Projeto&lt;/caption&gt;
@@ -299,27 +411,42 @@
     &lt;tbody&gt;
         &lt;tr&gt;
             &lt;th scope="row"&gt;Planejamento&lt;/th&gt;
-            &lt;td colspan="2"&gt;Análise e Definição&lt;/td&gt;
-            &lt;td&gt;-&lt;/td&gt;
-            &lt;td&gt;-&lt;/td&gt;
+            &lt;td colspan="2"&gt;Análise e Definição&lt;/td&gt;    &lt;!-- 📅 Ocupa Jan+Fev --&gt;
+            &lt;td&gt;-&lt;/td&gt;                                  &lt;!-- 📅 Março vazio --&gt;
+            &lt;td&gt;-&lt;/td&gt;                                  &lt;!-- 📅 Abril vazio --&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
             &lt;th scope="row"&gt;Desenvolvimento&lt;/th&gt;
-            &lt;td&gt;-&lt;/td&gt;
-            &lt;td colspan="3"&gt;Codificação e Testes&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;                                  &lt;!-- 📅 Janeiro vazio --&gt;
+            &lt;td colspan="3"&gt;Codificação e Testes&lt;/td&gt;   &lt;!-- 📅 Fev+Mar+Abr --&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
             &lt;th scope="row"&gt;Entrega&lt;/th&gt;
             &lt;td&gt;-&lt;/td&gt;
             &lt;td&gt;-&lt;/td&gt;
             &lt;td&gt;-&lt;/td&gt;
-            &lt;td&gt;Deploy&lt;/td&gt;
+            &lt;td&gt;Deploy&lt;/td&gt;                              &lt;!-- 📅 Só em Abril --&gt;
         &lt;/tr&gt;
     &lt;/tbody&gt;
 &lt;/table&gt;</code></pre>
             </div>
 
-            <h3>↕️ Rowspan - Mesclagem Vertical</h3>
+            <div class="destaque success">
+                <h4>🎯 Como Colspan Funciona</h4>
+                <ul>
+                    <li><strong>colspan="2":</strong> Esta célula ocupa o espaço de 2 colunas</li>
+                    <li><strong>colspan="3":</strong> Esta célula ocupa o espaço de 3 colunas</li>
+                    <li><strong>Regra importante:</strong> O número total de colunas deve bater em cada linha</li>
+                    <li><strong>Visualize:</strong> É como mesclar células no Excel horizontalmente</li>
+                </ul>
+            </div>
+
+            <h3>↕️ Rowspan - Mesclagem Vertical (Conectando Linhas)</h3>
+            <p>
+                <strong>Rowspan é para spans verticais:</strong> Quando uma informação se aplica 
+                a várias linhas consecutivas, use rowspan. Ideal para agrupamentos por categoria, 
+                departamentos ou qualquer classificação hierárquica.
+            </p>
             <div class="codigo" data-lang="HTML">
 <pre><code>&lt;table&gt;
     &lt;caption&gt;Equipe por Departamento&lt;/caption&gt;
@@ -434,9 +561,28 @@
 
         <!-- Seção 4: Responsividade -->
         <section class="secao">
-            <h2>📱 4. Tabelas Responsivas</h2>
+            <h2>📱 4. Tabelas Responsivas - Adaptação Inteligente</h2>
             
-            <h3>🔄 Scroll Horizontal</h3>
+            <div class="destaque info">
+                <h4>📊 O Desafio das Tabelas em Mobile</h4>
+                <p>
+                    <strong>Tabelas são naturalmente horizontais, mobiles são verticais:</strong> 
+                    Essa tensão fundamental cria um dos maiores desafios de design responsivo. 
+                    Uma tabela que funciona bem em desktop pode ser completamente inutilizável em smartphone.
+                </p>
+                <p>
+                    <strong>Não existe solução única:</strong> Cada tipo de tabela pede uma estratégia 
+                    diferente - scroll horizontal, cards, priorização de colunas ou até mesmo 
+                    redesign completo da informação.
+                </p>
+            </div>
+            
+            <h3>🔄 Scroll Horizontal - A Solução Simples</h3>
+            <p>
+                <strong>Quando usar:</strong> Para tabelas com muitas colunas onde todas as informações 
+                são importantes. O usuário pode deslizar horizontalmente para ver mais dados. 
+                É a abordagem mais simples e preserva toda a informação.
+            </p>
             <div class="codigo" data-lang="HTML">
 <pre><code>&lt;div class="table-container"&gt;
     &lt;table class="table-responsive"&gt;
@@ -599,59 +745,95 @@
 
         <!-- Seção 5: Estilização e UX -->
         <section class="secao">
-            <h2>🎨 5. Estilização e UX</h2>
+            <h2>🎨 5. Estilização e UX - Design que Funciona</h2>
             
-            <h3>🎯 CSS Base para Tabelas</h3>
+            <div class="destaque info">
+                <h4>🎯 UX em Tabelas: Mais que Beleza</h4>
+                <p>
+                    <strong>Tabelas bem estilizadas melhoram a compreensão:</strong> Não é apenas sobre 
+                    fazer bonito - zebra striping reduz erros de leitura, hover states ajudam na navegação, 
+                    e cores estratégicas destacam informações importantes.
+                </p>
+                <p>
+                    <strong>Hierarquia visual é fundamental:</strong> Headers devem se destacar, 
+                    dados devem ser legíveis, e o usuário deve conseguir escanear rapidamente 
+                    para encontrar o que procura.
+                </p>
+            </div>
+            
+            <h3>🎯 CSS Base para Tabelas - Fundação Sólida</h3>
+            <p>
+                <strong>Comece com o básico bem feito:</strong> Antes de adicionar efeitos elaborados, 
+                garanta que sua tabela tenha tipografia legível, espaçamento adequado e 
+                contraste suficiente. A funcionalidade vem antes da decoração.
+            </p>
             <div class="codigo" data-lang="CSS">
-<pre><code>/* Estilos base */
+<pre><code>/* 📐 Estilos base - A fundação */
 table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 20px 0;
+    border-collapse: collapse;                          /* 🔗 Une bordas adjacentes */
+    width: 100%;                                       /* 📏 Largura total disponível */
+    margin: 20px 0;                                    /* 📏 Espaço vertical */
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 caption {
-    caption-side: top;
-    text-align: left;
-    font-weight: bold;
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    color: #333;
+    caption-side: top;                                 /* 📍 Posição do título */
+    text-align: left;                                  /* 📍 Alinhamento à esquerda */
+    font-weight: bold;                                 /* ✨ Destaque do título */
+    font-size: 1.2em;                                  /* 📏 Tamanho maior */
+    margin-bottom: 10px;                               /* 📏 Espaço abaixo */
+    color: #333;                                       /* 🎨 Cor neutra escura */
 }
 
 th, td {
-    text-align: left;
-    padding: 12px 15px;
-    border-bottom: 1px solid #ddd;
+    text-align: left;                                  /* 📍 Alinhamento padrão */
+    padding: 12px 15px;                                /* 📦 Espaço interno confortável */
+    border-bottom: 1px solid #ddd;                     /* 🖼️ Linha separadora */
 }
 
 th {
-    background-color: #f8f9fa;
-    font-weight: 600;
-    color: #495057;
-    border-top: 2px solid #007bff;
+    background-color: #f8f9fa;                         /* 🎨 Fundo dos cabeçalhos */
+    font-weight: 600;                                  /* ✨ Peso da fonte */
+    color: #495057;                                    /* 🎨 Cor do texto */
+    border-top: 2px solid #007bff;                     /* 🎨 Borda superior azul */
 }
 
-/* Zebra striping */
+/* 🦓 Zebra striping - Facilita leitura */
 tbody tr:nth-child(even) {
-    background-color: #f8f9fa;
+    background-color: #f8f9fa;                         /* 🎨 Linhas pares destacadas */
 }
 
-/* Hover effects */
+/* 🖱️ Hover effects - Feedback visual */
 tbody tr:hover {
-    background-color: #e8f4fd;
-    cursor: default;
+    background-color: #e8f4fd;                         /* 🎨 Cor ao passar mouse */
+    cursor: default;                                   /* 🖱️ Cursor padrão */
 }
 
-/* Focus para acessibilidade */
+/* ♿ Focus para acessibilidade */
 th:focus, td:focus {
-    outline: 2px solid #007bff;
-    outline-offset: -2px;
+    outline: 2px solid #007bff;                        /* 🔍 Contorno de foco */
+    outline-offset: -2px;                              /* 📏 Posição do contorno */
 }</code></pre>
             </div>
 
-            <h3>📊 Tabela com Indicadores Visuais</h3>
+            <div class="destaque success">
+                <h4>🎯 Princípios de Estilização Explicados</h4>
+                <ul>
+                    <li><strong>border-collapse:</strong> Une bordas para visual limpo</li>
+                    <li><strong>Zebra striping:</strong> Alterna cores das linhas para facilitar leitura</li>
+                    <li><strong>Hover states:</strong> Feedback visual quando usuário navega</li>
+                    <li><strong>Focus states:</strong> Essencial para navegação por teclado</li>
+                    <li><strong>Tipografia consistente:</strong> Font-family, tamanhos e pesos harmônicos</li>
+                    <li><strong>Espaçamento generoso:</strong> Padding adequado melhora legibilidade</li>
+                </ul>
+            </div>
+
+            <h3>📊 Tabela com Indicadores Visuais - Dados que Falam</h3>
+            <p>
+                <strong>Transforme números em insights:</strong> Barras de progresso, badges de status 
+                e indicadores coloridos ajudam usuários a entender dados rapidamente. 
+                É a diferença entre uma planilha fria e um dashboard inteligente.
+            </p>
             <div class="codigo" data-lang="HTML">
 <pre><code>&lt;table class="status-table"&gt;
     &lt;caption&gt;Status dos Projetos da Equipe&lt;/caption&gt;
@@ -794,55 +976,110 @@ th:focus, td:focus {
         <section class="secao">
             <h2>📋 Resumo da Aula</h2>
             
+            <div class="destaque success">
+                <h4>🎓 Missão Cumprida: Tabelas Dominadas!</h4>
+                <p>
+                    Parabéns! Você completou uma jornada completa pelas tabelas HTML. 
+                    Agora você possui conhecimento sólido para criar tabelas profissionais, 
+                    acessíveis e responsivas que realmente servem aos usuários.
+                </p>
+            </div>
+            
             <div class="recursos">
                 <div class="recurso-card">
                     <h4>🏗️ Estrutura Semântica</h4>
-                    <p>thead, tbody, tfoot, caption e elementos corretos para dados tabulares.</p>
+                    <p>Domínio completo de thead, tbody, tfoot, caption e elementos corretos 
+                    para dados tabulares organizados e profissionais.</p>
+                    <ul>
+                        <li>Hierarquia clara com caption, thead, tbody, tfoot</li>
+                        <li>Elementos semânticos para diferentes tipos de dados</li>
+                        <li>Boas práticas de organização e nomenclatura</li>
+                    </ul>
                 </div>
                 
                 <div class="recurso-card">
-                    <h4>♿ Acessibilidade</h4>
-                    <p>Scope, headers, ARIA e navegação por teclado em tabelas.</p>
+                    <h4>♿ Acessibilidade Avançada</h4>
+                    <p>Implementação completa de scope, headers, ARIA e navegação por teclado 
+                    para tabelas verdadeiramente inclusivas.</p>
+                    <ul>
+                        <li>Atributos scope para relacionamentos claros</li>
+                        <li>ARIA para tabelas complexas</li>
+                        <li>Estruturas navegáveis por leitores de tela</li>
+                    </ul>
                 </div>
                 
                 <div class="recurso-card">
-                    <h4>🔗 Mesclagem</h4>
-                    <p>Colspan e rowspan para estruturas complexas e relatórios.</p>
+                    <h4>🔗 Mesclagem Inteligente</h4>
+                    <p>Uso estratégico de colspan e rowspan para estruturas complexas, 
+                    relatórios avançados e agrupamentos lógicos.</p>
+                    <ul>
+                        <li>Colspan para mesclagem horizontal</li>
+                        <li>Rowspan para agrupamentos verticais</li>
+                        <li>Combinações complexas para relatórios</li>
+                    </ul>
                 </div>
                 
                 <div class="recurso-card">
-                    <h4>📱 Responsividade</h4>
-                    <p>Técnicas para adaptar tabelas a diferentes tamanhos de tela.</p>
+                    <h4>📱 Responsividade Adaptativa</h4>
+                    <p>Múltiplas técnicas para adaptar tabelas a diferentes tamanhos de tela 
+                    mantendo usabilidade e acessibilidade.</p>
+                    <ul>
+                        <li>Scroll horizontal para preservar dados</li>
+                        <li>Cards responsivos para mobile</li>
+                        <li>Priorização de colunas essenciais</li>
+                    </ul>
                 </div>
             </div>
 
             <div class="checklist">
-                <h4>✅ Checklist de Tabelas</h4>
+                <h4>✅ Checklist de Tabelas Profissionais</h4>
                 <ul>
                     <li>
                         <input type="checkbox" id="table1">
-                        <label for="table1">Caption descritivo sempre presente</label>
+                        <label for="table1">Caption descritivo sempre presente e significativo</label>
                     </li>
                     <li>
                         <input type="checkbox" id="table2">
-                        <label for="table2">Cabeçalhos com scope adequado</label>
+                        <label for="table2">Cabeçalhos com scope adequado (col/row/colgroup/rowgroup)</label>
                     </li>
                     <li>
                         <input type="checkbox" id="table3">
-                        <label for="table3">Estrutura thead, tbody, tfoot</label>
+                        <label for="table3">Estrutura thead, tbody, tfoot implementada corretamente</label>
                     </li>
                     <li>
                         <input type="checkbox" id="table4">
-                        <label for="table4">Responsividade implementada</label>
+                        <label for="table4">Responsividade implementada com estratégia adequada</label>
                     </li>
                     <li>
                         <input type="checkbox" id="table5">
-                        <label for="table5">Acessibilidade validada</label>
+                        <label for="table5">Acessibilidade validada com leitores de tela</label>
                     </li>
                     <li>
                         <input type="checkbox" id="table6">
-                        <label for="table6">Estilização profissional</label>
+                        <label for="table6">Estilização profissional com UX otimizada</label>
                     </li>
+                    <li>
+                        <input type="checkbox" id="table7">
+                        <label for="table7">Mesclagem de células usada estrategicamente</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="table8">
+                        <label for="table8">Indicadores visuais para melhor compreensão dos dados</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="destaque tip">
+                <h4>🚀 Próximos Passos no Mundo das Tabelas</h4>
+                <p>
+                    Agora que você domina tabelas HTML, está pronto para:
+                </p>
+                <ul>
+                    <li><strong>Tabelas Dinâmicas:</strong> JavaScript para sorting, filtering e paginação</li>
+                    <li><strong>Frameworks de Dados:</strong> DataTables, AG-Grid, React Table</li>
+                    <li><strong>Visualizações:</strong> Charts.js, D3.js para gráficos interativos</li>
+                    <li><strong>Performance:</strong> Virtual scrolling para grandes datasets</li>
+                    <li><strong>Export:</strong> CSV, Excel, PDF para download de dados</li>
                 </ul>
             </div>
         </section>

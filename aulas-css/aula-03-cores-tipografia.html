@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎨 Aula 3: Cores e Tipografia no CSS</title>
+    <meta name="description" content="Aprenda a dominar cores, contrastes, fontes e tipografia no CSS para criar interfaces modernas e acessíveis.">
+    <link rel="stylesheet" href="assets/style-aulas.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>">
+</head>
+<body>
+    <div class="aula-container">
+        <!-- Header da Aula -->
+        <header class="aula-header">
+            <div class="aula-numero">🎨 AULA 3</div>
+            <h1 class="aula-titulo">Cores e Tipografia no CSS</h1>
+            <p class="aula-descricao">
+                Aprenda a escolher paletas de cores, aplicar contrastes, definir fontes e criar uma tipografia profissional e acessível para seus projetos web.
+            </p>
+            <div class="aula-meta">
+                <div class="meta-item">
+                    <span>⏱️</span> <span>60 min</span>
+                </div>
+                <div class="meta-item">
+                    <span>🎯</span> <span>Essencial</span>
+                </div>
+                <div class="meta-item">
+                    <span>🔤</span> <span>Tipografia</span>
+                </div>
+                <div class="meta-item">
+                    <span>🌈</span> <span>Cores</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Objetivos da Aula -->
+        <section class="secao">
+            <h2>🎯 Objetivos de Aprendizagem</h2>
+            <div class="objetivos">
+                <div class="objetivo">
+                    <h4>🌈 Dominar Cores no CSS</h4>
+                    <p>Entender sistemas de cores (hex, rgb, hsl), contraste e acessibilidade.</p>
+                </div>
+                <div class="objetivo">
+                    <h4>🔤 Tipografia Profissional</h4>
+                    <p>Escolher fontes, tamanhos, pesos e espaçamentos para uma leitura agradável.</p>
+                </div>
+                <div class="objetivo">
+                    <h4>🖌️ Prática Visual</h4>
+                    <p>Aplicar paletas, variações e hierarquia visual em exemplos reais.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 1: Cores no CSS -->
+        <section class="secao">
+            <h2>🌈 1. Cores no CSS</h2>
+            <p>
+                O CSS permite usar diferentes sistemas de cores: <strong>hexadecimal</strong>, <strong>RGB</strong>, <strong>HSL</strong> e nomes pré-definidos. Cores são essenciais para identidade visual, contraste e acessibilidade.
+            </p>
+            <div class="codigo" data-lang="CSS">
+<pre><code>/* Exemplos de cores no CSS */
+body {
+    background: #f8f9fa;      /* Hexadecimal */
+    color: rgb(44, 62, 80);   /* RGB */
+}
+
+h1 {
+    color: hsl(210, 100%, 40%); /* HSL */
+}
+
+.botao {
+    background: var(--primary-color); /* Variável CSS */
+    color: #fff;
+}</code></pre>
+            </div>
+            <div class="destaque tip">
+                <h4>💡 Dica</h4>
+                <ul>
+                    <li>Use <strong>contraste alto</strong> para garantir legibilidade.</li>
+                    <li>Ferramentas como <a href="https://webaim.org/resources/contrastchecker/" target="_blank">WebAIM Contrast Checker</a> ajudam a validar.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Seção 2: Paleta e Variáveis -->
+        <section class="secao">
+            <h2>🎨 2. Paleta de Cores e Variáveis CSS</h2>
+            <p>
+                Defina uma paleta consistente usando <strong>variáveis CSS</strong> para facilitar manutenção e garantir harmonia visual.
+            </p>
+            <div class="codigo" data-lang="CSS">
+<pre><code>:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --accent-color: #e67e22;
+    --background: #f8f9fa;
+    --text-color: #2c3e50;
+}
+
+body {
+    background: var(--background);
+    color: var(--text-color);
+}
+
+.botao {
+    background: var(--primary-color);
+    color: #fff;
+}</code></pre>
+            </div>
+            <div class="destaque info">
+                <h4>🎯 Boas Práticas</h4>
+                <ul>
+                    <li>Centralize as cores no <code>:root</code> para fácil alteração.</li>
+                    <li>Use nomes semânticos (ex: <code>--danger-color</code>, <code>--success-color</code>).</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Seção 3: Tipografia -->
+        <section class="secao">
+            <h2>🔤 3. Tipografia no CSS</h2>
+            <p>
+                A tipografia define a personalidade do site. Escolha fontes legíveis, defina hierarquia visual e ajuste espaçamentos para uma leitura confortável.
+            </p>
+            <div class="codigo" data-lang="CSS">
+<pre><code>body {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+p {
+    margin-bottom: 1em;
+}</code></pre>
+            </div>
+            <div class="destaque tip">
+                <h4>💡 Dica de Tipografia</h4>
+                <ul>
+                    <li>Use no máximo 2 famílias de fontes principais.</li>
+                    <li>Garanta contraste entre títulos e textos.</li>
+                    <li>Prefira fontes do Google Fonts para web.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Seção 4: Hierarquia e Espaçamento -->
+        <section class="secao">
+            <h2>📏 4. Hierarquia Visual e Espaçamento</h2>
+            <p>
+                Crie uma hierarquia clara usando tamanhos, pesos e espaçamentos. Isso guia o olhar do usuário e facilita a leitura.
+            </p>
+            <div class="codigo" data-lang="CSS">
+<pre><code>h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    margin-bottom: 1em;
+}</code></pre>
+            </div>
+            <div class="destaque info">
+                <h4>🎯 Boas Práticas de Hierarquia</h4>
+                <ul>
+                    <li>Use <strong>rem</strong> para tamanhos responsivos.</li>
+                    <li>Espaçamento consistente melhora a experiência.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Exercício Prático -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício: Landing Page Colorida</h4>
+            <p>
+                Crie uma landing page simples utilizando:
+            </p>
+            <ul>
+                <li>Paleta de cores com variáveis CSS</li>
+                <li>Fontes do Google Fonts</li>
+                <li>Hierarquia tipográfica clara</li>
+                <li>Botão com cor de destaque</li>
+            </ul>
+        </div>
+
+        <!-- Resumo da Aula -->
+        <section class="secao">
+            <h2>📋 Resumo da Aula</h2>
+            <ul>
+                <li>🌈 Cores: hex, rgb, hsl, variáveis CSS</li>
+                <li>🎨 Paleta centralizada e semântica</li>
+                <li>🔤 Tipografia: fontes, tamanhos, pesos</li>
+                <li>📏 Hierarquia visual e espaçamento</li>
+                <li>💡 Boas práticas para acessibilidade</li>
+            </ul>
+        </section>
+
+        <!-- Navegação do Curso -->
+        <nav class="course-navigation">
+            <div class="nav-buttons">
+                <a href="aula-02-seletores.html" class="nav-btn secondary">
+                    ← Aula Anterior
+                </a>
+                <a href="aula-04.html" class="nav-btn primary">
+                    Próxima Aula →
+                </a>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>

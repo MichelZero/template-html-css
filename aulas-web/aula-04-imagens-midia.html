@@ -58,81 +58,178 @@
 
         <!-- Seção 1: Imagens Básicas -->
         <section class="secao">
-            <h2>🖼️ 1. Elemento de Imagem (img)</h2>
+            <h2>🖼️ 1. Elemento de Imagem (img) - A Base Visual da Web</h2>
             
             <div class="destaque info">
-                <h4>🎯 Imagem como Conteúdo</h4>
+                <h4>🎯 Imagem como Conteúdo vs. Decoração</h4>
                 <p>
-                    Use <code>&lt;img&gt;</code> quando a imagem faz parte do conteúdo. 
-                    Para decoração, use CSS background-image.
+                    <strong>Use &lt;img&gt; quando a imagem faz parte do conteúdo:</strong> 
+                    Fotos de produtos, gráficos informativos, retratos de pessoas, ilustrações 
+                    que complementam o texto. Estas imagens têm significado semântico.
+                </p>
+                <p>
+                    <strong>Use CSS background-image para decoração:</strong> 
+                    Padrões, texturas, elementos visuais que são apenas estéticos. 
+                    Se a imagem desaparecesse, o conteúdo ainda faria sentido completo.
                 </p>
             </div>
 
-            <h3>📝 Sintaxe Básica</h3>
+            <h3>📝 Sintaxe Básica - Construindo a Base</h3>
+            <p>
+                <strong>Todo elemento img precisa de dois atributos essenciais:</strong> 
+                O `src` que diz onde está a imagem e o `alt` que descreve o que ela mostra. 
+                Estes dois atributos são a diferença entre uma imagem acessível e uma barreira digital.
+            </p>
             <div class="codigo" data-lang="HTML">
-<pre><code>&lt;!-- Imagem básica --&gt;
+<pre><code>&lt;!-- 📸 Imagem básica - O mínimo essencial --&gt;
 &lt;img src="foto.jpg" alt="Descrição da imagem"&gt;
 
-&lt;!-- Imagem com dimensões --&gt;
+&lt;!-- 📏 Imagem com dimensões - Evita layout shift --&gt;
 &lt;img src="logo.png" 
      alt="Logo da empresa" 
-     width="200" 
-     height="100"&gt;
+     width="200"                          &lt;!-- 📏 Largura em pixels --&gt;
+     height="100"&gt;                        &lt;!-- 📏 Altura em pixels --&gt;
 
-&lt;!-- Imagem com loading lazy --&gt;
+&lt;!-- ⚡ Imagem com loading lazy - Performance otimizada --&gt;
 &lt;img src="imagem-grande.jpg" 
-     alt="Paisagem montanhosa" 
-     loading="lazy"&gt;</code></pre>
+     alt="Paisagem montanhosa ao pôr do sol" 
+     loading="lazy"&gt;                      &lt;!-- 🚀 Carrega quando necessário --&gt;</code></pre>
             </div>
 
-            <h3>♿ Texto Alternativo (Alt)</h3>
+            <div class="destaque success">
+                <h4>🎯 Atributos Fundamentais Explicados</h4>
+                <ul>
+                    <li><strong>src:</strong> Caminho para a imagem (relativo ou absoluto)</li>
+                    <li><strong>alt:</strong> Descrição textual - NUNCA deixe vazio sem motivo</li>
+                    <li><strong>width/height:</strong> Dimensões ajudam o navegador reservar espaço</li>
+                    <li><strong>loading="lazy":</strong> Carregamento sob demanda para performance</li>
+                    <li><strong>title:</strong> Tooltip que aparece ao passar o mouse (opcional)</li>
+                </ul>
+            </div>
+
+            <h3>♿ Texto Alternativo (Alt) - Acessibilidade que Funciona</h3>
+            <p>
+                <strong>Alt text é crucial para acessibilidade:</strong> Leitores de tela dependem 
+                dele para descrever imagens a usuários com deficiência visual. Mas não é apenas 
+                isso - também aparece quando a imagem não carrega e melhora o SEO.
+            </p>
             <div class="codigo" data-lang="HTML">
-<pre><code>&lt;!-- ✅ BOM: Alt descritivo --&gt;
+<pre><code>&lt;!-- ✅ EXCELENTE: Alt descritivo e específico --&gt;
 &lt;img src="grafico-vendas.png" 
-     alt="Gráfico mostrando aumento de 30% nas vendas em 2024"&gt;
+     alt="Gráfico de barras mostrando aumento de 30% nas vendas de janeiro a dezembro de 2024"&gt;
 
-&lt;!-- ✅ BOM: Imagem decorativa --&gt;
-&lt;img src="decoracao.png" alt=""&gt;
+&lt;!-- ✅ PERFEITO: Imagem decorativa --&gt;
+&lt;img src="decoracao.png" alt=""&gt;              &lt;!-- 🎨 Alt vazio = decoração --&gt;
 
-&lt;!-- ✅ BOM: Logo --&gt;
-&lt;img src="logo.png" alt="Empresa ABC"&gt;
+&lt;!-- ✅ ÓTIMO: Logo da empresa --&gt;
+&lt;img src="logo.png" alt="Empresa ABC - Soluções em Tecnologia"&gt;
 
-&lt;!-- ❌ RUIM: Alt genérico --&gt;
-&lt;img src="foto.jpg" alt="imagem"&gt;
+&lt;!-- ✅ BOM: Produto em e-commerce --&gt;
+&lt;img src="smartphone.jpg" 
+     alt="Smartphone Samsung Galaxy A54, cor azul, tela de 6.4 polegadas"&gt;
 
-&lt;!-- ❌ RUIM: Alt desnecessário --&gt;
-&lt;img src="decoracao.png" alt="decoração"&gt;</code></pre>
+&lt;!-- ❌ RUIM: Alt genérico e inútil --&gt;
+&lt;img src="foto.jpg" alt="imagem"&gt;             &lt;!-- 😞 Não ajuda ninguém --&gt;
+
+&lt;!-- ❌ RUIM: Alt desnecessário em decoração --&gt;
+&lt;img src="decoracao.png" alt="decoração"&gt;    &lt;!-- 😞 Polui a experiência --&gt;</code></pre>
             </div>
 
-            <h3>🎨 Imagem com Legenda</h3>
+            <div class="destaque warning">
+                <h4>📝 Guia do Alt Text Perfeito</h4>
+                <ul>
+                    <li><strong>Seja específico:</strong> "Gráfico de vendas Q4" é melhor que "gráfico"</li>
+                    <li><strong>Descreva o essencial:</strong> O que o usuário precisa saber?</li>
+                    <li><strong>Contextualize:</strong> Considere o texto ao redor da imagem</li>
+                    <li><strong>Alt vazio para decoração:</strong> alt="" informa que é apenas visual</li>
+                    <li><strong>Evite "imagem de" ou "foto de":</strong> É redundante</li>
+                    <li><strong>Máximo ~125 caracteres:</strong> Leitores de tela pausam em textos longos</li>
+                </ul>
+            </div>
+
+            <h3>🎨 Imagem com Legenda - Semântica e Estilo</h3>
+            <p>
+                <strong>Figure e figcaption criam relacionamentos semânticos:</strong> 
+                Quando uma imagem precisa de uma legenda ou crédito, use estes elementos. 
+                Eles informam claramente aos navegadores e leitores de tela que o texto 
+                está diretamente relacionado à imagem.
+            </p>
             <div class="codigo" data-lang="HTML">
-<pre><code>&lt;figure&gt;
+<pre><code>&lt;!-- 🎯 FIGURE: Container semântico para mídia com legenda --&gt;
+&lt;figure&gt;
     &lt;img src="arquitetura-gotica.jpg" 
-         alt="Catedral com arcos ogivais e vitrais coloridos"&gt;
+         alt="Catedral com arcos ogivais típicos do gótico francês, vitrais coloridos e rosácea central"&gt;
+    
+    &lt;!-- 📝 FIGCAPTION: Legenda que complementa a informação --&gt;
     &lt;figcaption&gt;
         Catedral de Notre-Dame, exemplo clássico da arquitetura gótica 
-        com seus característicos arcos ogivais.
+        com seus característicos arcos ogivais e vitrais do século XIII.
+        &lt;br&gt;&lt;small&gt;📍 Paris, França | 📸 Foto: Maria Santos, 2024&lt;/small&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;!-- Múltiplas imagens em uma figura --&gt;
+&lt;!-- 🎨 MÚLTIPLAS IMAGENS: Antes e depois comparativo --&gt;
 &lt;figure&gt;
-    &lt;img src="antes.jpg" alt="Jardim antes da reforma"&gt;
-    &lt;img src="depois.jpg" alt="Jardim após a reforma"&gt;
+    &lt;div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;"&gt;
+        &lt;img src="jardim-antes.jpg" 
+             alt="Jardim abandonado com grama alta, plantas secas e canteiros desarrumados"&gt;
+        &lt;img src="jardim-depois.jpg" 
+             alt="Jardim renovado com grama aparada, flores coloridas e novo paisagismo"&gt;
+    &lt;/div&gt;
     &lt;figcaption&gt;
-        Transformação do jardim: antes e depois da reforma paisagística
+        Transformação completa do jardim: antes e depois da reforma paisagística
+        &lt;br&gt;&lt;small&gt;⏱️ Projeto realizado em 3 meses | 🌱 Parceria com Jardinagem Verde&lt;/small&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;!-- ✨ GALERIA: Múltiplas imagens relacionadas --&gt;
+&lt;figure&gt;
+    &lt;div class="galeria-produtos"&gt;
+        &lt;img src="produto-frente.jpg" alt="Smartphone visto de frente, tela ligada mostrando interface"&gt;
+        &lt;img src="produto-verso.jpg" alt="Parte traseira do smartphone mostrando câmeras triplas"&gt;
+        &lt;img src="produto-lateral.jpg" alt="Vista lateral destacando a espessura e botões"&gt;
+    &lt;/div&gt;
+    &lt;figcaption&gt;
+        Samsung Galaxy A54 - Visão completa do produto em diferentes ângulos
     &lt;/figcaption&gt;
 &lt;/figure&gt;</code></pre>
             </div>
 
+            <div class="destaque info">
+                <h4>🔍 Figure vs. Div: Quando Usar Cada Um?</h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                    <div>
+                        <h5>✅ Use FIGURE quando:</h5>
+                        <ul>
+                            <li>Imagem tem legenda ou crédito</li>
+                            <li>Conteúdo é referenciado no texto</li>
+                            <li>Precisa de contexto adicional</li>
+                            <li>É ilustração de um conceito</li>
+                            <li>Agrupa imagens relacionadas</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5>✅ Use IMG + DIV quando:</h5>
+                        <ul>
+                            <li>Imagem é apenas decorativa</li>
+                            <li>Não precisa de legenda</li>
+                            <li>Faz parte do fluxo do texto</li>
+                            <li>É ícone ou elemento de UI</li>
+                            <li>Layout puramente visual</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <div class="destaque warning">
-                <h4>⚠️ Boas Práticas para Imagens</h4>
+                <h4>⚠️ Boas Práticas para Imagens Básicas</h4>
                 <ul>
-                    <li>Sempre inclua o atributo <code>alt</code></li>
-                    <li>Use alt="" apenas para imagens decorativas</li>
-                    <li>Prefira formatos modernos (WebP, AVIF)</li>
-                    <li>Otimize tamanho e qualidade</li>
-                    <li>Use dimensões corretas (width/height)</li>
+                    <li><strong>Alt obrigatório:</strong> Sempre inclua, mesmo que vazio para decoração</li>
+                    <li><strong>Formatos modernos:</strong> WebP é 25-35% menor que JPEG</li>
+                    <li><strong>Dimensões definidas:</strong> Evita layout shift durante carregamento</li>
+                    <li><strong>Loading lazy:</strong> Melhora performance em páginas longas</li>
+                    <li><strong>Tamanho otimizado:</strong> Imagem no tamanho que será exibida</li>
+                    <li><strong>Fallback de formatos:</strong> Para compatibilidade com navegadores antigos</li>
                 </ul>
             </div>
         </section>
@@ -153,162 +250,407 @@
 
         <!-- Seção 2: Imagens Responsivas -->
         <section class="secao">
-            <h2>📱 2. Imagens Responsivas</h2>
+            <h2>📱 2. Imagens Responsivas - Adaptação Inteligente</h2>
             
-            <h3>🎯 Srcset para Diferentes Densidades</h3>
+            <p>
+                <strong>Imagens responsivas são essenciais no mundo multi-dispositivo:</strong> 
+                Com telas variando de 320px (smartphones) até 5120px (monitores 5K), 
+                servir a mesma imagem para todos é desperdício de dados e performance. 
+                HTML oferece ferramentas poderosas para entregar a imagem certa para cada situação.
+            </p>
+            
+            <h3>🎯 Srcset - Densidade de Pixels (DPR)</h3>
+            <p>
+                <strong>Diferentes telas, diferentes necessidades:</strong> 
+                Telas Retina (iPhone), AMOLED (Samsung) e monitores 4K têm densidade de pixels 
+                muito maior que telas tradicionais. O atributo <code>srcset</code> permite 
+                especificar múltiplas versões da mesma imagem.
+            </p>
+            
             <div class="codigo" data-lang="HTML">
-<pre><code>&lt;!-- Imagem para diferentes densidades de tela --&gt;
-&lt;img src="foto.jpg"
-     srcset="foto.jpg 1x,
-             foto@2x.jpg 2x,
-             foto@3x.jpg 3x"
-     alt="Descrição da foto"&gt;
+<pre><code>&lt;!-- 🎯 SRCSET POR DENSIDADE: Para telas Retina/4K --&gt;
+&lt;img src="logo-normal.png"                           &lt;!-- 📱 Fallback: telas normais --&gt;
+     srcset="logo-normal.png 1x,                     &lt;!-- 🖥️  1x: densidade padrão --&gt;
+             logo-retina.png 2x,                     &lt;!-- 📱 2x: iPhone, iPad --&gt;
+             logo-ultra.png 3x"                      &lt;!-- 🖥️  3x: Android flagship --&gt;
+     alt="Logo da empresa ABC - Tecnologia e Inovação"&gt;
 
-&lt;!-- Srcset com tamanhos específicos --&gt;
-&lt;img src="imagem-400.jpg"
-     srcset="imagem-400.jpg 400w,
-             imagem-800.jpg 800w,
-             imagem-1200.jpg 1200w"
-     sizes="(max-width: 600px) 100vw,
-            (max-width: 1000px) 50vw,
-            33vw"
-     alt="Imagem responsiva"&gt;</code></pre>
+&lt;!-- ✨ RESULTADO: Navegador escolhe automaticamente! ✨ --&gt;
+&lt;!-- 
+📱 iPhone 13: Carrega logo-retina.png (2x)
+🖥️ Monitor 4K: Carrega logo-ultra.png (3x)  
+💻 Laptop comum: Carrega logo-normal.png (1x)
+--&gt;</code></pre>
             </div>
 
-            <h3>🖼️ Elemento Picture</h3>
+            <div class="destaque info">
+                <h4>🧮 Como Calcular Densidade de Pixels?</h4>
+                <p><strong>DPR (Device Pixel Ratio) = Pixels físicos ÷ Pixels CSS</strong></p>
+                <ul>
+                    <li><strong>1x:</strong> Monitores tradicionais, laptops básicos</li>
+                    <li><strong>2x:</strong> MacBook Pro, iPhone, iPad, monitores Retina</li>
+                    <li><strong>3x:</strong> Android flagship, iPhone Pro Max</li>
+                    <li><strong>4x:</strong> Alguns Android premium (raro em web)</li>
+                </ul>
+            </div>
+
+            <h3>📏 Srcset com Larguras (Responsive Breakpoints)</h3>
+            <p>
+                <strong>Imagens que se adaptam ao espaço disponível:</strong> 
+                Às vezes não é sobre densidade, mas sobre largura. Uma imagem hero 
+                no desktop pode ocupar 1200px, mas no mobile apenas 320px. 
+                Por que carregar uma imagem gigante em uma tela pequena?
+            </p>
+            
             <div class="codigo" data-lang="HTML">
-<pre><code>&lt;picture&gt;
-    &lt;!-- Formato moderno para navegadores compatíveis --&gt;
-    &lt;source srcset="imagem.webp" type="image/webp"&gt;
-    &lt;source srcset="imagem.avif" type="image/avif"&gt;
+<pre><code>&lt;!-- 📐 SRCSET POR LARGURA: Diferentes tamanhos para diferentes telas --&gt;
+&lt;img src="paisagem-media.jpg"                       &lt;!-- 📱 Fallback --&gt;
+     srcset="paisagem-pequena.jpg 400w,             &lt;!-- 📱 400px de largura --&gt;
+             paisagem-media.jpg 800w,               &lt;!-- 💻 800px de largura --&gt;
+             paisagem-grande.jpg 1200w,             &lt;!-- 🖥️  1200px de largura --&gt;
+             paisagem-ultra.jpg 1600w"              &lt;!-- 🖥️  1600px+ de largura --&gt;
+     sizes="(max-width: 480px) 100vw,               &lt;!-- 📱 Mobile: largura total --&gt;
+            (max-width: 768px) 80vw,                &lt;!-- 📱 Tablet: 80% da tela --&gt;
+            (max-width: 1200px) 60vw,               &lt;!-- 💻 Laptop: 60% da tela --&gt;
+            50vw"                                   &lt;!-- 🖥️  Desktop: 50% da tela --&gt;
+     alt="Paisagem montanhosa com lago cristalino ao amanhecer"&gt;
+
+&lt;!-- 🎯 COMO FUNCIONA: --&gt;
+&lt;!-- 
+1. Navegador calcula: "Preciso de uma imagem de 320px"
+2. Olha o srcset: "Qual imagem mais próxima?"
+3. Escolhe: paisagem-pequena.jpg (400w)
+4. Carrega apenas o necessário! 
+--&gt;</code></pre>
+            </div>
+
+            <div class="destaque success">
+                <h4>💡 Sizes: Explicando ao Navegador</h4>
+                <p>O atributo <code>sizes</code> informa como a imagem será exibida:</p>
+                <ul>
+                    <li><strong>100vw:</strong> Largura total da viewport (mobile)</li>
+                    <li><strong>50vw:</strong> Metade da largura da viewport</li>
+                    <li><strong>320px:</strong> Largura fixa em pixels</li>
+                    <li><strong>calc(100vw - 2rem):</strong> Largura com margem</li>
+                </ul>
+            </div>
+
+            <h3>🖼️ Picture Element - Controle Total</h3>
+            <p>
+                <strong>Picture é como um "if/else" para imagens:</strong> 
+                Permite especificar exatamente qual imagem usar em cada situação. 
+                É perfeito para formatos modernos, art direction e breakpoints específicos.
+            </p>
+            
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- 🚀 FORMATOS MODERNOS: WebP com fallback --&gt;
+&lt;picture&gt;
+    &lt;!-- 1º: Tenta WebP (25-35% menor que JPEG) --&gt;
+    &lt;source srcset="produto.webp" type="image/webp"&gt;
     
-    &lt;!-- Fallback para navegadores antigos --&gt;
-    &lt;img src="imagem.jpg" alt="Descrição da imagem"&gt;
+    &lt;!-- 2º: Tenta AVIF (50% menor, mas suporte limitado) --&gt;
+    &lt;source srcset="produto.avif" type="image/avif"&gt;
+    
+    &lt;!-- 3º: Fallback JPEG (compatibilidade garantida) --&gt;
+    &lt;img src="produto.jpg" 
+         alt="Smartphone Samsung Galaxy A54, vista frontal com tela ligada"&gt;
 &lt;/picture&gt;
 
-&lt;!-- Picture com breakpoints --&gt;
+&lt;!-- 📱 BREAKPOINTS RESPONSIVOS: Diferentes tamanhos --&gt;
 &lt;picture&gt;
-    &lt;!-- Mobile --&gt;
-    &lt;source media="(max-width: 600px)" 
-            srcset="mobile-small.jpg 400w,
-                    mobile-large.jpg 600w"&gt;
+    &lt;!-- 📱 MOBILE: Imagem otimizada para telas pequenas --&gt;
+    &lt;source media="(max-width: 480px)" 
+            srcset="banner-mobile-400.webp 400w,
+                    banner-mobile-600.webp 600w"
+            sizes="100vw"&gt;
     
-    &lt;!-- Tablet --&gt;
-    &lt;source media="(max-width: 1000px)" 
-            srcset="tablet-small.jpg 600w,
-                    tablet-large.jpg 1000w"&gt;
+    &lt;!-- 💻 TABLET: Versão intermediária --&gt;
+    &lt;source media="(max-width: 1024px)" 
+            srcset="banner-tablet-600.webp 600w,
+                    banner-tablet-1000.webp 1000w"
+            sizes="90vw"&gt;
     
-    &lt;!-- Desktop --&gt;
-    &lt;source srcset="desktop-small.jpg 1000w,
-                    desktop-large.jpg 1400w"&gt;
+    &lt;!-- 🖥️ DESKTOP: Versão completa --&gt;
+    &lt;source srcset="banner-desktop-1200.webp 1200w,
+                    banner-desktop-1600.webp 1600w"
+            sizes="80vw"&gt;
     
-    &lt;img src="desktop-small.jpg" alt="Imagem responsiva"&gt;
+    &lt;!-- 🔄 FALLBACK: Para navegadores que não suportam Picture --&gt;
+    &lt;img src="banner-desktop-1200.jpg" 
+         alt="Banner promocional: Desconto de 50% em smartphones"&gt;
 &lt;/picture&gt;</code></pre>
             </div>
 
-            <h3>🎨 Art Direction</h3>
+            <h3>🎨 Art Direction - Imagens Inteligentes</h3>
+            <p>
+                <strong>Diferentes cortes para diferentes contextos:</strong> 
+                Às vezes não basta redimensionar - precisamos de composições diferentes. 
+                Um retrato corporativo no desktop pode mostrar a pessoa inteira, 
+                mas no mobile é melhor focar apenas no rosto.
+            </p>
+            
             <div class="codigo" data-lang="HTML">
-<pre><code>&lt;!-- Diferentes cortes da imagem para diferentes telas --&gt;
+<pre><code>&lt;!-- 🎭 ART DIRECTION: Diferentes cortes estratégicos --&gt;
 &lt;picture&gt;
-    &lt;!-- Mobile: foco no rosto --&gt;
+    &lt;!-- 📱 MOBILE: Foco no rosto (portrait crop) --&gt;
     &lt;source media="(max-width: 600px)" 
-            srcset="retrato-mobile.jpg"&gt;
+            srcset="ceo-mobile-close.webp"&gt;
     
-    &lt;!-- Tablet: meio corpo --&gt;
+    &lt;!-- 💻 TABLET: Meio corpo (medium crop) --&gt;
     &lt;source media="(max-width: 1000px)" 
-            srcset="retrato-tablet.jpg"&gt;
+            srcset="ceo-tablet-medium.webp"&gt;
     
-    &lt;!-- Desktop: corpo inteiro --&gt;
-    &lt;img src="retrato-desktop.jpg" 
-         alt="João Silva, CEO da empresa"&gt;
+    &lt;!-- 🖥️ DESKTOP: Corpo inteiro com contexto (wide crop) --&gt;
+    &lt;img src="ceo-desktop-full.webp" 
+         alt="Maria Silva, CEO da TechStart, em seu escritório com vista para São Paulo"&gt;
 &lt;/picture&gt;</code></pre>
             </div>
 
             <div class="destaque tip">
-                <h4>💡 Quando Usar Cada Técnica</h4>
+                <h4>💡 Quando Usar Cada Técnica Responsiva</h4>
                 <ul>
-                    <li><strong>srcset:</strong> Mesma imagem em tamanhos diferentes</li>
+                    <li><strong>srcset + sizes:</strong> Mesma imagem, diferentes tamanhos</li>
                     <li><strong>picture + source:</strong> Formatos diferentes ou art direction</li>
-                    <li><strong>sizes:</strong> Definir como a imagem será exibida</li>
-                    <li><strong>loading="lazy":</strong> Melhorar performance inicial</li>
+                    <li><strong>media queries:</strong> Breakpoints específicos</li>
+                    <li><strong>loading="lazy":</strong> Performance e economia de dados</li>
+                    <li><strong>WebP/AVIF:</strong> Compressão superior, carregamento mais rápido</li>
                 </ul>
             </div>
         </section>
 
         <!-- Seção 3: Vídeo -->
         <section class="secao">
-            <h2>🎬 3. Elemento de Vídeo</h2>
+            <h2>🎬 3. Elemento de Vídeo - Mídia Rica na Web</h2>
             
-            <h3>📹 Vídeo Básico</h3>
+            <p>
+                <strong>Vídeo HTML5 revolucionou a web:</strong> Antes dependíamos do Flash Player. 
+                Hoje, o elemento &lt;video&gt; oferece controle total, acessibilidade nativa 
+                e compatibilidade universal. É essencial para sites modernos, marketing 
+                digital e experiências imersivas.
+            </p>
+            
+            <h3>📹 Vídeo Básico - Fundamentos</h3>
+            <p>
+                <strong>Múltiplos formatos garantem compatibilidade:</strong> 
+                Nem todos os navegadores suportam os mesmos formatos. O elemento &lt;source&gt; 
+                permite especificar várias versões, e o navegador escolhe a primeira que conseguir reproduzir.
+            </p>
+            
             <div class="codigo" data-lang="HTML">
-<pre><code>&lt;!-- Vídeo com controles --&gt;
-&lt;video controls width="640" height="360"&gt;
-    &lt;source src="video.mp4" type="video/mp4"&gt;
-    &lt;source src="video.webm" type="video/webm"&gt;
+<pre><code>&lt;!-- 🎥 VÍDEO BÁSICO: Controles essenciais --&gt;
+&lt;video controls                                &lt;!-- 🎛️ Mostra play, pause, volume --&gt;
+       width="640" 
+       height="360"
+       poster="video-thumbnail.jpg"&gt;            &lt;!-- 🖼️ Imagem antes do play --&gt;
+    
+    &lt;!-- 📁 MÚLTIPLOS FORMATOS: Compatibilidade garantida --&gt;
+    &lt;source src="apresentacao.mp4" type="video/mp4"&gt;     &lt;!-- 🏆 Mais compatível --&gt;
+    &lt;source src="apresentacao.webm" type="video/webm"&gt;   &lt;!-- 🚀 Menor tamanho --&gt;
+    &lt;source src="apresentacao.ogv" type="video/ogg"&gt;     &lt;!-- 🔧 Fallback adicional --&gt;
+    
+    &lt;!-- 💬 FALLBACK: Para navegadores muito antigos --&gt;
     &lt;p&gt;
         Seu navegador não suporta vídeo HTML5. 
-        &lt;a href="video.mp4"&gt;Baixe o vídeo&lt;/a&gt;.
+        &lt;a href="apresentacao.mp4"&gt;📥 Baixe o vídeo&lt;/a&gt; ou 
+        &lt;a href="https://youtube.com/watch?v=xyz"&gt;🔗 Assista no YouTube&lt;/a&gt;.
     &lt;/p&gt;
-&lt;/video&gt;
-
-&lt;!-- Vídeo com poster e autoplay silencioso --&gt;
-&lt;video controls 
-       autoplay 
-       muted 
-       loop 
-       poster="thumbnail.jpg"
-       width="800" 
-       height="450"&gt;
-    &lt;source src="intro.mp4" type="video/mp4"&gt;
-    &lt;source src="intro.webm" type="video/webm"&gt;
 &lt;/video&gt;</code></pre>
             </div>
 
-            <h3>♿ Vídeo Acessível</h3>
+            <div class="destaque info">
+                <h4>📊 Formatos de Vídeo - Comparação</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Formato</th>
+                            <th>Compressão</th>
+                            <th>Suporte</th>
+                            <th>Melhor Para</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>MP4 (H.264)</strong></td>
+                            <td>Boa</td>
+                            <td>99%</td>
+                            <td>Uso geral, compatibilidade</td>
+                        </tr>
+                        <tr>
+                            <td><strong>WebM (VP9)</strong></td>
+                            <td>Excelente</td>
+                            <td>85%</td>
+                            <td>Web, tamanho menor</td>
+                        </tr>
+                        <tr>
+                            <td><strong>AV1</strong></td>
+                            <td>Superior</td>
+                            <td>70%</td>
+                            <td>Futuro, altíssima qualidade</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
             <div class="codigo" data-lang="HTML">
-<pre><code>&lt;video controls&gt;
-    &lt;source src="palestra.mp4" type="video/mp4"&gt;
-    &lt;source src="palestra.webm" type="video/webm"&gt;
+<pre><code>&lt;!-- 🎬 VÍDEO HERO: Autoplay silencioso (comum em landing pages) --&gt;
+&lt;video autoplay                               &lt;!-- ▶️ Inicia automaticamente --&gt;
+       muted                                  &lt;!-- 🔇 Sem som (obrigatório para autoplay) --&gt;
+       loop                                   &lt;!-- 🔄 Repete infinitamente --&gt;
+       playsinline                            &lt;!-- 📱 Não vai fullscreen no mobile --&gt;
+       poster="hero-poster.jpg"               &lt;!-- 🖼️ Carrega antes do vídeo --&gt;
+       width="1920" 
+       height="1080"&gt;
     
-    &lt;!-- Legendas em português --&gt;
+    &lt;source src="hero-video.mp4" type="video/mp4"&gt;
+    &lt;source src="hero-video.webm" type="video/webm"&gt;
+    
+    &lt;!-- 🔄 FALLBACK: Imagem estática como alternativa --&gt;
+    &lt;img src="hero-fallback.jpg" 
+         alt="Demonstração do produto em ação"&gt;
+&lt;/video&gt;
+
+&lt;!-- ⚠️ IMPORTANTE: Autoplay só funciona com muted! ⚠️ --&gt;</code></pre>
+            </div>
+
+            <div class="destaque warning">
+                <h4>🚨 Regras do Autoplay</h4>
+                <ul>
+                    <li><strong>Sempre muted:</strong> Vídeos com som só autoplay após interação do usuário</li>
+                    <li><strong>Políticas dos navegadores:</strong> Chrome, Safari bloqueiam autoplay com som</li>
+                    <li><strong>Mobile friendly:</strong> Use playsinline para evitar fullscreen automático</li>
+                    <li><strong>Performance:</strong> Vídeos hero devem ser &lt;5MB para carregamento rápido</li>
+                    <li><strong>Acessibilidade:</strong> Sempre forneça controle para pausar</li>
+                </ul>
+            </div>
+
+            <h3>♿ Vídeo Acessível - Inclusão Digital</h3>
+            <p>
+                <strong>Acessibilidade em vídeo é obrigação legal:</strong> 
+                A Lei Brasileira de Inclusão (LBI) exige que conteúdo digital seja acessível. 
+                Legendas, descrições de áudio e controles por teclado são essenciais para 
+                incluir pessoas com deficiência visual ou auditiva.
+            </p>
+            
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- 🎯 VÍDEO TOTALMENTE ACESSÍVEL --&gt;
+&lt;video controls                               &lt;!-- ⌨️ Navegável por teclado --&gt;
+       tabindex="0"                           &lt;!-- 🎯 Focável via Tab --&gt;
+       aria-label="Palestra sobre acessibilidade web"&gt;
+    
+    &lt;source src="palestra-hd.mp4" type="video/mp4"&gt;
+    &lt;source src="palestra-hd.webm" type="video/webm"&gt;
+    
+    &lt;!-- 💬 LEGENDAS: Para pessoas surdas/ensurdecidas --&gt;
     &lt;track kind="captions" 
-           src="legendas-pt.vtt" 
-           srclang="pt" 
-           label="Português"
-           default&gt;
+           src="legendas-pt-br.vtt" 
+           srclang="pt-BR" 
+           label="Português (Brasil)"
+           default&gt;                            &lt;!-- 🏆 Idioma padrão --&gt;
     
-    &lt;!-- Legendas em inglês --&gt;
+    &lt;!-- 🌍 LEGENDAS MULTILÍNGUES --&gt;
     &lt;track kind="captions" 
            src="legendas-en.vtt" 
            srclang="en" 
            label="English"&gt;
     
-    &lt;!-- Descrição de áudio --&gt;
+    &lt;track kind="captions" 
+           src="legendas-es.vtt" 
+           srclang="es" 
+           label="Español"&gt;
+    
+    &lt;!-- 🔊 DESCRIÇÃO DE ÁUDIO: Para pessoas cegas/baixa visão --&gt;
     &lt;track kind="descriptions" 
-           src="descricao.vtt" 
-           srclang="pt" 
+           src="descricao-audio.vtt" 
+           srclang="pt-BR" 
            label="Descrição de áudio"&gt;
     
-    &lt;p&gt;Seu navegador não suporta vídeo HTML5.&lt;/p&gt;
+    &lt;!-- 📖 CAPÍTULOS: Navegação por seções --&gt;
+    &lt;track kind="chapters" 
+           src="capitulos.vtt" 
+           srclang="pt-BR" 
+           label="Capítulos"&gt;
+    
+    &lt;!-- 🔄 FALLBACK acessível --&gt;
+    &lt;div&gt;
+        &lt;p&gt;Seu navegador não suporta vídeo HTML5.&lt;/p&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="palestra-hd.mp4"&gt;📥 Baixar vídeo (MP4)&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="transcript.html"&gt;📝 Ler transcrição completa&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="slides.pdf"&gt;📊 Baixar slides (PDF)&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
 &lt;/video&gt;</code></pre>
             </div>
 
-            <h3>🎞️ Vídeo Responsivo</h3>
+            <div class="destaque success">
+                <h4>📝 Formato VTT (WebVTT) - Exemplo de Legenda</h4>
+                <div class="codigo" data-lang="VTT">
+<pre><code>WEBVTT
+
+NOTE
+Legendas da palestra "Acessibilidade Web"
+Palestrante: Maria Silva
+
+00:00:00.000 --&gt; 00:00:05.000
+Olá pessoal! Bem-vindos à palestra sobre acessibilidade web.
+
+00:00:05.000 --&gt; 00:00:12.000
+Hoje vamos aprender como tornar nossos sites inclusivos para todos.
+
+00:00:12.000 --&gt; 00:00:18.000
+&lt;v Maria Silva&gt;A acessibilidade não é opcional, é um direito humano.
+
+NOTE
+&lt;v Nome&gt; indica quem está falando</code></pre>
+                </div>
+            </div>
+
+            <div class="destaque info">
+                <h4>🎭 Tipos de Tracks - Para Que Servem</h4>
+                <ul>
+                    <li><strong>captions:</strong> Legendas com diálogos + sons importantes</li>
+                    <li><strong>subtitles:</strong> Apenas diálogos, para outros idiomas</li>
+                    <li><strong>descriptions:</strong> Narração do que acontece visualmente</li>
+                    <li><strong>chapters:</strong> Divisão em capítulos navegáveis</li>
+                    <li><strong>metadata:</strong> Dados extras para scripts</li>
+                </ul>
+            </div>
+
+            <h3>📱 Vídeo Responsivo - Adaptação Perfeita</h3>
+            <p>
+                <strong>Vídeos também precisam ser responsivos:</strong> 
+                Uma experiência perfeita exige que vídeos se adaptem a diferentes telas 
+                mantendo proporção, qualidade e performance. CSS + HTML5 oferecem 
+                soluções elegantes para isso.
+            </p>
+            
             <div class="codigo" data-lang="HTML">
-<pre><code>&lt;!-- Container responsivo para vídeo --&gt;
-&lt;div class="video-container"&gt;
-    &lt;video controls&gt;
-        &lt;source src="video-hd.mp4" type="video/mp4"&gt;
-        &lt;source src="video-hd.webm" type="video/webm"&gt;
+<pre><code>&lt;!-- 🎬 VÍDEO RESPONSIVO: Container que mantém proporção --&gt;
+&lt;div class="video-container"&gt;              &lt;!-- 📦 CSS container responsivo --&gt;
+    &lt;video controls 
+           width="100%" 
+           height="auto"                    &lt;!-- 📐 Altura automática --&gt;
+           poster="video-poster.jpg"&gt;
+        
+        &lt;source src="tutorial-1080p.mp4" type="video/mp4"&gt;
+        &lt;source src="tutorial-720p.webm" type="video/webm"&gt;
+        
+        &lt;p&gt;
+            &lt;a href="tutorial-1080p.mp4"&gt;📥 Baixar vídeo&lt;/a&gt; |
+            &lt;a href="tutorial-transcript.html"&gt;📝 Ler transcrição&lt;/a&gt;
+        &lt;/p&gt;
     &lt;/video&gt;
 &lt;/div&gt;</code></pre>
             </div>
 
-            <div class="codigo" data-lang="CSS">
-<pre><code>/* CSS para vídeo responsivo */
+            <div class="destaque tip">
+                <h4>📐 CSS para Vídeo Responsivo</h4>
+                <div class="codigo" data-lang="CSS">
+<pre><code>/* 🎯 CONTAINER RESPONSIVO: Mantém proporção 16:9 */
 .video-container {
     position: relative;
     width: 100%;
+    height: 0;
     padding-bottom: 56.25%; /* 16:9 aspect ratio */
     overflow: hidden;
 }
@@ -319,7 +661,54 @@
     left: 0;
     width: 100%;
     height: 100%;
+    object-fit: cover; /* Mantém proporção, corta se necessário */
+}
+
+/* 📱 MOBILE: Ajustes específicos */
+@media (max-width: 768px) {
+    .video-container {
+        padding-bottom: 75%; /* 4:3 para mobile, se preferir */
+    }
 }</code></pre>
+                </div>
+            </div>
+
+            <div class="destaque success">
+                <h4>🎯 Exemplo Prático - Vídeo Hero Responsivo</h4>
+                <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- 🎬 SEÇÃO HERO COM VÍDEO DE FUNDO --&gt;
+&lt;section class="hero-video"&gt;
+    &lt;div class="video-container"&gt;
+        &lt;video autoplay muted loop playsinline poster="hero-poster.jpg"&gt;
+            &lt;source src="hero-video.mp4" type="video/mp4"&gt;
+            &lt;source src="hero-video.webm" type="video/webm"&gt;
+            
+            &lt;!-- Fallback para navegadores sem suporte --&gt;
+            &lt;img src="hero-fallback.jpg" 
+                 alt="Demonstração do produto em ação"
+                 style="width: 100%; height: 100%; object-fit: cover;"&gt;
+        &lt;/video&gt;
+        
+        &lt;!-- Conteúdo sobreposto ao vídeo --&gt;
+        &lt;div class="hero-content"&gt;
+            &lt;h1&gt;Inovação em Movimento&lt;/h1&gt;
+            &lt;p&gt;Descubra como nossa tecnologia revoluciona o mercado&lt;/p&gt;
+            &lt;button class="cta-button"&gt;Saiba Mais&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="destaque warning">
+                <h4>⚠️ Boas Práticas para Vídeo Responsivo</h4>
+                <ul>
+                    <li><strong>Sempre inclua poster:</strong> Imagem enquanto o vídeo carrega</li>
+                    <li><strong>Múltiplos formatos:</strong> MP4 + WebM para melhor suporte</li>
+                    <li><strong>Compressão adequada:</strong> Balance qualidade vs tamanho</li>
+                    <li><strong>Controles acessíveis:</strong> Teclado e screen readers</li>
+                    <li><strong>Autoplay responsável:</strong> Sempre muted e com controle para pausar</li>
+                </ul>
             </div>
         </section>
 
@@ -340,291 +729,708 @@
 
         <!-- Seção 4: Áudio -->
         <section class="secao">
-            <h2>🎵 4. Elemento de Áudio</h2>
+            <h2>🎵 4. Elemento de Áudio - Som na Web</h2>
             
-            <h3>🔊 Áudio Básico</h3>
+            <p>
+                <strong>Áudio HTML5 democratizou o som na web:</strong> 
+                Podcasts, música, efeitos sonoros, narrações - tudo isso agora funciona 
+                nativamente nos navegadores. É essencial para sites de mídia, educação 
+                e experiências interativas.
+            </p>
+            
+            <h3>🎧 Áudio Básico - Player Nativo</h3>
+            <p>
+                <strong>Player HTML5 é leve e acessível:</strong> 
+                Não precisa de plugins, funciona em todos os dispositivos e já vem 
+                com controles acessíveis por teclado. Perfeito para podcasts, música 
+                e conteúdo educacional.
+            </p>
+            
             <div class="codigo" data-lang="HTML">
-<pre><code>&lt;!-- Áudio com controles --&gt;
-&lt;audio controls&gt;
-    &lt;source src="musica.mp3" type="audio/mpeg"&gt;
-    &lt;source src="musica.ogg" type="audio/ogg"&gt;
+<pre><code>&lt;!-- 🎼 ÁUDIO BÁSICO: Player simples e eficiente --&gt;
+&lt;audio controls                               &lt;!-- 🎛️ Mostra controles (play, pause, volume) --&gt;
+       preload="metadata"&gt;                    &lt;!-- 📊 Carrega só os metadados inicialmente --&gt;
+    
+    &lt;!-- 📁 MÚLTIPLOS FORMATOS: Garantia de compatibilidade --&gt;
+    &lt;source src="podcast-episodio-01.mp3" type="audio/mpeg"&gt;    &lt;!-- 🏆 MP3: universal --&gt;
+    &lt;source src="podcast-episodio-01.ogg" type="audio/ogg"&gt;     &lt;!-- 🔧 OGG: alternativa --&gt;
+    &lt;source src="podcast-episodio-01.wav" type="audio/wav"&gt;     &lt;!-- 💎 WAV: alta qualidade --&gt;
+    
+    &lt;!-- 💬 FALLBACK: Para navegadores sem suporte --&gt;
     &lt;p&gt;
         Seu navegador não suporta áudio HTML5.
-        &lt;a href="musica.mp3"&gt;Baixe o arquivo&lt;/a&gt;.
+        &lt;a href="podcast-episodio-01.mp3"&gt;📥 Baixe o áudio&lt;/a&gt;
     &lt;/p&gt;
 &lt;/audio&gt;
 
-&lt;!-- Áudio com preload --&gt;
-&lt;audio controls preload="metadata"&gt;
-    &lt;source src="podcast.mp3" type="audio/mpeg"&gt;
-    &lt;source src="podcast.ogg" type="audio/ogg"&gt;
-&lt;/audio&gt;</code></pre>
+&lt;!-- 🎵 MÚSICA DE FUNDO: Para jogos ou ambientes --&gt;
+&lt;audio autoplay                              &lt;!-- ▶️ Toca automaticamente --&gt;
+       loop                                  &lt;!-- 🔄 Repete infinitamente --&gt;
+       volume="0.3"                          &lt;!-- 🔊 Volume baixo (30%) --&gt;
+       id="background-music"&gt;
+    
+    &lt;source src="ambient-music.mp3" type="audio/mpeg"&gt;
+    &lt;source src="ambient-music.ogg" type="audio/ogg"&gt;
+&lt;/audio&gt;
+
+&lt;!-- 🎯 CONTROLE VIA JAVASCRIPT --&gt;
+&lt;button onclick="document.getElementById('background-music').pause()"&gt;
+    🔇 Pausar Música
+&lt;/button&gt;</code></pre>
             </div>
 
-            <h3>🎙️ Podcast Player</h3>
+            <div class="destaque info">
+                <h4>🎼 Formatos de Áudio - Qual Escolher?</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Formato</th>
+                            <th>Qualidade</th>
+                            <th>Tamanho</th>
+                            <th>Suporte</th>
+                            <th>Melhor Para</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>MP3</strong></td>
+                            <td>Boa</td>
+                            <td>Pequeno</td>
+                            <td>100%</td>
+                            <td>Música, podcasts, uso geral</td>
+                        </tr>
+                        <tr>
+                            <td><strong>AAC</strong></td>
+                            <td>Excelente</td>
+                            <td>Pequeno</td>
+                            <td>95%</td>
+                            <td>Música alta qualidade</td>
+                        </tr>
+                        <tr>
+                            <td><strong>OGG</strong></td>
+                            <td>Excelente</td>
+                            <td>Médio</td>
+                            <td>85%</td>
+                            <td>Alternativa livre</td>
+                        </tr>
+                        <tr>
+                            <td><strong>WAV</strong></td>
+                            <td>Perfeita</td>
+                            <td>Grande</td>
+                            <td>90%</td>
+                            <td>Efeitos sonoros curtos</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h3>🎙️ Podcast Player - Experiência Completa</h3>
+            <p>
+                <strong>Podcasts exigem UX diferenciada:</strong> 
+                Diferente de música, podcasts precisam de controles de velocidade, 
+                capítulos, transcrições e informações do episódio. Uma boa implementação 
+                combina áudio HTML5 com metadados estruturados.
+            </p>
+            
             <div class="codigo" data-lang="HTML">
-<pre><code>&lt;article class="podcast-episode"&gt;
+<pre><code>&lt;!-- 🎧 PODCAST PLAYER: Experiência completa --&gt;
+&lt;article class="podcast-episode" itemscope itemtype="https://schema.org/PodcastEpisode"&gt;
+    
+    &lt;!-- 📄 METADADOS DO EPISÓDIO --&gt;
     &lt;header&gt;
-        &lt;h3&gt;Episódio 42: HTML Semântico&lt;/h3&gt;
-        &lt;p&gt;Publicado em 15 de janeiro de 2024 • 45 min&lt;/p&gt;
+        &lt;h3 itemprop="name"&gt;🎯 Episódio 42: HTML Semântico - A Base de Tudo&lt;/h3&gt;
+        &lt;div class="episode-meta"&gt;
+            &lt;time itemprop="datePublished" datetime="2024-01-15"&gt;
+                📅 15 de janeiro de 2024
+            &lt;/time&gt;
+            &lt;span itemprop="duration" content="PT45M"&gt;
+                ⏱️ 45 minutos
+            &lt;/span&gt;
+            &lt;span&gt;
+                👥 Com Maria Silva e João Santos
+            &lt;/span&gt;
+        &lt;/div&gt;
+        &lt;p itemprop="description"&gt;
+            Descubra como HTML semântico melhora SEO, acessibilidade e experiência do usuário. 
+            Discutimos elementos estruturais, melhores práticas e casos reais.
+        &lt;/p&gt;
     &lt;/header&gt;
     
-    &lt;audio controls preload="metadata"&gt;
-        &lt;source src="episodio-42.mp3" type="audio/mpeg"&gt;
-        &lt;source src="episodio-42.ogg" type="audio/ogg"&gt;
+    &lt;!-- 🎵 PLAYER DE ÁUDIO --&gt;
+    &lt;audio controls 
+           preload="metadata"                &lt;!-- 📊 Carrega metadados sem o áudio completo --&gt;
+           itemid="episodio-42"&gt;
         
-        &lt;!-- Transcrição como fallback --&gt;
-        &lt;p&gt;
-            Seu navegador não suporta áudio. 
-            &lt;a href="transcricao-episodio-42.html"&gt;
-                Leia a transcrição
-            &lt;/a&gt;.
-        &lt;/p&gt;
+        &lt;source src="podcast-episodio-42-high.mp3" type="audio/mpeg"&gt;  &lt;!-- 🎵 Qualidade alta --&gt;
+        &lt;source src="podcast-episodio-42-low.mp3" type="audio/mpeg"&gt;   &lt;!-- 📱 Mobile/baixa banda --&gt;
+        &lt;source src="podcast-episodio-42.ogg" type="audio/ogg"&gt;        &lt;!-- 🔧 Fallback --&gt;
+        
+        &lt;!-- 💬 FALLBACK rico em informações --&gt;
+        &lt;div class="audio-fallback"&gt;
+            &lt;p&gt;❌ Seu navegador não suporta áudio HTML5.&lt;/p&gt;
+            &lt;div class="alternatives"&gt;
+                &lt;a href="podcast-episodio-42-high.mp3" download&gt;
+                    📥 Baixar episódio (MP3 - 42MB)
+                &lt;/a&gt;
+                &lt;a href="transcricao-episodio-42.html"&gt;
+                    📝 Ler transcrição completa
+                &lt;/a&gt;
+                &lt;a href="https://open.spotify.com/episode/xyz"&gt;
+                    🎵 Ouvir no Spotify
+                &lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
     &lt;/audio&gt;
     
-    &lt;details&gt;
-        &lt;summary&gt;Mostrar transcrição&lt;/summary&gt;
-        &lt;div class="transcricao"&gt;
-            &lt;p&gt;Olá pessoal, bem-vindos ao episódio 42...&lt;/p&gt;
-        &lt;/div&gt;
+    &lt;!-- 📋 CONTROLES ADICIONAIS --&gt;
+    &lt;div class="podcast-controls"&gt;
+        &lt;button onclick="changeSpeed(0.75)"&gt;🐌 0.75x&lt;/button&gt;
+        &lt;button onclick="changeSpeed(1.0)"&gt;▶️ 1x&lt;/button&gt;
+        &lt;button onclick="changeSpeed(1.25)"&gt;⚡ 1.25x&lt;/button&gt;
+        &lt;button onclick="changeSpeed(1.5)"&gt;🚀 1.5x&lt;/button&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- 📚 CAPÍTULOS (via JavaScript) --&gt;
+    &lt;details class="chapters"&gt;
+        &lt;summary&gt;📖 Capítulos do Episódio&lt;/summary&gt;
+        &lt;ol&gt;
+            &lt;li&gt;&lt;button onclick="seekTo(0)"&gt;🎬 Introdução&lt;/button&gt; (0:00)&lt;/li&gt;
+            &lt;li&gt;&lt;button onclick="seekTo(300)"&gt;📝 O que é HTML Semântico?&lt;/button&gt; (5:00)&lt;/li&gt;
+            &lt;li&gt;&lt;button onclick="seekTo(900)"&gt;🔍 Elementos Estruturais&lt;/button&gt; (15:00)&lt;/li&gt;
+            &lt;li&gt;&lt;button onclick="seekTo(1800)"&gt;💡 Casos Práticos&lt;/button&gt; (30:00)&lt;/li&gt;
+            &lt;li&gt;&lt;button onclick="seekTo(2400)"&gt;🎯 Conclusões&lt;/button&gt; (40:00)&lt;/li&gt;
+        &lt;/ol&gt;
     &lt;/details&gt;
 &lt;/article&gt;</code></pre>
             </div>
 
-            <h3>🎶 Playlist de Áudio</h3>
-            <div class="codigo" data-lang="HTML">
-<pre><code>&lt;section class="playlist"&gt;
-    &lt;h3&gt;Playlist: Relaxamento&lt;/h3&gt;
-    
-    &lt;ol class="track-list"&gt;
-        &lt;li&gt;
-            &lt;h4&gt;Chuva na Floresta&lt;/h4&gt;
-            &lt;audio controls&gt;
-                &lt;source src="chuva-floresta.mp3" type="audio/mpeg"&gt;
-            &lt;/audio&gt;
-        &lt;/li&gt;
-        
-        &lt;li&gt;
-            &lt;h4&gt;Sons do Oceano&lt;/h4&gt;
-            &lt;audio controls&gt;
-                &lt;source src="sons-oceano.mp3" type="audio/mpeg"&gt;
-            &lt;/audio&gt;
-        &lt;/li&gt;
-        
-        &lt;li&gt;
-            &lt;h4&gt;Melodia Zen&lt;/h4&gt;
-            &lt;audio controls&gt;
-                &lt;source src="melodia-zen.mp3" type="audio/mpeg"&gt;
-            &lt;/audio&gt;
-        &lt;/li&gt;
-    &lt;/ol&gt;
-&lt;/section&gt;</code></pre>
+            <div class="destaque warning">
+                <h4>⚡ Atributos de Performance para Áudio</h4>
+                <ul>
+                    <li><strong>preload="none":</strong> Não carrega nada (economia máxima)</li>
+                    <li><strong>preload="metadata":</strong> Carrega duração, título (recomendado)</li>
+                    <li><strong>preload="auto":</strong> Carrega tudo (só se necessário)</li>
+                    <li><strong>Múltiplas qualidades:</strong> High/low para diferentes conexões</li>
+                    <li><strong>Lazy loading:</strong> Carregar áudio só quando visível</li>
+                </ul>
             </div>
         </section>
 
         <!-- Seção 5: Otimização e Performance -->
         <section class="secao">
-            <h2>⚡ 5. Otimização e Performance</h2>
+            <h2>⚡ 5. Otimização e Performance - Velocidade que Impressiona</h2>
             
-            <h3>🚀 Lazy Loading</h3>
+            <p>
+                <strong>Performance de mídia define o sucesso do site:</strong> 
+                Estudos mostram que 40% dos usuários abandonam sites que demoram mais 
+                de 3 segundos para carregar. Imagens e vídeos são os maiores vilões, 
+                mas com técnicas corretas, se tornam aliados da velocidade.
+            </p>
+            
+            <h3>🎯 Lazy Loading - Carregamento Inteligente</h3>
+            <p>
+                <strong>Carregue apenas o que está visível:</strong> 
+                Por que carregar 50 imagens se o usuário vê apenas 3? Lazy loading 
+                economiza dados, acelera o carregamento inicial e melhora a experiência, 
+                especialmente em mobile.
+            </p>
+            
             <div class="codigo" data-lang="HTML">
-<pre><code>&lt;!-- Imagens com lazy loading --&gt;
-&lt;img src="placeholder.jpg" 
-     data-src="imagem-real.jpg"
-     alt="Descrição"
-     loading="lazy"
-     class="lazy-image"&gt;
+<pre><code>&lt;!-- 🚀 LAZY LOADING: Nativo do HTML5 --&gt;
+&lt;img src="hero-image.jpg" 
+     alt="Imagem principal da página"&gt;                      &lt;!-- 📸 Carrega imediatamente --&gt;
 
-&lt;!-- Vídeo com lazy loading --&gt;
+&lt;img src="galeria-foto-1.jpg" 
+     alt="Primeira foto da galeria"
+     loading="lazy"&gt;                                      &lt;!-- 🔄 Carrega quando necessário --&gt;
+
+&lt;img src="galeria-foto-2.jpg" 
+     alt="Segunda foto da galeria"
+     loading="lazy"&gt;                                      &lt;!-- 🔄 Economia de dados --&gt;
+
+&lt;!-- 🎬 LAZY LOADING EM VÍDEOS: Performance máxima --&gt;
 &lt;video controls 
-       loading="lazy"
-       poster="thumbnail.jpg"&gt;
-    &lt;source src="video.mp4" type="video/mp4"&gt;
+       poster="video-poster.jpg"
+       preload="none"                                     &lt;!-- 🚫 Não carrega até o usuário querer --&gt;
+       loading="lazy"&gt;
+    &lt;source src="video-pesado.mp4" type="video/mp4"&gt;
 &lt;/video&gt;
 
-&lt;!-- Iframe com lazy loading --&gt;
-&lt;iframe src="https://youtube.com/embed/VIDEO_ID"
-        loading="lazy"
+&lt;!-- 📱 IFRAMES: YouTube, mapas, etc --&gt;
+&lt;iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+        loading="lazy"                                    &lt;!-- 🎵 YouTube só carrega quando visível --&gt;
         width="560" 
-        height="315"&gt;
-&lt;/iframe&gt;</code></pre>
+        height="315"&gt;&lt;/iframe&gt;</code></pre>
             </div>
 
-            <h3>📦 Formatos Modernos</h3>
+            <div class="destaque success">
+                <h4>📊 Impacto do Lazy Loading</h4>
+                <ul>
+                    <li><strong>Carregamento inicial:</strong> 40-60% mais rápido</li>
+                    <li><strong>Economia de dados:</strong> 30-50% menos tráfego</li>
+                    <li><strong>Core Web Vitals:</strong> Melhora LCP (Largest Contentful Paint)</li>
+                    <li><strong>SEO:</strong> Google favorece sites rápidos</li>
+                    <li><strong>Mobile:</strong> Essencial para planos de dados limitados</li>
+                </ul>
+            </div>
+
+            <h3>🗜️ Compressão e Formatos Modernos</h3>
+            <p>
+                <strong>Escolha o formato certo para cada situação:</strong> 
+                WebP reduz 25-35% o tamanho vs JPEG. AVIF reduz 50%. 
+                Para vídeos, H.265 é 25% menor que H.264. Pequenas mudanças, 
+                grandes resultados.
+            </p>
+            
             <div class="codigo" data-lang="HTML">
-<pre><code>&lt;picture&gt;
-    &lt;!-- Formato AVIF (mais eficiente) --&gt;
-    &lt;source srcset="imagem.avif" type="image/avif"&gt;
+<pre><code>&lt;!-- 🎨 IMAGENS: Formatos progressivos --&gt;
+&lt;picture&gt;
+    &lt;!-- 🚀 AVIF: 50% menor, mas suporte limitado --&gt;
+    &lt;source srcset="produto.avif" type="image/avif"&gt;
     
-    &lt;!-- Formato WebP (boa compressão) --&gt;
-    &lt;source srcset="imagem.webp" type="image/webp"&gt;
+    &lt;!-- ⚡ WebP: 30% menor, suporte amplo --&gt;
+    &lt;source srcset="produto.webp" type="image/webp"&gt;
     
-    &lt;!-- Fallback JPEG --&gt;
-    &lt;img src="imagem.jpg" alt="Descrição"&gt;
+    &lt;!-- 🔧 JPEG: Fallback universal --&gt;
+    &lt;img src="produto.jpg" 
+         alt="Smartphone XYZ em promoção"
+         width="400" 
+         height="300"&gt;                                    &lt;!-- 📐 Dimensões evitam layout shift --&gt;
 &lt;/picture&gt;
 
-&lt;!-- Vídeo com formatos otimizados --&gt;
-&lt;video controls&gt;
-    &lt;source src="video.av1" type="video/av1"&gt;
-    &lt;source src="video.webm" type="video/webm"&gt;
-    &lt;source src="video.mp4" type="video/mp4"&gt;
+&lt;!-- 📹 VÍDEOS: Compressão inteligente --&gt;
+&lt;video controls poster="thumbnail.jpg"&gt;
+    &lt;!-- 🏆 AV1: Futuro da compressão --&gt;
+    &lt;source src="video.av1.mp4" type="video/mp4; codecs=av01.0.05M.08"&gt;
+    
+    &lt;!-- ⚡ H.265/HEVC: 25% menor que H.264 --&gt;
+    &lt;source src="video.h265.mp4" type="video/mp4; codecs=hevc"&gt;
+    
+    &lt;!-- 🔧 H.264: Compatibilidade universal --&gt;
+    &lt;source src="video.h264.mp4" type="video/mp4"&gt;
 &lt;/video&gt;</code></pre>
             </div>
 
-            <h3>⚙️ Preload de Recursos</h3>
+            <div class="destaque tip">
+                <h4>🛠️ Ferramentas de Otimização</h4>
+                <div class="grid-2">
+                    <div>
+                        <h5>🖼️ Para Imagens:</h5>
+                        <ul>
+                            <li><strong>Squoosh.app:</strong> Google, compressão online</li>
+                            <li><strong>TinyPNG:</strong> PNG/JPEG automático</li>
+                            <li><strong>ImageOptim:</strong> Mac, batch processing</li>
+                            <li><strong>Sharp (Node.js):</strong> Automação programática</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5>🎬 Para Vídeos:</h5>
+                        <ul>
+                            <li><strong>HandBrake:</strong> Gratuito, interface amigável</li>
+                            <li><strong>FFmpeg:</strong> Linha de comando, máxima flexibilidade</li>
+                            <li><strong>Cloudinary:</strong> CDN com otimização automática</li>
+                            <li><strong>YouTube:</strong> Hospedagem gratuita otimizada</li>
+                        </ul>
+                    </div>
+                </div>
+        </section>
+
+        <!-- Seção 6: Embeds e Integrações -->
+        <section class="secao">
+            <h2>🔗 6. Embeds e Integrações - Conectando o Mundo</h2>
+            
+            <p>
+                <strong>A web moderna é colaborativa:</strong> 
+                Raramente criamos todo conteúdo do zero. YouTube para vídeos, 
+                Google Maps para localização, Spotify para música - integrar 
+                serviços externos de forma eficiente é uma habilidade essencial.
+            </p>
+            
+            <h3>� YouTube e Vimeo - Vídeo Profissional</h3>
+            <p>
+                <strong>Por que usar plataformas de vídeo?</strong> 
+                Hospedagem gratuita, CDN global, múltiplas qualidades automáticas, 
+                analytics detalhados e zero custo de banda. Para a maioria dos casos, 
+                é a escolha mais inteligente.
+            </p>
+            
             <div class="codigo" data-lang="HTML">
-<pre><code>&lt;head&gt;
-    &lt;!-- Preload de imagem crítica --&gt;
-    &lt;link rel="preload" 
-          href="hero-image.jpg" 
-          as="image"&gt;
-    
-    &lt;!-- Preload de vídeo --&gt;
-    &lt;link rel="preload" 
-          href="intro-video.mp4" 
-          as="video" 
-          type="video/mp4"&gt;
-    
-    &lt;!-- Prefetch de recurso futuro --&gt;
-    &lt;link rel="prefetch" 
-          href="proxima-pagina-imagem.jpg"&gt;
-&lt;/head&gt;</code></pre>
+<pre><code>&lt;!-- 📺 YOUTUBE: Embed responsivo e otimizado --&gt;
+&lt;div class="video-embed"&gt;
+    &lt;iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&amp;modestbranding=1"
+            title="Apresentação da Empresa - Vídeo Institucional"    &lt;!-- ♿ Título descritivo --&gt;
+            width="560" 
+            height="315"
+            frameborder="0"                                         &lt;!-- 🎨 Sem bordas --&gt;
+            allowfullscreen                                         &lt;!-- 🖥️ Permite tela cheia --&gt;
+            loading="lazy"&gt;                                         &lt;!-- ⚡ Carregamento sob demanda --&gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;!-- 🎨 VIMEO: Qualidade premium --&gt;
+&lt;div class="video-embed"&gt;
+    &lt;iframe src="https://player.vimeo.com/video/123456789?title=0&amp;byline=0&amp;portrait=0"
+            title="Portfolio Criativo - Showreel 2024"
+            width="640" 
+            height="360"
+            frameborder="0" 
+            allowfullscreen
+            loading="lazy"&gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;!-- 🎯 PARÂMETROS ÚTEIS DO YOUTUBE --&gt;
+&lt;!-- 
+?rel=0          - Não mostra vídeos relacionados
+?autoplay=1     - Inicia automaticamente (só com muted)
+?start=60       - Começa aos 60 segundos
+?end=180        - Para aos 180 segundos
+?modestbranding=1 - Remove logo do YouTube
+?controls=0     - Esconde controles
+--&gt;</code></pre>
             </div>
 
-            <div class="destaque tip">
-                <h4>💡 Dicas de Performance</h4>
+            <div class="destaque info">
+                <h4>🎛️ Parâmetros Avançados do YouTube</h4>
                 <ul>
-                    <li>Use WebP/AVIF para imagens modernas</li>
-                    <li>Implemente lazy loading em imagens below-the-fold</li>
-                    <li>Otimize tamanhos de acordo com o viewport</li>
-                    <li>Use preload apenas para recursos críticos</li>
-                    <li>Comprima vídeos adequadamente</li>
+                    <li><strong>?rel=0:</strong> Não mostra vídeos relacionados no final</li>
+                    <li><strong>?autoplay=1:</strong> Inicia automaticamente (políticas restritas)</li>
+                    <li><strong>?start=60&end=180:</strong> Reproduz apenas trecho específico</li>
+                    <li><strong>?modestbranding=1:</strong> Remove logo do YouTube</li>
+                    <li><strong>?controls=0:</strong> Esconde controles (não recomendado para acessibilidade)</li>
+                    <li><strong>?loop=1:</strong> Repete o vídeo infinitamente</li>
                 </ul>
             </div>
-        </section>
 
-        <!-- Exercício 3 -->
-        <div class="exercicio">
-            <h4>🏋️‍♂️ Exercício 3: Landing Page Multimídia</h4>
+            <h3>🗺️ Google Maps - Localização Inteligente</h3>
             <p>
-                Crie uma landing page rica em mídia com:
+                <strong>Mapas aumentam conversão:</strong> 
+                Estudos mostram que páginas com mapas têm 30% mais engajamento. 
+                Para empresas locais, é quase obrigatório mostrar localização de forma interativa.
             </p>
-            <ul>
-                <li>Hero image responsiva com multiple formats</li>
-                <li>Galeria de imagens com lazy loading</li>
-                <li>Vídeo de demonstração com legendas</li>
-                <li>Seção de áudio/podcast</li>
-                <li>Otimização para diferentes dispositivos</li>
-            </ul>
-        </div>
-
-        <!-- Seção 6: Embed e iFrames -->
-        <section class="secao">
-            <h2>🔗 6. Conteúdo Incorporado</h2>
             
-            <h3>📺 YouTube Responsivo</h3>
             <div class="codigo" data-lang="HTML">
-<pre><code>&lt;div class="video-embed"&gt;
-    &lt;iframe src="https://www.youtube.com/embed/VIDEO_ID"
-            title="Título do vídeo do YouTube"
+<pre><code>&lt;!-- 🗺️ GOOGLE MAPS: Localização interativa --&gt;
+&lt;div class="map-container"&gt;
+    &lt;iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1975!2d-46.6547296!3d-23.5505199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1234567890"
+            title="Localização da nossa empresa na Avenida Paulista"   &lt;!-- ♿ Título descritivo --&gt;
+            width="600" 
+            height="450"
+            style="border:0;" 
+            allowfullscreen="" 
             loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen&gt;
+            referrerpolicy="no-referrer-when-downgrade"&gt;          &lt;!-- 🔒 Política de privacidade --&gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;!-- 📍 INFORMAÇÕES COMPLEMENTARES --&gt;
+&lt;div class="location-info"&gt;
+    &lt;h4&gt;📍 Como Chegar&lt;/h4&gt;
+    &lt;address&gt;
+        &lt;strong&gt;TechStart Ltda.&lt;/strong&gt;&lt;br&gt;
+        Avenida Paulista, 1000 - Conjunto 42&lt;br&gt;
+        Bela Vista, São Paulo - SP&lt;br&gt;
+        CEP: 01310-100
+    &lt;/address&gt;
+    
+    &lt;div class="transport-options"&gt;
+        &lt;h5&gt;🚇 Transporte Público:&lt;/h5&gt;
+        &lt;ul&gt;
+            &lt;li&gt;🚇 Metrô Trianon-MASP (Linha 2-Verde) - 200m&lt;/li&gt;
+            &lt;li&gt;🚌 Ônibus: Linha 875M, 2174-10&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <h3>🎵 Spotify e SoundCloud - Áudio Social</h3>
+            <p>
+                <strong>Plataformas de áudio conectam audiências:</strong> 
+                Integrar players do Spotify ou SoundCloud permite que usuários 
+                descubram seu conteúdo diretamente nas plataformas que já usam, 
+                aumentando alcance e engajamento.
+            </p>
+            
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- 🎵 SPOTIFY: Player de playlist --&gt;
+&lt;div class="spotify-embed"&gt;
+    &lt;iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator"
+            title="Playlist: Focus e Produtividade - Música para Trabalhar"
+            width="100%" 
+            height="352" 
+            frameborder="0" 
+            allowfullscreen="" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"&gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;!-- 🔊 SOUNDCLOUD: Podcast ou áudio independente --&gt;
+&lt;div class="soundcloud-embed"&gt;
+    &lt;iframe width="100%" 
+            height="166" 
+            scrolling="no" 
+            frameborder="no" 
+            allow="autoplay"
+            src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user/track&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+            title="Podcast TechStart - Episódio sobre HTML Semântico"
+            loading="lazy"&gt;
     &lt;/iframe&gt;
 &lt;/div&gt;</code></pre>
             </div>
 
-            <div class="codigo" data-lang="CSS">
-<pre><code>/* CSS para embed responsivo */
-.video-embed {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* 16:9 */
-    height: 0;
-    overflow: hidden;
-}
-
-.video-embed iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}</code></pre>
-            </div>
-
-            <h3>🗺️ Mapas Incorporados</h3>
-            <div class="codigo" data-lang="HTML">
-<pre><code>&lt;div class="map-container"&gt;
-    &lt;iframe src="https://www.google.com/maps/embed?pb=..."
-            title="Localização da empresa"
-            loading="lazy"
-            allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade"&gt;
-    &lt;/iframe&gt;
-&lt;/div&gt;</code></pre>
-            </div>
-
-            <h3>📊 Conteúdo Interativo</h3>
-            <div class="codigo" data-lang="HTML">
-<pre><code>&lt;!-- Embed de apresentação --&gt;
-&lt;iframe src="https://docs.google.com/presentation/d/e/..."
-        title="Apresentação: HTML Fundamentals"
-        loading="lazy"&gt;
-&lt;/iframe&gt;
-
-&lt;!-- Embed de formulário --&gt;
-&lt;iframe src="https://forms.google.com/embed?id=..."
-        title="Formulário de contato"
-        loading="lazy"&gt;
-&lt;/iframe&gt;</code></pre>
-            </div>
+            <div class="destaque warning">
+                <h4>⚠️ Cuidados com Embeds</h4>
+                <ul>
+                    <li><strong>Performance:</strong> Cada embed adiciona peso à página</li>
+                    <li><strong>Privacidade:</strong> Podem rastrear usuários (LGPD/GDPR)</li>
+                    <li><strong>Dependência:</strong> Se o serviço sair do ar, quebra sua página</li>
+                    <li><strong>Controle limitado:</strong> Design e funcionalidades são do terceiro</li>
+                    <li><strong>Acessibilidade:</strong> Nem sempre seguem boas práticas</li>
+                    <li><strong>Loading lazy:</strong> Sempre use para melhorar performance inicial</li>
+                </ul>
         </section>
 
-        <!-- Exercício 4 -->
+        <!-- Exercício Final -->
         <div class="exercicio">
-            <h4>🏋️‍♂️ Exercício 4: Portal de Conteúdo</h4>
+            <h4>🏆 Exercício Final: Portal de Mídia Completo</h4>
             <p>
-                Desenvolva um portal completo que inclua:
+                <strong>Desafio:</strong> Crie uma página que demonstre todos os conceitos aprendidos:
             </p>
-            <ul>
-                <li>Hero section com vídeo de fundo</li>
-                <li>Galeria responsiva com lightbox</li>
-                <li>Seção de podcasts com player personalizado</li>
-                <li>Embed de vídeos do YouTube</li>
-                <li>Mapa de localização</li>
-                <li>Performance otimizada com lazy loading</li>
-            </ul>
+            <div class="requisitos">
+                <h5>📋 Requisitos Obrigatórios:</h5>
+                <ul>
+                    <li>🖼️ <strong>Galeria responsiva:</strong> 6 imagens com srcset e picture</li>
+                    <li>🎬 <strong>Vídeo hero:</strong> Autoplay silencioso com poster</li>
+                    <li>🎵 <strong>Player de áudio:</strong> Podcast com transcrição</li>
+                    <li>📺 <strong>Embed do YouTube:</strong> Vídeo tutorial relacionado</li>
+                    <li>🗺️ <strong>Mapa interativo:</strong> Localização da empresa</li>
+                    <li>⚡ <strong>Performance:</strong> Lazy loading em tudo</li>
+                </ul>
+                
+                <h5>🎯 Critérios de Avaliação:</h5>
+                <ul>
+                    <li><strong>Acessibilidade:</strong> Alt text descritivo, controles por teclado</li>
+                    <li><strong>Responsividade:</strong> Funciona bem em mobile e desktop</li>
+                    <li><strong>Performance:</strong> Carregamento rápido, formatos otimizados</li>
+                    <li><strong>Semântica:</strong> Uso correto de figure, article, section</li>
+                    <li><strong>UX:</strong> Navegação intuitiva, feedback visual</li>
+                </ul>
+                
+                <h5>💡 Bonus (opcional):</h5>
+                <ul>
+                    <li>🎨 Galeria com lightbox CSS puro</li>
+                    <li>📱 Player de áudio customizado</li>
+                    <li>🔄 Loading states para embeds</li>
+                    <li>🌙 Modo escuro para mídia</li>
+                </ul>
+            </div>
         </div>
 
-        <!-- Resumo da Aula -->
-        <section class="secao">
-            <h2>📋 Resumo da Aula</h2>
+        <!-- Conclusão -->
+        <section class="conclusao">
+            <h2>🎯 Resumo da Aula - Mídia HTML5 Completa</h2>
             
-            <div class="recursos">
-                <div class="recurso-card">
-                    <h4>🖼️ Imagens Otimizadas</h4>
-                    <p>srcset, picture, formatos modernos e lazy loading.</p>
+            <div class="grid-resumo">
+                <div class="topico-resumo">
+                    <h3>🖼️ Imagens</h3>
+                    <ul>
+                        <li>Elemento img com alt descritivo</li>
+                        <li>Figure + figcaption para contexto</li>
+                        <li>Srcset para diferentes densidades</li>
+                        <li>Picture para art direction</li>
+                        <li>Loading lazy para performance</li>
+                    </ul>
                 </div>
                 
-                <div class="recurso-card">
-                    <h4>🎬 Vídeo e Áudio</h4>
-                    <p>Players acessíveis, legendas e múltiplos formatos.</p>
+                <div class="topico-resumo">
+                    <h3>🎬 Vídeo</h3>
+                    <ul>
+                        <li>Múltiplos formatos para compatibilidade</li>
+                        <li>Controles acessíveis nativos</li>
+                        <li>Legendas VTT para inclusão</li>
+                        <li>Poster para carregamento</li>
+                        <li>Autoplay muted para UX</li>
+                    </ul>
                 </div>
                 
-                <div class="recurso-card">
-                    <h4>📱 Mídia Responsiva</h4>
-                    <p>Adaptação para diferentes dispositivos e conexões.</p>
+                <div class="topico-resumo">
+                    <h3>🎵 Áudio</h3>
+                    <ul>
+                        <li>Player HTML5 nativo</li>
+                        <li>Preload inteligente</li>
+                        <li>Metadados estruturados</li>
+                        <li>Fallbacks acessíveis</li>
+                        <li>Controles customizáveis</li>
+                    </ul>
                 </div>
                 
-                <div class="recurso-card">
-                    <h4>⚡ Performance</h4>
-                    <p>Otimização, preload e técnicas de carregamento eficiente.</p>
+                <div class="topico-resumo">
+                    <h3>⚡ Performance</h3>
+                    <ul>
+                        <li>WebP/AVIF para compressão</li>
+                        <li>Lazy loading nativo</li>
+                        <li>Dimensões definidas</li>
+                        <li>CDN para distribuição</li>
+                        <li>Otimização contínua</li>
+                    </ul>
                 </div>
+                
+                <div class="topico-resumo">
+                    <h3>🔗 Integração</h3>
+                    <ul>
+                        <li>YouTube/Vimeo para vídeo</li>
+                        <li>Google Maps para localização</li>
+                        <li>Spotify para música</li>
+                        <li>Loading lazy em embeds</li>
+                        <li>Políticas de privacidade</li>
+                    </ul>
+                </div>
+                
+                <div class="topico-resumo">
+                    <h3>♿ Acessibilidade</h3>
+                    <ul>
+                        <li>Alt text significativo</li>
+                        <li>Controles por teclado</li>
+                        <li>Transcrições disponíveis</li>
+                        <li>Contraste adequado</li>
+                        <li>Experiência inclusiva</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="proximos-passos">
+                <h3>🚀 Próximos Passos</h3>
+                <p>
+                    Na <strong>Aula 05</strong>, exploraremos <em>Tabelas e Dados</em> - 
+                    como estruturar informações complexas de forma semântica e acessível. 
+                    Aprenderemos sobre thead, tbody, colspan, rowspan e como criar 
+                    tabelas responsivas que funcionam perfeitamente em qualquer dispositivo.
+                </p>
+            </div>
+        </section>
+        </section>
+
+        <!-- Exercício Final -->
+        <div class="exercicio">
+            <h4>🏆 Exercício Final: Portal de Mídia Completo</h4>
+            <p>
+                <strong>Desafio:</strong> Crie uma página que demonstre todos os conceitos aprendidos:
+            </p>
+            <div class="requisitos">
+                <h5>📋 Requisitos Obrigatórios:</h5>
+                <ul>
+                    <li>🖼️ <strong>Galeria responsiva:</strong> 6 imagens com srcset e picture</li>
+                    <li>🎬 <strong>Vídeo hero:</strong> Autoplay silencioso com poster</li>
+                    <li>🎵 <strong>Player de áudio:</strong> Podcast com transcrição</li>
+                    <li>📺 <strong>Embed do YouTube:</strong> Vídeo tutorial relacionado</li>
+                    <li>🗺️ <strong>Mapa interativo:</strong> Localização da empresa</li>
+                    <li>⚡ <strong>Performance:</strong> Lazy loading em tudo</li>
+                </ul>
+                
+                <h5>🎯 Critérios de Avaliação:</h5>
+                <ul>
+                    <li><strong>Acessibilidade:</strong> Alt text descritivo, controles por teclado</li>
+                    <li><strong>Responsividade:</strong> Funciona bem em mobile e desktop</li>
+                    <li><strong>Performance:</strong> Carregamento rápido, formatos otimizados</li>
+                    <li><strong>Semântica:</strong> Uso correto de figure, article, section</li>
+                    <li><strong>UX:</strong> Navegação intuitiva, feedback visual</li>
+                </ul>
+                
+                <h5>💡 Bonus (opcional):</h5>
+                <ul>
+                    <li>🎨 Galeria com lightbox CSS puro</li>
+                    <li>📱 Player de áudio customizado</li>
+                    <li>🔄 Loading states para embeds</li>
+                    <li>🌙 Modo escuro para mídia</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Conclusão -->
+        <section class="conclusao">
+            <h2>🎯 Resumo da Aula - Mídia HTML5 Completa</h2>
+            
+            <div class="grid-resumo">
+                <div class="topico-resumo">
+                    <h3>🖼️ Imagens</h3>
+                    <ul>
+                        <li>Elemento img com alt descritivo</li>
+                        <li>Figure + figcaption para contexto</li>
+                        <li>Srcset para diferentes densidades</li>
+                        <li>Picture para art direction</li>
+                        <li>Loading lazy para performance</li>
+                    </ul>
+                </div>
+                
+                <div class="topico-resumo">
+                    <h3>🎬 Vídeo</h3>
+                    <ul>
+                        <li>Múltiplos formatos para compatibilidade</li>
+                        <li>Controles acessíveis nativos</li>
+                        <li>Legendas VTT para inclusão</li>
+                        <li>Poster para carregamento</li>
+                        <li>Autoplay muted para UX</li>
+                    </ul>
+                </div>
+                
+                <div class="topico-resumo">
+                    <h3>🎵 Áudio</h3>
+                    <ul>
+                        <li>Player HTML5 nativo</li>
+                        <li>Preload inteligente</li>
+                        <li>Metadados estruturados</li>
+                        <li>Fallbacks acessíveis</li>
+                        <li>Controles customizáveis</li>
+                    </ul>
+                </div>
+                
+                <div class="topico-resumo">
+                    <h3>⚡ Performance</h3>
+                    <ul>
+                        <li>WebP/AVIF para compressão</li>
+                        <li>Lazy loading nativo</li>
+                        <li>Dimensões definidas</li>
+                        <li>CDN para distribuição</li>
+                        <li>Otimização contínua</li>
+                    </ul>
+                </div>
+                
+                <div class="topico-resumo">
+                    <h3>🔗 Integração</h3>
+                    <ul>
+                        <li>YouTube/Vimeo para vídeo</li>
+                        <li>Google Maps para localização</li>
+                        <li>Spotify para música</li>
+                        <li>Loading lazy em embeds</li>
+                        <li>Políticas de privacidade</li>
+                    </ul>
+                </div>
+                
+                <div class="topico-resumo">
+                    <h3>♿ Acessibilidade</h3>
+                    <ul>
+                        <li>Alt text significativo</li>
+                        <li>Controles por teclado</li>
+                        <li>Transcrições disponíveis</li>
+                        <li>Contraste adequado</li>
+                        <li>Experiência inclusiva</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="proximos-passos">
+                <h3>� Próximos Passos</h3>
+                <p>
+                    Na <strong>Aula 05</strong>, exploraremos <em>Tabelas e Dados</em> - 
+                    como estruturar informações complexas de forma semântica e acessível. 
+                    Aprenderemos sobre thead, tbody, colspan, rowspan e como criar 
+                    tabelas responsivas que funcionam perfeitamente em qualquer dispositivo.
+                </p>
             </div>
 
             <div class="checklist">
-                <h4>✅ Checklist de Mídia</h4>
+                <h4>✅ Checklist de Mídia HTML5</h4>
                 <ul>
                     <li>
                         <input type="checkbox" id="media1">
@@ -644,11 +1450,11 @@
                     </li>
                     <li>
                         <input type="checkbox" id="media5">
-                        <label for="media5">Formatos modernos utilizados</label>
+                        <label for="media5">Formatos modernos utilizados (WebP, AVIF)</label>
                     </li>
                     <li>
                         <input type="checkbox" id="media6">
-                        <label for="media6">Performance otimizada</label>
+                        <label for="media6">Performance otimizada e testada</label>
                     </li>
                 </ul>
             </div>
