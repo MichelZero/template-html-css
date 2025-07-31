@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 3: Links e Navegação - Curso HTML Fundamentals</title>
+    <meta name="description" content="Terceira aula do curso de HTML: domine links, âncoras, navegação entre páginas e boas práticas de usabilidade.">
+    <link rel="stylesheet" href="assets/style-aulas.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔗</text></svg>">
+</head>
+<body>
+    <div class="aula-container">
+        <!-- Navegação -->
+        <nav class="aula-nav">
+            <a href="aula-02-texto-formatacao.html" class="nav-btn">
+                ← 📝 Aula Anterior
+            </a>
+            <a href="index.html" class="nav-btn">
+                📚 Curso
+            </a>
+            <a href="aula-04-imagens-midia.html" class="nav-btn">
+                🖼️ Próxima Aula →
+            </a>
+        </nav>
+
+        <!-- Header da Aula -->
+        <header class="aula-header">
+            <div class="aula-numero">AULA 3</div>
+            <h1 class="aula-titulo">🔗 Links e Navegação</h1>
+            <p class="aula-descricao">
+                Aprenda a criar links eficazes, navegação intuitiva e conectar páginas 
+                de forma acessível e otimizada para SEO.
+            </p>
+            <div class="aula-meta">
+                <div class="meta-item">
+                    <span>⏱️</span> <span>55 minutos</span>
+                </div>
+                <div class="meta-item">
+                    <span>🎯</span> <span>Iniciante</span>
+                </div>
+                <div class="meta-item">
+                    <span>📝</span> <span>4 Exercícios</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Objetivos da Aula -->
+        <div class="objetivos">
+            <h3>🎯 Objetivos de Aprendizagem</h3>
+            <ul>
+                <li>Dominar diferentes tipos de links (absolutos, relativos, âncoras)</li>
+                <li>Criar navegação acessível e usável</li>
+                <li>Entender atributos de segurança e SEO para links</li>
+                <li>Implementar navegação responsiva</li>
+                <li>Aplicar melhores práticas de usabilidade</li>
+            </ul>
+        </div>
+
+        <!-- Seção 1: Tipos de Links -->
+        <section class="secao">
+            <h2>🌐 1. Tipos de Links</h2>
+            
+            <div class="destaque info">
+                <h4>🎯 O Elemento Âncora</h4>
+                <p>
+                    O elemento <code>&lt;a&gt;</code> (anchor) é a base de toda navegação web. 
+                    Ele pode linkar para páginas, seções, arquivos ou executar ações.
+                </p>
+            </div>
+
+            <h3>🌍 Links Externos (Absolutos)</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Link básico externo --&gt;
+&lt;a href="https://www.google.com"&gt;Ir para o Google&lt;/a&gt;
+
+&lt;!-- Link seguro com atributos de segurança --&gt;
+&lt;a href="https://example.com" target="_blank" rel="noopener noreferrer"&gt;
+    Site Externo (nova aba)
+&lt;/a&gt;
+
+&lt;!-- Link com protocolo específico --&gt;
+&lt;a href="mailto:contato@empresa.com"&gt;Enviar E-mail&lt;/a&gt;
+&lt;a href="tel:+5511999999999"&gt;Ligar: (11) 99999-9999&lt;/a&gt;
+
+&lt;!-- Link para download --&gt;
+&lt;a href="https://exemplo.com/documento.pdf" download&gt;
+    Baixar PDF
+&lt;/a&gt;</code></pre>
+            </div>
+
+            <h3>📁 Links Internos (Relativos)</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Links para páginas no mesmo site --&gt;
+&lt;a href="sobre.html"&gt;Sobre Nós&lt;/a&gt;
+&lt;a href="contato.html"&gt;Contato&lt;/a&gt;
+&lt;a href="../index.html"&gt;Voltar ao Início&lt;/a&gt;
+
+&lt;!-- Links para subdiretórios --&gt;
+&lt;a href="produtos/categoria1.html"&gt;Categoria 1&lt;/a&gt;
+&lt;a href="/admin/dashboard.html"&gt;Painel Admin&lt;/a&gt;
+
+&lt;!-- Link para a página atual (reload) --&gt;
+&lt;a href=""&gt;Recarregar Página&lt;/a&gt;</code></pre>
+            </div>
+
+            <h3>⚓ Links Âncora (Seções da Página)</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Menu de navegação interna --&gt;
+&lt;nav&gt;
+    &lt;a href="#introducao"&gt;Introdução&lt;/a&gt;
+    &lt;a href="#conceitos"&gt;Conceitos&lt;/a&gt;
+    &lt;a href="#exemplos"&gt;Exemplos&lt;/a&gt;
+    &lt;a href="#exercicios"&gt;Exercícios&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;!-- Seções com IDs correspondentes --&gt;
+&lt;section id="introducao"&gt;
+    &lt;h2&gt;Introdução&lt;/h2&gt;
+    &lt;p&gt;Conteúdo da introdução...&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;section id="conceitos"&gt;
+    &lt;h2&gt;Conceitos&lt;/h2&gt;
+    &lt;p&gt;Explicação dos conceitos...&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;!-- Voltar ao topo --&gt;
+&lt;a href="#topo"&gt;🔼 Voltar ao Topo&lt;/a&gt;</code></pre>
+            </div>
+
+            <div class="destaque warning">
+                <h4>⚠️ Paths Relativos vs Absolutos</h4>
+                <ul>
+                    <li><strong>Absoluto:</strong> <code>https://site.com/pagina.html</code></li>
+                    <li><strong>Relativo à raiz:</strong> <code>/pagina.html</code></li>
+                    <li><strong>Relativo à pasta atual:</strong> <code>pagina.html</code></li>
+                    <li><strong>Pasta pai:</strong> <code>../pagina.html</code></li>
+                    <li><strong>Subpasta:</strong> <code>pasta/pagina.html</code></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Exercício 1 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 1: Navegação Básica</h4>
+            <p>
+                Crie um conjunto de 3 páginas HTML interligadas:
+            </p>
+            <ul>
+                <li><code>home.html</code> - página principal</li>
+                <li><code>sobre.html</code> - página sobre</li>
+                <li><code>contato.html</code> - página de contato</li>
+            </ul>
+            <p>
+                Cada página deve ter um menu navegando para as outras duas, 
+                plus links externos para redes sociais.
+            </p>
+        </div>
+
+        <!-- Seção 2: Atributos de Links -->
+        <section class="secao">
+            <h2>🏷️ 2. Atributos Importantes</h2>
+            
+            <h3>🎯 Target - Onde Abrir o Link</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Abre na mesma janela/aba (padrão) --&gt;
+&lt;a href="pagina.html"&gt;Link Normal&lt;/a&gt;
+
+&lt;!-- Abre em nova aba --&gt;
+&lt;a href="https://exemplo.com" target="_blank"&gt;Nova Aba&lt;/a&gt;
+
+&lt;!-- Abre em nova janela --&gt;
+&lt;a href="popup.html" target="_new"&gt;Nova Janela&lt;/a&gt;
+
+&lt;!-- Abre em frame específico --&gt;
+&lt;a href="conteudo.html" target="conteudo-frame"&gt;No Frame&lt;/a&gt;</code></pre>
+            </div>
+
+            <h3>🔒 Rel - Relacionamento e Segurança</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Links externos seguros --&gt;
+&lt;a href="https://site-externo.com" 
+   target="_blank" 
+   rel="noopener noreferrer"&gt;
+    Site Externo Seguro
+&lt;/a&gt;
+
+&lt;!-- Link para página anterior --&gt;
+&lt;a href="pagina-anterior.html" rel="prev"&gt;← Anterior&lt;/a&gt;
+
+&lt;!-- Link para próxima página --&gt;
+&lt;a href="proxima-pagina.html" rel="next"&gt;Próxima →&lt;/a&gt;
+
+&lt;!-- Link não seguido por buscadores --&gt;
+&lt;a href="link-pago.html" rel="nofollow"&gt;Link Patrocinado&lt;/a&gt;
+
+&lt;!-- Link de ajuda --&gt;
+&lt;a href="ajuda.html" rel="help"&gt;? Ajuda&lt;/a&gt;</code></pre>
+            </div>
+
+            <h3>📝 Title - Dica de Ferramenta</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Link com descrição adicional --&gt;
+&lt;a href="artigo-completo.html" 
+   title="Leia o artigo completo sobre HTML semântico"&gt;
+    Leia mais
+&lt;/a&gt;
+
+&lt;!-- Link externo com aviso --&gt;
+&lt;a href="https://site-externo.com" 
+   title="Este link abrirá em uma nova aba"
+   target="_blank" 
+   rel="noopener"&gt;
+    Site Externo
+&lt;/a&gt;
+
+&lt;!-- Download com informações --&gt;
+&lt;a href="manual.pdf" 
+   title="Manual do usuário (PDF, 2.5MB)"
+   download&gt;
+    📄 Baixar Manual
+&lt;/a&gt;</code></pre>
+            </div>
+
+            <div class="destaque tip">
+                <h4>💡 Boas Práticas de Atributos</h4>
+                <ul>
+                    <li>Sempre use <code>rel="noopener noreferrer"</code> com <code>target="_blank"</code></li>
+                    <li>Use <code>title</code> para informações adicionais úteis</li>
+                    <li>Evite abrir muitas novas abas - confunde usuários</li>
+                    <li>Use <code>download</code> para arquivos que devem ser baixados</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Seção 3: Navegação Acessível -->
+        <section class="secao">
+            <h2>♿ 3. Navegação Acessível</h2>
+            
+            <h3>🎯 Texto de Link Descritivo</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- ❌ RUIM: Texto genérico --&gt;
+&lt;a href="artigo.html"&gt;Clique aqui&lt;/a&gt;
+&lt;a href="download.pdf"&gt;Leia mais&lt;/a&gt;
+
+&lt;!-- ✅ BOM: Texto descritivo --&gt;
+&lt;a href="artigo-html-semantico.html"&gt;
+    Artigo: Como usar HTML semântico
+&lt;/a&gt;
+&lt;a href="guia-acessibilidade.pdf"&gt;
+    Baixar Guia de Acessibilidade Web (PDF)
+&lt;/a&gt;</code></pre>
+            </div>
+
+            <h3>🗣️ Texto para Leitores de Tela</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Link com contexto adicional --&gt;
+&lt;a href="produto-1.html"&gt;
+    Notebook Dell XPS 13
+    &lt;span class="sr-only"&gt;- Ver detalhes do produto&lt;/span&gt;
+&lt;/a&gt;
+
+&lt;!-- Link com aria-label --&gt;
+&lt;a href="https://facebook.com/empresa" 
+   aria-label="Visitar nossa página no Facebook"&gt;
+    📘 Facebook
+&lt;/a&gt;
+
+&lt;!-- Link com aria-describedby --&gt;
+&lt;a href="artigo.html" aria-describedby="desc-artigo"&gt;
+    Artigo sobre CSS Grid
+&lt;/a&gt;
+&lt;p id="desc-artigo" class="sr-only"&gt;
+    Artigo técnico sobre CSS Grid com exemplos práticos
+&lt;/p&gt;</code></pre>
+            </div>
+
+            <h3>⌨️ Navegação por Teclado</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Links com ordem de foco lógica --&gt;
+&lt;nav&gt;
+    &lt;a href="#" tabindex="1"&gt;Home&lt;/a&gt;
+    &lt;a href="#" tabindex="2"&gt;Produtos&lt;/a&gt;
+    &lt;a href="#" tabindex="3"&gt;Sobre&lt;/a&gt;
+    &lt;a href="#" tabindex="4"&gt;Contato&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;!-- Skip links para usuários de teclado --&gt;
+&lt;a href="#conteudo-principal" class="skip-link"&gt;
+    Pular para o conteúdo principal
+&lt;/a&gt;
+
+&lt;main id="conteudo-principal"&gt;
+    &lt;h1&gt;Conteúdo Principal&lt;/h1&gt;
+    &lt;!-- conteúdo da página --&gt;
+&lt;/main&gt;</code></pre>
+            </div>
+
+            <div class="destaque info">
+                <h4>🎯 CSS para Skip Links</h4>
+                <div class="codigo" data-lang="CSS">
+<pre><code>.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 1000;
+}
+
+.skip-link:focus {
+    top: 6px;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exercício 2 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 2: Menu Acessível</h4>
+            <p>
+                Crie um menu de navegação acessível que contenha:
+            </p>
+            <ul>
+                <li>Skip link para pular para o conteúdo</li>
+                <li>Texto descritivo em todos os links</li>
+                <li>Atributos ARIA apropriados</li>
+                <li>Ordem de foco lógica</li>
+                <li>Links externos com segurança</li>
+            </ul>
+        </div>
+
+        <!-- Seção 4: Padrões de Navegação -->
+        <section class="secao">
+            <h2>🧭 4. Padrões de Navegação</h2>
+            
+            <h3>📱 Menu Principal Responsivo</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;nav class="menu-principal" role="navigation" aria-label="Menu principal"&gt;
+    &lt;div class="menu-container"&gt;
+        &lt;a href="/" class="logo"&gt;
+            &lt;img src="logo.png" alt="Logo da Empresa"&gt;
+        &lt;/a&gt;
+        
+        &lt;button class="menu-toggle" aria-expanded="false" aria-controls="menu-lista"&gt;
+            &lt;span class="sr-only"&gt;Abrir menu&lt;/span&gt;
+            ☰
+        &lt;/button&gt;
+        
+        &lt;ul id="menu-lista" class="menu-lista"&gt;
+            &lt;li&gt;&lt;a href="/" aria-current="page"&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/produtos"&gt;Produtos&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/servicos"&gt;Serviços&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/sobre"&gt;Sobre&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/contato"&gt;Contato&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+
+            <h3>🍞 Breadcrumb (Trilha de Navegação)</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;nav aria-label="Breadcrumb"&gt;
+    &lt;ol class="breadcrumb"&gt;
+        &lt;li&gt;
+            &lt;a href="/"&gt;Home&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href="/produtos"&gt;Produtos&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href="/produtos/eletronicos"&gt;Eletrônicos&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li aria-current="page"&gt;
+            Notebook Dell XPS 13
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+
+            <h3>📄 Paginação</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;nav aria-label="Paginação dos artigos"&gt;
+    &lt;ul class="paginacao"&gt;
+        &lt;li&gt;
+            &lt;a href="?page=1" rel="prev" aria-label="Página anterior"&gt;
+                ← Anterior
+            &lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href="?page=1"&gt;1&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;span aria-current="page"&gt;2&lt;/span&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href="?page=3"&gt;3&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;span&gt;...&lt;/span&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href="?page=10"&gt;10&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href="?page=3" rel="next" aria-label="Próxima página"&gt;
+                Próxima →
+            &lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+
+            <h3>🔗 Links Relacionados</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- No final de um artigo --&gt;
+&lt;aside class="artigos-relacionados"&gt;
+    &lt;h3&gt;Artigos Relacionados&lt;/h3&gt;
+    &lt;ul&gt;
+        &lt;li&gt;
+            &lt;a href="/artigo-css-grid"&gt;
+                Como usar CSS Grid Layout
+            &lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href="/artigo-flexbox"&gt;
+                Flexbox: Guia Completo
+            &lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href="/artigo-responsive"&gt;
+                Design Responsivo na Prática
+            &lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/aside&gt;
+
+&lt;!-- Navegação entre posts --&gt;
+&lt;nav class="nav-posts"&gt;
+    &lt;a href="/post-anterior" rel="prev"&gt;
+        ← Post Anterior: Introdução ao CSS
+    &lt;/a&gt;
+    &lt;a href="/proximo-post" rel="next"&gt;
+        Próximo Post: JavaScript Básico →
+    &lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Exercício 3 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 3: Blog com Navegação Completa</h4>
+            <p>
+                Crie um layout de blog que contenha:
+            </p>
+            <ul>
+                <li>Menu principal responsivo</li>
+                <li>Breadcrumb navigation</li>
+                <li>Links para posts relacionados</li>
+                <li>Navegação prev/next entre posts</li>
+                <li>Paginação para lista de artigos</li>
+            </ul>
+        </div>
+
+        <!-- Seção 5: SEO e Performance -->
+        <section class="secao">
+            <h2>🚀 5. SEO e Performance</h2>
+            
+            <h3>🔍 Links Otimizados para SEO</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Texto âncora otimizado --&gt;
+&lt;a href="/curso-html-completo"&gt;
+    Curso Completo de HTML5 para Iniciantes
+&lt;/a&gt;
+
+&lt;!-- Links internos para melhor indexação --&gt;
+&lt;a href="/artigos/html-semantico" 
+   title="Aprenda HTML semântico do zero"&gt;
+    Guia de HTML Semântico
+&lt;/a&gt;
+
+&lt;!-- Canonical links no head --&gt;
+&lt;head&gt;
+    &lt;link rel="canonical" href="https://seusite.com/pagina-atual"&gt;
+&lt;/head&gt;</code></pre>
+            </div>
+
+            <h3>⚡ Performance de Links</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Precarregar páginas importantes --&gt;
+&lt;head&gt;
+    &lt;link rel="preload" href="/css/styles.css" as="style"&gt;
+    &lt;link rel="prefetch" href="/proxima-pagina.html"&gt;
+    &lt;link rel="dns-prefetch" href="//fonts.googleapis.com"&gt;
+&lt;/head&gt;
+
+&lt;!-- Links com loading lazy para recursos --&gt;
+&lt;a href="/pagina-pesada.html" 
+   data-prefetch="false"&gt;
+    Página com Muito Conteúdo
+&lt;/a&gt;</code></pre>
+            </div>
+
+            <h3>📊 Tracking e Analytics</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Link com tracking de evento --&gt;
+&lt;a href="/download/ebook.pdf" 
+   onclick="gtag('event', 'download', {file_name: 'ebook.pdf'})"
+   download&gt;
+    Baixar E-book Gratuito
+&lt;/a&gt;
+
+&lt;!-- Link externo com tracking --&gt;
+&lt;a href="https://parceiro.com" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   data-track="external-link"&gt;
+    Site Parceiro
+&lt;/a&gt;</code></pre>
+            </div>
+
+            <div class="destaque tip">
+                <h4>💡 Dicas de SEO para Links</h4>
+                <ul>
+                    <li>Use texto âncora descritivo e relevante</li>
+                    <li>Mantenha estrutura de links lógica</li>
+                    <li>Evite muitos links na mesma página</li>
+                    <li>Use links internos para conectar conteúdo relacionado</li>
+                    <li>Monitore links quebrados regularmente</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Exercício 4 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 4: Site Corporativo</h4>
+            <p>
+                Crie um site corporativo completo com:
+            </p>
+            <ul>
+                <li>Estrutura de navegação hierárquica</li>
+                <li>Links otimizados para SEO</li>
+                <li>Menu responsivo com submenu</li>
+                <li>Footer com links úteis</li>
+                <li>Página 404 com navegação de retorno</li>
+                <li>Sitemap HTML</li>
+            </ul>
+        </div>
+
+        <!-- Resumo da Aula -->
+        <section class="secao">
+            <h2>📋 Resumo da Aula</h2>
+            
+            <div class="recursos">
+                <div class="recurso-card">
+                    <h4>🌐 Tipos de Links</h4>
+                    <p>Absolutos, relativos, âncoras - conectando conteúdo eficientemente.</p>
+                </div>
+                
+                <div class="recurso-card">
+                    <h4>🏷️ Atributos Essenciais</h4>
+                    <p>target, rel, title - segurança e usabilidade em links.</p>
+                </div>
+                
+                <div class="recurso-card">
+                    <h4>♿ Acessibilidade</h4>
+                    <p>Texto descritivo, ARIA, navegação por teclado.</p>
+                </div>
+                
+                <div class="recurso-card">
+                    <h4>🧭 Padrões de Navegação</h4>
+                    <p>Menus, breadcrumbs, paginação - estruturas profissionais.</p>
+                </div>
+            </div>
+
+            <div class="checklist">
+                <h4>✅ Checklist de Navegação</h4>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="nav1">
+                        <label for="nav1">Texto de link sempre descritivo</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="nav2">
+                        <label for="nav2">Links externos com rel="noopener noreferrer"</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="nav3">
+                        <label for="nav3">Navegação acessível por teclado</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="nav4">
+                        <label for="nav4">Skip links implementados</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="nav5">
+                        <label for="nav5">Breadcrumb em páginas profundas</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="nav6">
+                        <label for="nav6">Links otimizados para SEO</label>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Footer da Aula -->
+        <footer class="aula-footer">
+            <h3>🎉 Navegação Dominada!</h3>
+            <p>
+                Excelente! Agora você sabe criar navegação profissional e acessível. 
+                Na próxima aula, vamos trabalhar com imagens e mídia.
+            </p>
+            <a href="aula-04-imagens-midia.html" class="proxima-aula">
+                🖼️ Próxima Aula: Imagens e Mídia
+            </a>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Marcar como concluída
+            function marcarAulaConcluida() {
+                const progresso = JSON.parse(localStorage.getItem('curso-html-progresso') || '[]');
+                if (!progresso.includes(3)) {
+                    progresso.push(3);
+                    localStorage.setItem('curso-html-progresso', JSON.stringify(progresso));
+                }
+            }
+
+            // Observer para footer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        marcarAulaConcluida();
+                    }
+                });
+            });
+            
+            const footer = document.querySelector('.aula-footer');
+            if (footer) {
+                observer.observe(footer);
+            }
+
+            // Gerenciar checklist
+            const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
+            checkboxes.forEach((checkbox, index) => {
+                const saved = localStorage.getItem(`aula-3-nav-${index}`);
+                if (saved === 'true') {
+                    checkbox.checked = true;
+                }
+                
+                checkbox.addEventListener('change', () => {
+                    localStorage.setItem(`aula-3-nav-${index}`, checkbox.checked);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

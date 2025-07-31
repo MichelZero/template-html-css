@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 4: Imagens e Mídia - Curso HTML Fundamentals</title>
+    <meta name="description" content="Quarta aula do curso de HTML: trabalhe com imagens responsivas, vídeos, áudio e otimização de mídia para web.">
+    <link rel="stylesheet" href="assets/style-aulas.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖼️</text></svg>">
+</head>
+<body>
+    <div class="aula-container">
+        <!-- Navegação -->
+        <nav class="aula-nav">
+            <a href="aula-03-links-navegacao.html" class="nav-btn">
+                ← 🔗 Aula Anterior
+            </a>
+            <a href="index.html" class="nav-btn">
+                📚 Curso
+            </a>
+            <a href="aula-05-tabelas.html" class="nav-btn">
+                📊 Próxima Aula →
+            </a>
+        </nav>
+
+        <!-- Header da Aula -->
+        <header class="aula-header">
+            <div class="aula-numero">AULA 4</div>
+            <h1 class="aula-titulo">🖼️ Imagens e Mídia</h1>
+            <p class="aula-descricao">
+                Domine o uso de imagens responsivas, vídeos, áudio e outros elementos 
+                de mídia com foco em performance e acessibilidade.
+            </p>
+            <div class="aula-meta">
+                <div class="meta-item">
+                    <span>⏱️</span> <span>60 minutos</span>
+                </div>
+                <div class="meta-item">
+                    <span>🎯</span> <span>Intermediário</span>
+                </div>
+                <div class="meta-item">
+                    <span>📝</span> <span>4 Exercícios</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Objetivos da Aula -->
+        <div class="objetivos">
+            <h3>🎯 Objetivos de Aprendizagem</h3>
+            <ul>
+                <li>Implementar imagens responsivas e otimizadas</li>
+                <li>Trabalhar com vídeos e áudio acessíveis</li>
+                <li>Usar elementos de mídia modernos (picture, srcset)</li>
+                <li>Aplicar lazy loading e otimização de performance</li>
+                <li>Garantir acessibilidade em conteúdo multimídia</li>
+            </ul>
+        </div>
+
+        <!-- Seção 1: Imagens Básicas -->
+        <section class="secao">
+            <h2>🖼️ 1. Elemento de Imagem (img)</h2>
+            
+            <div class="destaque info">
+                <h4>🎯 Imagem como Conteúdo</h4>
+                <p>
+                    Use <code>&lt;img&gt;</code> quando a imagem faz parte do conteúdo. 
+                    Para decoração, use CSS background-image.
+                </p>
+            </div>
+
+            <h3>📝 Sintaxe Básica</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Imagem básica --&gt;
+&lt;img src="foto.jpg" alt="Descrição da imagem"&gt;
+
+&lt;!-- Imagem com dimensões --&gt;
+&lt;img src="logo.png" 
+     alt="Logo da empresa" 
+     width="200" 
+     height="100"&gt;
+
+&lt;!-- Imagem com loading lazy --&gt;
+&lt;img src="imagem-grande.jpg" 
+     alt="Paisagem montanhosa" 
+     loading="lazy"&gt;</code></pre>
+            </div>
+
+            <h3>♿ Texto Alternativo (Alt)</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- ✅ BOM: Alt descritivo --&gt;
+&lt;img src="grafico-vendas.png" 
+     alt="Gráfico mostrando aumento de 30% nas vendas em 2024"&gt;
+
+&lt;!-- ✅ BOM: Imagem decorativa --&gt;
+&lt;img src="decoracao.png" alt=""&gt;
+
+&lt;!-- ✅ BOM: Logo --&gt;
+&lt;img src="logo.png" alt="Empresa ABC"&gt;
+
+&lt;!-- ❌ RUIM: Alt genérico --&gt;
+&lt;img src="foto.jpg" alt="imagem"&gt;
+
+&lt;!-- ❌ RUIM: Alt desnecessário --&gt;
+&lt;img src="decoracao.png" alt="decoração"&gt;</code></pre>
+            </div>
+
+            <h3>🎨 Imagem com Legenda</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;figure&gt;
+    &lt;img src="arquitetura-gotica.jpg" 
+         alt="Catedral com arcos ogivais e vitrais coloridos"&gt;
+    &lt;figcaption&gt;
+        Catedral de Notre-Dame, exemplo clássico da arquitetura gótica 
+        com seus característicos arcos ogivais.
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;!-- Múltiplas imagens em uma figura --&gt;
+&lt;figure&gt;
+    &lt;img src="antes.jpg" alt="Jardim antes da reforma"&gt;
+    &lt;img src="depois.jpg" alt="Jardim após a reforma"&gt;
+    &lt;figcaption&gt;
+        Transformação do jardim: antes e depois da reforma paisagística
+    &lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+            </div>
+
+            <div class="destaque warning">
+                <h4>⚠️ Boas Práticas para Imagens</h4>
+                <ul>
+                    <li>Sempre inclua o atributo <code>alt</code></li>
+                    <li>Use alt="" apenas para imagens decorativas</li>
+                    <li>Prefira formatos modernos (WebP, AVIF)</li>
+                    <li>Otimize tamanho e qualidade</li>
+                    <li>Use dimensões corretas (width/height)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Exercício 1 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 1: Galeria de Fotos</h4>
+            <p>
+                Crie uma galeria de fotos com:
+            </p>
+            <ul>
+                <li>6 imagens com alt text apropriado</li>
+                <li>Legendas usando figure/figcaption</li>
+                <li>Loading lazy nas imagens</li>
+                <li>Dimensões definidas para evitar layout shift</li>
+            </ul>
+        </div>
+
+        <!-- Seção 2: Imagens Responsivas -->
+        <section class="secao">
+            <h2>📱 2. Imagens Responsivas</h2>
+            
+            <h3>🎯 Srcset para Diferentes Densidades</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Imagem para diferentes densidades de tela --&gt;
+&lt;img src="foto.jpg"
+     srcset="foto.jpg 1x,
+             foto@2x.jpg 2x,
+             foto@3x.jpg 3x"
+     alt="Descrição da foto"&gt;
+
+&lt;!-- Srcset com tamanhos específicos --&gt;
+&lt;img src="imagem-400.jpg"
+     srcset="imagem-400.jpg 400w,
+             imagem-800.jpg 800w,
+             imagem-1200.jpg 1200w"
+     sizes="(max-width: 600px) 100vw,
+            (max-width: 1000px) 50vw,
+            33vw"
+     alt="Imagem responsiva"&gt;</code></pre>
+            </div>
+
+            <h3>🖼️ Elemento Picture</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;picture&gt;
+    &lt;!-- Formato moderno para navegadores compatíveis --&gt;
+    &lt;source srcset="imagem.webp" type="image/webp"&gt;
+    &lt;source srcset="imagem.avif" type="image/avif"&gt;
+    
+    &lt;!-- Fallback para navegadores antigos --&gt;
+    &lt;img src="imagem.jpg" alt="Descrição da imagem"&gt;
+&lt;/picture&gt;
+
+&lt;!-- Picture com breakpoints --&gt;
+&lt;picture&gt;
+    &lt;!-- Mobile --&gt;
+    &lt;source media="(max-width: 600px)" 
+            srcset="mobile-small.jpg 400w,
+                    mobile-large.jpg 600w"&gt;
+    
+    &lt;!-- Tablet --&gt;
+    &lt;source media="(max-width: 1000px)" 
+            srcset="tablet-small.jpg 600w,
+                    tablet-large.jpg 1000w"&gt;
+    
+    &lt;!-- Desktop --&gt;
+    &lt;source srcset="desktop-small.jpg 1000w,
+                    desktop-large.jpg 1400w"&gt;
+    
+    &lt;img src="desktop-small.jpg" alt="Imagem responsiva"&gt;
+&lt;/picture&gt;</code></pre>
+            </div>
+
+            <h3>🎨 Art Direction</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Diferentes cortes da imagem para diferentes telas --&gt;
+&lt;picture&gt;
+    &lt;!-- Mobile: foco no rosto --&gt;
+    &lt;source media="(max-width: 600px)" 
+            srcset="retrato-mobile.jpg"&gt;
+    
+    &lt;!-- Tablet: meio corpo --&gt;
+    &lt;source media="(max-width: 1000px)" 
+            srcset="retrato-tablet.jpg"&gt;
+    
+    &lt;!-- Desktop: corpo inteiro --&gt;
+    &lt;img src="retrato-desktop.jpg" 
+         alt="João Silva, CEO da empresa"&gt;
+&lt;/picture&gt;</code></pre>
+            </div>
+
+            <div class="destaque tip">
+                <h4>💡 Quando Usar Cada Técnica</h4>
+                <ul>
+                    <li><strong>srcset:</strong> Mesma imagem em tamanhos diferentes</li>
+                    <li><strong>picture + source:</strong> Formatos diferentes ou art direction</li>
+                    <li><strong>sizes:</strong> Definir como a imagem será exibida</li>
+                    <li><strong>loading="lazy":</strong> Melhorar performance inicial</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Seção 3: Vídeo -->
+        <section class="secao">
+            <h2>🎬 3. Elemento de Vídeo</h2>
+            
+            <h3>📹 Vídeo Básico</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Vídeo com controles --&gt;
+&lt;video controls width="640" height="360"&gt;
+    &lt;source src="video.mp4" type="video/mp4"&gt;
+    &lt;source src="video.webm" type="video/webm"&gt;
+    &lt;p&gt;
+        Seu navegador não suporta vídeo HTML5. 
+        &lt;a href="video.mp4"&gt;Baixe o vídeo&lt;/a&gt;.
+    &lt;/p&gt;
+&lt;/video&gt;
+
+&lt;!-- Vídeo com poster e autoplay silencioso --&gt;
+&lt;video controls 
+       autoplay 
+       muted 
+       loop 
+       poster="thumbnail.jpg"
+       width="800" 
+       height="450"&gt;
+    &lt;source src="intro.mp4" type="video/mp4"&gt;
+    &lt;source src="intro.webm" type="video/webm"&gt;
+&lt;/video&gt;</code></pre>
+            </div>
+
+            <h3>♿ Vídeo Acessível</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;video controls&gt;
+    &lt;source src="palestra.mp4" type="video/mp4"&gt;
+    &lt;source src="palestra.webm" type="video/webm"&gt;
+    
+    &lt;!-- Legendas em português --&gt;
+    &lt;track kind="captions" 
+           src="legendas-pt.vtt" 
+           srclang="pt" 
+           label="Português"
+           default&gt;
+    
+    &lt;!-- Legendas em inglês --&gt;
+    &lt;track kind="captions" 
+           src="legendas-en.vtt" 
+           srclang="en" 
+           label="English"&gt;
+    
+    &lt;!-- Descrição de áudio --&gt;
+    &lt;track kind="descriptions" 
+           src="descricao.vtt" 
+           srclang="pt" 
+           label="Descrição de áudio"&gt;
+    
+    &lt;p&gt;Seu navegador não suporta vídeo HTML5.&lt;/p&gt;
+&lt;/video&gt;</code></pre>
+            </div>
+
+            <h3>🎞️ Vídeo Responsivo</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Container responsivo para vídeo --&gt;
+&lt;div class="video-container"&gt;
+    &lt;video controls&gt;
+        &lt;source src="video-hd.mp4" type="video/mp4"&gt;
+        &lt;source src="video-hd.webm" type="video/webm"&gt;
+    &lt;/video&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="codigo" data-lang="CSS">
+<pre><code>/* CSS para vídeo responsivo */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    overflow: hidden;
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Exercício 2 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 2: Player de Vídeo Acessível</h4>
+            <p>
+                Crie um player de vídeo que contenha:
+            </p>
+            <ul>
+                <li>Múltiplos formatos de vídeo (MP4, WebM)</li>
+                <li>Poster/thumbnail atrativo</li>
+                <li>Legendas em pelo menos 2 idiomas</li>
+                <li>Design responsivo</li>
+                <li>Controles personalizados (opcional)</li>
+            </ul>
+        </div>
+
+        <!-- Seção 4: Áudio -->
+        <section class="secao">
+            <h2>🎵 4. Elemento de Áudio</h2>
+            
+            <h3>🔊 Áudio Básico</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Áudio com controles --&gt;
+&lt;audio controls&gt;
+    &lt;source src="musica.mp3" type="audio/mpeg"&gt;
+    &lt;source src="musica.ogg" type="audio/ogg"&gt;
+    &lt;p&gt;
+        Seu navegador não suporta áudio HTML5.
+        &lt;a href="musica.mp3"&gt;Baixe o arquivo&lt;/a&gt;.
+    &lt;/p&gt;
+&lt;/audio&gt;
+
+&lt;!-- Áudio com preload --&gt;
+&lt;audio controls preload="metadata"&gt;
+    &lt;source src="podcast.mp3" type="audio/mpeg"&gt;
+    &lt;source src="podcast.ogg" type="audio/ogg"&gt;
+&lt;/audio&gt;</code></pre>
+            </div>
+
+            <h3>🎙️ Podcast Player</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;article class="podcast-episode"&gt;
+    &lt;header&gt;
+        &lt;h3&gt;Episódio 42: HTML Semântico&lt;/h3&gt;
+        &lt;p&gt;Publicado em 15 de janeiro de 2024 • 45 min&lt;/p&gt;
+    &lt;/header&gt;
+    
+    &lt;audio controls preload="metadata"&gt;
+        &lt;source src="episodio-42.mp3" type="audio/mpeg"&gt;
+        &lt;source src="episodio-42.ogg" type="audio/ogg"&gt;
+        
+        &lt;!-- Transcrição como fallback --&gt;
+        &lt;p&gt;
+            Seu navegador não suporta áudio. 
+            &lt;a href="transcricao-episodio-42.html"&gt;
+                Leia a transcrição
+            &lt;/a&gt;.
+        &lt;/p&gt;
+    &lt;/audio&gt;
+    
+    &lt;details&gt;
+        &lt;summary&gt;Mostrar transcrição&lt;/summary&gt;
+        &lt;div class="transcricao"&gt;
+            &lt;p&gt;Olá pessoal, bem-vindos ao episódio 42...&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/details&gt;
+&lt;/article&gt;</code></pre>
+            </div>
+
+            <h3>🎶 Playlist de Áudio</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;section class="playlist"&gt;
+    &lt;h3&gt;Playlist: Relaxamento&lt;/h3&gt;
+    
+    &lt;ol class="track-list"&gt;
+        &lt;li&gt;
+            &lt;h4&gt;Chuva na Floresta&lt;/h4&gt;
+            &lt;audio controls&gt;
+                &lt;source src="chuva-floresta.mp3" type="audio/mpeg"&gt;
+            &lt;/audio&gt;
+        &lt;/li&gt;
+        
+        &lt;li&gt;
+            &lt;h4&gt;Sons do Oceano&lt;/h4&gt;
+            &lt;audio controls&gt;
+                &lt;source src="sons-oceano.mp3" type="audio/mpeg"&gt;
+            &lt;/audio&gt;
+        &lt;/li&gt;
+        
+        &lt;li&gt;
+            &lt;h4&gt;Melodia Zen&lt;/h4&gt;
+            &lt;audio controls&gt;
+                &lt;source src="melodia-zen.mp3" type="audio/mpeg"&gt;
+            &lt;/audio&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/section&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Seção 5: Otimização e Performance -->
+        <section class="secao">
+            <h2>⚡ 5. Otimização e Performance</h2>
+            
+            <h3>🚀 Lazy Loading</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Imagens com lazy loading --&gt;
+&lt;img src="placeholder.jpg" 
+     data-src="imagem-real.jpg"
+     alt="Descrição"
+     loading="lazy"
+     class="lazy-image"&gt;
+
+&lt;!-- Vídeo com lazy loading --&gt;
+&lt;video controls 
+       loading="lazy"
+       poster="thumbnail.jpg"&gt;
+    &lt;source src="video.mp4" type="video/mp4"&gt;
+&lt;/video&gt;
+
+&lt;!-- Iframe com lazy loading --&gt;
+&lt;iframe src="https://youtube.com/embed/VIDEO_ID"
+        loading="lazy"
+        width="560" 
+        height="315"&gt;
+&lt;/iframe&gt;</code></pre>
+            </div>
+
+            <h3>📦 Formatos Modernos</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;picture&gt;
+    &lt;!-- Formato AVIF (mais eficiente) --&gt;
+    &lt;source srcset="imagem.avif" type="image/avif"&gt;
+    
+    &lt;!-- Formato WebP (boa compressão) --&gt;
+    &lt;source srcset="imagem.webp" type="image/webp"&gt;
+    
+    &lt;!-- Fallback JPEG --&gt;
+    &lt;img src="imagem.jpg" alt="Descrição"&gt;
+&lt;/picture&gt;
+
+&lt;!-- Vídeo com formatos otimizados --&gt;
+&lt;video controls&gt;
+    &lt;source src="video.av1" type="video/av1"&gt;
+    &lt;source src="video.webm" type="video/webm"&gt;
+    &lt;source src="video.mp4" type="video/mp4"&gt;
+&lt;/video&gt;</code></pre>
+            </div>
+
+            <h3>⚙️ Preload de Recursos</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;head&gt;
+    &lt;!-- Preload de imagem crítica --&gt;
+    &lt;link rel="preload" 
+          href="hero-image.jpg" 
+          as="image"&gt;
+    
+    &lt;!-- Preload de vídeo --&gt;
+    &lt;link rel="preload" 
+          href="intro-video.mp4" 
+          as="video" 
+          type="video/mp4"&gt;
+    
+    &lt;!-- Prefetch de recurso futuro --&gt;
+    &lt;link rel="prefetch" 
+          href="proxima-pagina-imagem.jpg"&gt;
+&lt;/head&gt;</code></pre>
+            </div>
+
+            <div class="destaque tip">
+                <h4>💡 Dicas de Performance</h4>
+                <ul>
+                    <li>Use WebP/AVIF para imagens modernas</li>
+                    <li>Implemente lazy loading em imagens below-the-fold</li>
+                    <li>Otimize tamanhos de acordo com o viewport</li>
+                    <li>Use preload apenas para recursos críticos</li>
+                    <li>Comprima vídeos adequadamente</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Exercício 3 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 3: Landing Page Multimídia</h4>
+            <p>
+                Crie uma landing page rica em mídia com:
+            </p>
+            <ul>
+                <li>Hero image responsiva com multiple formats</li>
+                <li>Galeria de imagens com lazy loading</li>
+                <li>Vídeo de demonstração com legendas</li>
+                <li>Seção de áudio/podcast</li>
+                <li>Otimização para diferentes dispositivos</li>
+            </ul>
+        </div>
+
+        <!-- Seção 6: Embed e iFrames -->
+        <section class="secao">
+            <h2>🔗 6. Conteúdo Incorporado</h2>
+            
+            <h3>📺 YouTube Responsivo</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;div class="video-embed"&gt;
+    &lt;iframe src="https://www.youtube.com/embed/VIDEO_ID"
+            title="Título do vídeo do YouTube"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen&gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="codigo" data-lang="CSS">
+<pre><code>/* CSS para embed responsivo */
+.video-embed {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}</code></pre>
+            </div>
+
+            <h3>🗺️ Mapas Incorporados</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;div class="map-container"&gt;
+    &lt;iframe src="https://www.google.com/maps/embed?pb=..."
+            title="Localização da empresa"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"&gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <h3>📊 Conteúdo Interativo</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Embed de apresentação --&gt;
+&lt;iframe src="https://docs.google.com/presentation/d/e/..."
+        title="Apresentação: HTML Fundamentals"
+        loading="lazy"&gt;
+&lt;/iframe&gt;
+
+&lt;!-- Embed de formulário --&gt;
+&lt;iframe src="https://forms.google.com/embed?id=..."
+        title="Formulário de contato"
+        loading="lazy"&gt;
+&lt;/iframe&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Exercício 4 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 4: Portal de Conteúdo</h4>
+            <p>
+                Desenvolva um portal completo que inclua:
+            </p>
+            <ul>
+                <li>Hero section com vídeo de fundo</li>
+                <li>Galeria responsiva com lightbox</li>
+                <li>Seção de podcasts com player personalizado</li>
+                <li>Embed de vídeos do YouTube</li>
+                <li>Mapa de localização</li>
+                <li>Performance otimizada com lazy loading</li>
+            </ul>
+        </div>
+
+        <!-- Resumo da Aula -->
+        <section class="secao">
+            <h2>📋 Resumo da Aula</h2>
+            
+            <div class="recursos">
+                <div class="recurso-card">
+                    <h4>🖼️ Imagens Otimizadas</h4>
+                    <p>srcset, picture, formatos modernos e lazy loading.</p>
+                </div>
+                
+                <div class="recurso-card">
+                    <h4>🎬 Vídeo e Áudio</h4>
+                    <p>Players acessíveis, legendas e múltiplos formatos.</p>
+                </div>
+                
+                <div class="recurso-card">
+                    <h4>📱 Mídia Responsiva</h4>
+                    <p>Adaptação para diferentes dispositivos e conexões.</p>
+                </div>
+                
+                <div class="recurso-card">
+                    <h4>⚡ Performance</h4>
+                    <p>Otimização, preload e técnicas de carregamento eficiente.</p>
+                </div>
+            </div>
+
+            <div class="checklist">
+                <h4>✅ Checklist de Mídia</h4>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="media1">
+                        <label for="media1">Alt text descritivo em todas as imagens</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="media2">
+                        <label for="media2">Imagens responsivas com srcset/picture</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="media3">
+                        <label for="media3">Lazy loading implementado</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="media4">
+                        <label for="media4">Vídeos com legendas e fallbacks</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="media5">
+                        <label for="media5">Formatos modernos utilizados</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="media6">
+                        <label for="media6">Performance otimizada</label>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Footer da Aula -->
+        <footer class="aula-footer">
+            <h3>🎉 Mídia Masterizada!</h3>
+            <p>
+                Fantástico! Agora você domina todos os aspectos de mídia em HTML. 
+                Na próxima aula, vamos trabalhar com tabelas para dados estruturados.
+            </p>
+            <a href="aula-05-tabelas.html" class="proxima-aula">
+                📊 Próxima Aula: Tabelas
+            </a>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Marcar como concluída
+            function marcarAulaConcluida() {
+                const progresso = JSON.parse(localStorage.getItem('curso-html-progresso') || '[]');
+                if (!progresso.includes(4)) {
+                    progresso.push(4);
+                    localStorage.setItem('curso-html-progresso', JSON.stringify(progresso));
+                }
+            }
+
+            // Observer para footer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        marcarAulaConcluida();
+                    }
+                });
+            });
+            
+            const footer = document.querySelector('.aula-footer');
+            if (footer) {
+                observer.observe(footer);
+            }
+
+            // Gerenciar checklist
+            const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
+            checkboxes.forEach((checkbox, index) => {
+                const saved = localStorage.getItem(`aula-4-media-${index}`);
+                if (saved === 'true') {
+                    checkbox.checked = true;
+                }
+                
+                checkbox.addEventListener('change', () => {
+                    localStorage.setItem(`aula-4-media-${index}`, checkbox.checked);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

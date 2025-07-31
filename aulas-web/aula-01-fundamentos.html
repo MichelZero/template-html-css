@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 1: Fundamentos HTML - Curso HTML Fundamentals</title>
+    <meta name="description" content="Primeira aula do curso de HTML: aprenda a estrutura básica, DOCTYPE, elementos essenciais e como criar sua primeira página web.">
+    <link rel="stylesheet" href="assets/style-aulas.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏗️</text></svg>">
+</head>
+<body>
+    <div class="aula-container">
+        <!-- Navegação -->
+        <nav class="aula-nav">
+            <a href="index.html" class="nav-btn">
+                ← 📚 Voltar ao Curso
+            </a>
+            <a href="aula-02-texto-formatacao.html" class="nav-btn">
+                📝 Próxima Aula →
+            </a>
+        </nav>
+
+        <!-- Header da Aula -->
+        <header class="aula-header">
+            <div class="aula-numero">AULA 1</div>
+            <h1 class="aula-titulo">🏗️ Fundamentos HTML</h1>
+            <p class="aula-descricao">
+                Aprenda a estrutura básica do HTML, elementos essenciais e como criar 
+                sua primeira página web seguindo as melhores práticas.
+            </p>
+            <div class="aula-meta">
+                <div class="meta-item">
+                    <span>⏱️</span> <span>45 minutos</span>
+                </div>
+                <div class="meta-item">
+                    <span>🎯</span> <span>Iniciante</span>
+                </div>
+                <div class="meta-item">
+                    <span>📝</span> <span>3 Exercícios</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Objetivos da Aula -->
+        <div class="objetivos">
+            <h3>🎯 Objetivos de Aprendizagem</h3>
+            <ul>
+                <li>Compreender a estrutura básica de um documento HTML</li>
+                <li>Aprender sobre DOCTYPE e sua importância</li>
+                <li>Conhecer os elementos HTML essenciais</li>
+                <li>Criar sua primeira página HTML válida</li>
+                <li>Entender conceitos de validação e boas práticas</li>
+            </ul>
+        </div>
+
+        <!-- Seção 1: O que é HTML -->
+        <section class="secao">
+            <h2>📖 1. O que é HTML?</h2>
+            
+            <p>
+                <strong>HTML (HyperText Markup Language)</strong> é a linguagem de marcação padrão 
+                para criar páginas web. É a espinha dorsal de qualquer site, fornecendo estrutura 
+                e significado ao conteúdo.
+            </p>
+
+            <div class="destaque info">
+                <h4>🔍 HTML não é programação!</h4>
+                <p>
+                    HTML é uma linguagem de <strong>marcação</strong>, não de programação. 
+                    Ela usa "tags" para marcar e estruturar o conteúdo, dizendo ao navegador 
+                    como interpretar e exibir as informações.
+                </p>
+            </div>
+
+            <h3>📋 Características do HTML</h3>
+            <ul>
+                <li><strong>Estrutural:</strong> Define a estrutura e hierarquia do conteúdo</li>
+                <li><strong>Semântico:</strong> Atribui significado aos elementos</li>
+                <li><strong>Universal:</strong> Funciona em qualquer navegador e dispositivo</li>
+                <li><strong>Acessível:</strong> Permite criar conteúdo para todos os usuários</li>
+                <li><strong>Evolutivo:</strong> HTML5 trouxe novos elementos e funcionalidades</li>
+            </ul>
+        </section>
+
+        <!-- Seção 2: Estrutura Básica -->
+        <section class="secao">
+            <h2>🏗️ 2. Estrutura Básica do HTML</h2>
+            
+            <p>
+                Todo documento HTML válido deve seguir uma estrutura específica. 
+                Vamos analisar cada parte:
+            </p>
+
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Minha Primeira Página&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Olá, Mundo!&lt;/h1&gt;
+    &lt;p&gt;Esta é minha primeira página HTML.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <h3>🔍 Anatomia da Estrutura</h3>
+
+            <h4>1. DOCTYPE Declaration</h4>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!DOCTYPE html&gt;</code></pre>
+            </div>
+            <ul>
+                <li>Informa ao navegador que estamos usando HTML5</li>
+                <li>Deve ser a primeira linha do documento</li>
+                <li>Ativa o "standards mode" no navegador</li>
+                <li>Sem DOCTYPE, o navegador pode entrar em "quirks mode"</li>
+            </ul>
+
+            <h4>2. Elemento HTML Root</h4>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;html lang="pt-BR"&gt;
+    &lt;!-- Todo o conteúdo da página vai aqui --&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+            <ul>
+                <li>Container principal de todo o documento</li>
+                <li>Atributo <code>lang</code> especifica o idioma da página</li>
+                <li>Importante para SEO e acessibilidade</li>
+                <li>Ajuda leitores de tela a pronunciar corretamente</li>
+            </ul>
+
+            <h4>3. Head Section</h4>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Título da Página&lt;/title&gt;
+&lt;/head&gt;</code></pre>
+            </div>
+            <ul>
+                <li>Contém metadados sobre a página</li>
+                <li>Não é visível ao usuário</li>
+                <li>Inclui informações para navegadores e motores de busca</li>
+                <li>Local para links de CSS, JavaScript e outras dependências</li>
+            </ul>
+
+            <h4>4. Body Section</h4>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;body&gt;
+    &lt;!-- Todo o conteúdo visível da página --&gt;
+&lt;/body&gt;</code></pre>
+            </div>
+            <ul>
+                <li>Contém todo o conteúdo visível da página</li>
+                <li>Textos, imagens, links, vídeos, etc.</li>
+                <li>Único elemento body por documento</li>
+            </ul>
+        </section>
+
+        <!-- Seção 3: Meta Tags Essenciais -->
+        <section class="secao">
+            <h2>🏷️ 3. Meta Tags Essenciais</h2>
+            
+            <p>
+                As meta tags fornecem informações importantes sobre a página. 
+                Vamos ver as mais importantes:
+            </p>
+
+            <h3>📝 Meta Tags Obrigatórias</h3>
+
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Codificação de caracteres --&gt;
+&lt;meta charset="UTF-8"&gt;
+
+&lt;!-- Responsividade para dispositivos móveis --&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+
+&lt;!-- Título da página (aparece na aba do navegador) --&gt;
+&lt;title&gt;Título Descritivo da Página&lt;/title&gt;</code></pre>
+            </div>
+
+            <h3>🎯 Meta Tags Importantes para SEO</h3>
+
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Descrição da página para motores de busca --&gt;
+&lt;meta name="description" content="Descrição concisa da página (150-160 caracteres)"&gt;
+
+&lt;!-- Palavras-chave (menos importante atualmente) --&gt;
+&lt;meta name="keywords" content="html, css, desenvolvimento web"&gt;
+
+&lt;!-- Autor da página --&gt;
+&lt;meta name="author" content="Seu Nome"&gt;
+
+&lt;!-- Ícone da página (favicon) --&gt;
+&lt;link rel="icon" href="favicon.ico" type="image/x-icon"&gt;</code></pre>
+            </div>
+
+            <div class="destaque tip">
+                <h4>💡 Dica Profissional</h4>
+                <p>
+                    O <strong>title</strong> e a <strong>meta description</strong> são cruciais para SEO. 
+                    Eles aparecem nos resultados do Google e influenciam se o usuário 
+                    clicará no seu site.
+                </p>
+            </div>
+        </section>
+
+        <!-- Seção 4: Elementos HTML Básicos -->
+        <section class="secao">
+            <h2>🧱 4. Elementos HTML Básicos</h2>
+            
+            <p>
+                Vamos conhecer os elementos HTML mais fundamentais e como usá-los corretamente:
+            </p>
+
+            <h3>📰 Títulos (Headings)</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;h1&gt;Título Principal&lt;/h1&gt;
+&lt;h2&gt;Título Secundário&lt;/h2&gt;
+&lt;h3&gt;Subtítulo&lt;/h3&gt;
+&lt;h4&gt;Título de Seção&lt;/h4&gt;
+&lt;h5&gt;Título Menor&lt;/h5&gt;
+&lt;h6&gt;Título Mínimo&lt;/h6&gt;</code></pre>
+            </div>
+
+            <div class="destaque warning">
+                <h4>⚠️ Importante sobre Títulos</h4>
+                <ul>
+                    <li>Use apenas <strong>um H1 por página</strong></li>
+                    <li>Mantenha a <strong>hierarquia lógica</strong> (H1 → H2 → H3)</li>
+                    <li>Não pule níveis (H1 → H3 sem H2)</li>
+                    <li>Use títulos para estrutura, não apenas para tamanho</li>
+                </ul>
+            </div>
+
+            <h3>📝 Parágrafos e Texto</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;p&gt;Este é um parágrafo normal de texto.&lt;/p&gt;
+
+&lt;p&gt;
+    Este é outro parágrafo. Note que quebras de linha
+    no código HTML não afetam a renderização.
+&lt;/p&gt;
+
+&lt;!-- Quebra de linha forçada --&gt;
+&lt;p&gt;Primeira linha&lt;br&gt;Segunda linha&lt;/p&gt;
+
+&lt;!-- Linha horizontal --&gt;
+&lt;hr&gt;</code></pre>
+            </div>
+
+            <h3>💪 Formatação de Texto</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Ênfase (geralmente itálico) --&gt;
+&lt;em&gt;Texto com ênfase&lt;/em&gt;
+
+&lt;!-- Importância (geralmente negrito) --&gt;
+&lt;strong&gt;Texto importante&lt;/strong&gt;
+
+&lt;!-- Texto marcado/destacado --&gt;
+&lt;mark&gt;Texto destacado&lt;/mark&gt;
+
+&lt;!-- Texto pequeno --&gt;
+&lt;small&gt;Texto em tamanho menor&lt;/small&gt;
+
+&lt;!-- Texto deletado --&gt;
+&lt;del&gt;Texto removido&lt;/del&gt;
+
+&lt;!-- Texto inserido --&gt;
+&lt;ins&gt;Texto adicionado&lt;/ins&gt;</code></pre>
+            </div>
+
+            <div class="destaque info">
+                <h4>🎯 Semântica vs Visual</h4>
+                <p>
+                    Use <code>&lt;strong&gt;</code> e <code>&lt;em&gt;</code> para dar 
+                    <strong>significado</strong> ao texto, não apenas para deixá-lo 
+                    negrito ou itálico. Para estilo visual, use CSS.
+                </p>
+            </div>
+        </section>
+
+        <!-- Exercício 1 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 1: Primeira Página HTML</h4>
+            <p>
+                Crie um arquivo chamado <code>minha-primeira-pagina.html</code> com 
+                uma estrutura HTML básica contendo:
+            </p>
+            <ul>
+                <li>DOCTYPE correto</li>
+                <li>Meta tags essenciais</li>
+                <li>Um título H1 com seu nome</li>
+                <li>Um parágrafo se apresentando</li>
+                <li>Uso de elementos de formatação (strong, em)</li>
+            </ul>
+
+            <div class="exercicio-resultado">
+                <h5>💻 Exemplo de Resultado</h5>
+                <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;João Silva - Desenvolvedor&lt;/title&gt;
+    &lt;meta name="description" content="Página pessoal de João Silva, desenvolvedor web iniciante."&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;João Silva&lt;/h1&gt;
+    &lt;p&gt;
+        Olá! Eu sou o &lt;strong&gt;João&lt;/strong&gt; e estou 
+        &lt;em&gt;aprendendo desenvolvimento web&lt;/em&gt;. 
+        Esta é minha primeira página HTML!
+    &lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção 5: Validação HTML -->
+        <section class="secao">
+            <h2>✅ 5. Validação e Boas Práticas</h2>
+            
+            <h3>🔍 Por que Validar HTML?</h3>
+            <ul>
+                <li><strong>Compatibilidade:</strong> Garante que funciona em todos os navegadores</li>
+                <li><strong>Acessibilidade:</strong> HTML válido é melhor para leitores de tela</li>
+                <li><strong>SEO:</strong> Motores de busca preferem código limpo e válido</li>
+                <li><strong>Manutenção:</strong> Código válido é mais fácil de manter</li>
+            </ul>
+
+            <h3>🛠️ Ferramentas de Validação</h3>
+            <div class="destaque tip">
+                <h4>🔧 Validador W3C</h4>
+                <p>
+                    Use o <a href="https://validator.w3.org/" target="_blank" rel="noopener">
+                    Validador HTML do W3C</a> para verificar se seu código está correto. 
+                    É gratuito e oficial!
+                </p>
+            </div>
+
+            <h3>📋 Checklist de Boas Práticas</h3>
+            <div class="checklist">
+                <h4>✅ Estrutura Básica</h4>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="check1">
+                        <label for="check1">DOCTYPE html declarado</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check2">
+                        <label for="check2">Atributo lang definido no html</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check3">
+                        <label for="check3">Meta charset UTF-8</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check4">
+                        <label for="check4">Meta viewport para responsividade</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check5">
+                        <label for="check5">Title descritivo e único</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check6">
+                        <label for="check6">Meta description relevante</label>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Exercício 2 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 2: Página com Hierarquia</h4>
+            <p>
+                Crie uma página sobre seu hobby favorito com:
+            </p>
+            <ul>
+                <li>Estrutura HTML completa</li>
+                <li>H1 com o nome do hobby</li>
+                <li>H2 para seções (Ex: "O que é", "Por que gosto", "Como começar")</li>
+                <li>Parágrafos explicativos</li>
+                <li>Uso adequado de strong e em</li>
+            </ul>
+        </div>
+
+        <!-- Seção 6: Comentários HTML -->
+        <section class="secao">
+            <h2>💬 6. Comentários em HTML</h2>
+            
+            <p>
+                Comentários são importantes para documentar seu código e facilitar 
+                a manutenção futura:
+            </p>
+
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Este é um comentário em HTML --&gt;
+
+&lt;!-- 
+    Comentários podem ocupar
+    múltiplas linhas
+--&gt;
+
+&lt;h1&gt;Título Principal&lt;/h1&gt;
+&lt;!-- TODO: Adicionar conteúdo da seção --&gt;
+
+&lt;!-- INÍCIO DA SEÇÃO SOBRE --&gt;
+&lt;section&gt;
+    &lt;h2&gt;Sobre Nós&lt;/h2&gt;
+    &lt;p&gt;Conteúdo da seção...&lt;/p&gt;
+&lt;/section&gt;
+&lt;!-- FIM DA SEÇÃO SOBRE --&gt;</code></pre>
+            </div>
+
+            <div class="destaque info">
+                <h4>💡 Boas Práticas para Comentários</h4>
+                <ul>
+                    <li>Use para explicar código complexo</li>
+                    <li>Marque seções importantes</li>
+                    <li>Deixe TODOs para melhorias futuras</li>
+                    <li>Não exagere - código limpo é autodocumentado</li>
+                    <li>Mantenha comentários atualizados</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Exercício 3 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 3: Validação e Comentários</h4>
+            <p>
+                Pegue uma das páginas criadas anteriormente e:
+            </p>
+            <ul>
+                <li>Adicione comentários explicativos</li>
+                <li>Valide o código no W3C Validator</li>
+                <li>Corrija qualquer erro encontrado</li>
+                <li>Teste a página em diferentes navegadores</li>
+            </ul>
+        </div>
+
+        <!-- Resumo da Aula -->
+        <section class="secao">
+            <h2>📋 Resumo da Aula</h2>
+            
+            <p>Nesta aula, você aprendeu:</p>
+            
+            <div class="recursos">
+                <div class="recurso-card">
+                    <h4>🏗️ Estrutura HTML</h4>
+                    <p>DOCTYPE, html, head, body e a anatomia de uma página web válida.</p>
+                </div>
+                
+                <div class="recurso-card">
+                    <h4>🏷️ Meta Tags</h4>
+                    <p>Elementos essenciais no head para SEO, responsividade e metadados.</p>
+                </div>
+                
+                <div class="recurso-card">
+                    <h4>📝 Elementos Básicos</h4>
+                    <p>Títulos, parágrafos, formatação e hierarquia semântica.</p>
+                </div>
+                
+                <div class="recurso-card">
+                    <h4>✅ Validação</h4>
+                    <p>Importância do código válido e ferramentas para verificação.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer da Aula -->
+        <footer class="aula-footer">
+            <h3>🎉 Parabéns!</h3>
+            <p>
+                Você completou sua primeira aula de HTML! Agora você já conhece os 
+                fundamentos e está pronto para aprender sobre formatação de texto.
+            </p>
+            <a href="aula-02-texto-formatacao.html" class="proxima-aula">
+                📝 Próxima Aula: Texto e Formatação
+            </a>
+        </footer>
+    </div>
+
+    <!-- JavaScript para funcionalidades da aula -->
+    <script>
+        // Marcar aula como concluída
+        function marcarAulaConcluida() {
+            const progresso = JSON.parse(localStorage.getItem('curso-html-progresso') || '[]');
+            if (!progresso.includes(1)) {
+                progresso.push(1);
+                localStorage.setItem('curso-html-progresso', JSON.stringify(progresso));
+                
+                // Mostrar mensagem de parabéns
+                alert('🎉 Parabéns! Aula 1 concluída com sucesso!');
+            }
+        }
+
+        // Salvar progresso do checklist
+        function salvarChecklistProgresso() {
+            const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
+            const progresso = [];
+            
+            checkboxes.forEach((checkbox, index) => {
+                if (checkbox.checked) {
+                    progresso.push(index);
+                }
+            });
+            
+            localStorage.setItem('aula-1-checklist', JSON.stringify(progresso));
+        }
+
+        // Carregar progresso do checklist
+        function carregarChecklistProgresso() {
+            const progresso = JSON.parse(localStorage.getItem('aula-1-checklist') || '[]');
+            const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
+            
+            progresso.forEach(index => {
+                if (checkboxes[index]) {
+                    checkboxes[index].checked = true;
+                }
+            });
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            carregarChecklistProgresso();
+            
+            // Salvar progresso quando checkbox for alterado
+            const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', salvarChecklistProgresso);
+            });
+            
+            // Marcar como concluída quando chegar ao final
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        marcarAulaConcluida();
+                    }
+                });
+            });
+            
+            const footer = document.querySelector('.aula-footer');
+            if (footer) {
+                observer.observe(footer);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 12: Projeto Final - Curso HTML Fundamentals</title>
+    <meta name="description" content="Aula final do curso de HTML: desenvolva um projeto completo aplicando todos os conhecimentos adquiridos.">
+    <link rel="stylesheet" href="assets/style-aulas.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+</head>
+<body>
+    <div class="aula-container">
+        <!-- Navegação -->
+        <nav class="aula-nav">
+            <a href="aula-11-performance-otimizacao.html" class="nav-btn">
+                ← 🚀 Aula Anterior
+            </a>
+            <a href="index.html" class="nav-btn">
+                📚 Curso
+            </a>
+            <div class="nav-btn final">
+                🎉 Aula Final!
+            </div>
+        </nav>
+
+        <!-- Header da Aula -->
+        <header class="aula-header">
+            <div class="aula-numero">AULA 12</div>
+            <h1 class="aula-titulo">🚀 Projeto Final</h1>
+            <p class="aula-descricao">
+                Desenvolva um projeto web completo aplicando todos os conhecimentos 
+                de HTML adquiridos durante o curso, criando um site profissional.
+            </p>
+            <div class="aula-meta">
+                <div class="meta-item">
+                    <span>⏱️</span> <span>120 minutos</span>
+                </div>
+                <div class="meta-item">
+                    <span>🎯</span> <span>Avançado</span>
+                </div>
+                <div class="meta-item">
+                    <span>📝</span> <span>1 Projeto</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Objetivos da Aula -->
+        <div class="objetivos">
+            <h3>🎯 Objetivos do Projeto</h3>
+            <ul>
+                <li>Aplicar todos os conceitos de HTML aprendidos no curso</li>
+                <li>Criar um site profissional completo e funcional</li>
+                <li>Implementar boas práticas de semântica e acessibilidade</li>
+                <li>Otimizar performance e SEO</li>
+                <li>Demonstrar domínio técnico em HTML5</li>
+            </ul>
+        </div>
+
+        <!-- Especificações do Projeto -->
+        <section class="secao">
+            <h2>📋 Especificações do Projeto</h2>
+            
+            <div class="destaque info">
+                <h4>🎨 Tema: Portfólio Pessoal ou Site de Empresa</h4>
+                <p>
+                    Escolha desenvolver um portfólio pessoal para mostrar suas habilidades 
+                    ou um site corporativo para uma empresa (real ou fictícia).
+                </p>
+            </div>
+
+            <h3>📄 Páginas Obrigatórias</h3>
+            <div class="codigo" data-lang="Estrutura">
+<pre><code>projeto-final/
+├── index.html              (Home - landing page)
+├── sobre.html              (Sobre/About)
+├── portfolio.html          (Portfólio/Produtos)
+├── servicos.html           (Serviços/Skills)
+├── contato.html            (Contato)
+├── blog.html               (Blog/Notícias)
+├── artigo.html             (Página de artigo individual)
+├── 404.html                (Página de erro 404)
+├── sitemap.html            (Mapa do site)
+├── assets/
+│   ├── css/
+│   ├── images/
+│   ├── videos/
+│   └── docs/
+└── README.md               (Documentação do projeto)</code></pre>
+            </div>
+
+            <h3>✅ Requisitos Técnicos</h3>
+            <div class="checklist">
+                <h4>🏗️ Estrutura e Semântica</h4>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="req1">
+                        <label for="req1">HTML5 válido em todas as páginas</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="req2">
+                        <label for="req2">Uso correto de elementos semânticos</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="req3">
+                        <label for="req3">Hierarquia de títulos lógica</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="req4">
+                        <label for="req4">Meta tags otimizadas para SEO</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="checklist">
+                <h4>♿ Acessibilidade</h4>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="req5">
+                        <label for="req5">Alt text em todas as imagens</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="req6">
+                        <label for="req6">Navegação por teclado funcional</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="req7">
+                        <label for="req7">Atributos ARIA implementados</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="req8">
+                        <label for="req8">Contraste de cores adequado</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="checklist">
+                <h4>🚀 Performance</h4>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="req9">
+                        <label for="req9">Imagens otimizadas e responsivas</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="req10">
+                        <label for="req10">Lazy loading implementado</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="req11">
+                        <label for="req11">Código minificado e limpo</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="req12">
+                        <label for="req12">Tempos de carregamento otimizados</label>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Seção 1: Planejamento -->
+        <section class="secao">
+            <h2>📐 1. Planejamento do Projeto</h2>
+            
+            <h3>🎯 Definindo o Conceito</h3>
+            <div class="codigo" data-lang="Documento de Planejamento">
+<pre><code>## Briefing do Projeto
+
+### Objetivo
+- [ ] Portfólio pessoal de desenvolvedor
+- [ ] Site corporativo de empresa
+- [ ] Blog pessoal/profissional
+- [ ] Landing page de produto/serviço
+
+### Público-alvo
+- Idade: _______________
+- Profissão: ___________
+- Necessidades: ________
+- Dispositivos: ________
+
+### Funcionalidades
+- [ ] Formulário de contato
+- [ ] Galeria de projetos/produtos
+- [ ] Blog integrado
+- [ ] Download de currículo/catálogo
+- [ ] Integração com redes sociais
+
+### Conteúdo
+- Textos: ______________
+- Imagens: _____________
+- Vídeos: ______________
+- Documentos: __________</code></pre>
+            </div>
+
+            <h3>🗺️ Wireframe e Estrutura</h3>
+            <div class="destaque tip">
+                <h4>💡 Ferramentas de Planejamento</h4>
+                <ul>
+                    <li><strong>Papel e lápis:</strong> Esboços rápidos</li>
+                    <li><strong>Figma/Sketch:</strong> Wireframes digitais</li>
+                    <li><strong>Miro/Whimsical:</strong> Mapas mentais</li>
+                    <li><strong>Balsamiq:</strong> Protótipos rápidos</li>
+                </ul>
+            </div>
+
+            <h3>📊 Arquitetura da Informação</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Estrutura básica de cada página --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+&lt;head&gt;
+    &lt;!-- Meta tags essenciais --&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Título Específico da Página | Nome do Site&lt;/title&gt;
+    &lt;meta name="description" content="Descrição única de cada página"&gt;
+    
+    &lt;!-- SEO e compartilhamento --&gt;
+    &lt;meta property="og:title" content="Título para redes sociais"&gt;
+    &lt;meta property="og:description" content="Descrição para compartilhamento"&gt;
+    &lt;meta property="og:image" content="imagem-compartilhamento.jpg"&gt;
+    
+    &lt;!-- Favicon --&gt;
+    &lt;link rel="icon" href="favicon.ico"&gt;
+    
+    &lt;!-- CSS --&gt;
+    &lt;link rel="stylesheet" href="assets/css/style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Skip link --&gt;
+    &lt;a href="#main-content" class="skip-link"&gt;Pular para conteúdo principal&lt;/a&gt;
+    
+    &lt;!-- Header --&gt;
+    &lt;header role="banner"&gt;
+        &lt;nav role="navigation" aria-label="Menu principal"&gt;
+            &lt;!-- Navegação principal --&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+    
+    &lt;!-- Main content --&gt;
+    &lt;main id="main-content" role="main"&gt;
+        &lt;!-- Conteúdo específico da página --&gt;
+    &lt;/main&gt;
+    
+    &lt;!-- Footer --&gt;
+    &lt;footer role="contentinfo"&gt;
+        &lt;!-- Informações da empresa/pessoa --&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Seção 2: Desenvolvimento das Páginas -->
+        <section class="secao">
+            <h2>🏗️ 2. Desenvolvimento das Páginas</h2>
+            
+            <h3>🏠 Página Home (index.html)</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;main&gt;
+    &lt;!-- Hero Section --&gt;
+    &lt;section class="hero" aria-labelledby="hero-title"&gt;
+        &lt;div class="hero-content"&gt;
+            &lt;h1 id="hero-title"&gt;Título Principal Impactante&lt;/h1&gt;
+            &lt;p class="hero-subtitle"&gt;Subtítulo explicativo e atrativo&lt;/p&gt;
+            &lt;a href="#services" class="cta-button"&gt;Saiba Mais&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="hero-media"&gt;
+            &lt;picture&gt;
+                &lt;source srcset="hero-image.webp" type="image/webp"&gt;
+                &lt;img src="hero-image.jpg" alt="Descrição da imagem principal"&gt;
+            &lt;/picture&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    
+    &lt;!-- Seção Sobre --&gt;
+    &lt;section id="about" aria-labelledby="about-title"&gt;
+        &lt;h2 id="about-title"&gt;Sobre Mim/Empresa&lt;/h2&gt;
+        &lt;div class="about-content"&gt;
+            &lt;p&gt;Texto apresentando você ou sua empresa...&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    
+    &lt;!-- Seção Serviços/Skills --&gt;
+    &lt;section id="services" aria-labelledby="services-title"&gt;
+        &lt;h2 id="services-title"&gt;Serviços&lt;/h2&gt;
+        &lt;div class="services-grid"&gt;
+            &lt;article class="service-card"&gt;
+                &lt;h3&gt;Serviço 1&lt;/h3&gt;
+                &lt;p&gt;Descrição do serviço...&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;!-- Mais cards de serviços --&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    
+    &lt;!-- Call to Action --&gt;
+    &lt;section class="cta" aria-labelledby="cta-title"&gt;
+        &lt;h2 id="cta-title"&gt;Pronto para começar?&lt;/h2&gt;
+        &lt;a href="contato.html" class="cta-button"&gt;Entre em Contato&lt;/a&gt;
+    &lt;/section&gt;
+&lt;/main&gt;</code></pre>
+            </div>
+
+            <h3>👨‍💼 Página Sobre (sobre.html)</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;main&gt;
+    &lt;article&gt;
+        &lt;header&gt;
+            &lt;h1&gt;Sobre Mim/Nossa Empresa&lt;/h1&gt;
+            &lt;p class="lead"&gt;Introdução cativante sobre a história...&lt;/p&gt;
+        &lt;/header&gt;
+        
+        &lt;section aria-labelledby="historia-title"&gt;
+            &lt;h2 id="historia-title"&gt;Nossa História&lt;/h2&gt;
+            &lt;div class="timeline"&gt;
+                &lt;article class="timeline-item"&gt;
+                    &lt;time datetime="2020"&gt;2020&lt;/time&gt;
+                    &lt;h3&gt;Início da Jornada&lt;/h3&gt;
+                    &lt;p&gt;Como tudo começou...&lt;/p&gt;
+                &lt;/article&gt;
+                &lt;!-- Mais itens da timeline --&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+        
+        &lt;section aria-labelledby="team-title"&gt;
+            &lt;h2 id="team-title"&gt;Nossa Equipe&lt;/h2&gt;
+            &lt;div class="team-grid"&gt;
+                &lt;article class="team-member"&gt;
+                    &lt;img src="member1.jpg" alt="Foto de João Silva"&gt;
+                    &lt;h3&gt;João Silva&lt;/h3&gt;
+                    &lt;p&gt;CEO &amp; Fundador&lt;/p&gt;
+                &lt;/article&gt;
+                &lt;!-- Mais membros da equipe --&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+    &lt;/article&gt;
+&lt;/main&gt;</code></pre>
+            </div>
+
+            <h3>📞 Página Contato (contato.html)</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;main&gt;
+    &lt;div class="contact-container"&gt;
+        &lt;section class="contact-info"&gt;
+            &lt;h1&gt;Entre em Contato&lt;/h1&gt;
+            &lt;address&gt;
+                &lt;h2&gt;Informações de Contato&lt;/h2&gt;
+                &lt;div class="contact-item"&gt;
+                    &lt;strong&gt;Endereço:&lt;/strong&gt;
+                    &lt;span&gt;Rua das Flores, 123&lt;br&gt;São Paulo - SP&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class="contact-item"&gt;
+                    &lt;strong&gt;Telefone:&lt;/strong&gt;
+                    &lt;a href="tel:+5511999999999"&gt;(11) 99999-9999&lt;/a&gt;
+                &lt;/div&gt;
+                &lt;div class="contact-item"&gt;
+                    &lt;strong&gt;E-mail:&lt;/strong&gt;
+                    &lt;a href="mailto:contato@empresa.com"&gt;contato@empresa.com&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/address&gt;
+        &lt;/section&gt;
+        
+        &lt;section class="contact-form"&gt;
+            &lt;h2&gt;Envie uma Mensagem&lt;/h2&gt;
+            &lt;form action="#" method="post"&gt;
+                &lt;div class="form-group"&gt;
+                    &lt;label for="nome"&gt;Nome Completo *&lt;/label&gt;
+                    &lt;input type="text" id="nome" name="nome" required&gt;
+                &lt;/div&gt;
+                
+                &lt;div class="form-group"&gt;
+                    &lt;label for="email"&gt;E-mail *&lt;/label&gt;
+                    &lt;input type="email" id="email" name="email" required&gt;
+                &lt;/div&gt;
+                
+                &lt;div class="form-group"&gt;
+                    &lt;label for="assunto"&gt;Assunto&lt;/label&gt;
+                    &lt;select id="assunto" name="assunto"&gt;
+                        &lt;option value=""&gt;Selecione um assunto&lt;/option&gt;
+                        &lt;option value="orcamento"&gt;Orçamento&lt;/option&gt;
+                        &lt;option value="duvida"&gt;Dúvida&lt;/option&gt;
+                        &lt;option value="parceria"&gt;Parceria&lt;/option&gt;
+                    &lt;/select&gt;
+                &lt;/div&gt;
+                
+                &lt;div class="form-group"&gt;
+                    &lt;label for="mensagem"&gt;Mensagem *&lt;/label&gt;
+                    &lt;textarea id="mensagem" name="mensagem" rows="5" required&gt;&lt;/textarea&gt;
+                &lt;/div&gt;
+                
+                &lt;button type="submit"&gt;Enviar Mensagem&lt;/button&gt;
+            &lt;/form&gt;
+        &lt;/section&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Mapa --&gt;
+    &lt;section class="map-section"&gt;
+        &lt;h2&gt;Nossa Localização&lt;/h2&gt;
+        &lt;div class="map-container"&gt;
+            &lt;iframe src="https://www.google.com/maps/embed?pb=..."
+                    title="Localização da empresa"
+                    loading="lazy"&gt;
+            &lt;/iframe&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/main&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Seção 3: Componentes Especiais -->
+        <section class="secao">
+            <h2>🧩 3. Componentes Especiais</h2>
+            
+            <h3>🍞 Navegação com Breadcrumb</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;nav aria-label="Breadcrumb"&gt;
+    &lt;ol class="breadcrumb"&gt;
+        &lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="portfolio.html"&gt;Portfólio&lt;/a&gt;&lt;/li&gt;
+        &lt;li aria-current="page"&gt;Projeto Web Design&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+
+            <h3>🎨 Galeria de Projetos</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;section class="portfolio-gallery"&gt;
+    &lt;h2&gt;Meus Projetos&lt;/h2&gt;
+    &lt;div class="filter-buttons"&gt;
+        &lt;button class="filter-btn active" data-filter="all"&gt;Todos&lt;/button&gt;
+        &lt;button class="filter-btn" data-filter="web"&gt;Web Design&lt;/button&gt;
+        &lt;button class="filter-btn" data-filter="app"&gt;Apps&lt;/button&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="projects-grid"&gt;
+        &lt;article class="project-card" data-category="web"&gt;
+            &lt;figure&gt;
+                &lt;picture&gt;
+                    &lt;source srcset="projeto1.webp" type="image/webp"&gt;
+                    &lt;img src="projeto1.jpg" alt="Screenshot do projeto E-commerce" loading="lazy"&gt;
+                &lt;/picture&gt;
+                &lt;figcaption&gt;
+                    &lt;h3&gt;E-commerce Responsivo&lt;/h3&gt;
+                    &lt;p&gt;Site de vendas online com carrinho e pagamento&lt;/p&gt;
+                    &lt;div class="project-links"&gt;
+                        &lt;a href="projeto1-detalhes.html"&gt;Ver Detalhes&lt;/a&gt;
+                        &lt;a href="https://demo-projeto1.com" target="_blank" rel="noopener"&gt;Demo&lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/figcaption&gt;
+            &lt;/figure&gt;
+        &lt;/article&gt;
+        &lt;!-- Mais projetos --&gt;
+    &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+            </div>
+
+            <h3>📝 Seção de Blog</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;section class="blog-section"&gt;
+    &lt;h2&gt;Últimos Artigos&lt;/h2&gt;
+    &lt;div class="blog-grid"&gt;
+        &lt;article class="blog-card"&gt;
+            &lt;header&gt;
+                &lt;img src="artigo1-thumb.jpg" alt="Ilustração sobre HTML semântico" loading="lazy"&gt;
+                &lt;div class="blog-meta"&gt;
+                    &lt;time datetime="2024-01-15"&gt;15 de janeiro, 2024&lt;/time&gt;
+                    &lt;span class="category"&gt;Desenvolvimento&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;h3&gt;&lt;a href="artigo-html-semantico.html"&gt;HTML Semântico: Guia Completo&lt;/a&gt;&lt;/h3&gt;
+            &lt;/header&gt;
+            &lt;p&gt;Aprenda como usar HTML semântico para criar sites mais acessíveis e otimizados para SEO...&lt;/p&gt;
+            &lt;footer&gt;
+                &lt;a href="artigo-html-semantico.html" class="read-more"&gt;Ler mais&lt;/a&gt;
+            &lt;/footer&gt;
+        &lt;/article&gt;
+        &lt;!-- Mais artigos --&gt;
+    &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+            </div>
+
+            <h3>🚫 Página 404</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Página não encontrada - 404&lt;/title&gt;
+    &lt;meta name="description" content="A página que você procura não foi encontrada."&gt;
+    &lt;meta name="robots" content="noindex, follow"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;main class="error-page"&gt;
+        &lt;div class="error-content"&gt;
+            &lt;h1&gt;404 - Página não encontrada&lt;/h1&gt;
+            &lt;p&gt;Ops! A página que você procura não existe ou foi movida.&lt;/p&gt;
+            
+            &lt;nav class="error-navigation"&gt;
+                &lt;h2&gt;O que você pode fazer:&lt;/h2&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="index.html"&gt;Voltar para a página inicial&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="portfolio.html"&gt;Ver nosso portfólio&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="contato.html"&gt;Entrar em contato&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="sitemap.html"&gt;Consultar o mapa do site&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/nav&gt;
+            
+            &lt;div class="search-box"&gt;
+                &lt;h3&gt;Ou procure por:&lt;/h3&gt;
+                &lt;form role="search"&gt;
+                    &lt;label for="search"&gt;Buscar no site:&lt;/label&gt;
+                    &lt;input type="search" id="search" placeholder="Digite sua busca..."&gt;
+                    &lt;button type="submit"&gt;Buscar&lt;/button&gt;
+                &lt;/form&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Seção 4: Otimização Final -->
+        <section class="secao">
+            <h2>🚀 4. Otimização e Finalização</h2>
+            
+            <h3>🔍 SEO Checklist</h3>
+            <div class="checklist">
+                <h4>Meta Tags e Estrutura</h4>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="seo1">
+                        <label for="seo1">Title único e descritivo em cada página</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="seo2">
+                        <label for="seo2">Meta description relevante (150-160 caracteres)</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="seo3">
+                        <label for="seo3">Estrutura de títulos H1-H6 lógica</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="seo4">
+                        <label for="seo4">URLs amigáveis e descritivas</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="seo5">
+                        <label for="seo5">Sitemap HTML criado</label>
+                    </li>
+                </ul>
+            </div>
+
+            <h3>⚡ Performance Checklist</h3>
+            <div class="checklist">
+                <h4>Otimização de Recursos</h4>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="perf1">
+                        <label for="perf1">Imagens otimizadas (WebP/AVIF)</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="perf2">
+                        <label for="perf2">Lazy loading implementado</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="perf3">
+                        <label for="perf3">HTML minificado</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="perf4">
+                        <label for="perf4">Recursos críticos precarregados</label>
+                    </li>
+                </ul>
+            </div>
+
+            <h3>♿ Acessibilidade Checklist</h3>
+            <div class="checklist">
+                <h4>Inclusão e Usabilidade</h4>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="a11y1">
+                        <label for="a11y1">Contraste de cores conforme WCAG</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="a11y2">
+                        <label for="a11y2">Navegação por teclado funcional</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="a11y3">
+                        <label for="a11y3">Alt text descritivo em imagens</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="a11y4">
+                        <label for="a11y4">Labels associados a form controls</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="a11y5">
+                        <label for="a11y5">ARIA landmarks implementados</label>
+                    </li>
+                </ul>
+            </div>
+
+            <h3>📋 Validação Final</h3>
+            <div class="destaque info">
+                <h4>🛠️ Ferramentas de Validação</h4>
+                <ul>
+                    <li><strong>W3C Validator:</strong> Validar HTML</li>
+                    <li><strong>WAVE:</strong> Teste de acessibilidade</li>
+                    <li><strong>Lighthouse:</strong> Performance e SEO</li>
+                    <li><strong>GTmetrix:</strong> Velocidade de carregamento</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Critérios de Avaliação -->
+        <section class="secao">
+            <h2>📊 Critérios de Avaliação</h2>
+            
+            <div class="recursos">
+                <div class="recurso-card">
+                    <h4>🏗️ Estrutura HTML (25%)</h4>
+                    <ul>
+                        <li>HTML5 válido</li>
+                        <li>Semântica correta</li>
+                        <li>Organização do código</li>
+                    </ul>
+                </div>
+                
+                <div class="recurso-card">
+                    <h4>♿ Acessibilidade (25%)</h4>
+                    <ul>
+                        <li>ARIA implementado</li>
+                        <li>Navegação por teclado</li>
+                        <li>Contraste adequado</li>
+                    </ul>
+                </div>
+                
+                <div class="recurso-card">
+                    <h4>🚀 Performance (25%)</h4>
+                    <ul>
+                        <li>Otimização de imagens</li>
+                        <li>Lazy loading</li>
+                        <li>Código limpo</li>
+                    </ul>
+                </div>
+                
+                <div class="recurso-card">
+                    <h4>🎨 Qualidade Geral (25%)</h4>
+                    <ul>
+                        <li>Design responsivo</li>
+                        <li>Conteúdo relevante</li>
+                        <li>Experiência do usuário</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Entrega do Projeto -->
+        <section class="secao">
+            <h2>📦 Entrega do Projeto</h2>
+            
+            <h3>📁 Estrutura de Entrega</h3>
+            <div class="codigo" data-lang="Estrutura">
+<pre><code>projeto-final/
+├── README.md                   # Documentação do projeto
+├── index.html                  # Página principal
+├── sobre.html                  # Página sobre
+├── portfolio.html              # Portfólio/produtos
+├── servicos.html               # Serviços/skills
+├── contato.html                # Contato
+├── blog.html                   # Blog/notícias
+├── artigo.html                 # Página de artigo
+├── 404.html                    # Página de erro
+├── sitemap.html                # Mapa do site
+├── assets/
+│   ├── css/
+│   │   └── style.css          # Estilos (opcional, foco no HTML)
+│   ├── images/
+│   │   ├── optimized/         # Imagens otimizadas
+│   │   └── original/          # Imagens originais
+│   ├── videos/
+│   └── docs/
+├── validation/
+│   ├── html-validation.pdf    # Relatórios de validação
+│   ├── accessibility.pdf     # Relatório de acessibilidade
+│   └── lighthouse.pdf        # Relatório do Lighthouse
+└── docs/
+    ├── wireframes/            # Esboços e wireframes
+    ├── planning.md            # Documento de planejamento
+    └── reflection.md          # Reflexão sobre o projeto</code></pre>
+            </div>
+
+            <h3>📝 Documentação (README.md)</h3>
+            <div class="codigo" data-lang="Markdown">
+<pre><code># Projeto Final - Curso HTML Fundamentals
+
+## Descrição
+[Breve descrição do projeto e seu objetivo]
+
+## Páginas Desenvolvidas
+- **Home (index.html):** Landing page principal
+- **Sobre (sobre.html):** Informações sobre a empresa/pessoa
+- **Portfólio (portfolio.html):** Projetos e trabalhos realizados
+- **Serviços (servicos.html):** Serviços oferecidos
+- **Contato (contato.html):** Formulário e informações de contato
+- **Blog (blog.html):** Lista de artigos
+- **Artigo (artigo.html):** Página individual de artigo
+- **404 (404.html):** Página de erro personalizada
+- **Sitemap (sitemap.html):** Mapa do site
+
+## Tecnologias Utilizadas
+- HTML5
+- CSS3 (básico para apresentação)
+- Lazy loading nativo
+- Imagens responsivas (srcset/picture)
+
+## Funcionalidades Implementadas
+- [x] Navegação responsiva
+- [x] Formulário de contato funcional
+- [x] Galeria de projetos
+- [x] Blog integrado
+- [x] SEO otimizado
+- [x] Acessibilidade (WCAG 2.1)
+
+## Validação
+- ✅ HTML5 válido (W3C Validator)
+- ✅ Acessibilidade aprovada (WAVE)
+- ✅ Performance otimizada (Lighthouse)
+
+## Como visualizar
+1. Abra o arquivo `index.html` em um navegador
+2. Navegue pelas diferentes páginas
+3. Teste a responsividade
+
+## Autor
+[Seu nome]
+Data: [Data de conclusão]</code></pre>
+            </div>
+        </section>
+
+        <!-- Resumo da Aula -->
+        <section class="secao">
+            <h2>🎉 Parabéns! Projeto Concluído</h2>
+            
+            <div class="destaque success">
+                <h4>🏆 Você Completou o Curso!</h4>
+                <p>
+                    Parabéns por chegar até aqui! Você desenvolveu um projeto completo 
+                    aplicando todos os conceitos de HTML aprendidos durante o curso. 
+                    Agora você tem um portfólio sólido para mostrar suas habilidades.
+                </p>
+            </div>
+
+            <h3>🚀 Próximos Passos</h3>
+            <ul>
+                <li><strong>CSS Avançado:</strong> Estilize seu projeto com CSS moderno</li>
+                <li><strong>JavaScript:</strong> Adicione interatividade às suas páginas</li>
+                <li><strong>Frameworks:</strong> Explore React, Vue ou Angular</li>
+                <li><strong>Backend:</strong> Aprenda Node.js, Python ou PHP</li>
+                <li><strong>Deploy:</strong> Publique seu site online</li>
+            </ul>
+
+            <h3>📚 Recursos Adicionais</h3>
+            <div class="recursos">
+                <div class="recurso-card">
+                    <h4>📖 Documentação</h4>
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" target="_blank" rel="noopener">MDN HTML</a></li>
+                        <li><a href="https://www.w3.org/html/" target="_blank" rel="noopener">W3C HTML</a></li>
+                    </ul>
+                </div>
+                
+                <div class="recurso-card">
+                    <h4>🛠️ Ferramentas</h4>
+                    <ul>
+                        <li><a href="https://validator.w3.org/" target="_blank" rel="noopener">W3C Validator</a></li>
+                        <li><a href="https://wave.webaim.org/" target="_blank" rel="noopener">WAVE Accessibility</a></li>
+                    </ul>
+                </div>
+                
+                <div class="recurso-card">
+                    <h4>🎨 Inspiração</h4>
+                    <ul>
+                        <li><a href="https://codepen.io/" target="_blank" rel="noopener">CodePen</a></li>
+                        <li><a href="https://dribbble.com/" target="_blank" rel="noopener">Dribbble</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer da Aula -->
+        <footer class="aula-footer">
+            <h3>🎓 Curso Completo!</h3>
+            <p>
+                Você concluiu com sucesso o Curso HTML Fundamentals! Continue 
+                praticando e expandindo seus conhecimentos em desenvolvimento web.
+            </p>
+            <div class="course-completion">
+                <p>✨ <strong>Certificado de Conclusão:</strong> Você domina HTML5!</p>
+                <a href="index.html" class="back-to-course">
+                    📚 Voltar ao Curso Principal
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Marcar curso como concluído
+            function marcarCursoConcluido() {
+                const progresso = JSON.parse(localStorage.getItem('curso-html-progresso') || '[]');
+                if (!progresso.includes(12)) {
+                    progresso.push(12);
+                    localStorage.setItem('curso-html-progresso', JSON.stringify(progresso));
+                    localStorage.setItem('curso-html-concluido', 'true');
+                    
+                    // Mostrar congratulações
+                    setTimeout(() => {
+                        alert('🎉 Parabéns! Você concluiu o Curso HTML Fundamentals com sucesso!');
+                    }, 1000);
+                }
+            }
+
+            // Observer para footer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        marcarCursoConcluido();
+                    }
+                });
+            });
+            
+            const footer = document.querySelector('.aula-footer');
+            if (footer) {
+                observer.observe(footer);
+            }
+
+            // Gerenciar todos os checklists
+            const allCheckboxes = document.querySelectorAll('input[type="checkbox"]');
+            allCheckboxes.forEach((checkbox, index) => {
+                const checkId = checkbox.id;
+                const saved = localStorage.getItem(`projeto-final-${checkId}`);
+                if (saved === 'true') {
+                    checkbox.checked = true;
+                }
+                
+                checkbox.addEventListener('change', () => {
+                    localStorage.setItem(`projeto-final-${checkId}`, checkbox.checked);
+                    
+                    // Verificar se todos os requisitos estão completos
+                    const totalChecks = allCheckboxes.length;
+                    const completedChecks = Array.from(allCheckboxes).filter(cb => cb.checked).length;
+                    const progressPercent = (completedChecks / totalChecks) * 100;
+                    
+                    // Atualizar progresso visual
+                    document.title = `Aula 12: Projeto Final (${Math.round(progressPercent)}% completo) - Curso HTML Fundamentals`;
+                });
+            });
+
+            // Calcular progresso inicial
+            const totalChecks = allCheckboxes.length;
+            const completedChecks = Array.from(allCheckboxes).filter(cb => cb.checked).length;
+            if (completedChecks > 0) {
+                const progressPercent = (completedChecks / totalChecks) * 100;
+                document.title = `Aula 12: Projeto Final (${Math.round(progressPercent)}% completo) - Curso HTML Fundamentals`;
+            }
+        });
+    </script>
+</body>
+</html>
