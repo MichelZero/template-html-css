@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Meta tags obrigatórias para HTML5 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título da página que aparece na aba do navegador -->
+    <title>Template HTML/CSS - Exemplo Completo</title>
+    
+    <!-- Meta tags para SEO -->
+    <meta name="description" content="Template HTML e CSS com estrutura completa e responsiva">
+    <meta name="keywords" content="html, css, template, responsivo, web development">
+    <meta name="author" content="Seu Nome">
+    
+    <!-- Link para o arquivo CSS externo -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Google Fonts para tipografia -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome para ícones (opcional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- CABEÇALHO/HEADER -->
+    <header class="header">
+        <div class="container">
+            <!-- Logo/Nome do site -->
+            <div class="logo">
+                <h1>MeuSite</h1>
+            </div>
+            
+            <!-- Menu de navegação -->
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#home" class="nav-link">Início</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">Sobre</a></li>
+                    <li class="nav-item"><a href="#services" class="nav-link">Serviços</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contato</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Menu hambúrguer para mobile -->
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+        <!-- SEÇÃO HERO (Banner principal) -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Bem-vindo ao Nosso Site</h1>
+                <p class="hero-subtitle">Criando experiências digitais incríveis com HTML e CSS</p>
+                <button class="btn btn-primary">Saiba Mais</button>
+            </div>
+            
+            <!-- Imagem ou vídeo de fundo pode ser definida via CSS -->
+            <div class="hero-background"></div>
+        </section>
+
+        <!-- SEÇÃO SOBRE -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Sobre Nós</h2>
+                    <p class="section-subtitle">Conheça nossa história e valores</p>
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Nossa Missão</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+                        
+                        <h3>Nossa Visão</h3>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
+                    </div>
+                    
+                    <div class="about-image">
+                        <img src="https://via.placeholder.com/500x400" alt="Sobre nós">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO SERVIÇOS -->
+        <section id="services" class="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Nossos Serviços</h2>
+                    <p class="section-subtitle">Soluções completas para suas necessidades</p>
+                </div>
+                
+                <div class="services-grid">
+                    <!-- Card de serviço 1 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="service-title">Desenvolvimento Web</h3>
+                        <p class="service-description">Criamos sites modernos e responsivos usando as melhores tecnologias.</p>
+                    </div>
+                    
+                    <!-- Card de serviço 2 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3 class="service-title">Design UI/UX</h3>
+                        <p class="service-description">Interfaces intuitivas e experiências de usuário excepcionais.</p>
+                    </div>
+                    
+                    <!-- Card de serviço 3 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 class="service-title">Apps Mobile</h3>
+                        <p class="service-description">Aplicativos móveis nativos e híbridos para iOS e Android.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO CONTATO -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Entre em Contato</h2>
+                    <p class="section-subtitle">Vamos conversar sobre seu projeto</p>
+                </div>
+                
+                <div class="contact-content">
+                    <!-- Formulário de contato -->
+                    <div class="contact-form">
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Nome</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Mensagem</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                        </form>
+                    </div>
+                    
+                    <!-- Informações de contato -->
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>E-mail</h4>
+                                <p>contato@meusite.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Telefone</h4>
+                                <p>(11) 99999-9999</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Endereço</h4>
+                                <p>Rua Exemplo, 123<br>São Paulo, SP</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- RODAPÉ/FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MeuSite</h3>
+                    <p>Criando soluções digitais inovadoras desde 2020.</p>
+                    
+                    <!-- Redes sociais -->
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Links Úteis</h4>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#about">Sobre</a></li>
+                        <li><a href="#services">Serviços</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p><i class="fas fa-envelope"></i> contato@meusite.com</p>
+                    <p><i class="fas fa-phone"></i> (11) 99999-9999</p>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 MeuSite. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript para funcionalidades (opcional) -->
+    <script>
+        // Menu hambúrguer para mobile
+        const hamburger = document.querySelector('.hamburger');
+        const navList = document.querySelector('.nav-list');
+        
+        hamburger.addEventListener('click', function() {
+            navList.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+        
+        // Scroll suave para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
