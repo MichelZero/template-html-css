@@ -4,15 +4,14 @@
     <!-- Meta tags obrigatórias para HTML5 -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                        <div class="social-links">
-                        <a href="#" class="social-link" title="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    </div><!-- Título da página que aparece na aba do navegador -->
-    <title>Template HTML/CSS - Exemplo Completo</title>
+    
+    <!-- Título da página que aparece na aba do navegador -->
+    <title>Portal Educacional - Cursos HTML e CSS Gratuitos</title>
     
     <!-- Meta tags para SEO -->
+    <meta name="description" content="Aprenda HTML e CSS com nossos cursos práticos e gratuitos. Aulas interativas, exercícios e projetos reais.">
+    <meta name="keywords" content="html, css, curso, aulas, gratuito, web development, programação, frontend">
+    <meta name="author" content="Portal Educacional">
     <meta name="description" content="Template HTML e CSS com estrutura completa e responsiva">
     <meta name="keywords" content="html, css, template, responsivo, web development">
     <meta name="author" content="Seu Nome">
@@ -32,7 +31,7 @@
         <div class="container">
             <!-- Logo/Nome do site -->
             <div class="logo">
-                <h1>MeuSite</h1>
+                <h1>Portal Educacional</h1>
             </div>
             
             <!-- Menu de navegação -->
@@ -40,9 +39,9 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="#home" class="nav-link">Início</a></li>
                     <li class="nav-item"><a href="#about" class="nav-link">Sobre</a></li>
+                    <li class="nav-item"><a href="#courses" class="nav-link">Cursos</a></li>
                     <li class="nav-item"><a href="#services" class="nav-link">Serviços</a></li>
                     <li class="nav-item"><a href="#contact" class="nav-link">Contato</a></li>
-                    <li class="nav-item"><a href="guia-html.html" class="nav-link">Guia HTML</a></li>
                 </ul>
             </nav>
             
@@ -60,10 +59,13 @@
         <!-- SEÇÃO HERO (Banner principal) -->
         <section id="home" class="hero">
             <div class="hero-content">
-                <h1 class="hero-title">Bem-vindo ao Nosso Site</h1>
-                <p class="hero-subtitle">Criando experiências digitais incríveis com HTML e CSS</p>
-                <button class="btn btn-primary">Saiba Mais</button>
-                <a href="guia-html.html" class="btn btn-primary hero-guide-btn">📖 Ver Guia HTML</a>
+                <h1 class="hero-title">Bem-vindo ao Nosso Portal Educacional</h1>
+                <p class="hero-subtitle">Aprenda HTML e CSS de forma prática com nossos cursos completos</p>
+                <div class="hero-buttons">
+                    <a href="aulas-web/index.html" class="btn btn-primary">🏗️ Curso HTML</a>
+                    <a href="aulas-css/index.html" class="btn btn-secondary">🎨 Curso CSS</a>
+                    <a href="guia-html.html" class="btn btn-outline">📖 Guia Prático</a>
+                </div>
             </div>
             
             <!-- Imagem ou vídeo de fundo pode ser definida via CSS -->
@@ -74,21 +76,186 @@
         <section id="about" class="about">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Sobre Nós</h2>
-                    <p class="section-subtitle">Conheça nossa história e valores</p>
+                    <h2 class="section-title">Sobre Nossa Plataforma</h2>
+                    <p class="section-subtitle">Educação em desenvolvimento web de qualidade</p>
                 </div>
                 
                 <div class="about-content">
                     <div class="about-text">
                         <h3>Nossa Missão</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+                        <p>Democratizar o ensino de desenvolvimento web, oferecendo cursos práticos e completos de HTML e CSS. Acreditamos que todos podem aprender a criar sites incríveis com a metodologia correta.</p>
                         
-                        <h3>Nossa Visão</h3>
-                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
+                        <h3>Metodologia Hands-on</h3>
+                        <p>Nossos cursos são 100% práticos, com exemplos reais, exercícios interativos e projetos que você pode incluir no seu portfólio. Aprenda fazendo, não apenas assistindo.</p>
+                        
+                        <div class="stats">
+                            <div class="stat-item">
+                                <span class="stat-number">15+</span>
+                                <span class="stat-label">Aulas Práticas</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">50+</span>
+                                <span class="stat-label">Exercícios</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">Gratuito</span>
+                            </div>
+                        </div>
                     </div>
                     
                     <div class="about-image">
-                        <img src="https://via.placeholder.com/500x400" alt="Sobre nós">
+                        <img src="https://via.placeholder.com/500x400" alt="Aprendendo desenvolvimento web">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO CURSOS -->
+        <section id="courses" class="courses">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Nossos Cursos</h2>
+                    <p class="section-subtitle">Aprenda do básico ao avançado com nossa metodologia prática</p>
+                </div>
+                
+                <div class="courses-grid">
+                    <!-- Curso HTML -->
+                    <div class="course-card featured">
+                        <div class="course-header">
+                            <div class="course-icon">🏗️</div>
+                            <span class="course-badge">Novo</span>
+                        </div>
+                        <h3 class="course-title">HTML Fundamentals</h3>
+                        <p class="course-description">Domine a estrutura da web! Aprenda HTML desde os conceitos básicos até técnicas avançadas com 6 aulas práticas.</p>
+                        
+                        <div class="course-stats">
+                            <div class="stat">
+                                <i class="fas fa-book"></i>
+                                <span>6 Aulas</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>~8 horas</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-users"></i>
+                                <span>Iniciante</span>
+                            </div>
+                        </div>
+                        
+                        <div class="course-topics">
+                            <span class="topic">Estrutura HTML</span>
+                            <span class="topic">Formulários</span>
+                            <span class="topic">Semântica</span>
+                            <span class="topic">Acessibilidade</span>
+                        </div>
+                        
+                        <a href="aulas-web/index.html" class="btn btn-primary course-btn">
+                            Iniciar Curso 🚀
+                        </a>
+                    </div>
+                    
+                    <!-- Curso CSS -->
+                    <div class="course-card featured">
+                        <div class="course-header">
+                            <div class="course-icon">🎨</div>
+                            <span class="course-badge new">Novo</span>
+                        </div>
+                        <h3 class="course-title">CSS Fundamentals</h3>
+                        <p class="course-description">Transforme suas páginas em designs incríveis! Aprenda CSS com foco em design moderno e responsividade.</p>
+                        
+                        <div class="course-stats">
+                            <div class="stat">
+                                <i class="fas fa-book"></i>
+                                <span>14 Aulas</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>~12 horas</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-users"></i>
+                                <span>Iniciante+</span>
+                            </div>
+                        </div>
+                        
+                        <div class="course-topics">
+                            <span class="topic">Flexbox</span>
+                            <span class="topic">Grid</span>
+                            <span class="topic">Responsivo</span>
+                            <span class="topic">Animações</span>
+                        </div>
+                        
+                        <a href="aulas-css/index.html" class="btn btn-primary course-btn">
+                            Iniciar Curso 🎨
+                        </a>
+                    </div>
+                    
+                    <!-- Guia Prático -->
+                    <div class="course-card">
+                        <div class="course-header">
+                            <div class="course-icon">📖</div>
+                            <span class="course-badge">Referência</span>
+                        </div>
+                        <h3 class="course-title">Guia Prático HTML</h3>
+                        <p class="course-description">Referência completa com exemplos práticos, dicas e melhores práticas para consulta rápida.</p>
+                        
+                        <div class="course-stats">
+                            <div class="stat">
+                                <i class="fas fa-file-alt"></i>
+                                <span>Guia Completo</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-search"></i>
+                                <span>Referência</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-bolt"></i>
+                                <span>Consulta Rápida</span>
+                            </div>
+                        </div>
+                        
+                        <div class="course-topics">
+                            <span class="topic">Sintaxe</span>
+                            <span class="topic">Elementos</span>
+                            <span class="topic">Atributos</span>
+                            <span class="topic">Exemplos</span>
+                        </div>
+                        
+                        <a href="guia-html.html" class="btn btn-outline course-btn">
+                            Ver Guia 📚
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Trilha de Aprendizado -->
+                <div class="learning-path">
+                    <h3>🎯 Trilha de Aprendizado Recomendada</h3>
+                    <div class="path-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>HTML Fundamentals</h4>
+                                <p>Comece com a estrutura básica da web</p>
+                            </div>
+                        </div>
+                        <div class="step-arrow">→</div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>CSS Fundamentals</h4>
+                                <p>Adicione design e interatividade</p>
+                            </div>
+                        </div>
+                        <div class="step-arrow">→</div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Projeto Final</h4>
+                                <p>Crie seu portfólio profissional</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -106,28 +273,28 @@
                     <!-- Card de serviço 1 -->
                     <div class="service-card">
                         <div class="service-icon">
-                            <i class="fas fa-code"></i>
+                            <i class="fas fa-graduation-cap"></i>
                         </div>
-                        <h3 class="service-title">Desenvolvimento Web</h3>
-                        <p class="service-description">Criamos sites modernos e responsivos usando as melhores tecnologias.</p>
+                        <h3 class="service-title">Cursos HTML/CSS</h3>
+                        <p class="service-description">Aprenda desenvolvimento web com nossos cursos práticos e completos.</p>
                     </div>
                     
                     <!-- Card de serviço 2 -->
                     <div class="service-card">
                         <div class="service-icon">
-                            <i class="fas fa-paint-brush"></i>
+                            <i class="fas fa-book-open"></i>
                         </div>
-                        <h3 class="service-title">Design UI/UX</h3>
-                        <p class="service-description">Interfaces intuitivas e experiências de usuário excepcionais.</p>
+                        <h3 class="service-title">Materiais Gratuitos</h3>
+                        <p class="service-description">Guias práticos e referências completas para consulta rápida.</p>
                     </div>
                     
                     <!-- Card de serviço 3 -->
                     <div class="service-card">
                         <div class="service-icon">
-                            <i class="fas fa-mobile-alt"></i>
+                            <i class="fas fa-laptop-code"></i>
                         </div>
-                        <h3 class="service-title">Apps Mobile</h3>
-                        <p class="service-description">Aplicativos móveis nativos e híbridos para iOS e Android.</p>
+                        <h3 class="service-title">Projetos Práticos</h3>
+                        <p class="service-description">Exercícios hands-on e projetos reais para seu portfólio.</p>
                     </div>
                 </div>
             </div>
@@ -200,8 +367,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>MeuSite</h3>
-                    <p>Criando soluções digitais inovadoras desde 2020.</p>
+                    <h3>Portal Educacional</h3>
+                    <p>Democratizando o ensino de desenvolvimento web com cursos práticos e gratuitos.</p>
                     
                     <!-- Redes sociais -->
                     <div class="social-links">
@@ -213,25 +380,26 @@
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Links Úteis</h4>
+                    <h4>Cursos</h4>
                     <ul>
-                        <li><a href="#home">Início</a></li>
-                        <li><a href="#about">Sobre</a></li>
-                        <li><a href="#services">Serviços</a></li>
-                        <li><a href="#contact">Contato</a></li>
+                        <li><a href="aulas-web/index.html">🏗️ HTML Fundamentals</a></li>
+                        <li><a href="aulas-css/index.html">🎨 CSS Fundamentals</a></li>
+                        <li><a href="guia-html.html">📖 Guia Prático</a></li>
+                        <li><a href="GUIA-CSS.md">📚 Guia CSS</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
                     <h4>Contato</h4>
-                    <p><i class="fas fa-envelope"></i> contato@meusite.com</p>
-                    <p><i class="fas fa-phone"></i> (11) 99999-9999</p>
+                    <p><i class="fas fa-envelope"></i> educacao@portal.com</p>
+                    <p><i class="fas fa-github"></i> GitHub: /template-html-css</p>
+                    <p><i class="fas fa-heart"></i> Feito com amor para a comunidade</p>
                 </div>
             </div>
             
             <!-- Copyright -->
             <div class="footer-bottom">
-                <p>&copy; 2025 MeuSite. Todos os direitos reservados.</p>
+                <p>&copy; 2025 Portal Educacional. Projeto open-source para a comunidade de desenvolvimento.</p>
             </div>
         </div>
     </footer>

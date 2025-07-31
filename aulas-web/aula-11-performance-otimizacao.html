@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 11: Performance e Otimização - Curso HTML Fundamentals</title>
+    <meta name="description" content="Décima primeira aula do curso de HTML: domine técnicas de performance, otimização de carregamento e Core Web Vitals.">
+    <link rel="stylesheet" href="assets/style-aulas.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+</head>
+<body>
+    <div class="aula-container">
+        <!-- Navegação -->
+        <nav class="aula-nav">
+            <a href="aula-10-seo-metatags.html" class="nav-btn">
+                ← 📈 Aula Anterior
+            </a>
+            <a href="index.html" class="nav-btn">
+                📚 Curso
+            </a>
+            <a href="aula-12-projeto-final.html" class="nav-btn">
+                🎯 Projeto Final →
+            </a>
+        </nav>
+
+        <!-- Header da Aula -->
+        <header class="aula-header">
+            <div class="aula-numero">AULA 11</div>
+            <h1 class="aula-titulo">⚡ Performance e Otimização</h1>
+            <p class="aula-descricao">
+                Aprenda técnicas avançadas de otimização para criar sites rápidos, 
+                eficientes e com excelente experiência do usuário.
+            </p>
+            <div class="aula-meta">
+                <div class="meta-item">
+                    <span>⏱️</span> <span>65 minutos</span>
+                </div>
+                <div class="meta-item">
+                    <span>🎯</span> <span>Avançado</span>
+                </div>
+                <div class="meta-item">
+                    <span>📝</span> <span>4 Exercícios</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Objetivos da Aula -->
+        <div class="objetivos">
+            <h3>🎯 Objetivos de Aprendizagem</h3>
+            <ul>
+                <li>Compreender Core Web Vitals e métricas de performance</li>
+                <li>Otimizar imagens e recursos para web</li>
+                <li>Implementar carregamento assíncrono e lazy loading</li>
+                <li>Usar técnicas de preloading e prefetching</li>
+                <li>Monitorar e medir performance continuamente</li>
+            </ul>
+        </div>
+
+        <!-- Seção 1: Core Web Vitals -->
+        <section class="secao">
+            <h2>📊 1. Core Web Vitals</h2>
+            
+            <div class="destaque info">
+                <h4>🎯 O que são Core Web Vitals?</h4>
+                <p>
+                    Core Web Vitals são métricas essenciais do Google que medem a 
+                    <strong>experiência do usuário</strong> em termos de carregamento, 
+                    interatividade e estabilidade visual.
+                </p>
+            </div>
+
+            <h3>🚀 LCP - Largest Contentful Paint</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Otimizando LCP - elemento principal deve carregar rápido --&gt;
+
+&lt;!-- ❌ RUIM: Imagem grande sem otimização --&gt;
+&lt;img src="hero-image.jpg" alt="Hero image"&gt;
+
+&lt;!-- ✅ BOM: Imagem otimizada com preload --&gt;
+&lt;head&gt;
+    &lt;link rel="preload" as="image" href="hero-optimized.webp"&gt;
+&lt;/head&gt;
+
+&lt;picture&gt;
+    &lt;source srcset="hero-optimized.webp" type="image/webp"&gt;
+    &lt;source srcset="hero-optimized.jpg" type="image/jpeg"&gt;
+    &lt;img src="hero-optimized.jpg" 
+         alt="Imagem principal do site"
+         width="1200" 
+         height="600"
+         loading="eager"&gt;
+&lt;/picture&gt;
+
+&lt;!-- Preload para fontes críticas --&gt;
+&lt;link rel="preload" 
+      href="fonts/primary-font.woff2" 
+      as="font" 
+      type="font/woff2" 
+      crossorigin&gt;
+
+&lt;!-- Evitar mudanças de layout durante carregamento --&gt;
+&lt;div class="hero-container" style="aspect-ratio: 2/1;"&gt;
+    &lt;img src="hero.jpg" alt="Hero" loading="eager"&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <h3>⚡ FID - First Input Delay</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Otimizando FID - reduzir bloqueio de JavaScript --&gt;
+
+&lt;!-- ❌ RUIM: Scripts bloqueantes no head --&gt;
+&lt;head&gt;
+    &lt;script src="heavy-library.js"&gt;&lt;/script&gt;
+    &lt;script src="analytics.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;!-- ✅ BOM: Scripts assíncronos e não-críticos no final --&gt;
+&lt;head&gt;
+    &lt;!-- Apenas CSS crítico no head --&gt;
+    &lt;style&gt;
+        /* CSS crítico inline para primeira renderização */
+        .hero { 
+            background: #007bff; 
+            height: 60vh; 
+        }
+        .nav { 
+            background: #fff; 
+            position: fixed; 
+            top: 0; 
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;!-- Conteúdo da página --&gt;
+    
+    &lt;!-- Scripts no final do body --&gt;
+    &lt;script async src="analytics.js"&gt;&lt;/script&gt;
+    &lt;script defer src="heavy-library.js"&gt;&lt;/script&gt;
+    
+    &lt;!-- CSS não-crítico carregado de forma assíncrona --&gt;
+    &lt;script&gt;
+        // Carregar CSS não-crítico após load
+        window.addEventListener('load', function() {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = 'non-critical.css';
+            document.head.appendChild(link);
+        });
+    &lt;/script&gt;
+&lt;/body&gt;</code></pre>
+            </div>
+
+            <h3>📐 CLS - Cumulative Layout Shift</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Prevenindo CLS - reservar espaço para elementos --&gt;
+
+&lt;!-- ❌ RUIM: Sem dimensões especificadas --&gt;
+&lt;img src="product.jpg" alt="Produto"&gt;
+&lt;div id="ad-banner"&gt;&lt;/div&gt;
+
+&lt;!-- ✅ BOM: Dimensões especificadas --&gt;
+&lt;img src="product.jpg" 
+     alt="Produto" 
+     width="400" 
+     height="300"
+     style="aspect-ratio: 4/3;"&gt;
+
+&lt;!-- Placeholder para conteúdo dinâmico --&gt;
+&lt;div id="ad-banner" 
+     style="width: 728px; height: 90px; background: #f0f0f0;"&gt;
+    &lt;!-- Conteúdo do banner será inserido aqui --&gt;
+&lt;/div&gt;
+
+&lt;!-- Skeleton loading para prevenir shifts --&gt;
+&lt;div class="comment-skeleton" aria-hidden="true"&gt;
+    &lt;div class="skeleton-avatar"&gt;&lt;/div&gt;
+    &lt;div class="skeleton-content"&gt;
+        &lt;div class="skeleton-line"&gt;&lt;/div&gt;
+        &lt;div class="skeleton-line short"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Fontes web com fallbacks para evitar FOIT/FOUT --&gt;
+&lt;style&gt;
+    body {
+        font-family: 'CustomFont', Arial, sans-serif;
+        font-display: swap; /* Troca imediata quando fonte carrega */
+    }
+    
+    .skeleton-avatar {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+        border-radius: 50%;
+    }
+    
+    @keyframes loading {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+    }
+&lt;/style&gt;</code></pre>
+            </div>
+
+            <div class="destaque warning">
+                <h4>⚠️ Metas dos Core Web Vitals</h4>
+                <ul>
+                    <li><strong>LCP:</strong> ≤ 2.5 segundos</li>
+                    <li><strong>FID:</strong> ≤ 100 milissegundos</li>
+                    <li><strong>CLS:</strong> ≤ 0.1</li>
+                    <li><strong>Meta:</strong> 75% das visitas devem atingir esses valores</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Exercício 1 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 1: Auditoria de Core Web Vitals</h4>
+            <p>
+                Faça uma auditoria completa de performance:
+            </p>
+            <ul>
+                <li>Use Google PageSpeed Insights</li>
+                <li>Analise Lighthouse no DevTools</li>
+                <li>Identifique problemas de LCP, FID e CLS</li>
+                <li>Implemente correções para cada métrica</li>
+                <li>Re-teste e documente melhorias</li>
+            </ul>
+        </div>
+
+        <!-- Seção 2: Otimização de Imagens -->
+        <section class="secao">
+            <h2>🖼️ 2. Otimização de Imagens</h2>
+            
+            <h3>📱 Imagens Responsivas</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Picture element para diferentes contextos --&gt;
+&lt;picture&gt;
+    &lt;!-- Imagem para desktop --&gt;
+    &lt;source media="(min-width: 1024px)" 
+            srcset="hero-desktop.webp 1200w,
+                    hero-desktop-2x.webp 2400w"
+            sizes="100vw"
+            type="image/webp"&gt;
+    
+    &lt;!-- Imagem para tablet --&gt;
+    &lt;source media="(min-width: 768px)" 
+            srcset="hero-tablet.webp 768w,
+                    hero-tablet-2x.webp 1536w"
+            sizes="100vw"
+            type="image/webp"&gt;
+    
+    &lt;!-- Imagem para mobile --&gt;
+    &lt;source media="(max-width: 767px)" 
+            srcset="hero-mobile.webp 400w,
+                    hero-mobile-2x.webp 800w"
+            sizes="100vw"
+            type="image/webp"&gt;
+    
+    &lt;!-- Fallback JPEG --&gt;
+    &lt;img src="hero-desktop.jpg" 
+         alt="Imagem principal do site"
+         width="1200" 
+         height="600"
+         loading="eager"&gt;
+&lt;/picture&gt;
+
+&lt;!-- Srcset simples para diferentes densidades --&gt;
+&lt;img src="product.jpg"
+     srcset="product-1x.jpg 1x,
+             product-2x.jpg 2x,
+             product-3x.jpg 3x"
+     alt="Produto em destaque"
+     width="300"
+     height="200"&gt;</code></pre>
+            </div>
+
+            <h3>⚡ Lazy Loading</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Lazy loading nativo --&gt;
+&lt;img src="image1.jpg" 
+     alt="Imagem da galeria"
+     loading="lazy"
+     width="400" 
+     height="300"&gt;
+
+&lt;!-- Primeira imagem sempre eager --&gt;
+&lt;img src="hero.jpg" 
+     alt="Imagem principal"
+     loading="eager"
+     width="1200" 
+     height="600"&gt;
+
+&lt;!-- Lazy loading avançado com Intersection Observer --&gt;
+&lt;img data-src="high-res-image.jpg" 
+     src="placeholder-blur.jpg"
+     alt="Imagem de alta resolução"
+     class="lazy-load"
+     width="800" 
+     height="400"&gt;
+
+&lt;script&gt;
+// Implementação de lazy loading com blur-up
+class LazyImageLoader {
+    constructor() {
+        this.imageObserver = null;
+        this.init();
+    }
+    
+    init() {
+        if ('IntersectionObserver' in window) {
+            this.imageObserver = new IntersectionObserver((entries, observer) =&gt; {
+                entries.forEach(entry =&gt; {
+                    if (entry.isIntersecting) {
+                        this.loadImage(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                rootMargin: '50px 0px' // Carregar 50px antes de aparecer
+            });
+            
+            this.observeImages();
+        } else {
+            // Fallback para navegadores antigos
+            this.loadAllImages();
+        }
+    }
+    
+    observeImages() {
+        const lazyImages = document.querySelectorAll('.lazy-load');
+        lazyImages.forEach(img =&gt; this.imageObserver.observe(img));
+    }
+    
+    loadImage(img) {
+        const src = img.dataset.src;
+        if (!src) return;
+        
+        // Criar nova imagem para preload
+        const imageLoader = new Image();
+        imageLoader.onload = () =&gt; {
+            img.src = src;
+            img.classList.add('loaded');
+        };
+        imageLoader.src = src;
+    }
+    
+    loadAllImages() {
+        const lazyImages = document.querySelectorAll('.lazy-load');
+        lazyImages.forEach(img =&gt; this.loadImage(img));
+    }
+}
+
+// Inicializar lazy loading
+new LazyImageLoader();
+&lt;/script&gt;
+
+&lt;style&gt;
+.lazy-load {
+    filter: blur(5px);
+    transition: filter 0.3s ease;
+}
+
+.lazy-load.loaded {
+    filter: blur(0);
+}
+&lt;/style&gt;</code></pre>
+            </div>
+
+            <h3>🎨 Formatos Modernos</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Usando WebP com fallback --&gt;
+&lt;picture&gt;
+    &lt;source srcset="image.avif" type="image/avif"&gt;
+    &lt;source srcset="image.webp" type="image/webp"&gt;
+    &lt;img src="image.jpg" alt="Descrição da imagem"&gt;
+&lt;/picture&gt;
+
+&lt;!-- SVG otimizado para ícones --&gt;
+&lt;svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"&gt;
+    &lt;path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/&gt;
+&lt;/svg&gt;
+
+&lt;!-- CSS Sprites para ícones pequenos --&gt;
+&lt;div class="icon-star"&gt;&lt;/div&gt;
+
+&lt;style&gt;
+.icon-star {
+    width: 24px;
+    height: 24px;
+    background: url('icons-sprite.webp') -48px -24px;
+    background-size: 200px 100px;
+}
+
+/* CSS para imagens de fundo otimizadas */
+.hero-background {
+    background-image: 
+        image-set(
+            url('hero.webp') 1x,
+            url('hero-2x.webp') 2x
+        );
+    background-size: cover;
+    background-position: center;
+}
+
+/* Suporte a WebP via CSS */
+.webp .hero-background {
+    background-image: url('hero.webp');
+}
+
+.no-webp .hero-background {
+    background-image: url('hero.jpg');
+}
+&lt;/style&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Exercício 2 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 2: Galeria de Imagens Otimizada</h4>
+            <p>
+                Crie uma galeria de imagens com máxima performance:
+            </p>
+            <ul>
+                <li>Imagens responsivas com srcset</li>
+                <li>Lazy loading com blur-up effect</li>
+                <li>Formatos WebP/AVIF com fallbacks</li>
+                <li>Placeholder skeleton loading</li>
+                <li>Medição de impacto na performance</li>
+            </ul>
+        </div>
+
+        <!-- Seção 3: Carregamento Inteligente -->
+        <section class="secao">
+            <h2>🧠 3. Carregamento Inteligente</h2>
+            
+            <h3>🚀 Resource Hints</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;head&gt;
+    &lt;!-- DNS prefetch para domínios externos --&gt;
+    &lt;link rel="dns-prefetch" href="//fonts.googleapis.com"&gt;
+    &lt;link rel="dns-prefetch" href="//www.google-analytics.com"&gt;
+    &lt;link rel="dns-prefetch" href="//cdnjs.cloudflare.com"&gt;
+    
+    &lt;!-- Preconnect para recursos críticos --&gt;
+    &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+    
+    &lt;!-- Preload para recursos críticos --&gt;
+    &lt;link rel="preload" href="critical.css" as="style"&gt;
+    &lt;link rel="preload" href="hero.webp" as="image"&gt;
+    &lt;link rel="preload" href="main-font.woff2" as="font" type="font/woff2" crossorigin&gt;
+    
+    &lt;!-- Prefetch para recursos que serão usados depois --&gt;
+    &lt;link rel="prefetch" href="next-page.html"&gt;
+    &lt;link rel="prefetch" href="secondary.css"&gt;
+    
+    &lt;!-- Modulepreload para ES modules --&gt;
+    &lt;link rel="modulepreload" href="app.js"&gt;
+&lt;/head&gt;</code></pre>
+            </div>
+
+            <h3>📦 Code Splitting</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Carregamento modular de JavaScript --&gt;
+&lt;script type="module"&gt;
+    // Carregamento dinâmico de módulos
+    async function loadFeature(featureName) {
+        try {
+            const module = await import(`./features/${featureName}.js`);
+            return module.default;
+        } catch (error) {
+            console.error(`Erro ao carregar ${featureName}:`, error);
+        }
+    }
+    
+    // Carregar funcionalidades sob demanda
+    document.addEventListener('DOMContentLoaded', async () =&gt; {
+        // Carregar funcionalidade crítica imediatamente
+        const core = await loadFeature('core');
+        core.init();
+        
+        // Carregar outras funcionalidades quando necessário
+        const lazyFeatures = ['gallery', 'comments', 'sharing'];
+        
+        const observer = new IntersectionObserver((entries) =&gt; {
+            entries.forEach(async (entry) =&gt; {
+                if (entry.isIntersecting) {
+                    const feature = entry.target.dataset.feature;
+                    if (lazyFeatures.includes(feature)) {
+                        const module = await loadFeature(feature);
+                        module.init(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                }
+            });
+        });
+        
+        document.querySelectorAll('[data-feature]').forEach(el =&gt; {
+            observer.observe(el);
+        });
+    });
+&lt;/script&gt;
+
+&lt;!-- Elementos que ativam carregamento de funcionalidades --&gt;
+&lt;div class="gallery" data-feature="gallery"&gt;
+    &lt;!-- Galeria será inicializada quando visível --&gt;
+&lt;/div&gt;
+
+&lt;div class="comments-section" data-feature="comments"&gt;
+    &lt;!-- Sistema de comentários carregado sob demanda --&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <h3>⚡ Critical CSS</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;head&gt;
+    &lt;!-- CSS crítico inline --&gt;
+    &lt;style&gt;
+        /* CSS para above-the-fold content */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+        }
+        
+        /* CSS crítico para layout */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        .btn { padding: 0.75rem 1.5rem; border: none; border-radius: 4px; cursor: pointer; }
+        .btn-primary { background: #007bff; color: white; }
+    &lt;/style&gt;
+    
+    &lt;!-- Carregar CSS completo de forma assíncrona --&gt;
+    &lt;script&gt;
+        // Função para carregar CSS de forma assíncrona
+        function loadCSS(href, media = 'all') {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = href;
+            link.media = 'print'; // Carregar como print primeiro
+            link.onload = () =&gt; link.media = media; // Mudar para all quando carregado
+            document.head.appendChild(link);
+        }
+        
+        // Carregar CSS não-crítico após DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', () =&gt; {
+            loadCSS('styles/complete.css');
+            loadCSS('styles/components.css');
+        });
+        
+        // Fallback caso JavaScript esteja desabilitado
+    &lt;/script&gt;
+    &lt;noscript&gt;
+        &lt;link rel="stylesheet" href="styles/complete.css"&gt;
+    &lt;/noscript&gt;
+&lt;/head&gt;</code></pre>
+            </div>
+
+            <h3>🔄 Service Workers</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Registrar Service Worker --&gt;
+&lt;script&gt;
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', async () =&gt; {
+            try {
+                const registration = await navigator.serviceWorker.register('/sw.js');
+                console.log('SW registrado:', registration.scope);
+            } catch (error) {
+                console.log('Falha no registro do SW:', error);
+            }
+        });
+    }
+&lt;/script&gt;
+
+&lt;!-- sw.js - Service Worker para cache inteligente --&gt;
+&lt;script&gt;
+// Cache strategy no Service Worker
+const CACHE_NAME = 'site-v1';
+const CRITICAL_ASSETS = [
+    '/',
+    '/styles/critical.css',
+    '/js/core.js',
+    '/images/hero.webp'
+];
+
+// Instalar SW e cachear recursos críticos
+self.addEventListener('install', event =&gt; {
+    event.waitUntil(
+        caches.open(CACHE_NAME)
+            .then(cache =&gt; cache.addAll(CRITICAL_ASSETS))
+    );
+});
+
+// Estratégia de cache: Cache First para assets, Network First para HTML
+self.addEventListener('fetch', event =&gt; {
+    const { request } = event;
+    
+    // Estratégia para diferentes tipos de recursos
+    if (request.destination === 'image') {
+        // Cache First para imagens
+        event.respondWith(cacheFirst(request));
+    } else if (request.destination === 'document') {
+        // Network First para HTML
+        event.respondWith(networkFirst(request));
+    } else {
+        // Stale While Revalidate para outros recursos
+        event.respondWith(staleWhileRevalidate(request));
+    }
+});
+
+async function cacheFirst(request) {
+    const cached = await caches.match(request);
+    return cached || fetch(request);
+}
+
+async function networkFirst(request) {
+    try {
+        const response = await fetch(request);
+        const cache = await caches.open(CACHE_NAME);
+        cache.put(request, response.clone());
+        return response;
+    } catch {
+        return caches.match(request);
+    }
+}
+
+async function staleWhileRevalidate(request) {
+    const cached = await caches.match(request);
+    const fetchPromise = fetch(request).then(response =&gt; {
+        const cache = caches.open(CACHE_NAME);
+        cache.then(c =&gt; c.put(request, response.clone()));
+        return response;
+    });
+    
+    return cached || fetchPromise;
+}
+&lt;/script&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Exercício 3 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 3: Progressive Web App</h4>
+            <p>
+                Transforme um site em PWA otimizada:
+            </p>
+            <ul>
+                <li>Implemente Service Worker com cache inteligente</li>
+                <li>Configure resource hints estratégicos</li>
+                <li>Crie sistema de CSS crítico</li>
+                <li>Adicione carregamento modular de JavaScript</li>
+                <li>Teste offline functionality</li>
+            </ul>
+        </div>
+
+        <!-- Seção 4: Monitoramento e Medição -->
+        <section class="secao">
+            <h2>📈 4. Monitoramento e Medição</h2>
+            
+            <h3>📊 Performance Observer API</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;script&gt;
+// Monitoramento abrangente de performance
+class PerformanceMonitor {
+    constructor() {
+        this.metrics = new Map();
+        this.init();
+    }
+    
+    init() {
+        // Observar Core Web Vitals
+        this.observeLCP();
+        this.observeFID();
+        this.observeCLS();
+        
+        // Observar outras métricas
+        this.observeNavigation();
+        this.observeResources();
+        
+        // Enviar métricas quando página estiver sendo fechada
+        window.addEventListener('beforeunload', () =&gt; {
+            this.sendMetrics();
+        });
+    }
+    
+    observeLCP() {
+        new PerformanceObserver((entryList) =&gt; {
+            const entries = entryList.getEntries();
+            const lastEntry = entries[entries.length - 1];
+            
+            this.metrics.set('LCP', {
+                value: lastEntry.startTime,
+                rating: lastEntry.startTime &lt; 2500 ? 'good' : 
+                       lastEntry.startTime &lt; 4000 ? 'needs-improvement' : 'poor'
+            });
+        }).observe({ entryTypes: ['largest-contentful-paint'] });
+    }
+    
+    observeFID() {
+        new PerformanceObserver((entryList) =&gt; {
+            const entries = entryList.getEntries();
+            entries.forEach(entry =&gt; {
+                this.metrics.set('FID', {
+                    value: entry.processingStart - entry.startTime,
+                    rating: entry.processingStart - entry.startTime &lt; 100 ? 'good' : 
+                           entry.processingStart - entry.startTime &lt; 300 ? 'needs-improvement' : 'poor'
+                });
+            });
+        }).observe({ entryTypes: ['first-input'] });
+    }
+    
+    observeCLS() {
+        let clsValue = 0;
+        new PerformanceObserver((entryList) =&gt; {
+            const entries = entryList.getEntries();
+            entries.forEach(entry =&gt; {
+                if (!entry.hadRecentInput) {
+                    clsValue += entry.value;
+                }
+            });
+            
+            this.metrics.set('CLS', {
+                value: clsValue,
+                rating: clsValue &lt; 0.1 ? 'good' : 
+                       clsValue &lt; 0.25 ? 'needs-improvement' : 'poor'
+            });
+        }).observe({ entryTypes: ['layout-shift'] });
+    }
+    
+    observeNavigation() {
+        new PerformanceObserver((entryList) =&gt; {
+            const entries = entryList.getEntries();
+            entries.forEach(entry =&gt; {
+                this.metrics.set('TTFB', {
+                    value: entry.responseStart - entry.requestStart,
+                    rating: entry.responseStart - entry.requestStart &lt; 200 ? 'good' : 
+                           entry.responseStart - entry.requestStart &lt; 500 ? 'needs-improvement' : 'poor'
+                });
+                
+                this.metrics.set('DOMContentLoaded', {
+                    value: entry.domContentLoadedEventEnd - entry.domContentLoadedEventStart
+                });
+                
+                this.metrics.set('Load', {
+                    value: entry.loadEventEnd - entry.loadEventStart
+                });
+            });
+        }).observe({ entryTypes: ['navigation'] });
+    }
+    
+    observeResources() {
+        new PerformanceObserver((entryList) =&gt; {
+            const entries = entryList.getEntries();
+            const resourceMetrics = {};
+            
+            entries.forEach(entry =&gt; {
+                const type = entry.initiatorType;
+                if (!resourceMetrics[type]) {
+                    resourceMetrics[type] = { count: 0, totalSize: 0, totalTime: 0 };
+                }
+                
+                resourceMetrics[type].count++;
+                resourceMetrics[type].totalSize += entry.transferSize || 0;
+                resourceMetrics[type].totalTime += entry.duration;
+            });
+            
+            this.metrics.set('Resources', resourceMetrics);
+        }).observe({ entryTypes: ['resource'] });
+    }
+    
+    // Métricas customizadas
+    measureCustomMetric(name, startTime, endTime = performance.now()) {
+        this.metrics.set(name, {
+            value: endTime - startTime,
+            custom: true
+        });
+    }
+    
+    startMeasure(name) {
+        performance.mark(`${name}-start`);
+    }
+    
+    endMeasure(name) {
+        performance.mark(`${name}-end`);
+        performance.measure(name, `${name}-start`, `${name}-end`);
+        
+        const measure = performance.getEntriesByName(name, 'measure')[0];
+        this.metrics.set(name, {
+            value: measure.duration,
+            custom: true
+        });
+    }
+    
+    sendMetrics() {
+        const metricsData = Object.fromEntries(this.metrics);
+        
+        // Usar sendBeacon para envio confiável
+        if (navigator.sendBeacon) {
+            navigator.sendBeacon('/api/metrics', JSON.stringify({
+                url: window.location.href,
+                userAgent: navigator.userAgent,
+                metrics: metricsData,
+                timestamp: Date.now()
+            }));
+        } else {
+            // Fallback para fetch
+            fetch('/api/metrics', {
+                method: 'POST',
+                body: JSON.stringify(metricsData),
+                headers: { 'Content-Type': 'application/json' }
+            }).catch(() =&gt; {
+                // Salvar localmente se envio falhar
+                localStorage.setItem('pendingMetrics', JSON.stringify(metricsData));
+            });
+        }
+    }
+    
+    getMetrics() {
+        return Object.fromEntries(this.metrics);
+    }
+}
+
+// Inicializar monitor de performance
+const perfMonitor = new PerformanceMonitor();
+
+// Exemplo de uso de métricas customizadas
+perfMonitor.startMeasure('image-gallery-load');
+// ... código para carregar galeria ...
+perfMonitor.endMeasure('image-gallery-load');
+
+// Relatório em tempo real
+console.log('📊 Métricas de Performance:', perfMonitor.getMetrics());
+&lt;/script&gt;</code></pre>
+            </div>
+
+            <h3>🎯 Real User Monitoring (RUM)</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;script&gt;
+// Sistema de RUM personalizado
+class RealUserMonitoring {
+    constructor(config = {}) {
+        this.config = {
+            endpoint: '/api/rum',
+            sampleRate: 0.1, // 10% dos usuários
+            ...config
+        };
+        
+        this.sessionData = {
+            sessionId: this.generateSessionId(),
+            userId: this.getUserId(),
+            startTime: Date.now(),
+            pageViews: 0,
+            interactions: 0,
+            errors: []
+        };
+        
+        if (Math.random() &lt; this.config.sampleRate) {
+            this.init();
+        }
+    }
+    
+    init() {
+        this.trackPageView();
+        this.trackInteractions();
+        this.trackErrors();
+        this.trackPerformance();
+        this.trackConnectivity();
+    }
+    
+    trackPageView() {
+        this.sessionData.pageViews++;
+        
+        this.send('pageview', {
+            url: window.location.href,
+            referrer: document.referrer,
+            title: document.title,
+            viewport: {
+                width: window.innerWidth,
+                height: window.innerHeight
+            },
+            device: this.getDeviceInfo()
+        });
+    }
+    
+    trackInteractions() {
+        ['click', 'scroll', 'keydown'].forEach(eventType =&gt; {
+            document.addEventListener(eventType, (event) =&gt; {
+                this.sessionData.interactions++;
+                
+                if (eventType === 'click') {
+                    this.send('interaction', {
+                        type: 'click',
+                        element: event.target.tagName,
+                        classes: event.target.className,
+                        text: event.target.textContent?.substring(0, 50)
+                    });
+                }
+            }, { passive: true });
+        });
+    }
+    
+    trackErrors() {
+        window.addEventListener('error', (event) =&gt; {
+            this.sessionData.errors.push({
+                message: event.message,
+                filename: event.filename,
+                line: event.lineno,
+                column: event.colno,
+                timestamp: Date.now()
+            });
+            
+            this.send('error', {
+                type: 'javascript',
+                message: event.message,
+                stack: event.error?.stack,
+                url: event.filename,
+                line: event.lineno
+            });
+        });
+        
+        window.addEventListener('unhandledrejection', (event) =&gt; {
+            this.send('error', {
+                type: 'promise-rejection',
+                reason: event.reason?.toString(),
+                stack: event.reason?.stack
+            });
+        });
+    }
+    
+    trackPerformance() {
+        // Integrar com PerformanceMonitor
+        if (window.perfMonitor) {
+            setInterval(() =&gt; {
+                const metrics = window.perfMonitor.getMetrics();
+                this.send('performance', metrics);
+            }, 30000); // A cada 30 segundos
+        }
+    }
+    
+    trackConnectivity() {
+        if ('connection' in navigator) {
+            const connection = navigator.connection;
+            
+            this.send('connectivity', {
+                effectiveType: connection.effectiveType,
+                downlink: connection.downlink,
+                rtt: connection.rtt,
+                saveData: connection.saveData
+            });
+            
+            connection.addEventListener('change', () =&gt; {
+                this.send('connectivity-change', {
+                    effectiveType: connection.effectiveType,
+                    downlink: connection.downlink,
+                    rtt: connection.rtt
+                });
+            });
+        }
+    }
+    
+    send(eventType, data) {
+        const payload = {
+            eventType,
+            data,
+            sessionId: this.sessionData.sessionId,
+            timestamp: Date.now(),
+            url: window.location.href
+        };
+        
+        if (navigator.sendBeacon) {
+            navigator.sendBeacon(this.config.endpoint, JSON.stringify(payload));
+        }
+    }
+    
+    generateSessionId() {
+        return 'sess_' + Math.random().toString(36).substr(2, 16);
+    }
+    
+    getUserId() {
+        let userId = localStorage.getItem('userId');
+        if (!userId) {
+            userId = 'user_' + Math.random().toString(36).substr(2, 16);
+            localStorage.setItem('userId', userId);
+        }
+        return userId;
+    }
+    
+    getDeviceInfo() {
+        return {
+            userAgent: navigator.userAgent,
+            language: navigator.language,
+            platform: navigator.platform,
+            cookieEnabled: navigator.cookieEnabled,
+            onLine: navigator.onLine,
+            screen: {
+                width: screen.width,
+                height: screen.height,
+                colorDepth: screen.colorDepth
+            }
+        };
+    }
+}
+
+// Inicializar RUM
+const rum = new RealUserMonitoring({
+    endpoint: '/api/rum',
+    sampleRate: 0.05 // 5% dos usuários
+});
+&lt;/script&gt;</code></pre>
+            </div>
+
+            <h3>🔧 Performance Budget</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;script&gt;
+// Sistema de Performance Budget
+class PerformanceBudget {
+    constructor() {
+        this.budgets = {
+            // Métricas de timing (em ms)
+            LCP: 2500,
+            FID: 100,
+            TTFB: 200,
+            
+            // Métricas de recursos (em KB)
+            totalSize: 2000,
+            imageSize: 1000,
+            scriptSize: 500,
+            styleSize: 200,
+            
+            // Contadores
+            requests: 50,
+            
+            // CLS sem unidade
+            CLS: 0.1
+        };
+        
+        this.violations = [];
+        this.init();
+    }
+    
+    init() {
+        this.checkResourceBudget();
+        this.checkTimingBudget();
+        this.reportViolations();
+    }
+    
+    checkResourceBudget() {
+        const observer = new PerformanceObserver((list) =&gt; {
+            const entries = list.getEntries();
+            let totalSize = 0;
+            let imageSize = 0;
+            let scriptSize = 0;
+            let styleSize = 0;
+            let requests = entries.length;
+            
+            entries.forEach(entry =&gt; {
+                const size = entry.transferSize || 0;
+                totalSize += size;
+                
+                switch (entry.initiatorType) {
+                    case 'img':
+                    case 'image':
+                        imageSize += size;
+                        break;
+                    case 'script':
+                        scriptSize += size;
+                        break;
+                    case 'link':
+                    case 'css':
+                        styleSize += size;
+                        break;
+                }
+            });
+            
+            // Converter para KB
+            const metrics = {
+                totalSize: Math.round(totalSize / 1024),
+                imageSize: Math.round(imageSize / 1024),
+                scriptSize: Math.round(scriptSize / 1024),
+                styleSize: Math.round(styleSize / 1024),
+                requests
+            };
+            
+            // Verificar violações
+            Object.entries(metrics).forEach(([metric, value]) =&gt; {
+                if (this.budgets[metric] && value &gt; this.budgets[metric]) {
+                    this.addViolation(metric, value, this.budgets[metric]);
+                }
+            });
+        });
+        
+        observer.observe({ entryTypes: ['resource'] });
+    }
+    
+    checkTimingBudget() {
+        // Verificar quando Core Web Vitals estiverem disponíveis
+        if (window.perfMonitor) {
+            setTimeout(() =&gt; {
+                const metrics = window.perfMonitor.getMetrics();
+                
+                ['LCP', 'FID', 'CLS'].forEach(metric =&gt; {
+                    if (metrics[metric] && metrics[metric].value &gt; this.budgets[metric]) {
+                        this.addViolation(metric, metrics[metric].value, this.budgets[metric]);
+                    }
+                });
+            }, 5000);
+        }
+    }
+    
+    addViolation(metric, actual, budget) {
+        const violation = {
+            metric,
+            actual,
+            budget,
+            excess: actual - budget,
+            percentage: Math.round(((actual - budget) / budget) * 100),
+            timestamp: Date.now()
+        };
+        
+        this.violations.push(violation);
+        
+        // Log no console para desenvolvimento
+        console.warn(
+            `🚨 Performance Budget Violation: ${metric}`,
+            `Actual: ${actual}, Budget: ${budget}, Excess: ${violation.excess} (+${violation.percentage}%)`
+        );
+    }
+    
+    reportViolations() {
+        window.addEventListener('beforeunload', () =&gt; {
+            if (this.violations.length &gt; 0) {
+                // Enviar violações para monitoramento
+                navigator.sendBeacon('/api/budget-violations', JSON.stringify({
+                    url: window.location.href,
+                    violations: this.violations,
+                    userAgent: navigator.userAgent
+                }));
+            }
+        });
+    }
+    
+    getReport() {
+        return {
+            budgets: this.budgets,
+            violations: this.violations,
+            status: this.violations.length === 0 ? 'PASS' : 'FAIL'
+        };
+    }
+}
+
+// Inicializar Performance Budget
+const budgetMonitor = new PerformanceBudget();
+
+// Mostrar relatório no console
+setTimeout(() =&gt; {
+    console.log('📊 Performance Budget Report:', budgetMonitor.getReport());
+}, 10000);
+&lt;/script&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Exercício 4 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 4: Sistema de Monitoramento Completo</h4>
+            <p>
+                Implemente um sistema completo de monitoramento:
+            </p>
+            <ul>
+                <li>Configure Performance Observer para todas as métricas</li>
+                <li>Implemente Real User Monitoring (RUM)</li>
+                <li>Defina e monitore Performance Budget</li>
+                <li>Crie dashboard de métricas em tempo real</li>
+                <li>Configure alertas para violações de performance</li>
+            </ul>
+        </div>
+
+        <!-- Resumo da Aula -->
+        <section class="secao">
+            <h2>📋 Resumo da Aula</h2>
+            
+            <div class="recursos">
+                <div class="recurso-card">
+                    <h4>📊 Core Web Vitals</h4>
+                    <p>LCP, FID, CLS - métricas essenciais de experiência do usuário.</p>
+                </div>
+                
+                <div class="recurso-card">
+                    <h4>🖼️ Otimização de Mídia</h4>
+                    <p>Imagens responsivas, lazy loading e formatos modernos.</p>
+                </div>
+                
+                <div class="recurso-card">
+                    <h4>🧠 Carregamento Inteligente</h4>
+                    <p>Resource hints, code splitting e cache strategies.</p>
+                </div>
+                
+                <div class="recurso-card">
+                    <h4>📈 Monitoramento</h4>
+                    <p>RUM, Performance Budget e métricas em tempo real.</p>
+                </div>
+            </div>
+
+            <div class="checklist">
+                <h4>✅ Checklist de Performance</h4>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="perf1">
+                        <label for="perf1">Core Web Vitals dentro das metas</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="perf2">
+                        <label for="perf2">Imagens otimizadas com lazy loading</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="perf3">
+                        <label for="perf3">CSS crítico implementado</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="perf4">
+                        <label for="perf4">JavaScript carregado de forma assíncrona</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="perf5">
+                        <label for="perf5">Resource hints configurados</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="perf6">
+                        <label for="perf6">Sistema de monitoramento ativo</label>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Navegação do Curso -->
+        <nav class="course-navigation">
+            <div class="nav-buttons">
+                <a href="aula-10-seo-metatags.html" class="nav-btn secondary">
+                    ← 📈 Aula Anterior
+                </a>
+                <a href="aula-12-projeto-final.html" class="nav-btn primary">
+                    🎯 Projeto Final →
+                </a>
+            </div>
+        </nav>
+
+        <!-- Footer da Aula -->
+        <footer class="aula-footer">
+            <h3>🎉 Performance Dominada!</h3>
+            <p>
+                Incrível! Agora você sabe criar sites ultra-rápidos e otimizados. 
+                Vamos para o projeto final e colocar tudo em prática!
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Marcar como concluída
+            function marcarAulaConcluida() {
+                const progresso = JSON.parse(localStorage.getItem('curso-html-progresso') || '[]');
+                if (!progresso.includes(11)) {
+                    progresso.push(11);
+                    localStorage.setItem('curso-html-progresso', JSON.stringify(progresso));
+                }
+            }
+
+            // Observer para footer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        marcarAulaConcluida();
+                    }
+                });
+            });
+            
+            const footer = document.querySelector('.aula-footer');
+            if (footer) {
+                observer.observe(footer);
+            }
+
+            // Gerenciar checklist
+            const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
+            checkboxes.forEach((checkbox, index) => {
+                const saved = localStorage.getItem(`aula-11-perf-${index}`);
+                if (saved === 'true') {
+                    checkbox.checked = true;
+                }
+                
+                checkbox.addEventListener('change', () => {
+                    localStorage.setItem(`aula-11-perf-${index}`, checkbox.checked);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 Aula 2: Seletores e Especificidade</title>
+    <meta name="description" content="Domine seletores CSS avançados, combinadores, pseudo-classes e entenda como funciona a especificidade.">
+    <link rel="stylesheet" href="assets/style-aulas.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎯</text></svg>">
+</head>
+<body>
+    <div class="aula-container">
+        <!-- Header da Aula -->
+        <header class="aula-header">
+            <div class="aula-numero">🎯 AULA 2</div>
+            <h1 class="aula-titulo">Seletores e Especificidade</h1>
+            <p class="aula-descricao">
+                Domine a arte da seleção! Aprenda seletores avançados, combinadores, 
+                pseudo-classes e desvende os mistérios da especificidade CSS.
+            </p>
+            <div class="aula-meta">
+                <div class="meta-item">
+                    <span>⏱️</span> <span>45 min</span>
+                </div>
+                <div class="meta-item">
+                    <span>🎯</span> <span>Iniciante</span>
+                </div>
+                <div class="meta-item">
+                    <span>🔍</span> <span>Seletores</span>
+                </div>
+                <div class="meta-item">
+                    <span>⚡</span> <span>Essencial</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Objetivos da Aula -->
+        <section class="secao">
+            <h2>🎯 Objetivos de Aprendizagem</h2>
+            
+            <div class="objetivos">
+                <div class="objetivo">
+                    <h4>🔍 Seletores Avançados</h4>
+                    <p>Dominar seletores de atributo, pseudo-classes e pseudo-elementos</p>
+                </div>
+                
+                <div class="objetivo">
+                    <h4>🔗 Combinadores</h4>
+                    <p>Usar descendente, filho, irmão adjacente e irmão geral</p>
+                </div>
+                
+                <div class="objetivo">
+                    <h4>⚖️ Especificidade</h4>
+                    <p>Entender como o CSS resolve conflitos entre regras</p>
+                </div>
+                
+                <div class="objetivo">
+                    <h4>🚀 Seleção Eficiente</h4>
+                    <p>Escrever seletores performáticos e semânticos</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tipos de Seletores -->
+        <section class="secao">
+            <h2>🔍 Tipos de Seletores CSS</h2>
+
+            <h3>1. 🏷️ Seletores de Atributo</h3>
+            <p>Selecionam elementos baseados nos seus atributos:</p>
+
+            <div class="codigo">
+                <h4>Seletores de Atributo</h4>
+                <pre><code>/* Elementos com atributo específico */
+[href] { color: blue; }
+
+/* Valor exato do atributo */
+[type="button"] { background: #007bff; }
+
+/* Contém valor específico */
+[class*="btn"] { padding: 10px; }
+
+/* Começa com valor específico */
+[href^="https"] { color: green; }
+
+/* Termina com valor específico */
+[href$=".pdf"] { color: red; }</code></pre>
+            </div>
+
+            <h3>2. 🎭 Pseudo-classes</h3>
+            <p>Selecionam estados específicos dos elementos:</p>
+
+            <div class="codigo">
+                <h4>Pseudo-classes de Estado</h4>
+                <pre><code>/* Estados de link */
+a:link { color: blue; }
+a:visited { color: purple; }
+a:hover { color: red; }
+a:active { color: orange; }
+
+/* Estados de formulário */
+input:focus { border: 2px solid #007bff; }
+input:disabled { background: #f5f5f5; }
+input:checked { transform: scale(1.1); }
+
+/* Estruturais */
+p:first-child { margin-top: 0; }
+p:last-child { margin-bottom: 0; }
+li:nth-child(odd) { background: #f9f9f9; }</code></pre>
+            </div>
+
+            <h3>3. 🎨 Pseudo-elementos</h3>
+            <p>Criam elementos virtuais para estilização:</p>
+
+            <div class="codigo">
+                <h4>Pseudo-elementos Úteis</h4>
+                <pre><code>/* Primeira linha e primeira letra */
+p::first-line { font-weight: bold; }
+p::first-letter { 
+    font-size: 2em; 
+    float: left; 
+}
+
+/* Conteúdo antes e depois */
+.icone::before {
+    content: "🎯 ";
+    color: #007bff;
+}
+
+.link-externo::after {
+    content: " ↗";
+    font-size: 0.8em;
+}
+
+/* Placeholder personalizado */
+input::placeholder {
+    color: #999;
+    font-style: italic;
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Combinadores -->
+        <section class="secao">
+            <h2>🔗 Combinadores CSS</h2>
+
+            <div class="recursos">
+                <div class="recurso-card">
+                    <h4>👥 Descendente (espaço)</h4>
+                    <div class="codigo">
+                        <pre><code>/* Todos os p dentro de div */
+div p {
+    color: #333;
+}</code></pre>
+                    </div>
+                    <p>Seleciona <strong>todos</strong> os descendentes</p>
+                </div>
+
+                <div class="recurso-card">
+                    <h4>👶 Filho Direto (>)</h4>
+                    <div class="codigo">
+                        <pre><code>/* Apenas p filhos diretos */
+div > p {
+                    font-weight: bold;
+}</code></pre>
+                    </div>
+                    <p>Seleciona apenas <strong>filhos diretos</strong></p>
+                </div>
+
+                <div class="recurso-card">
+                    <h4>🤝 Irmão Adjacente (+)</h4>
+                    <div class="codigo">
+                        <pre><code>/* p imediatamente após h2 */
+h2 + p {
+    font-size: 1.1em;
+}</code></pre>
+                    </div>
+                    <p>Seleciona o <strong>próximo irmão</strong></p>
+                </div>
+
+                <div class="recurso-card">
+                    <h4>👫 Irmãos Gerais (~)</h4>
+                    <div class="codigo">
+                        <pre><code>/* Todos os p após h2 */
+h2 ~ p {
+    margin-left: 20px;
+}</code></pre>
+                    </div>
+                    <p>Seleciona <strong>todos os irmãos</strong> seguintes</p>
+                </div>
+            </div>
+
+            <div class="exercicio">
+                <h3>🎯 Exemplo Prático: Estrutura de Artigo</h3>
+                <div class="codigo">
+                    <h4>HTML de Exemplo</h4>
+                    <pre><code>&lt;article&gt;
+    &lt;h1&gt;Título do Artigo&lt;/h1&gt;
+    &lt;p&gt;Primeiro parágrafo (introdução)&lt;/p&gt;
+    &lt;h2&gt;Seção 1&lt;/h2&gt;
+    &lt;p&gt;Primeiro parágrafo da seção&lt;/p&gt;
+    &lt;p&gt;Segundo parágrafo da seção&lt;/p&gt;
+    &lt;h2&gt;Seção 2&lt;/h2&gt;
+    &lt;p&gt;Outro parágrafo&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+                </div>
+
+                <div class="codigo">
+                    <h4>CSS com Combinadores</h4>
+                    <pre><code>/* Todos os parágrafos do artigo */
+article p {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Apenas h1 filho direto do article */
+article > h1 {
+    color: #2c3e50;
+    border-bottom: 3px solid #3498db;
+}
+
+/* Primeiro parágrafo após cada h2 */
+h2 + p {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* Todos os parágrafos seguintes aos h2 */
+h2 ~ p {
+    margin-left: 15px;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Especificidade -->
+        <section class="secao">
+            <h2>⚖️ Especificidade CSS</h2>
+
+            <p>
+                A <strong>especificidade</strong> determina qual regra CSS será aplicada 
+                quando múltiplas regras conflitantes afetam o mesmo elemento.
+            </p>
+
+            <div class="destaque info">
+                <h4>📊 Sistema de Pontuação</h4>
+                <p>CSS usa um sistema de 4 dígitos (0,0,0,0) para calcular especificidade:</p>
+                <ul>
+                    <li><strong>1º dígito:</strong> Estilos inline (style="")</li>
+                    <li><strong>2º dígito:</strong> IDs (#)</li>
+                    <li><strong>3º dígito:</strong> Classes (.), atributos ([]), pseudo-classes (:)</li>
+                    <li><strong>4º dígito:</strong> Elementos (div, p) e pseudo-elementos (::)</li>
+                </ul>
+            </div>
+
+            <div class="tabela-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Seletor</th>
+                            <th>Especificidade</th>
+                            <th>Explicação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>p</code></td>
+                            <td>0,0,0,1</td>
+                            <td>1 elemento</td>
+                        </tr>
+                        <tr>
+                            <td><code>.classe</code></td>
+                            <td>0,0,1,0</td>
+                            <td>1 classe</td>
+                        </tr>
+                        <tr>
+                            <td><code>#id</code></td>
+                            <td>0,1,0,0</td>
+                            <td>1 ID</td>
+                        </tr>
+                        <tr>
+                            <td><code>div.classe</code></td>
+                            <td>0,0,1,1</td>
+                            <td>1 classe + 1 elemento</td>
+                        </tr>
+                        <tr>
+                            <td><code>#id .classe p</code></td>
+                            <td>0,1,1,1</td>
+                            <td>1 ID + 1 classe + 1 elemento</td>
+                        </tr>
+                        <tr>
+                            <td><code>style=""</code></td>
+                            <td>1,0,0,0</td>
+                            <td>CSS inline</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>🏆 Ordem de Prioridade</h3>
+            <div class="recursos">
+                <div class="recurso-card">
+                    <h4>1. 🚨 !important</h4>
+                    <p>Força máxima prioridade (use com parcimônia!)</p>
+                </div>
+
+                <div class="recurso-card">
+                    <h4>2. 📝 CSS Inline</h4>
+                    <p>Especificidade 1,0,0,0</p>
+                </div>
+
+                <div class="recurso-card">
+                    <h4>3. 🆔 IDs</h4>
+                    <p>Especificidade 0,1,0,0</p>
+                </div>
+
+                <div class="recurso-card">
+                    <h4>4. 🎯 Classes, Atributos, Pseudo-classes</h4>
+                    <p>Especificidade 0,0,1,0</p>
+                </div>
+
+                <div class="recurso-card">
+                    <h4>5. 🏷️ Elementos e Pseudo-elementos</h4>
+                    <p>Especificidade 0,0,0,1</p>
+                </div>
+
+                <div class="recurso-card">
+                    <h4>6. ⭐ Universal (*)</h4>
+                    <p>Especificidade 0,0,0,0</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exercício Prático -->
+        <section class="secao">
+            <h2>💻 Exercício Prático</h2>
+
+            <div class="exercicio">
+                <h3>🎯 Testando Seletores e Especificidade</h3>
+                
+                <div class="passo">
+                    <h4>📄 1. HTML de Teste</h4>
+                    <div class="codigo">
+                        <pre><code>&lt;div class="container"&gt;
+    &lt;header id="cabecalho"&gt;
+        &lt;h1 class="titulo"&gt;Meu Site&lt;/h1&gt;
+        &lt;nav&gt;
+            &lt;a href="#" class="link ativo"&gt;Home&lt;/a&gt;
+            &lt;a href="#" class="link"&gt;Sobre&lt;/a&gt;
+            &lt;a href="contato.html" class="link externo"&gt;Contato&lt;/a&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+    
+    &lt;main&gt;
+        &lt;article&gt;
+            &lt;h2&gt;Primeiro Artigo&lt;/h2&gt;
+            &lt;p class="introducao"&gt;Esta é a introdução...&lt;/p&gt;
+            &lt;p&gt;Este é o conteúdo principal...&lt;/p&gt;
+            &lt;p&gt;Mais conteúdo aqui...&lt;/p&gt;
+        &lt;/article&gt;
+    &lt;/main&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div class="passo">
+                    <h4>🎨 2. CSS com Diferentes Seletores</h4>
+                    <div class="codigo">
+                        <pre><code>/* Reset básico */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Seletores de elemento */
+body { font-family: Arial, sans-serif; }
+h1, h2 { color: #2c3e50; }
+
+/* Seletores de classe */
+.container { max-width: 1200px; margin: 0 auto; }
+.titulo { font-size: 2.5em; }
+.link { 
+    text-decoration: none; 
+    padding: 10px 15px;
+    margin: 0 5px;
+}
+
+/* Seletores de ID */
+#cabecalho { 
+    background: #34495e;
+    color: white;
+    padding: 20px;
+}
+
+/* Pseudo-classes */
+.link:hover { background: #3498db; }
+.link.ativo { 
+    background: #e74c3c; 
+    font-weight: bold;
+}
+
+/* Seletores de atributo */
+[href$=".html"] { color: #e67e22; }
+
+/* Combinadores */
+header nav { display: flex; }
+h2 + p { font-weight: 600; }
+article > p { margin-bottom: 15px; }
+.introducao ~ p { color: #7f8c8d; }
+
+/* Pseudo-elementos */
+.externo::after { 
+    content: " 🔗"; 
+    font-size: 0.8em;
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="checklist">
+                    <h4>✅ Tarefas do Exercício</h4>
+                    <label>
+                        <input type="checkbox"> Criar HTML com a estrutura fornecida
+                    </label>
+                    <label>
+                        <input type="checkbox"> Aplicar todos os estilos CSS
+                    </label>
+                    <label>
+                        <input type="checkbox"> Testar hover nos links
+                    </label>
+                    <label>
+                        <input type="checkbox"> Identificar diferentes especificidades
+                    </label>
+                    <label>
+                        <input type="checkbox"> Experimentar com !important
+                    </label>
+                    <label>
+                        <input type="checkbox"> Adicionar seus próprios seletores
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dicas Avançadas -->
+        <section class="secao">
+            <h2>🚀 Dicas Avançadas</h2>
+
+            <div class="recursos">
+                <div class="recurso-card">
+                    <h4>⚡ Performance</h4>
+                    <ul>
+                        <li>Evite seletores muito específicos</li>
+                        <li>CSS lê da direita para esquerda</li>
+                        <li>Use classes em vez de elementos</li>
+                        <li>Evite seletores universais</li>
+                    </ul>
+                </div>
+
+                <div class="recurso-card">
+                    <h4>🧹 Código Limpo</h4>
+                    <ul>
+                        <li>Prefira especificidade baixa</li>
+                        <li>Evite !important</li>
+                        <li>Use nomes semânticos</li>
+                        <li>Organize por especificidade</li>
+                    </ul>
+                </div>
+
+                <div class="recurso-card">
+                    <h4>📱 Responsive</h4>
+                    <ul>
+                        <li>Use :not() para exclusões</li>
+                        <li>Pseudo-classes estruturais</li>
+                        <li>Seletores de atributo para estados</li>
+                        <li>Combinadores para layouts</li>
+                    </ul>
+                </div>
+
+                <div class="recurso-card">
+                    <h4>🔍 Debug</h4>
+                    <ul>
+                        <li>DevTools mostra especificidade</li>
+                        <li>Use outline para visualizar</li>
+                        <li>Teste seletores no console</li>
+                        <li>Valide CSS regularmente</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Desafio -->
+        <section class="secao">
+            <h2>🏆 Desafio: Sistema de Cards</h2>
+
+            <div class="destaque challenge">
+                <h4>🎨 Crie um Sistema de Cards Inteligente</h4>
+                <p>Usando apenas seletores CSS, crie cards que:</p>
+                <ul>
+                    <li>Mudem cor no hover</li>
+                    <li>Tenham estados para "novo", "favorito" e "arquivado"</li>
+                    <li>O primeiro e último card tenham estilos especiais</li>
+                    <li>Cards pares e ímpares tenham cores alternadas</li>
+                    <li>Links externos mostrem ícone automático</li>
+                </ul>
+                
+                <div class="codigo">
+                    <h4>HTML Sugerido</h4>
+                    <pre><code>&lt;div class="cards-container"&gt;
+    &lt;div class="card novo"&gt;
+        &lt;h3&gt;Card Novo&lt;/h3&gt;
+        &lt;p&gt;Conteúdo do card...&lt;/p&gt;
+        &lt;a href="https://exemplo.com"&gt;Link Externo&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;!-- Mais cards... --&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navegação -->
+        <nav class="course-navigation">
+            <div class="nav-buttons">
+                <a href="aula-01-fundamentos.html" class="nav-btn secondary">
+                    ← 🎨 Aula Anterior
+                </a>
+                <a href="aula-03-cores-tipografia.html" class="nav-btn primary">
+                    🎨 Próxima Aula →
+                </a>
+            </div>
+        </nav>
+
+        <!-- Footer -->
+        <footer class="aula-footer">
+            <h3>🎯 Excelente!</h3>
+            <p>
+                Agora você domina os seletores CSS! Na próxima aula, vamos explorar 
+                o mundo das cores e tipografia para criar designs visuais incríveis.
+            </p>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Marcar aula como concluída
+        function marcarConcluida() {
+            const progresso = JSON.parse(localStorage.getItem('curso-css-progresso') || '[]');
+            if (!progresso.includes(2)) {
+                progresso.push(2);
+                localStorage.setItem('curso-css-progresso', JSON.stringify(progresso));
+            }
+        }
+
+        // Funcionalidade dos checkboxes
+        document.querySelectorAll('input[type="checkbox"]').forEach((checkbox, index) => {
+            // Restaurar estado
+            const saved = localStorage.getItem(`aula2-check-${index}`);
+            if (saved === 'true') {
+                checkbox.checked = true;
+                checkbox.parentElement.style.color = '#4caf50';
+                checkbox.parentElement.style.textDecoration = 'line-through';
+            }
+            
+            checkbox.addEventListener('change', function() {
+                localStorage.setItem(`aula2-check-${index}`, this.checked);
+                
+                if (this.checked) {
+                    this.parentElement.style.color = '#4caf50';
+                    this.parentElement.style.textDecoration = 'line-through';
+                } else {
+                    this.parentElement.style.color = '';
+                    this.parentElement.style.textDecoration = '';
+                }
+                
+                // Verificar conclusão
+                const todosCheckboxes = document.querySelectorAll('input[type="checkbox"]');
+                const todosMarcados = Array.from(todosCheckboxes).every(cb => cb.checked);
+                if (todosMarcados) marcarConcluida();
+            });
+        });
+
+        // Demo interativa de especificidade
+        function demoEspecificidade() {
+            const demo = document.createElement('div');
+            demo.innerHTML = `
+                <style>
+                    .demo { 
+                        background: #f8f9fa; 
+                        padding: 20px; 
+                        margin: 20px 0; 
+                        border-radius: 8px;
+                    }
+                    .demo p { color: blue; }
+                    #demo-text { color: red; }
+                    .demo .destaque { color: green; }
+                </style>
+                <div class="demo">
+                    <p id="demo-text" class="destaque">Este texto demonstra especificidade!</p>
+                    <small>A cor final é determinada pela maior especificidade.</small>
+                </div>
+            `;
+            
+            const destaque = document.querySelector('.destaque.challenge');
+            destaque.appendChild(demo);
+        }
+
+        // Executar demo após carregamento
+        setTimeout(demoEspecificidade, 1000);
+    </script>
+</body>
+</html>

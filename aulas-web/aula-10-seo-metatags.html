@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 10: SEO e Meta Tags - Curso HTML Fundamentals</title>
+    <meta name="description" content="Décima aula do curso de HTML: domine SEO técnico, meta tags, dados estruturados e otimização para buscadores.">
+    <link rel="stylesheet" href="assets/style-aulas.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📈</text></svg>">
+</head>
+<body>
+    <div class="aula-container">
+        <!-- Navegação -->
+        <nav class="aula-nav">
+            <a href="aula-09-acessibilidade.html" class="nav-btn">
+                ← ♿ Aula Anterior
+            </a>
+            <a href="index.html" class="nav-btn">
+                📚 Curso
+            </a>
+            <a href="aula-11-performance-otimizacao.html" class="nav-btn">
+                ⚡ Próxima Aula →
+            </a>
+        </nav>
+
+        <!-- Header da Aula -->
+        <header class="aula-header">
+            <div class="aula-numero">AULA 10</div>
+            <h1 class="aula-titulo">📈 SEO e Meta Tags</h1>
+            <p class="aula-descricao">
+                Domine SEO técnico e meta tags para melhorar a visibilidade do seu site 
+                nos buscadores e aumentar o tráfego orgânico.
+            </p>
+            <div class="aula-meta">
+                <div class="meta-item">
+                    <span>⏱️</span> <span>50 minutos</span>
+                </div>
+                <div class="meta-item">
+                    <span>🎯</span> <span>Avançado</span>
+                </div>
+                <div class="meta-item">
+                    <span>📝</span> <span>4 Exercícios</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Objetivos da Aula -->
+        <div class="objetivos">
+            <h3>🎯 Objetivos de Aprendizagem</h3>
+            <ul>
+                <li>Compreender como funcionam os motores de busca</li>
+                <li>Dominar meta tags essenciais para SEO</li>
+                <li>Implementar dados estruturados (Schema.org)</li>
+                <li>Otimizar performance para SEO</li>
+                <li>Usar ferramentas de análise e monitoramento</li>
+            </ul>
+        </div>
+
+        <!-- Seção 1: Fundamentos de SEO -->
+        <section class="secao">
+            <h2>🔍 1. Fundamentos de SEO</h2>
+            
+            <div class="destaque info">
+                <h4>📊 SEO - Search Engine Optimization</h4>
+                <p>
+                    SEO é o conjunto de técnicas para melhorar a <strong>visibilidade</strong> 
+                    e <strong>ranking</strong> de páginas web nos resultados orgânicos dos 
+                    motores de busca como Google, Bing e outros.
+                </p>
+            </div>
+
+            <div class="explicacao">
+                <h4>🎯 Por que SEO é Fundamental?</h4>
+                <p>
+                    O SEO é essencial porque <strong>93% dos usuários</strong> clicam apenas nos resultados 
+                    da primeira página do Google. Além disso, o tráfego orgânico representa cerca de 
+                    <strong>53% de todo o tráfego web</strong>, tornando-o a principal fonte de visitantes 
+                    para a maioria dos sites.
+                </p>
+                <p>
+                    Diferente dos anúncios pagos, o SEO constrói uma presença <strong>duradoura</strong> 
+                    nos buscadores, gerando tráfego consistente ao longo do tempo sem custos diretos 
+                    por clique.
+                </p>
+            </div>
+
+            <h3>🤖 Como Funcionam os Motores de Busca</h3>
+            <div class="explicacao">
+                <h4>📚 O Processo em 3 Etapas</h4>
+                <p>
+                    Os motores de busca funcionam como uma <strong>biblioteca gigante</strong> da internet. 
+                    Eles seguem três etapas principais:
+                </p>
+                <ol>
+                    <li><strong>Crawling (Rastreamento):</strong> Robôs (bots/spiders) navegam pela web seguindo links</li>
+                    <li><strong>Indexing (Indexação):</strong> O conteúdo encontrado é analisado e armazenado</li>
+                    <li><strong>Ranking (Classificação):</strong> Algoritmos determinam a ordem dos resultados</li>
+                </ol>
+                <p>
+                    É como se o Google fosse um <strong>bibliotecário supereficiente</strong> que lê todos os 
+                    livros (páginas), cria um catálogo detalhado e depois recomenda os melhores baseado 
+                    na sua pergunta (query de busca).
+                </p>
+            </div>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- 1. CRAWLING - Descoberta de páginas --&gt;
+&lt;!-- Robots.txt define quais páginas o bot pode acessar --&gt;
+&lt;!-- Exemplo: exemplo.com/robots.txt --&gt;
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+
+Sitemap: https://exemplo.com/sitemap.xml
+
+&lt;!-- 2. INDEXING - Análise e armazenamento --&gt;
+&lt;!-- Meta tags ajudam os bots a entender o conteúdo --&gt;
+
+&lt;!-- 3. RANKING - Classificação nos resultados --&gt;
+&lt;!-- Fatores: relevância, autoridade, experiência do usuário --&gt;
+
+&lt;!-- Base HTML otimizada para SEO --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+&lt;head&gt;
+    &lt;!-- Meta tags fundamentais --&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    
+    &lt;!-- Título otimizado (50-60 caracteres) --&gt;
+    &lt;title&gt;Como Fazer Bolos Caseiros - Receitas Fáceis e Saborosas&lt;/title&gt;
+    
+    &lt;!-- Descrição otimizada (150-160 caracteres) --&gt;
+    &lt;meta name="description" content="Aprenda receitas de bolos caseiros fáceis e deliciosos. Guias passo a passo com ingredientes simples para bolos perfeitos."&gt;
+    
+    &lt;!-- Palavras-chave (menos importante hoje) --&gt;
+    &lt;meta name="keywords" content="bolos caseiros, receitas, confeitaria, sobremesas"&gt;
+    
+    &lt;!-- Canonical URL para evitar conteúdo duplicado --&gt;
+    &lt;link rel="canonical" href="https://exemplo.com/receitas/bolos-caseiros"&gt;
+    
+    &lt;!-- Idioma e região --&gt;
+    &lt;meta name="language" content="pt-BR"&gt;
+    &lt;meta name="geo.region" content="BR"&gt;
+    
+    &lt;!-- Instruções para robôs --&gt;
+    &lt;meta name="robots" content="index, follow, max-image-preview:large"&gt;
+    
+    &lt;!-- Autor e copyright --&gt;
+    &lt;meta name="author" content="Chef Maria Silva"&gt;
+    &lt;meta name="copyright" content="© 2024 Receitas da Vovó"&gt;
+&lt;/head&gt;</code></pre>
+            </div>
+
+            <h3>📋 Estrutura HTML Semântica para SEO</h3>
+            <div class="explicacao">
+                <h4>🏗️ A Importância da Semântica</h4>
+                <p>
+                    HTML semântico é como dar <strong>pistas claras</strong> aos motores de busca sobre 
+                    o que cada parte do seu conteúdo representa. É a diferença entre falar em código 
+                    e falar em português claro!
+                </p>
+                <p>
+                    Elementos como <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, 
+                    <code>&lt;article&gt;</code> e <code>&lt;section&gt;</code> funcionam como 
+                    <strong>placas de sinalização</strong> que ajudam os bots a entender a hierarquia 
+                    e importância do conteúdo.
+                </p>
+                <p>
+                    <strong>Resultado prático:</strong> Sites com HTML semântico correto têm 
+                    <strong>melhor ranking</strong> e podem aparecer em rich snippets especiais 
+                    nos resultados de busca.
+                </p>
+            </div>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;body&gt;
+    &lt;!-- Header com navegação clara --&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Receitas da Vovó&lt;/h1&gt;
+        &lt;nav aria-label="Navegação principal"&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="/receitas"&gt;Receitas&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="/dicas"&gt;Dicas&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="/sobre"&gt;Sobre&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+    
+    &lt;!-- Breadcrumb para navegação --&gt;
+    &lt;nav aria-label="Breadcrumb"&gt;
+        &lt;ol&gt;
+            &lt;li&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/receitas"&gt;Receitas&lt;/a&gt;&lt;/li&gt;
+            &lt;li aria-current="page"&gt;Bolos Caseiros&lt;/li&gt;
+        &lt;/ol&gt;
+    &lt;/nav&gt;
+    
+    &lt;!-- Conteúdo principal com estrutura H1-H6 --&gt;
+    &lt;main&gt;
+        &lt;article&gt;
+            &lt;header&gt;
+                &lt;h1&gt;Como Fazer Bolos Caseiros Perfeitos&lt;/h1&gt;
+                &lt;p class="meta-info"&gt;
+                    Por &lt;span&gt;Chef Maria Silva&lt;/span&gt; | 
+                    &lt;time datetime="2024-01-15"&gt;15 de Janeiro, 2024&lt;/time&gt; |
+                    Tempo: &lt;span&gt;45 minutos&lt;/span&gt;
+                &lt;/p&gt;
+            &lt;/header&gt;
+            
+            &lt;!-- Imagem otimizada com alt text --&gt;
+            &lt;figure&gt;
+                &lt;img src="bolo-chocolate-caseiro.webp" 
+                     alt="Bolo de chocolate caseiro cortado em fatias, mostrando textura fofa e cobertura cremosa"
+                     width="800" 
+                     height="400"
+                     loading="lazy"&gt;
+                &lt;figcaption&gt;Bolo de chocolate caseiro pronto para servir&lt;/figcaption&gt;
+            &lt;/figure&gt;
+            
+            &lt;!-- Conteúdo estruturado --&gt;
+            &lt;section&gt;
+                &lt;h2&gt;Ingredientes Necessários&lt;/h2&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;3 ovos grandes&lt;/li&gt;
+                    &lt;li&gt;2 xícaras de farinha de trigo&lt;/li&gt;
+                    &lt;li&gt;1 xícara de açúcar&lt;/li&gt;
+                    &lt;li&gt;1/2 xícara de cacau em pó&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/section&gt;
+            
+            &lt;section&gt;
+                &lt;h2&gt;Modo de Preparo&lt;/h2&gt;
+                &lt;ol&gt;
+                    &lt;li&gt;Pré-aqueça o forno a 180°C&lt;/li&gt;
+                    &lt;li&gt;Misture os ingredientes secos&lt;/li&gt;
+                    &lt;li&gt;Adicione os ingredientes líquidos&lt;/li&gt;
+                    &lt;li&gt;Asse por 40-45 minutos&lt;/li&gt;
+                &lt;/ol&gt;
+            &lt;/section&gt;
+            
+            &lt;section&gt;
+                &lt;h2&gt;Dicas Importantes&lt;/h2&gt;
+                &lt;h3&gt;Temperatura do Forno&lt;/h3&gt;
+                &lt;p&gt;Mantenha a temperatura constante...&lt;/p&gt;
+                
+                &lt;h3&gt;Teste do Palito&lt;/h3&gt;
+                &lt;p&gt;Use um palito para verificar...&lt;/p&gt;
+            &lt;/section&gt;
+        &lt;/article&gt;
+    &lt;/main&gt;
+    
+    &lt;!-- Sidebar com conteúdo relacionado --&gt;
+    &lt;aside&gt;
+        &lt;h2&gt;Receitas Relacionadas&lt;/h2&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="/bolo-cenoura"&gt;Bolo de Cenoura&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/bolo-limao"&gt;Bolo de Limão&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/aside&gt;
+    
+    &lt;footer&gt;
+        &lt;p&gt;© 2024 Receitas da Vovó. Todos os direitos reservados.&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;</code></pre>
+            </div>
+
+            <div class="destaque tip">
+                <h4>🎯 Fatores de Ranking Principais</h4>
+                <ul>
+                    <li><strong>Conteúdo de qualidade:</strong> Relevante, original e útil</li>
+                    <li><strong>Experience:</strong> Core Web Vitals e usabilidade</li>
+                    <li><strong>Expertise:</strong> Autoridade no assunto</li>
+                    <li><strong>Authoritativeness:</strong> Links de sites confiáveis</li>
+                    <li><strong>Trustworthiness:</strong> Segurança e confiabilidade</li>
+                </ul>
+            </div>
+
+            <h3>🤖 Arquivo robots.txt</h3>
+            <div class="destaque info">
+                <h4>📍 Onde criar o robots.txt</h4>
+                <p>
+                    O arquivo <code>robots.txt</code> deve ser criado na <strong>raiz do seu domínio</strong>, 
+                    acessível em <code>seusite.com/robots.txt</code>. É um arquivo de texto simples 
+                    que instrui os bots sobre quais páginas podem ou não acessar.
+                </p>
+            </div>
+            
+            <div class="codigo" data-lang="TXT">
+<pre><code># Como criar robots.txt
+
+1. Crie um arquivo chamado: robots.txt
+2. Salve na pasta raiz do seu site (mesmo local do index.html)
+3. Configure as regras conforme seus objetivos
+
+# Estrutura do arquivo:
+# - Uma linha por diretiva
+# - Use # para comentários
+# - Cuidado com maiúsculas/minúsculas
+
+# Exemplo de estrutura de pastas:
+/
+├── index.html
+├── robots.txt          ← AQUI (raiz do site)
+├── sitemap.xml
+├── css/
+├── js/
+├── images/
+└── admin/</code></pre>
+            </div>
+
+            <h4>📝 Exemplos Práticos de robots.txt</h4>
+            <div class="codigo" data-lang="TXT">
+<pre><code># EXEMPLO 1: Site básico - Permitir tudo
+User-agent: *
+Allow: /
+Sitemap: https://seusite.com/sitemap.xml
+
+# EXEMPLO 2: E-commerce - Proteger áreas sensíveis
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /checkout/
+Disallow: /cart/
+Disallow: /login/
+Disallow: /search?
+Disallow: /*.pdf$
+Sitemap: https://loja.com/sitemap.xml
+
+# EXEMPLO 3: Blog - Otimizar crawling
+User-agent: *
+Allow: /
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-content/plugins/
+Disallow: /wp-content/cache/
+Disallow: /author/
+Disallow: /tag/
+Allow: /wp-content/uploads/
+Sitemap: https://blog.com/sitemap.xml
+
+# EXEMPLO 4: Site em desenvolvimento
+User-agent: *
+Disallow: /
+# Bloqueia todo o site
+
+# EXEMPLO 5: Controle específico por bot
+User-agent: Googlebot
+Allow: /
+Disallow: /private/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+
+User-agent: *
+Disallow: /admin/
+
+# Crawl-delay para bots lentos
+User-agent: SomeSlowBot
+Crawl-delay: 10</code></pre>
+            </div>
+
+            <h4>⚠️ Cuidados Importantes com robots.txt</h4>
+            <div class="destaque warning">
+                <ul>
+                    <li><strong>Não é segurança:</strong> robots.txt é público, não esconde conteúdo</li>
+                    <li><strong>Case-sensitive:</strong> /Admin/ é diferente de /admin/</li>
+                    <li><strong>Sintaxe exata:</strong> Um erro pode bloquear todo o site</li>
+                    <li><strong>Cache dos bots:</strong> Mudanças podem demorar para ter efeito</li>
+                    <li><strong>Teste sempre:</strong> Use ferramentas para validar</li>
+                </ul>
+            </div>
+
+            <h4>🧪 Como Testar o robots.txt</h4>
+            <div class="explicacao">
+                <h4>🔍 Validação é Fundamental</h4>
+                <p>
+                    Testar o robots.txt é <strong>absolutamente crítico</strong> porque um erro pode bloquear 
+                    todo o seu site dos buscadores! É como colocar uma placa "Proibido entrar" na porta 
+                    da sua loja - você precisa ter certeza de que está funcionando corretamente.
+                </p>
+                <p>
+                    <strong>Problemas comuns que os testes detectam:</strong>
+                </p>
+                <ul>
+                    <li>🚫 <strong>Bloqueios acidentais:</strong> Páginas importantes sendo impedidas de indexar</li>
+                    <li>📝 <strong>Erros de sintaxe:</strong> Espaços, caracteres especiais ou maiúsculas incorretas</li>
+                    <li>🔗 <strong>Sitemap inválido:</strong> URLs de sitemap que não funcionam</li>
+                    <li>🤖 <strong>User-agents incorretos:</strong> Nomes de bots escritos errado</li>
+                </ul>
+                <p>
+                    <strong>Estatística importante:</strong> Cerca de 40% dos sites têm erros no robots.txt 
+                    que prejudicam o SEO sem o webmaster saber. Por isso teste <strong>sempre</strong> antes 
+                    de publicar mudanças!
+                </p>
+                <p>
+                    <strong>Frequência recomendada:</strong> Teste imediatamente após mudanças e mensalmente 
+                    como parte da auditoria SEO de rotina.
+                </p>
+            </div>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Ferramentas para testar robots.txt --&gt;
+
+1. Google Search Console:
+   - Ferramentas antigas &gt; Testador do robots.txt
+   - Digite URLs para testar se estão bloqueadas
+
+2. Teste manual:
+   - Acesse: seusite.com/robots.txt
+   - Verifique se carrega corretamente
+   - Confirme a sintaxe
+
+3. Validadores online:
+   - robotstxt.org/robotstxt.html
+   - technicalseo.com/tools/robots-txt/
+
+&lt;!-- Script para verificar robots.txt --&gt;
+&lt;script&gt;
+async function verificarRobotsTxt() {
+    try {
+        const response = await fetch('/robots.txt');
+        if (response.ok) {
+            const content = await response.text();
+            console.log('✅ robots.txt encontrado:');
+            console.log(content);
+        } else {
+            console.warn('❌ robots.txt não encontrado');
+        }
+    } catch (error) {
+        console.error('❌ Erro ao verificar robots.txt:', error);
+    }
+}
+
+// Verificar robots.txt
+verificarRobotsTxt();
+&lt;/script&gt;</code></pre>
+            </div>
+            
+            <div class="destaque tip">
+                <h4>💡 Workflow de Teste Profissional</h4>
+                <p><strong>Passo a passo para testar como um profissional:</strong></p>
+                <ol>
+                    <li>🔍 <strong>Teste de acesso:</strong> Vá para seusite.com/robots.txt e verifique se carrega</li>
+                    <li>📋 <strong>Validação de sintaxe:</strong> Use robotstxt.org para verificar erros</li>
+                    <li>🎯 <strong>Teste específico:</strong> No Google Search Console, teste URLs importantes</li>
+                    <li>🤖 <strong>Simular diferentes bots:</strong> Teste Googlebot, Bingbot, etc.</li>
+                    <li>📊 <strong>Monitorar impacto:</strong> Acompanhe mudanças no tráfego orgânico</li>
+                </ol>
+            </div>
+            
+            <div class="destaque warning">
+                <h4>⚠️ Testes Essenciais Antes de Publicar</h4>
+                <ul>
+                    <li>✅ <strong>Página inicial:</strong> Certifique-se que não está bloqueada</li>
+                    <li>✅ <strong>Páginas principais:</strong> Teste produtos, serviços, contato</li>
+                    <li>✅ <strong>Sitemap acessível:</strong> URL do sitemap deve funcionar</li>
+                    <li>✅ <strong>CSS e JS:</strong> Verifique se recursos não estão bloqueados</li>
+                    <li>✅ <strong>Mobile:</strong> Teste se regras afetam versão mobile</li>
+                </ul>
+                <p>
+                    <strong>Dica de ouro:</strong> Mantenha sempre uma cópia de backup do robots.txt 
+                    funcionando antes de fazer mudanças!
+                </p>
+            </div>
+        </section>
+
+        <!-- Exercício 1 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 1: Auditoria SEO Básica</h4>
+            <p>
+                Faça uma auditoria SEO completa de uma página:
+            </p>
+            <ul>
+                <li>Verifique título e meta description</li>
+                <li>Analise estrutura de cabeçalhos (H1-H6)</li>
+                <li>Cheque URLs amigáveis</li>
+                <li>Valide dados estruturados</li>
+                <li>Teste velocidade de carregamento</li>
+            </ul>
+        </div>
+
+        <!-- Seção 2: Meta Tags Avançadas -->
+        <section class="secao">
+            <h2>🏷️ 2. Meta Tags Avançadas</h2>
+            
+            <div class="explicacao">
+                <h4>🎯 O Poder das Meta Tags</h4>
+                <p>
+                    Meta tags são como <strong>cartões de apresentação</strong> do seu site. Elas não aparecem 
+                    diretamente na página, mas comunicam informações cruciais para buscadores, redes sociais 
+                    e navegadores sobre o conteúdo da sua página.
+                </p>
+                <p>
+                    Pense nas meta tags como <strong>metadados de uma foto</strong> - você não vê essas 
+                    informações quando olha a imagem, mas elas contêm dados importantes como data, localização 
+                    e configurações da câmera. Da mesma forma, as meta tags contêm dados essenciais sobre sua página.
+                </p>
+            </div>
+            
+            <h3>📱 Open Graph (Facebook, LinkedIn)</h3>
+            <div class="explicacao">
+                <h4>🌐 Dominando as Redes Sociais</h4>
+                <p>
+                    Open Graph é o protocolo que controla <strong>como sua página aparece</strong> quando compartilhada 
+                    no Facebook, LinkedIn, WhatsApp e outras redes sociais. Sem ele, as redes sociais "adivinham" 
+                    qual título, imagem e descrição usar - frequentemente com resultados ruins.
+                </p>
+                <p>
+                    <strong>Impacto real:</strong> Posts com Open Graph bem configurado têm até <strong>30% mais engajamento</strong> 
+                    nas redes sociais, pois aparecem com visual profissional e atrativo.
+                </p>
+                <p>
+                    A imagem OG ideal tem <strong>1200x630 pixels</strong> - essa proporção garante boa visualização 
+                    em todas as plataformas sem cortes indesejados.
+                </p>
+            </div>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Open Graph meta tags para redes sociais --&gt;
+&lt;meta property="og:title" content="Como Fazer Bolos Caseiros - Receitas Fáceis"&gt;
+&lt;meta property="og:description" content="Aprenda receitas de bolos caseiros deliciosos com ingredientes simples."&gt;
+&lt;meta property="og:image" content="https://exemplo.com/images/bolo-caseiro-og.jpg"&gt;
+&lt;meta property="og:image:alt" content="Bolo de chocolate caseiro decorado com morangos"&gt;
+&lt;meta property="og:image:width" content="1200"&gt;
+&lt;meta property="og:image:height" content="630"&gt;
+&lt;meta property="og:url" content="https://exemplo.com/receitas/bolos-caseiros"&gt;
+&lt;meta property="og:type" content="article"&gt;
+&lt;meta property="og:site_name" content="Receitas da Vovó"&gt;
+&lt;meta property="og:locale" content="pt_BR"&gt;
+
+&lt;!-- Para artigos específicos --&gt;
+&lt;meta property="article:author" content="Chef Maria Silva"&gt;
+&lt;meta property="article:published_time" content="2024-01-15T10:00:00Z"&gt;
+&lt;meta property="article:modified_time" content="2024-01-20T15:30:00Z"&gt;
+&lt;meta property="article:section" content="Receitas"&gt;
+&lt;meta property="article:tag" content="bolos"&gt;
+&lt;meta property="article:tag" content="confeitaria"&gt;
+&lt;meta property="article:tag" content="sobremesas"&gt;</code></pre>
+            </div>
+
+            <h3>🐦 Twitter Cards</h3>
+            <div class="explicacao">
+                <h4>🎨 Twitter Mais Atrativo</h4>
+                <p>
+                    Twitter Cards transformam links simples em <strong>cartões visuais ricos</strong> no Twitter. 
+                    É a diferença entre um link "pelado" (apenas URL) e um preview elegante com imagem, 
+                    título e descrição.
+                </p>
+                <p>
+                    <strong>Tipos principais:</strong>
+                </p>
+                <ul>
+                    <li><strong>summary:</strong> Card pequeno com thumbnail - ideal para artigos simples</li>
+                    <li><strong>summary_large_image:</strong> Card grande - perfeito para conteúdo visual</li>
+                    <li><strong>app:</strong> Para promover aplicativos mobile</li>
+                    <li><strong>player:</strong> Para incorporar vídeos/áudio diretamente no Twitter</li>
+                </ul>
+                <p>
+                    <strong>Dica profissional:</strong> Use <code>summary_large_image</code> na maioria dos casos, 
+                    pois gera <strong>maior engajamento visual</strong> e ocupa mais espaço no feed.
+                </p>
+            </div>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Twitter Cards para melhor aparência no Twitter --&gt;
+&lt;meta name="twitter:card" content="summary_large_image"&gt;
+&lt;meta name="twitter:site" content="@receitasdavovo"&gt;
+&lt;meta name="twitter:creator" content="@chefmariasilva"&gt;
+&lt;meta name="twitter:title" content="Como Fazer Bolos Caseiros - Receitas Fáceis"&gt;
+&lt;meta name="twitter:description" content="Aprenda receitas de bolos caseiros deliciosos com ingredientes simples."&gt;
+&lt;meta name="twitter:image" content="https://exemplo.com/images/bolo-caseiro-twitter.jpg"&gt;
+&lt;meta name="twitter:image:alt" content="Bolo de chocolate caseiro decorado com morangos"&gt;
+
+&lt;!-- Diferentes tipos de cards --&gt;
+&lt;!-- summary: card pequeno com thumbnail --&gt;
+&lt;!-- summary_large_image: card grande com imagem --&gt;
+&lt;!-- app: para promover apps --&gt;
+&lt;!-- player: para conteúdo de vídeo/áudio --&gt;</code></pre>
+            </div>
+
+            <h3>📱 Meta Tags para Mobile</h3>
+            <div class="explicacao">
+                <h4>📲 Era Mobile-First</h4>
+                <p>
+                    Hoje <strong>mais de 60% das buscas</strong> acontecem em dispositivos móveis. O Google até 
+                    mudou para indexação "mobile-first", ou seja, a versão mobile do seu site é considerada 
+                    a principal para ranking.
+                </p>
+                <p>
+                    O <code>viewport</code> é a meta tag mais crítica - sem ela, seu site aparecerá "quebrado" 
+                    no mobile, sendo exibido como se fosse desktop em uma tela pequena (zoomed out).
+                </p>
+                <p>
+                    <strong>PWA (Progressive Web App)</strong> permite que sites se comportem como aplicativos nativos, 
+                    com ícones na tela inicial, notificações push e funcionamento offline. É o futuro da web mobile!
+                </p>
+            </div>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Viewport essencial para responsividade --&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"&gt;
+
+&lt;!-- PWA - Progressive Web App --&gt;
+&lt;meta name="theme-color" content="#007bff"&gt;
+&lt;meta name="apple-mobile-web-app-capable" content="yes"&gt;
+&lt;meta name="apple-mobile-web-app-status-bar-style" content="default"&gt;
+&lt;meta name="apple-mobile-web-app-title" content="Receitas"&gt;
+
+&lt;!-- Ícones para diferentes dispositivos --&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+&lt;link rel="mask-icon" href="/safari-pinned-tab.svg" color="#007bff"&gt;
+
+&lt;!-- Manifest para PWA --&gt;
+&lt;link rel="manifest" href="/site.webmanifest"&gt;
+
+&lt;!-- Microsoft Tiles --&gt;
+&lt;meta name="msapplication-TileColor" content="#007bff"&gt;
+&lt;meta name="msapplication-config" content="/browserconfig.xml"&gt;</code></pre>
+            </div>
+
+            <h3>🔒 Meta Tags de Segurança</h3>
+            <div class="explicacao">
+                <h4>🛡️ Protegendo seu Site</h4>
+                <p>
+                    Meta tags de segurança são suas <strong>primeiras linhas de defesa</strong> contra ataques web. 
+                    Elas instruem o navegador sobre políticas de segurança que devem ser aplicadas.
+                </p>
+                <p>
+                    <strong>Content Security Policy (CSP)</strong> é como um "filtro de conteúdo" que previne 
+                    ataques XSS (Cross-Site Scripting) controlando quais recursos podem ser carregados na página.
+                </p>
+                <p>
+                    <strong>Referrer Policy</strong> controla quanta informação sobre sua página é enviada quando 
+                    usuários clicam em links externos - importante para privacidade e analytics.
+                </p>
+                <p>
+                    <strong>Verificação de propriedade</strong> é essencial para usar ferramentas como Google Search Console 
+                    e Bing Webmaster Tools - é como provar que você é realmente o dono do site.
+                </p>
+            </div>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Content Security Policy --&gt;
+&lt;meta http-equiv="Content-Security-Policy" 
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';"&gt;
+
+&lt;!-- Referrer Policy --&gt;
+&lt;meta name="referrer" content="strict-origin-when-cross-origin"&gt;
+
+&lt;!-- Prevenção de DNS Prefetching --&gt;
+&lt;meta http-equiv="x-dns-prefetch-control" content="off"&gt;
+
+&lt;!-- Controle de Cache --&gt;
+&lt;meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"&gt;
+&lt;meta http-equiv="Pragma" content="no-cache"&gt;
+&lt;meta http-equiv="Expires" content="0"&gt;
+
+&lt;!-- Verificação de propriedade --&gt;
+&lt;meta name="google-site-verification" content="seu-codigo-de-verificacao-aqui"&gt;
+&lt;meta name="bing-site-verification" content="seu-codigo-bing-aqui"&gt;
+&lt;meta name="yandex-verification" content="seu-codigo-yandex-aqui"&gt;</code></pre>
+            </div>
+
+            <div class="destaque warning">
+                <h4>⚠️ Cuidados com Meta Tags</h4>
+                <ul>
+                    <li>Evite keyword stuffing nas meta keywords</li>
+                    <li>Mantenha títulos únicos para cada página</li>
+                    <li>Descriptions devem ser convincentes, não apenas descritivas</li>
+                    <li>Teste como aparecem nas redes sociais</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Exercício 2 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 2: Otimização de Meta Tags</h4>
+            <p>
+                Otimize completamente as meta tags de uma página:
+            </p>
+            <ul>
+                <li>Crie título convincente (50-60 caracteres)</li>
+                <li>Escreva description persuasiva (150-160 caracteres)</li>
+                <li>Configure Open Graph completo</li>
+                <li>Implemente Twitter Cards</li>
+                <li>Teste em validadores online</li>
+            </ul>
+        </div>
+
+        <!-- Seção 3: Dados Estruturados -->
+        <section class="secao">
+            <h2>🏗️ 3. Dados Estruturados (Schema.org)</h2>
+            
+            <div class="explicacao">
+                <h4>🎯 Rich Snippets - O Santo Graal do SEO</h4>
+                <p>
+                    Dados estruturados são como <strong>"legendas especiais"</strong> que você adiciona ao seu código 
+                    para explicar aos buscadores exatamente o que cada parte do conteúdo representa. É a diferença 
+                    entre o Google "adivinhar" e "saber com certeza" o que sua página contém.
+                </p>
+                <p>
+                    <strong>Resultado prático:</strong> Rich snippets que aparecem nos resultados com estrelas de avaliação, 
+                    preços, tempo de preparo, e outras informações extras. Sites com rich snippets têm 
+                    <strong>30% mais cliques</strong> que resultados normais!
+                </p>
+                <p>
+                    Schema.org é um <strong>vocabulário universal</strong> criado em parceria entre Google, Microsoft, 
+                    Yahoo e Yandex. É como ter um "dicionário" que todos os buscadores entendem perfeitamente.
+                </p>
+            </div>
+            
+            <h3>🍴 Schema para Receitas</h3>
+            <div class="explicacao">
+                <h4>👨‍🍳 O Exemplo Mais Visual</h4>
+                <p>
+                    Schemas de receita são <strong>perfeitos para entender</strong> o poder dos dados estruturados, 
+                    porque geram rich snippets muito visuais nos resultados de busca.
+                </p>
+                <p>
+                    <strong>Elementos que aparecem no Google:</strong>
+                </p>
+                <ul>
+                    <li>⭐ <strong>Avaliações:</strong> Estrelas douradas que chamam atenção</li>
+                    <li>⏱️ <strong>Tempo:</strong> Preparo, cozimento e tempo total</li>
+                    <li>🔥 <strong>Calorias:</strong> Informações nutricionais</li>
+                    <li>📷 <strong>Imagens:</strong> Carrossel de fotos da receita</li>
+                    <li>👤 <strong>Autor:</strong> Credibilidade e autoridade</li>
+                </ul>
+                <p>
+                    JSON-LD é o formato preferido porque é <strong>limpo e separado</strong> do HTML, 
+                    facilitando manutenção e não afetando o design da página.
+                </p>
+            </div>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- JSON-LD é o formato recomendado pelo Google --&gt;
+&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "Bolo de Chocolate Caseiro",
+  "description": "Receita fácil e deliciosa de bolo de chocolate caseiro com ingredientes simples.",
+  "image": [
+    "https://exemplo.com/images/bolo-chocolate-1x1.jpg",
+    "https://exemplo.com/images/bolo-chocolate-4x3.jpg",
+    "https://exemplo.com/images/bolo-chocolate-16x9.jpg"
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Chef Maria Silva",
+    "url": "https://exemplo.com/autores/maria-silva"
+  },
+  "datePublished": "2024-01-15",
+  "dateModified": "2024-01-20",
+  "prepTime": "PT15M",
+  "cookTime": "PT45M",
+  "totalTime": "PT1H",
+  "recipeCategory": "Sobremesa",
+  "recipeCuisine": "Brasileira",
+  "recipeYield": "8 porções",
+  "keywords": "bolo, chocolate, caseiro, sobremesa, confeitaria",
+  "nutrition": {
+    "@type": "NutritionInformation",
+    "calories": "320 calorias",
+    "fatContent": "12g",
+    "carbohydrateContent": "48g",
+    "proteinContent": "6g"
+  },
+  "recipeIngredient": [
+    "3 ovos grandes",
+    "2 xícaras de farinha de trigo",
+    "1 xícara de açúcar",
+    "1/2 xícara de cacau em pó",
+    "1/2 xícara de óleo",
+    "1 xícara de leite",
+    "1 colher de sopa de fermento"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "name": "Preparar ingredientes",
+      "text": "Pré-aqueça o forno a 180°C e unte uma forma com manteiga.",
+      "url": "https://exemplo.com/receitas/bolo-chocolate#passo1",
+      "image": "https://exemplo.com/images/passo1.jpg"
+    },
+    {
+      "@type": "HowToStep", 
+      "name": "Misturar secos",
+      "text": "Em uma tigela grande, peneire e misture farinha, cacau e açúcar.",
+      "url": "https://exemplo.com/receitas/bolo-chocolate#passo2",
+      "image": "https://exemplo.com/images/passo2.jpg"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Adicionar líquidos",
+      "text": "Adicione ovos, leite e óleo. Misture até ficar homogêneo.",
+      "url": "https://exemplo.com/receitas/bolo-chocolate#passo3"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Assar",
+      "text": "Despeje na forma e asse por 40-45 minutos até dourar.",
+      "url": "https://exemplo.com/receitas/bolo-chocolate#passo4"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "ratingCount": "127",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Ana Santos"
+      },
+      "reviewBody": "Receita perfeita! Bolo ficou fofo e muito saboroso."
+    }
+  ],
+  "video": {
+    "@type": "VideoObject",
+    "name": "Como fazer bolo de chocolate caseiro",
+    "description": "Vídeo passo a passo da receita",
+    "thumbnailUrl": "https://exemplo.com/video-thumb.jpg",
+    "contentUrl": "https://exemplo.com/video.mp4",
+    "embedUrl": "https://exemplo.com/embed/video",
+    "uploadDate": "2024-01-15T08:00:00+08:00",
+    "duration": "PT8M46S"
+  }
+}
+&lt;/script&gt;</code></pre>
+            </div>
+
+            <h3>📝 Schema para Artigos</h3>
+            <div class="explicacao">
+                <h4>📰 Credibilidade Editorial</h4>
+                <p>
+                    O schema de artigo é essencial para <strong>blogs, notícias e conteúdo editorial</strong>. 
+                    Ele comunica ao Google informações sobre autoria, data de publicação, editora e categoria, 
+                    aumentando a credibilidade do conteúdo.
+                </p>
+                <p>
+                    <strong>Benefícios diretos:</strong>
+                </p>
+                <ul>
+                    <li>📅 <strong>Data de publicação:</strong> Aparece nos resultados, importante para conteúdo atual</li>
+                    <li>✍️ <strong>Informações do autor:</strong> Constrói autoridade e E-A-T (Expertise, Authoritativeness, Trustworthiness)</li>
+                    <li>📊 <strong>Contagem de palavras:</strong> Ajuda Google a entender profundidade do conteúdo</li>
+                    <li>🏢 <strong>Editora:</strong> Conecta o artigo à marca/organização</li>
+                </ul>
+                <p>
+                    Para Google News e descoberta de conteúdo, esse schema é <strong>praticamente obrigatório</strong> 
+                    para aparecer em features especiais como Top Stories.
+                </p>
+            </div>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "10 Dicas para Fazer Bolos Perfeitos",
+  "description": "Guia completo com dicas profissionais para fazer bolos caseiros perfeitos.",
+  "image": "https://exemplo.com/images/dicas-bolos.jpg",
+  "author": {
+    "@type": "Person",
+    "name": "Chef Maria Silva",
+    "url": "https://exemplo.com/autores/maria-silva",
+    "sameAs": [
+      "https://twitter.com/chefmariasilva",
+      "https://instagram.com/chefmariasilva"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Receitas da Vovó",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://exemplo.com/logo.png",
+      "width": 600,
+      "height": 60
+    }
+  },
+  "datePublished": "2024-01-15T08:00:00+00:00",
+  "dateModified": "2024-01-20T10:30:00+00:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://exemplo.com/dicas/bolos-perfeitos"
+  },
+  "articleSection": "Dicas de Confeitaria",
+  "wordCount": 1250,
+  "keywords": ["bolos", "confeitaria", "dicas", "técnicas", "receitas"]
+}
+&lt;/script&gt;</code></pre>
+            </div>
+
+            <h3>🏢 Schema para Negócios Locais</h3>
+            <div class="explicacao">
+                <h4>📍 SEO Local - A Mina de Ouro</h4>
+                <p>
+                    Para <strong>negócios físicos</strong>, o schema local é absolutamente crítico. É ele que permite 
+                    aparecer no "Map Pack" (aqueles 3 resultados com mapa) e no Google Business Profile.
+                </p>
+                <p>
+                    <strong>Estatística importante:</strong> 76% das pessoas que fazem busca local visitam 
+                    o negócio em 24 horas, e 28% das buscas locais resultam em compra!
+                </p>
+                <p>
+                    <strong>Informações essenciais:</strong>
+                </p>
+                <ul>
+                    <li>📍 <strong>Endereço NAP:</strong> Name, Address, Phone - deve ser consistente em todo lugar</li>
+                    <li>🕒 <strong>Horário de funcionamento:</strong> Evita frustrações e melhora experiência</li>
+                    <li>⭐ <strong>Avaliações:</strong> Reviews diretas nos resultados de busca</li>
+                    <li>📞 <strong>Contato direto:</strong> Botões de ligar e direções</li>
+                </ul>
+            </div>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Confeitaria da Vovó",
+  "description": "Confeitaria artesanal especializada em bolos e doces caseiros.",
+  "image": "https://exemplo.com/confeitaria-frente.jpg",
+  "url": "https://confeitariadavovo.com",
+  "telephone": "+55-11-1234-5678",
+  "email": "contato@confeitariadavovo.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua das Flores, 123",
+    "addressLocality": "São Paulo",
+    "addressRegion": "SP",
+    "postalCode": "01234-567",
+    "addressCountry": "BR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -23.5505,
+    "longitude": -46.6333
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification", 
+      "dayOfWeek": ["Saturday"],
+      "opens": "08:00",
+      "closes": "16:00"
+    }
+  ],
+  "servesCuisine": "Confeitaria Brasileira",
+  "priceRange": "$$",
+  "acceptsReservations": true,
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "reviewCount": "89"
+  },
+  "hasMenu": {
+    "@type": "Menu",
+    "url": "https://confeitariadavovo.com/cardapio"
+  },
+  "sameAs": [
+    "https://facebook.com/confeitariadavovo",
+    "https://instagram.com/confeitariadavovo"
+  ]
+}
+&lt;/script&gt;</code></pre>
+            </div>
+
+            <h3>🛍️ Schema para E-commerce</h3>
+            <div class="explicacao">
+                <h4>💰 Conversão Turbinada</h4>
+                <p>
+                    Para <strong>lojas online</strong>, o schema de produto é um divisor de águas. Ele permite 
+                    que preços, disponibilidade, avaliações e até mesmo informações de frete apareçam 
+                    diretamente nos resultados de busca.
+                </p>
+                <p>
+                    <strong>Impact no e-commerce:</strong>
+                </p>
+                <ul>
+                    <li>💵 <strong>Preços visíveis:</strong> Usuários veem o preço antes de clicar</li>
+                    <li>📦 <strong>Disponibilidade:</strong> "Em estoque" gera confiança</li>
+                    <li>🚚 <strong>Frete:</strong> Informações de entrega antecipadas</li>
+                    <li>⭐ <strong>Reviews:</strong> Social proof direto nos resultados</li>
+                </ul>
+                <p>
+                    <strong>Resultado prático:</strong> E-commerces com schema implementado veem aumento 
+                    médio de <strong>25% no CTR</strong> (taxa de cliques) e <strong>15% na conversão</strong>, 
+                    pois os usuários chegam mais qualificados.
+                </p>
+                <p>
+                    O Google Shopping também usa essas informações para exibir produtos gratuitamente 
+                    nos resultados (Google Shopping free listings).
+                </p>
+            </div>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Forma para Bolo Antiaderente 26cm",
+  "description": "Forma profissional antiaderente para bolos, com revestimento cerâmico e fundo removível.",
+  "image": [
+    "https://loja.com/forma-bolo-1.jpg",
+    "https://loja.com/forma-bolo-2.jpg"
+  ],
+  "sku": "FORMA-26-ANTI",
+  "mpn": "FB26001",
+  "brand": {
+    "@type": "Brand",
+    "name": "CozinhaPro"
+  },
+  "category": "Utilidades Domésticas > Formas para Bolo",
+  "offers": {
+    "@type": "Offer",
+    "url": "https://loja.com/forma-bolo-26cm",
+    "priceCurrency": "BRL",
+    "price": "89.90",
+    "priceValidUntil": "2024-12-31",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
+    "seller": {
+      "@type": "Organization",
+      "name": "Loja da Cozinha"
+    },
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "15.90",
+        "currency": "BRL"
+      },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {
+          "@type": "QuantitativeValue",
+          "minValue": "1",
+          "maxValue": "2",
+          "unitCode": "DAY"
+        },
+        "transitTime": {
+          "@type": "QuantitativeValue", 
+          "minValue": "3",
+          "maxValue": "7",
+          "unitCode": "DAY"
+        }
+      }
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.6",
+    "reviewCount": "234"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Carlos Silva"
+      },
+      "reviewBody": "Excelente forma! Nada gruda e é muito fácil de limpar."
+    }
+  ]
+}
+&lt;/script&gt;</code></pre>
+            </div>
+
+            <div class="destaque tip">
+                <h4>💡 Benefícios dos Dados Estruturados</h4>
+                <ul>
+                    <li><strong>Rich Snippets:</strong> Resultados mais atrativos no Google</li>
+                    <li><strong>Voice Search:</strong> Melhor compatibilidade com assistentes</li>
+                    <li><strong>Knowledge Graph:</strong> Aparição em painéis de conhecimento</li>
+                    <li><strong>Click-through Rate:</strong> Maior taxa de cliques</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Exercício 3 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 3: Implementar Schema.org</h4>
+            <p>
+                Implemente dados estruturados completos:
+            </p>
+            <ul>
+                <li>Escolha o tipo de schema apropriado</li>
+                <li>Crie JSON-LD completo e válido</li>
+                <li>Teste no Google Rich Results Test</li>
+                <li>Valide no Schema.org validator</li>
+                <li>Monitore aparição nos resultados</li>
+            </ul>
+        </div>
+
+        <!-- Seção 4: Ferramentas e Monitoramento -->
+        <section class="secao">
+            <h2>📊 4. Ferramentas e Monitoramento</h2>
+            
+            <div class="explicacao">
+                <h4>📈 Dados São Seus Melhores Amigos</h4>
+                <p>
+                    SEO sem monitoramento é como <strong>dirigir de olhos vendados</strong>. Você até pode chegar 
+                    a algum lugar, mas provavelmente não será onde queria! As ferramentas de SEO são seus 
+                    "instrumentos de navegação" para entender o que funciona e o que precisa melhorar.
+                </p>
+                <p>
+                    <strong>Mindset correto:</strong> Não implemente nada sem medir. Cada mudança deve ser 
+                    acompanhada de dados antes e depois para validar o impacto.
+                </p>
+            </div>
+            
+            <h3>🔧 Google Search Console</h3>
+            <div class="explicacao">
+                <h4>🎯 A Ferramenta Oficial do Google</h4>
+                <p>
+                    O Google Search Console é como ter <strong>acesso direto à mente do Google</strong> sobre seu site. 
+                    É a ferramenta oficial e gratuita que mostra exatamente como o Google vê suas páginas.
+                </p>
+                <p>
+                    <strong>Informações valiosas que você obtém:</strong>
+                </p>
+                <ul>
+                    <li>🔍 <strong>Consultas de busca:</strong> Palavras exatas que levam pessoas ao seu site</li>
+                    <li>📊 <strong>Impressões vs Cliques:</strong> Quantas vezes apareceu vs quantos clicaram</li>
+                    <li>📍 <strong>Posição média:</strong> Seu ranking real para cada palavra-chave</li>
+                    <li>🚨 <strong>Erros técnicos:</strong> Problemas que impedem indexação</li>
+                    <li>📱 <strong>Usabilidade mobile:</strong> Se seu site funciona bem no celular</li>
+                </ul>
+                <p>
+                    <strong>Dica profissional:</strong> Configure alertas no Search Console para ser notificado 
+                    imediatamente sobre quedas de tráfego ou problemas técnicos críticos.
+                </p>
+            </div>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Verificação de propriedade --&gt;
+&lt;meta name="google-site-verification" content="seu-codigo-aqui"&gt;
+
+&lt;!-- Ou via arquivo HTML --&gt;
+&lt;!-- googleXXXXXXXX.html na raiz do site --&gt;
+
+&lt;!-- Sitemap XML --&gt;
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"&gt;
+    &lt;url&gt;
+        &lt;loc&gt;https://exemplo.com/&lt;/loc&gt;
+        &lt;lastmod&gt;2024-01-20&lt;/lastmod&gt;
+        &lt;changefreq&gt;daily&lt;/changefreq&gt;
+        &lt;priority&gt;1.0&lt;/priority&gt;
+    &lt;/url&gt;
+    &lt;url&gt;
+        &lt;loc&gt;https://exemplo.com/receitas/&lt;/loc&gt;
+        &lt;lastmod&gt;2024-01-19&lt;/lastmod&gt;
+        &lt;changefreq&gt;weekly&lt;/changefreq&gt;
+        &lt;priority&gt;0.8&lt;/priority&gt;
+    &lt;/url&gt;
+    &lt;url&gt;
+        &lt;loc&gt;https://exemplo.com/receitas/bolo-chocolate/&lt;/loc&gt;
+        &lt;lastmod&gt;2024-01-15&lt;/lastmod&gt;
+        &lt;changefreq&gt;monthly&lt;/changefreq&gt;
+        &lt;priority&gt;0.6&lt;/priority&gt;
+    &lt;/url&gt;
+&lt;/urlset&gt;
+
+&lt;!-- robots.txt --&gt;
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://exemplo.com/sitemap.xml
+
+# Bloquear páginas administrativas
+Disallow: /admin/
+Disallow: /login/
+Disallow: /api/
+
+# Permitir bots específicos
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /</code></pre>
+            </div>
+
+            <h3>📈 Google Analytics 4</h3>
+            <div class="explicacao">
+                <h4>🔬 Entendendo o Comportamento dos Usuários</h4>
+                <p>
+                    Enquanto o Search Console mostra <strong>como você aparece no Google</strong>, o Analytics 
+                    revela <strong>o que acontece depois que as pessoas chegam</strong> ao seu site. É a diferença 
+                    entre saber quantos visitaram sua loja e entender o que fizeram dentro dela.
+                </p>
+                <p>
+                    <strong>Métricas essenciais para SEO:</strong>
+                </p>
+                <ul>
+                    <li>⏱️ <strong>Tempo na página:</strong> Indica qualidade do conteúdo</li>
+                    <li>📊 <strong>Taxa de rejeição:</strong> % que saem sem interagir</li>
+                    <li>🎯 <strong>Páginas por sessão:</strong> Engajamento geral do site</li>
+                    <li>📱 <strong>Dispositivos:</strong> Desktop vs Mobile vs Tablet</li>
+                    <li>🌍 <strong>Tráfego orgânico:</strong> Visitantes vindos do Google</li>
+                </ul>
+                <p>
+                    <strong>Insight profissional:</strong> Configure eventos customizados para medir ações 
+                    importantes como downloads, reprodução de vídeos, scroll depth - esses dados 
+                    ajudam a otimizar para melhor experiência do usuário.
+                </p>
+            </div>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Google Analytics 4 --&gt;
+&lt;script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"&gt;&lt;/script&gt;
+&lt;script&gt;
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'GA_MEASUREMENT_ID', {
+    // Configurações de privacidade
+    anonymize_ip: true,
+    allow_google_signals: false,
+    allow_ad_personalization_signals: false
+  });
+  
+  // Eventos personalizados para SEO
+  function trackSEOEvent(action, category = 'SEO') {
+    gtag('event', action, {
+      event_category: category,
+      event_label: window.location.pathname
+    });
+  }
+  
+  // Rastrear tempo na página (importante para SEO)
+  let startTime = Date.now();
+  window.addEventListener('beforeunload', function() {
+    let timeOnPage = Math.round((Date.now() - startTime) / 1000);
+    gtag('event', 'time_on_page', {
+      event_category: 'engagement',
+      value: timeOnPage
+    });
+  });
+  
+  // Rastrear scroll depth
+  let scrollDepth = 0;
+  window.addEventListener('scroll', function() {
+    let currentScroll = Math.round(
+      (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100
+    );
+    
+    if (currentScroll > scrollDepth && currentScroll % 25 === 0) {
+      scrollDepth = currentScroll;
+      gtag('event', 'scroll_depth', {
+        event_category: 'engagement',
+        value: scrollDepth
+      });
+    }
+  });
+&lt;/script&gt;</code></pre>
+            </div>
+
+            <h3>🚀 Core Web Vitals</h3>
+            <div class="explicacao">
+                <h4>⚡ A Nova Era do SEO: Performance</h4>
+                <p>
+                    Core Web Vitals são as <strong>métricas oficiais do Google</strong> para medir experiência do usuário. 
+                    Desde 2021, elas são um fator de ranking oficial - sites lentos literalmente perdem posições!
+                </p>
+                <p>
+                    <strong>As 3 métricas que definem o futuro:</strong>
+                </p>
+                <ul>
+                    <li>🖼️ <strong>LCP (Largest Contentful Paint):</strong> Velocidade de carregamento - ideal &lt; 2.5s</li>
+                    <li>⚡ <strong>FID (First Input Delay):</strong> Responsividade a cliques - ideal &lt; 100ms</li>
+                    <li>📐 <strong>CLS (Cumulative Layout Shift):</strong> Estabilidade visual - ideal &lt; 0.1</li>
+                </ul>
+                <p>
+                    <strong>Realidade do mercado:</strong> 53% dos usuários abandonam sites que demoram mais 
+                    de 3 segundos para carregar. Cada segundo adicional reduz conversões em 20%!
+                </p>
+                <p>
+                    <strong>Estratégia vencedora:</strong> Monitore essas métricas com dados reais de usuários 
+                    (RUM - Real User Monitoring), não apenas testes de laboratório.
+                </p>
+            </div>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Monitoramento de Core Web Vitals --&gt;
+&lt;script&gt;
+// Instalar web-vitals library
+// npm install web-vitals
+
+import {getCLS, getFID, getFCP, getLCP, getTTFB} from 'web-vitals';
+
+function sendToAnalytics(metric) {
+  // Enviar para Google Analytics
+  gtag('event', metric.name, {
+    event_category: 'Web Vitals',
+    value: Math.round(metric.value),
+    metric_rating: metric.rating,
+    non_interaction: true
+  });
+  
+  // Ou enviar para sua própria API
+  fetch('/api/vitals', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      name: metric.name,
+      value: metric.value,
+      rating: metric.rating,
+      delta: metric.delta,
+      id: metric.id,
+      url: window.location.href,
+      userAgent: navigator.userAgent
+    })
+  });
+}
+
+// Monitorar todas as métricas
+getCLS(sendToAnalytics);  // Cumulative Layout Shift
+getFID(sendToAnalytics);  // First Input Delay
+getFCP(sendToAnalytics);  // First Contentful Paint
+getLCP(sendToAnalytics);  // Largest Contentful Paint
+getTTFB(sendToAnalytics); // Time to First Byte
+
+// Monitoramento manual adicional
+function measurePageLoad() {
+  window.addEventListener('load', function() {
+    // Tempo total de carregamento
+    const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+    
+    gtag('event', 'page_load_time', {
+      event_category: 'Performance',
+      value: loadTime
+    });
+    
+    // Tempo para DOM ready
+    const domTime = performance.timing.domContentLoadedEventEnd - performance.timing.navigationStart;
+    
+    gtag('event', 'dom_ready_time', {
+      event_category: 'Performance', 
+      value: domTime
+    });
+  });
+}
+
+measurePageLoad();
+&lt;/script&gt;</code></pre>
+            </div>
+
+            <h3>🛠️ Ferramentas de Auditoria</h3>
+            <div class="explicacao">
+                <h4>🔧 Seu Kit de Ferramentas Profissional</h4>
+                <p>
+                    Um profissional de SEO sem ferramentas é como um <strong>médico sem estetoscópio</strong>. 
+                    Cada ferramenta tem sua especialidade e juntas formam um diagnóstico completo da saúde 
+                    SEO do seu site.
+                </p>
+                <p>
+                    <strong>Estratégia de uso:</strong>
+                </p>
+                <ul>
+                    <li>🔄 <strong>Auditoria mensal:</strong> Lighthouse + PageSpeed Insights para performance</li>
+                    <li>📊 <strong>Monitoramento contínuo:</strong> Search Console + Analytics</li>
+                    <li>🎯 <strong>Análise de oportunidades:</strong> Ferramentas de palavras-chave</li>
+                    <li>✅ <strong>Validação técnica:</strong> Rich Results Test + Mobile-Friendly Test</li>
+                </ul>
+                <p>
+                    <strong>Workflow profissional:</strong> Use ferramentas gratuitas primeiro para identificar 
+                    problemas, depois invista em pagas para análises mais profundas quando necessário.
+                </p>
+                <p>
+                    <strong>Extensões imprescindíveis:</strong> MozBar e SEOquake são como "óculos de raio-X" 
+                    para SEO - permitem analisar qualquer site instantaneamente enquanto navega.
+                </p>
+            </div>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Lista de ferramentas essenciais para SEO --&gt;
+
+&lt;section&gt;
+    &lt;h4&gt;🔍 Ferramentas de Análise Gratuitas&lt;/h4&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;strong&gt;Google Search Console:&lt;/strong&gt; Monitoramento oficial do Google&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Google PageSpeed Insights:&lt;/strong&gt; Core Web Vitals e performance&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Google Rich Results Test:&lt;/strong&gt; Validar dados estruturados&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Lighthouse:&lt;/strong&gt; Auditoria completa de qualidade&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Mobile-Friendly Test:&lt;/strong&gt; Teste de responsividade&lt;/li&gt;
+    &lt;/ul&gt;
+    
+    &lt;h4&gt;⚡ Ferramentas de Performance&lt;/h4&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;strong&gt;GTmetrix:&lt;/strong&gt; Análise detalhada de velocidade&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;WebPageTest:&lt;/strong&gt; Teste avançado de performance&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Pingdom:&lt;/strong&gt; Monitoramento de uptime e velocidade&lt;/li&gt;
+    &lt;/ul&gt;
+    
+    &lt;h4&gt;📊 Ferramentas de Análise de Conteúdo&lt;/h4&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;strong&gt;Google Trends:&lt;/strong&gt; Tendências de busca&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Answer The Public:&lt;/strong&gt; Perguntas dos usuários&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Google Keyword Planner:&lt;/strong&gt; Pesquisa de palavras-chave&lt;/li&gt;
+    &lt;/ul&gt;
+    
+    &lt;h4&gt;🔧 Extensões do Navegador&lt;/h4&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;strong&gt;MozBar:&lt;/strong&gt; Métricas SEO em tempo real&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;SEOquake:&lt;/strong&gt; Auditoria rápida de páginas&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Detailed SEO Extension:&lt;/strong&gt; Análise técnica completa&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/section&gt;
+
+&lt;!-- Script para auditoria automática --&gt;
+&lt;script&gt;
+class SEOAuditor {
+    constructor() {
+        this.issues = [];
+        this.suggestions = [];
+    }
+    
+    audit() {
+        this.checkTitle();
+        this.checkMetaDescription();
+        this.checkHeadings();
+        this.checkImages();
+        this.checkLinks();
+        this.checkStructuredData();
+        
+        return {
+            issues: this.issues,
+            suggestions: this.suggestions,
+            score: this.calculateScore()
+        };
+    }
+    
+    checkTitle() {
+        const title = document.querySelector('title');
+        if (!title) {
+            this.issues.push('Título da página ausente');
+        } else {
+            const titleLength = title.textContent.length;
+            if (titleLength < 30) {
+                this.suggestions.push('Título muito curto (ideal: 50-60 caracteres)');
+            } else if (titleLength > 60) {
+                this.suggestions.push('Título muito longo (ideal: 50-60 caracteres)');
+            }
+        }
+    }
+    
+    checkMetaDescription() {
+        const description = document.querySelector('meta[name="description"]');
+        if (!description) {
+            this.issues.push('Meta description ausente');
+        } else {
+            const descLength = description.content.length;
+            if (descLength < 120) {
+                this.suggestions.push('Meta description muito curta (ideal: 150-160 caracteres)');
+            } else if (descLength > 160) {
+                this.suggestions.push('Meta description muito longa (ideal: 150-160 caracteres)');
+            }
+        }
+    }
+    
+    checkHeadings() {
+        const h1s = document.querySelectorAll('h1');
+        if (h1s.length === 0) {
+            this.issues.push('Nenhum H1 encontrado');
+        } else if (h1s.length > 1) {
+            this.suggestions.push('Múltiplos H1s encontrados (recomendado: apenas 1)');
+        }
+        
+        // Verificar hierarquia
+        const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+        let previousLevel = 0;
+        
+        headings.forEach(heading => {
+            const currentLevel = parseInt(heading.tagName.charAt(1));
+            if (currentLevel > previousLevel + 1 && previousLevel !== 0) {
+                this.suggestions.push('Hierarquia de cabeçalhos pode estar incorreta');
+            }
+            previousLevel = currentLevel;
+        });
+    }
+    
+    checkImages() {
+        const images = document.querySelectorAll('img');
+        let imagesWithoutAlt = 0;
+        
+        images.forEach(img => {
+            if (!img.alt) {
+                imagesWithoutAlt++;
+            }
+        });
+        
+        if (imagesWithoutAlt > 0) {
+            this.issues.push(`${imagesWithoutAlt} imagem(ns) sem texto alternativo`);
+        }
+    }
+    
+    checkLinks() {
+        const links = document.querySelectorAll('a');
+        let emptyLinks = 0;
+        
+        links.forEach(link => {
+            if (!link.textContent.trim() && !link.querySelector('img[alt]')) {
+                emptyLinks++;
+            }
+        });
+        
+        if (emptyLinks > 0) {
+            this.issues.push(`${emptyLinks} link(s) vazios encontrados`);
+        }
+    }
+    
+    checkStructuredData() {
+        const jsonLd = document.querySelectorAll('script[type="application/ld+json"]');
+        if (jsonLd.length === 0) {
+            this.suggestions.push('Considere adicionar dados estruturados (Schema.org)');
+        }
+    }
+    
+    calculateScore() {
+        const totalChecks = 6;
+        const issueWeight = 2;
+        const suggestionWeight = 1;
+        
+        const penalties = (this.issues.length * issueWeight) + (this.suggestions.length * suggestionWeight);
+        const maxPenalties = totalChecks * issueWeight;
+        
+        return Math.max(0, Math.round(((maxPenalties - penalties) / maxPenalties) * 100));
+    }
+}
+
+// Executar auditoria
+const auditor = new SEOAuditor();
+const results = auditor.audit();
+
+console.log('🔍 SEO Audit Results:');
+console.log(`Score: ${results.score}/100`);
+console.log('Issues:', results.issues);
+console.log('Suggestions:', results.suggestions);
+&lt;/script&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Exercício 4 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 4: Monitoramento Completo</h4>
+            <p>
+                Configure um sistema completo de monitoramento SEO:
+            </p>
+            <ul>
+                <li>Configure Google Search Console</li>
+                <li>Implemente Google Analytics 4</li>
+                <li>Configure monitoramento de Core Web Vitals</li>
+                <li>Crie relatórios automáticos</li>
+                <li>Defina KPIs e metas de SEO</li>
+            </ul>
+        </div>
+
+        <!-- Resumo da Aula -->
+        <section class="secao">
+            <h2>📋 Resumo da Aula</h2>
+            
+            <div class="recursos">
+                <div class="recurso-card">
+                    <h4>🔍 SEO Técnico</h4>
+                    <p>Meta tags otimizadas, URLs amigáveis e estrutura semântica.</p>
+                </div>
+                
+                <div class="recurso-card">
+                    <h4>📱 Redes Sociais</h4>
+                    <p>Open Graph e Twitter Cards para melhor aparência social.</p>
+                </div>
+                
+                <div class="recurso-card">
+                    <h4>🏗️ Schema.org</h4>
+                    <p>Dados estruturados para rich snippets e melhor indexação.</p>
+                </div>
+                
+                <div class="recurso-card">
+                    <h4>📊 Monitoramento</h4>
+                    <p>Ferramentas e métricas para acompanhar performance SEO.</p>
+                </div>
+            </div>
+
+            <div class="checklist">
+                <h4>✅ Checklist de SEO</h4>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="seo1">
+                        <label for="seo1">Título otimizado (50-60 caracteres)</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="seo2">
+                        <label for="seo2">Meta description persuasiva (150-160 caracteres)</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="seo3">
+                        <label for="seo3">Estrutura de cabeçalhos H1-H6 correta</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="seo4">
+                        <label for="seo4">Open Graph e Twitter Cards configurados</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="seo5">
+                        <label for="seo5">Dados estruturados implementados</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="seo6">
+                        <label for="seo6">Search Console e Analytics configurados</label>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Navegação do Curso -->
+        <nav class="course-navigation">
+            <div class="nav-buttons">
+                <a href="aula-09-acessibilidade.html" class="nav-btn secondary">
+                    ← ♿ Aula Anterior
+                </a>
+                <a href="aula-11-performance-otimizacao.html" class="nav-btn primary">
+                    ⚡ Próxima Aula →
+                </a>
+            </div>
+        </nav>
+
+        <!-- Footer da Aula -->
+        <footer class="aula-footer">
+            <h3>🎉 SEO Dominado!</h3>
+            <p>
+                Fantástico! Agora você sabe como otimizar sites para buscadores. 
+                Na próxima aula, aprenderemos sobre performance e otimização.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Marcar como concluída
+            function marcarAulaConcluida() {
+                const progresso = JSON.parse(localStorage.getItem('curso-html-progresso') || '[]');
+                if (!progresso.includes(10)) {
+                    progresso.push(10);
+                    localStorage.setItem('curso-html-progresso', JSON.stringify(progresso));
+                }
+            }
+
+            // Observer para footer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        marcarAulaConcluida();
+                    }
+                });
+            });
+            
+            const footer = document.querySelector('.aula-footer');
+            if (footer) {
+                observer.observe(footer);
+            }
+
+            // Gerenciar checklist
+            const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
+            checkboxes.forEach((checkbox, index) => {
+                const saved = localStorage.getItem(`aula-10-seo-${index}`);
+                if (saved === 'true') {
+                    checkbox.checked = true;
+                }
+                
+                checkbox.addEventListener('change', () => {
+                    localStorage.setItem(`aula-10-seo-${index}`, checkbox.checked);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

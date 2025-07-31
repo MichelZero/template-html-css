@@ -1,53 +1,83 @@
-# 🎨 Template HTML & CSS
+# 🎨 Portal Educacional - HTML & CSS
 
-Um template completo e responsivo desenvolvido com HTML5 e CSS3, incluindo documentação detalhada sobre como formatar HTML com CSS.
+Um portal educacional completo com cursos práticos de HTML e CSS, incluindo aulas interativas, exercícios e projetos reais.
 
 ## 📋 Sobre o Projeto
 
 Este projeto contém:
-- **Template HTML** moderno e semântico
-- **Estilos CSS** organizados e comentados
-- **Design responsivo** para todos os dispositivos
-- **Guia completo** de CSS em português
+- **Portal Educacional** com cursos completos
+- **Curso HTML** com 6 aulas práticas
+- **Curso CSS** com 14 aulas detalhadas
+- **Guias de referência** em português
+- **Design moderno** e responsivo
 
 ## 🚀 Características
 
-- ✅ HTML5 semântico
-- ✅ CSS3 moderno com Flexbox e Grid
+- ✅ Cursos 100% práticos e gratuitos
+- ✅ Aulas interativas com exercícios
+- ✅ Sistema de progresso do aluno
 - ✅ Design responsivo (mobile-first)
-- ✅ Animações e transições suaves
-- ✅ Código bem comentado
-- ✅ Boas práticas de acessibilidade
-- ✅ Cross-browser compatibility
+- ✅ Códigos bem comentados e explicados
+- ✅ Metodologia hands-on de ensino
+- ✅ Projetos reais para portfólio
 
 ## 📂 Estrutura do Projeto
 
 ```
 template-html-css/
-├── index.html          # Página principal
-├── styles.css          # Arquivo de estilos
-├── GUIA-HTML.md        # Guia completo de HTML
-├── GUIA-CSS.md         # Guia completo de CSS
-└── README.md           # Este arquivo
+├── index.html                    # Portal principal
+├── styles.css                    # Estilos do portal
+├── guia-html.html               # Guia prático HTML
+├── GUIA-CSS.md                  # Guia de referência CSS
+├── aulas-web/                   # Curso HTML Fundamentals
+│   ├── index.html               # Página do curso HTML
+│   ├── aula-01-estrutura.html   # Estrutura HTML
+│   ├── aula-02-textos.html      # Textos e formatação
+│   ├── aula-03-listas.html      # Listas e navegação
+│   ├── aula-04-formularios.html # Formulários
+│   ├── aula-05-semantica.html   # HTML semântico
+│   ├── aula-06-projeto.html     # Projeto final
+│   └── assets/style-aulas.css   # Estilos das aulas
+├── aulas-css/                   # Curso CSS Fundamentals
+│   ├── index.html               # Página do curso CSS
+│   ├── aula-01-fundamentos.html # Fundamentos CSS
+│   ├── aula-02-seletores.html   # Seletores avançados
+│   └── assets/style-aulas.css   # Framework educacional
+└── README.md                    # Este arquivo
 ```
+
+## 🎓 Cursos Disponíveis
+
+### 🏗️ HTML Fundamentals
+- **6 Aulas práticas** (8 horas)
+- Estrutura básica até projetos completos
+- Formulários, semântica e acessibilidade
+- Exercícios interativos em cada aula
+
+### 🎨 CSS Fundamentals  
+- **14 Aulas detalhadas** (12 horas)
+- Do básico ao avançado com foco visual
+- Flexbox, Grid, animações e responsividade
+- Projetos reais e metodologias modernas
 
 ## 🖥️ Tecnologias Utilizadas
 
-- **HTML5**: Estrutura semântica
-- **CSS3**: Estilização avançada
-- **Flexbox**: Layout flexível
-- **CSS Grid**: Layout em grade
-- **Media Queries**: Responsividade
-- **Google Fonts**: Tipografia
-- **Font Awesome**: Ícones
+- **HTML5**: Estrutura semântica e moderna
+- **CSS3**: Estilização avançada e animações
+- **Flexbox & Grid**: Layouts modernos
+- **Media Queries**: Design responsivo
+- **JavaScript**: Interatividade das aulas
+- **Google Fonts**: Tipografia profissional
+- **Font Awesome**: Ícones vetoriais
 
-## 🎯 Seções Incluídas
+## 🎯 Funcionalidades do Portal
 
-1. **Header**: Navegação fixa com menu responsivo
-2. **Hero**: Banner principal com call-to-action
-3. **Sobre**: Seção informativa com grid layout
-4. **Serviços**: Cards com hover effects
-5. **Contato**: Formulário e informações
+1. **Página Principal**: Overview dos cursos e navegação
+2. **Curso HTML**: 6 aulas com exercícios práticos
+3. **Curso CSS**: 14 aulas com projetos visuais
+4. **Sistema de Progresso**: Acompanha evolução do aluno
+5. **Guias de Referência**: Consulta rápida e exemplos
+6. **Design Responsivo**: Funciona em todos os dispositivos
 6. **Footer**: Links e redes sociais
 
 ## 📱 Responsividade

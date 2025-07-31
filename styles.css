@@ -551,6 +551,34 @@ body {
         grid-template-columns: 1fr; /* Uma coluna para serviços */
     }
     
+    .courses-grid {
+        grid-template-columns: 1fr; /* Uma coluna para cursos */
+        gap: 1.5rem; /* Reduz espaçamento */
+    }
+    
+    .hero-buttons {
+        flex-direction: column; /* Empilha botões verticalmente */
+        align-items: center; /* Centraliza botões */
+    }
+    
+    .hero-buttons .btn {
+        width: 100%; /* Botões ocupam largura total */
+        max-width: 300px; /* Largura máxima */
+    }
+    
+    .path-steps {
+        flex-direction: column; /* Empilha passos verticalmente */
+    }
+    
+    .step-arrow {
+        transform: rotate(90deg); /* Rotaciona seta para baixo */
+        margin: 1rem 0; /* Margem vertical */
+    }
+    
+    .stats {
+        justify-content: center; /* Centraliza estatísticas */
+    }
+    
     .footer-content {
         grid-template-columns: 1fr; /* Uma coluna no footer */
         text-align: center; /* Centraliza texto */
@@ -576,8 +604,27 @@ body {
     }
     
     .service-card,
-    .contact-form {
+    .contact-form,
+    .course-card {
         padding: 1.5rem; /* Reduz preenchimento interno */
+    }
+    
+    .course-icon {
+        font-size: 2.5rem; /* Reduz ícone do curso */
+    }
+    
+    .course-stats {
+        justify-content: center; /* Centraliza estatísticas */
+    }
+    
+    .learning-path {
+        padding: 1.5rem; /* Reduz preenchimento */
+    }
+    
+    .step-number {
+        width: 40px; /* Reduz tamanho do número */
+        height: 40px; /* Reduz altura */
+        font-size: 1rem; /* Reduz fonte */
     }
     
     .contact-item {
@@ -604,6 +651,289 @@ a:focus {
 .service-card:hover .service-icon {
     transform: scale(1.1); /* Aumenta o ícone em 10% no hover */
     transition: transform 0.3s ease; /* Transição suave da transformação */
+}
+
+/* ================================================
+   SEÇÃO CURSOS
+   ================================================ */
+
+/* Container dos cursos */
+.courses {
+    padding: 4rem 0; /* Espaçamento vertical da seção */
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); /* Gradiente de fundo */
+}
+
+/* Grid de cursos */
+.courses-grid {
+    display: grid; /* Layout em grade */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Colunas responsivas */
+    gap: 2rem; /* Espaçamento entre cards */
+    margin-bottom: 3rem; /* Margem inferior */
+}
+
+/* Card de curso */
+.course-card {
+    background: white; /* Fundo branco */
+    border-radius: 15px; /* Bordas bem arredondadas */
+    padding: 2rem; /* Preenchimento interno */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Sombra elevada */
+    transition: all 0.3s ease; /* Transição suave */
+    position: relative; /* Para posicionamento de badges */
+    border: 1px solid transparent; /* Borda transparente inicial */
+}
+
+/* Card em destaque */
+.course-card.featured {
+    border: 2px solid #007bff; /* Borda azul para destaque */
+    transform: scale(1.02); /* Ligeiramente maior */
+}
+
+/* Hover do card de curso */
+.course-card:hover {
+    transform: translateY(-10px) scale(1.02); /* Efeito de elevação e zoom */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15); /* Sombra mais intensa */
+}
+
+/* Header do curso */
+.course-header {
+    display: flex; /* Layout flexível */
+    justify-content: space-between; /* Espaça ícone e badge */
+    align-items: center; /* Alinha verticalmente */
+    margin-bottom: 1.5rem; /* Margem inferior */
+}
+
+/* Ícone do curso */
+.course-icon {
+    font-size: 3rem; /* Tamanho grande */
+    background: linear-gradient(135deg, #007bff, #0056b3); /* Gradiente azul */
+    -webkit-background-clip: text; /* Corta o fundo pelo texto */
+    -webkit-text-fill-color: transparent; /* Texto transparente para mostrar gradiente */
+    background-clip: text; /* Suporte para outros navegadores */
+}
+
+/* Badge do curso */
+.course-badge {
+    background: #28a745; /* Fundo verde */
+    color: white; /* Texto branco */
+    padding: 0.3rem 0.8rem; /* Preenchimento */
+    border-radius: 20px; /* Bordas muito arredondadas */
+    font-size: 0.8rem; /* Fonte pequena */
+    font-weight: 600; /* Semi-negrito */
+    text-transform: uppercase; /* Maiúsculas */
+    letter-spacing: 0.5px; /* Espaçamento entre letras */
+}
+
+/* Badge novo */
+.course-badge.new {
+    background: #dc3545; /* Vermelho para "novo" */
+    animation: pulse 2s infinite; /* Animação de pulso */
+}
+
+/* Animação de pulso */
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Título do curso */
+.course-title {
+    font-size: 1.5rem; /* Tamanho do título */
+    font-weight: 700; /* Negrito */
+    color: #2c3e50; /* Cor escura */
+    margin-bottom: 1rem; /* Margem inferior */
+}
+
+/* Descrição do curso */
+.course-description {
+    color: #6c757d; /* Cor cinza */
+    line-height: 1.6; /* Altura da linha */
+    margin-bottom: 1.5rem; /* Margem inferior */
+}
+
+/* Estatísticas do curso */
+.course-stats {
+    display: flex; /* Layout flexível */
+    gap: 1rem; /* Espaçamento entre itens */
+    margin-bottom: 1.5rem; /* Margem inferior */
+    flex-wrap: wrap; /* Quebra linha se necessário */
+}
+
+/* Item de estatística */
+.course-stats .stat {
+    display: flex; /* Layout flexível */
+    align-items: center; /* Alinha verticalmente */
+    gap: 0.5rem; /* Espaçamento entre ícone e texto */
+    color: #6c757d; /* Cor cinza */
+    font-size: 0.9rem; /* Fonte menor */
+}
+
+/* Ícones das estatísticas */
+.course-stats .stat i {
+    color: #007bff; /* Cor azul */
+    font-size: 1rem; /* Tamanho do ícone */
+}
+
+/* Tópicos do curso */
+.course-topics {
+    display: flex; /* Layout flexível */
+    flex-wrap: wrap; /* Quebra linha se necessário */
+    gap: 0.5rem; /* Espaçamento entre tópicos */
+    margin-bottom: 2rem; /* Margem inferior */
+}
+
+/* Tópico individual */
+.topic {
+    background: #e9ecef; /* Fundo cinza claro */
+    color: #495057; /* Texto escuro */
+    padding: 0.3rem 0.8rem; /* Preenchimento */
+    border-radius: 15px; /* Bordas arredondadas */
+    font-size: 0.8rem; /* Fonte pequena */
+    font-weight: 500; /* Peso médio */
+}
+
+/* Botão do curso */
+.course-btn {
+    width: 100%; /* Largura total */
+    text-align: center; /* Texto centralizado */
+    padding: 0.8rem 1.5rem; /* Preenchimento maior */
+    font-weight: 600; /* Semi-negrito */
+    border-radius: 10px; /* Bordas arredondadas */
+}
+
+/* Botão secundário */
+.btn-secondary {
+    background: #6c757d; /* Fundo cinza */
+    color: white; /* Texto branco */
+}
+
+.btn-secondary:hover {
+    background: #5a6268; /* Cinza mais escuro no hover */
+    transform: translateY(-2px); /* Efeito de elevação */
+}
+
+/* Botão outline */
+.btn-outline {
+    background: transparent; /* Fundo transparente */
+    color: #007bff; /* Texto azul */
+    border: 2px solid #007bff; /* Borda azul */
+}
+
+.btn-outline:hover {
+    background: #007bff; /* Fundo azul no hover */
+    color: white; /* Texto branco no hover */
+    transform: translateY(-2px); /* Efeito de elevação */
+}
+
+/* Botões do hero */
+.hero-buttons {
+    display: flex; /* Layout flexível */
+    gap: 1rem; /* Espaçamento entre botões */
+    justify-content: center; /* Centraliza os botões */
+    flex-wrap: wrap; /* Quebra linha em telas pequenas */
+    margin-top: 2rem; /* Margem superior */
+}
+
+/* Trilha de aprendizado */
+.learning-path {
+    background: white; /* Fundo branco */
+    border-radius: 15px; /* Bordas arredondadas */
+    padding: 2rem; /* Preenchimento */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* Sombra */
+    text-align: center; /* Texto centralizado */
+}
+
+.learning-path h3 {
+    color: #2c3e50; /* Cor escura */
+    margin-bottom: 2rem; /* Margem inferior */
+    font-size: 1.5rem; /* Tamanho da fonte */
+}
+
+/* Passos da trilha */
+.path-steps {
+    display: flex; /* Layout flexível */
+    justify-content: center; /* Centraliza os passos */
+    align-items: center; /* Alinha verticalmente */
+    gap: 1rem; /* Espaçamento entre elementos */
+    flex-wrap: wrap; /* Quebra linha se necessário */
+}
+
+/* Passo individual */
+.step {
+    display: flex; /* Layout flexível */
+    flex-direction: column; /* Direção vertical */
+    align-items: center; /* Centraliza conteúdo */
+    text-align: center; /* Texto centralizado */
+    max-width: 200px; /* Largura máxima */
+}
+
+/* Número do passo */
+.step-number {
+    background: #007bff; /* Fundo azul */
+    color: white; /* Texto branco */
+    width: 50px; /* Largura fixa */
+    height: 50px; /* Altura fixa */
+    border-radius: 50%; /* Círculo perfeito */
+    display: flex; /* Layout flexível */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    font-weight: 700; /* Negrito */
+    font-size: 1.2rem; /* Fonte maior */
+    margin-bottom: 1rem; /* Margem inferior */
+}
+
+/* Conteúdo do passo */
+.step-content h4 {
+    color: #2c3e50; /* Cor escura */
+    margin-bottom: 0.5rem; /* Margem inferior */
+}
+
+.step-content p {
+    color: #6c757d; /* Cor cinza */
+    font-size: 0.9rem; /* Fonte menor */
+}
+
+/* Seta entre passos */
+.step-arrow {
+    font-size: 1.5rem; /* Tamanho da seta */
+    color: #007bff; /* Cor azul */
+    font-weight: bold; /* Negrito */
+    margin: 0 1rem; /* Margem lateral */
+}
+
+/* Estatísticas na seção sobre */
+.stats {
+    display: flex; /* Layout flexível */
+    gap: 2rem; /* Espaçamento entre estatísticas */
+    margin-top: 2rem; /* Margem superior */
+    justify-content: center; /* Centraliza */
+    flex-wrap: wrap; /* Quebra linha se necessário */
+}
+
+/* Item de estatística */
+.stat-item {
+    text-align: center; /* Texto centralizado */
+    padding: 1rem; /* Preenchimento */
+    background: #f8f9fa; /* Fundo cinza claro */
+    border-radius: 10px; /* Bordas arredondadas */
+    min-width: 120px; /* Largura mínima */
+}
+
+/* Número da estatística */
+.stat-number {
+    display: block; /* Exibe como bloco */
+    font-size: 2rem; /* Fonte grande */
+    font-weight: 700; /* Negrito */
+    color: #007bff; /* Cor azul */
+    margin-bottom: 0.5rem; /* Margem inferior */
+}
+
+/* Label da estatística */
+.stat-label {
+    display: block; /* Exibe como bloco */
+    color: #6c757d; /* Cor cinza */
+    font-size: 0.9rem; /* Fonte menor */
+    font-weight: 500; /* Peso médio */
 }
 
 /* ================================================

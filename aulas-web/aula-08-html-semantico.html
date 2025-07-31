@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 8: HTML Semântico - Curso HTML Fundamentals</title>
+    <meta name="description" content="Oitava aula do curso de HTML: domine HTML semântico, elementos estruturais e otimização para SEO.">
+    <link rel="stylesheet" href="assets/style-aulas.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏗️</text></svg>">
+</head>
+<body>
+    <div class="aula-container">
+        <!-- Navegação -->
+        <nav class="aula-nav">
+            <a href="aula-07-formularios-avancados.html" class="nav-btn">
+                ← 🚀 Aula Anterior
+            </a>
+            <a href="index.html" class="nav-btn">
+                📚 Curso
+            </a>
+            <a href="aula-09-acessibilidade.html" class="nav-btn">
+                ♿ Próxima Aula →
+            </a>
+        </nav>
+
+        <!-- Header da Aula -->
+        <header class="aula-header">
+            <div class="aula-numero">AULA 8</div>
+            <h1 class="aula-titulo">🏗️ HTML Semântico</h1>
+            <p class="aula-descricao">
+                Aprenda a estruturar páginas web com significado, usando elementos semânticos
+                para melhor SEO, acessibilidade e manutenibilidade.
+            </p>
+            <div class="aula-meta">
+                <div class="meta-item">
+                    <span>⏱️</span> <span>40 minutos</span>
+                </div>
+                <div class="meta-item">
+                    <span>🎯</span> <span>Intermediário</span>
+                </div>
+                <div class="meta-item">
+                    <span>📝</span> <span>4 Exercícios</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Objetivos da Aula -->
+        <div class="objetivos">
+            <h3>🎯 Objetivos de Aprendizagem</h3>
+            <ul>
+                <li>Entender a importância do HTML semântico</li>
+                <li>Dominar elementos estruturais (header, nav, main, aside, footer)</li>
+                <li>Aplicar elementos de conteúdo semântico (article, section, aside)</li>
+                <li>Usar landmarks para navegação acessível</li>
+                <li>Otimizar estrutura para SEO e screen readers</li>
+            </ul>
+        </div>
+
+        <!-- Seção 1: Conceitos Fundamentais -->
+        <section class="secao">
+            <h2>💡 1. O que é HTML Semântico?</h2>
+            
+            <div class="destaque info">
+                <h4>🎯 Semântica vs Apresentação</h4>
+                <p>
+                    HTML semântico usa elementos que descrevem o <strong>significado</strong> do conteúdo,
+                    não apenas sua aparência. Isso beneficia SEO, acessibilidade e manutenção.
+                </p>
+            </div>
+
+            <h3>❌ HTML Não-Semântico (Evitar)</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Estrutura com divs genéricas --&gt;
+&lt;div class="header"&gt;
+    &lt;div class="logo"&gt;Minha Empresa&lt;/div&gt;
+    &lt;div class="navigation"&gt;
+        &lt;div class="nav-item"&gt;Home&lt;/div&gt;
+        &lt;div class="nav-item"&gt;Sobre&lt;/div&gt;
+        &lt;div class="nav-item"&gt;Contato&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="content"&gt;
+    &lt;div class="main-content"&gt;
+        &lt;div class="post"&gt;
+            &lt;div class="post-title"&gt;Título do Artigo&lt;/div&gt;
+            &lt;div class="post-content"&gt;Conteúdo do artigo...&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="sidebar"&gt;
+        &lt;div class="widget"&gt;Widget lateral&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="footer"&gt;
+    &lt;div class="footer-content"&gt;Rodapé&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <h3>✅ HTML Semântico (Recomendado)</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Estrutura semântica clara --&gt;
+&lt;header&gt;
+    &lt;h1&gt;Minha Empresa&lt;/h1&gt;
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/sobre"&gt;Sobre&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/contato"&gt;Contato&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+    &lt;article&gt;
+        &lt;header&gt;
+            &lt;h2&gt;Título do Artigo&lt;/h2&gt;
+            &lt;p&gt;&lt;time datetime="2024-08-01"&gt;1 de agosto de 2024&lt;/time&gt;&lt;/p&gt;
+        &lt;/header&gt;
+        
+        &lt;section&gt;
+            &lt;h3&gt;Introdução&lt;/h3&gt;
+            &lt;p&gt;Conteúdo da introdução...&lt;/p&gt;
+        &lt;/section&gt;
+        
+        &lt;section&gt;
+            &lt;h3&gt;Desenvolvimento&lt;/h3&gt;
+            &lt;p&gt;Conteúdo principal...&lt;/p&gt;
+        &lt;/section&gt;
+        
+        &lt;footer&gt;
+            &lt;p&gt;Tags: &lt;span&gt;HTML, Semântica, SEO&lt;/span&gt;&lt;/p&gt;
+        &lt;/footer&gt;
+    &lt;/article&gt;
+&lt;/main&gt;
+
+&lt;aside&gt;
+    &lt;section&gt;
+        &lt;h3&gt;Artigos Relacionados&lt;/h3&gt;
+        &lt;nav&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="/artigo-1"&gt;Artigo 1&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="/artigo-2"&gt;Artigo 2&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/section&gt;
+&lt;/aside&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;&copy; 2024 Minha Empresa. Todos os direitos reservados.&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+            </div>
+
+            <div class="destaque tip">
+                <h4>💡 Benefícios do HTML Semântico</h4>
+                <ul>
+                    <li><strong>SEO:</strong> Motores de busca entendem melhor o conteúdo</li>
+                    <li><strong>Acessibilidade:</strong> Screen readers navegam com mais precisão</li>
+                    <li><strong>Manutenção:</strong> Código mais legível e organizad</li>
+                    <li><strong>Performance:</strong> Estrutura mais limpa e eficiente</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Exercício 1 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 1: Conversão de Layout</h4>
+            <p>
+                Pegue um layout existente com divs genéricas e converta para:
+            </p>
+            <ul>
+                <li>Estrutura semântica completa</li>
+                <li>Elementos apropriados para cada seção</li>
+                <li>Hierarquia de cabeçalhos correta</li>
+                <li>Landmarks para navegação</li>
+            </ul>
+        </div>
+
+        <!-- Seção 2: Elementos Estruturais -->
+        <section class="secao">
+            <h2>🏛️ 2. Elementos de Estrutura</h2>
+            
+            <h3>📄 Estrutura de Página Completa</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Blog Técnico - Artigos sobre Desenvolvimento&lt;/title&gt;
+    &lt;meta name="description" content="Blog com artigos técnicos sobre desenvolvimento web, programação e tecnologia."&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Cabeçalho principal do site --&gt;
+    &lt;header role="banner"&gt;
+        &lt;div class="container"&gt;
+            &lt;h1&gt;
+                &lt;a href="/" rel="home"&gt;
+                    &lt;img src="logo.png" alt="Blog Técnico - Desenvolvimento Web"&gt;
+                &lt;/a&gt;
+            &lt;/h1&gt;
+            
+            &lt;!-- Navegação principal --&gt;
+            &lt;nav role="navigation" aria-label="Menu principal"&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="/" aria-current="page"&gt;Home&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/categorias"&gt;Categorias&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/sobre"&gt;Sobre&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/contato"&gt;Contato&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/nav&gt;
+            
+            &lt;!-- Busca --&gt;
+            &lt;search role="search"&gt;
+                &lt;form action="/buscar" method="get"&gt;
+                    &lt;label for="busca" class="sr-only"&gt;Buscar artigos&lt;/label&gt;
+                    &lt;input type="search" 
+                           id="busca" 
+                           name="q" 
+                           placeholder="Buscar artigos..."
+                           autocomplete="off"&gt;
+                    &lt;button type="submit"&gt;🔍&lt;/button&gt;
+                &lt;/form&gt;
+            &lt;/search&gt;
+        &lt;/div&gt;
+    &lt;/header&gt;
+
+    &lt;!-- Conteúdo principal --&gt;
+    &lt;main role="main" id="main-content"&gt;
+        &lt;div class="container"&gt;
+            &lt;!-- Artigo principal --&gt;
+            &lt;article itemscope itemtype="https://schema.org/BlogPosting"&gt;
+                &lt;header&gt;
+                    &lt;h2 itemprop="headline"&gt;
+                        Como Criar HTML Semântico Eficiente
+                    &lt;/h2&gt;
+                    
+                    &lt;div class="article-meta"&gt;
+                        &lt;address class="author" itemprop="author" itemscope itemtype="https://schema.org/Person"&gt;
+                            Por &lt;a href="/autor/joao" rel="author" itemprop="name"&gt;João Silva&lt;/a&gt;
+                        &lt;/address&gt;
+                        
+                        &lt;time datetime="2024-08-01T10:00:00-03:00" 
+                              itemprop="datePublished"&gt;
+                            1 de agosto de 2024
+                        &lt;/time&gt;
+                        
+                        &lt;time datetime="2024-08-02T15:30:00-03:00" 
+                              itemprop="dateModified"&gt;
+                            Atualizado em 2 de agosto de 2024
+                        &lt;/time&gt;
+                    &lt;/div&gt;
+                    
+                    &lt;figure&gt;
+                        &lt;img src="html-semantico.jpg" 
+                             alt="Exemplo de estrutura HTML semântica em um editor de código"
+                             itemprop="image"&gt;
+                        &lt;figcaption&gt;
+                            Estrutura HTML semântica bem organizada
+                        &lt;/figcaption&gt;
+                    &lt;/figure&gt;
+                &lt;/header&gt;
+                
+                &lt;div itemprop="articleBody"&gt;
+                    &lt;section&gt;
+                        &lt;h3&gt;Introdução ao HTML Semântico&lt;/h3&gt;
+                        &lt;p&gt;
+                            HTML semântico é a prática de usar elementos HTML que carregam 
+                            significado sobre a estrutura e o conteúdo da página...
+                        &lt;/p&gt;
+                        
+                        &lt;blockquote cite="https://developer.mozilla.org/pt-BR/docs/Web/HTML"&gt;
+                            &lt;p&gt;
+                                "HTML semântico refere-se ao uso de elementos HTML para reforçar 
+                                o significado das informações em páginas web em vez de meramente 
+                                definir sua apresentação."
+                            &lt;/p&gt;
+                            &lt;footer&gt;
+                                — &lt;cite&gt;MDN Web Docs&lt;/cite&gt;
+                            &lt;/footer&gt;
+                        &lt;/blockquote&gt;
+                    &lt;/section&gt;
+                    
+                    &lt;section&gt;
+                        &lt;h3&gt;Elementos Principais&lt;/h3&gt;
+                        &lt;p&gt;Os elementos semânticos mais importantes incluem:&lt;/p&gt;
+                        
+                        &lt;dl&gt;
+                            &lt;dt&gt;&lt;code&gt;&amp;lt;header&amp;gt;&lt;/code&gt;&lt;/dt&gt;
+                            &lt;dd&gt;Cabeçalho de uma seção ou página&lt;/dd&gt;
+                            
+                            &lt;dt&gt;&lt;code&gt;&amp;lt;nav&amp;gt;&lt;/code&gt;&lt;/dt&gt;
+                            &lt;dd&gt;Seção de navegação&lt;/dd&gt;
+                            
+                            &lt;dt&gt;&lt;code&gt;&amp;lt;main&amp;gt;&lt;/code&gt;&lt;/dt&gt;
+                            &lt;dd&gt;Conteúdo principal da página&lt;/dd&gt;
+                            
+                            &lt;dt&gt;&lt;code&gt;&amp;lt;article&amp;gt;&lt;/code&gt;&lt;/dt&gt;
+                            &lt;dd&gt;Conteúdo independente e reutilizável&lt;/dd&gt;
+                            
+                            &lt;dt&gt;&lt;code&gt;&amp;lt;section&amp;gt;&lt;/code&gt;&lt;/dt&gt;
+                            &lt;dd&gt;Seção temática de conteúdo&lt;/dd&gt;
+                            
+                            &lt;dt&gt;&lt;code&gt;&amp;lt;aside&amp;gt;&lt;/code&gt;&lt;/dt&gt;
+                            &lt;dd&gt;Conteúdo relacionado ou complementar&lt;/dd&gt;
+                            
+                            &lt;dt&gt;&lt;code&gt;&amp;lt;footer&amp;gt;&lt;/code&gt;&lt;/dt&gt;
+                            &lt;dd&gt;Rodapé de uma seção ou página&lt;/dd&gt;
+                        &lt;/dl&gt;
+                    &lt;/section&gt;
+                    
+                    &lt;section&gt;
+                        &lt;h3&gt;Exemplo Prático&lt;/h3&gt;
+                        &lt;p&gt;Vamos ver um exemplo prático de estruturação:&lt;/p&gt;
+                        
+                        &lt;pre&gt;&lt;code&gt;&amp;lt;article&amp;gt;
+  &amp;lt;header&amp;gt;
+    &amp;lt;h2&amp;gt;Título do Artigo&amp;lt;/h2&amp;gt;
+    &amp;lt;p&amp;gt;Informações do autor e data&amp;lt;/p&amp;gt;
+  &amp;lt;/header&amp;gt;
+  
+  &amp;lt;section&amp;gt;
+    &amp;lt;h3&amp;gt;Seção 1&amp;lt;/h3&amp;gt;
+    &amp;lt;p&amp;gt;Conteúdo da primeira seção...&amp;lt;/p&amp;gt;
+  &amp;lt;/section&amp;gt;
+  
+  &amp;lt;footer&amp;gt;
+    &amp;lt;p&amp;gt;Metadados do artigo&amp;lt;/p&amp;gt;
+  &amp;lt;/footer&amp;gt;
+&amp;lt;/article&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+                    &lt;/section&gt;
+                &lt;/div&gt;
+                
+                &lt;footer&gt;
+                    &lt;div class="article-tags"&gt;
+                        &lt;h4&gt;Tags:&lt;/h4&gt;
+                        &lt;ul&gt;
+                            &lt;li&gt;&lt;a href="/tag/html" rel="tag"&gt;#HTML&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="/tag/semantica" rel="tag"&gt;#Semântica&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="/tag/seo" rel="tag"&gt;#SEO&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
+                    
+                    &lt;div class="article-sharing"&gt;
+                        &lt;h4&gt;Compartilhar:&lt;/h4&gt;
+                        &lt;ul&gt;
+                            &lt;li&gt;
+                                &lt;a href="https://twitter.com/intent/tweet?url=..." 
+                                   target="_blank" 
+                                   rel="noopener"&gt;
+                                    Twitter
+                                &lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="https://www.facebook.com/sharer/sharer.php?u=..." 
+                                   target="_blank" 
+                                   rel="noopener"&gt;
+                                    Facebook
+                                &lt;/a&gt;
+                            &lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
+                &lt;/footer&gt;
+            &lt;/article&gt;
+            
+            &lt;!-- Navegação entre posts --&gt;
+            &lt;nav aria-label="Navegação entre artigos"&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;
+                        &lt;a href="/artigo-anterior" rel="prev"&gt;
+                            ← Artigo Anterior: CSS Grid Layout
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;a href="/proximo-artigo" rel="next"&gt;
+                            Próximo Artigo: JavaScript ES6 →
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/nav&gt;
+        &lt;/div&gt;
+    &lt;/main&gt;
+
+    &lt;!-- Barra lateral --&gt;
+    &lt;aside role="complementary"&gt;
+        &lt;div class="container"&gt;
+            &lt;section&gt;
+                &lt;h3&gt;Sobre o Autor&lt;/h3&gt;
+                &lt;div class="author-bio" itemscope itemtype="https://schema.org/Person"&gt;
+                    &lt;img src="autor.jpg" alt="Foto do João Silva" itemprop="image"&gt;
+                    &lt;h4 itemprop="name"&gt;João Silva&lt;/h4&gt;
+                    &lt;p itemprop="jobTitle"&gt;Desenvolvedor Frontend&lt;/p&gt;
+                    &lt;p itemprop="description"&gt;
+                        Especialista em desenvolvimento web com foco em HTML semântico 
+                        e acessibilidade.
+                    &lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/section&gt;
+            
+            &lt;section&gt;
+                &lt;h3&gt;Artigos Relacionados&lt;/h3&gt;
+                &lt;nav aria-label="Artigos relacionados"&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;
+                            &lt;article&gt;
+                                &lt;h4&gt;&lt;a href="/css-semantico"&gt;CSS para HTML Semântico&lt;/a&gt;&lt;/h4&gt;
+                                &lt;p&gt;Como estilizar elementos semânticos eficientemente.&lt;/p&gt;
+                                &lt;time datetime="2024-07-28"&gt;28 jul 2024&lt;/time&gt;
+                            &lt;/article&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;article&gt;
+                                &lt;h4&gt;&lt;a href="/acessibilidade-web"&gt;Acessibilidade na Web&lt;/a&gt;&lt;/h4&gt;
+                                &lt;p&gt;Tornando seu site acessível para todos os usuários.&lt;/p&gt;
+                                &lt;time datetime="2024-07-25"&gt;25 jul 2024&lt;/time&gt;
+                            &lt;/article&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/nav&gt;
+            &lt;/section&gt;
+            
+            &lt;section&gt;
+                &lt;h3&gt;Newsletter&lt;/h3&gt;
+                &lt;form action="/newsletter" method="post"&gt;
+                    &lt;label for="email-newsletter"&gt;
+                        Receba novos artigos por e-mail:
+                    &lt;/label&gt;
+                    &lt;input type="email" 
+                           id="email-newsletter" 
+                           name="email" 
+                           required
+                           placeholder="seu@email.com"&gt;
+                    &lt;button type="submit"&gt;Inscrever&lt;/button&gt;
+                &lt;/form&gt;
+            &lt;/section&gt;
+        &lt;/div&gt;
+    &lt;/aside&gt;
+
+    &lt;!-- Rodapé principal --&gt;
+    &lt;footer role="contentinfo"&gt;
+        &lt;div class="container"&gt;
+            &lt;section&gt;
+                &lt;h3&gt;Links Úteis&lt;/h3&gt;
+                &lt;nav aria-label="Links do rodapé"&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;&lt;a href="/privacidade"&gt;Política de Privacidade&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="/termos"&gt;Termos de Uso&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="/rss"&gt;RSS Feed&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="/sitemap"&gt;Mapa do Site&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/nav&gt;
+            &lt;/section&gt;
+            
+            &lt;section&gt;
+                &lt;h3&gt;Redes Sociais&lt;/h3&gt;
+                &lt;nav aria-label="Redes sociais"&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;
+                            &lt;a href="https://twitter.com/blog" 
+                               target="_blank" 
+                               rel="noopener me"&gt;
+                                Twitter
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a href="https://github.com/blog" 
+                               target="_blank" 
+                               rel="noopener me"&gt;
+                                GitHub
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/nav&gt;
+            &lt;/section&gt;
+            
+            &lt;div class="copyright"&gt;
+                &lt;p&gt;
+                    &copy; 2024 &lt;strong&gt;Blog Técnico&lt;/strong&gt;. 
+                    Todos os direitos reservados.
+                &lt;/p&gt;
+                &lt;p&gt;
+                    Feito com ❤️ usando HTML semântico e boas práticas de acessibilidade.
+                &lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Exercício 2 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 2: Blog Semântico</h4>
+            <p>
+                Crie a estrutura completa de um blog usando:
+            </p>
+            <ul>
+                <li>Estrutura de página semântica completa</li>
+                <li>Article com header, sections e footer</li>
+                <li>Aside com conteúdo relacionado</li>
+                <li>Microdata para SEO</li>
+                <li>Navegação acessível</li>
+            </ul>
+        </div>
+
+        <!-- Seção 3: Elementos de Conteúdo -->
+        <section class="secao">
+            <h2>📰 3. Elementos de Conteúdo Semântico</h2>
+            
+            <h3>📄 Article vs Section</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Article: conteúdo independente e reutilizável --&gt;
+&lt;article&gt;
+    &lt;header&gt;
+        &lt;h2&gt;Review: MacBook Pro M3&lt;/h2&gt;
+        &lt;p&gt;Por João Silva em &lt;time datetime="2024-08-01"&gt;1 ago 2024&lt;/time&gt;&lt;/p&gt;
+    &lt;/header&gt;
+    
+    &lt;section&gt;
+        &lt;h3&gt;Design e Construção&lt;/h3&gt;
+        &lt;p&gt;O design do MacBook Pro M3 mantém...&lt;/p&gt;
+    &lt;/section&gt;
+    
+    &lt;section&gt;
+        &lt;h3&gt;Performance&lt;/h3&gt;
+        &lt;p&gt;O chip M3 oferece...&lt;/p&gt;
+    &lt;/section&gt;
+    
+    &lt;section&gt;
+        &lt;h3&gt;Veredicto Final&lt;/h3&gt;
+        &lt;p&gt;Rating: &lt;span class="rating"&gt;⭐⭐⭐⭐⭐&lt;/span&gt;&lt;/p&gt;
+    &lt;/section&gt;
+    
+    &lt;footer&gt;
+        &lt;p&gt;Tags: &lt;a href="/tag/apple"&gt;Apple&lt;/a&gt;, &lt;a href="/tag/macbook"&gt;MacBook&lt;/a&gt;&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/article&gt;
+
+&lt;!-- Section: agrupamento temático --&gt;
+&lt;section&gt;
+    &lt;h2&gt;Produtos em Destaque&lt;/h2&gt;
+    
+    &lt;article class="product-card"&gt;
+        &lt;h3&gt;iPhone 15 Pro&lt;/h3&gt;
+        &lt;p&gt;O smartphone mais avançado da Apple.&lt;/p&gt;
+        &lt;p&gt;Preço: R$ 8.999&lt;/p&gt;
+    &lt;/article&gt;
+    
+    &lt;article class="product-card"&gt;
+        &lt;h3&gt;iPad Air&lt;/h3&gt;
+        &lt;p&gt;Tablet versátil para trabalho e entretenimento.&lt;/p&gt;
+        &lt;p&gt;Preço: R$ 4.599&lt;/p&gt;
+    &lt;/article&gt;
+&lt;/section&gt;</code></pre>
+            </div>
+
+            <h3>📍 Elementos de Marcação Semântica</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;article&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Como Melhorar o SEO do seu Site&lt;/h1&gt;
+        
+        &lt;address&gt;
+            Por &lt;a href="/autor/maria" rel="author"&gt;Maria Santos&lt;/a&gt;, 
+            especialista em SEO
+        &lt;/address&gt;
+        
+        &lt;time datetime="2024-08-01T14:30:00-03:00" pubdate&gt;
+            Publicado em 1 de agosto de 2024 às 14:30
+        &lt;/time&gt;
+        
+        &lt;time datetime="2024-08-05T09:15:00-03:00"&gt;
+            Última atualização: 5 de agosto de 2024 às 09:15
+        &lt;/time&gt;
+    &lt;/header&gt;
+    
+    &lt;section&gt;
+        &lt;h2&gt;Introdução ao SEO&lt;/h2&gt;
+        &lt;p&gt;
+            &lt;abbr title="Search Engine Optimization"&gt;SEO&lt;/abbr&gt; é o processo de 
+            otimização de um site para melhorar sua visibilidade em 
+            &lt;em&gt;motores de busca&lt;/em&gt; como o Google.
+        &lt;/p&gt;
+        
+        &lt;blockquote cite="https://developers.google.com/search"&gt;
+            &lt;p&gt;
+                "O Google tenta encontrar, rastrear e indexar a maior parte do 
+                conteúdo da World Wide Web."
+            &lt;/p&gt;
+            &lt;footer&gt;
+                — &lt;cite&gt;Google Search Central&lt;/cite&gt;
+            &lt;/footer&gt;
+        &lt;/blockquote&gt;
+    &lt;/section&gt;
+    
+    &lt;section&gt;
+        &lt;h2&gt;Técnicas Fundamentais&lt;/h2&gt;
+        
+        &lt;h3&gt;1. Pesquisa de Palavras-chave&lt;/h3&gt;
+        &lt;p&gt;
+            Identifique as &lt;strong&gt;palavras-chave&lt;/strong&gt; que seu público 
+            utiliza para encontrar conteúdo como o seu.
+        &lt;/p&gt;
+        
+        &lt;details&gt;
+            &lt;summary&gt;Ferramentas de Pesquisa de Palavras-chave&lt;/summary&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Google Keyword Planner&lt;/li&gt;
+                &lt;li&gt;SEMrush&lt;/li&gt;
+                &lt;li&gt;Ahrefs&lt;/li&gt;
+                &lt;li&gt;Ubersuggest&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/details&gt;
+        
+        &lt;h3&gt;2. Otimização On-Page&lt;/h3&gt;
+        &lt;p&gt;Elementos técnicos que você pode controlar em suas páginas:&lt;/p&gt;
+        
+        &lt;dl&gt;
+            &lt;dt&gt;Título (Title Tag)&lt;/dt&gt;
+            &lt;dd&gt;O título que aparece nos resultados de busca&lt;/dd&gt;
+            
+            &lt;dt&gt;Meta Description&lt;/dt&gt;
+            &lt;dd&gt;Resumo da página que aparece sob o título&lt;/dd&gt;
+            
+            &lt;dt&gt;Cabeçalhos (H1, H2, H3...)&lt;/dt&gt;
+            &lt;dd&gt;Estruturam o conteúdo hierarquicamente&lt;/dd&gt;
+            
+            &lt;dt&gt;URL Amigável&lt;/dt&gt;
+            &lt;dd&gt;URL limpa e descritiva&lt;/dd&gt;
+        &lt;/dl&gt;
+        
+        &lt;figure&gt;
+            &lt;img src="exemplo-serp.jpg" 
+                 alt="Exemplo de resultado de busca no Google mostrando título, meta description e URL"&gt;
+            &lt;figcaption&gt;
+                Exemplo de como uma página aparece nos resultados de busca
+            &lt;/figcaption&gt;
+        &lt;/figure&gt;
+    &lt;/section&gt;
+    
+    &lt;section&gt;
+        &lt;h2&gt;Métricas Importantes&lt;/h2&gt;
+        
+        &lt;table&gt;
+            &lt;caption&gt;Principais Métricas de SEO para Acompanhar&lt;/caption&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th scope="col"&gt;Métrica&lt;/th&gt;
+                    &lt;th scope="col"&gt;Descrição&lt;/th&gt;
+                    &lt;th scope="col"&gt;Ferramenta&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                &lt;tr&gt;
+                    &lt;th scope="row"&gt;Tráfego Orgânico&lt;/th&gt;
+                    &lt;td&gt;Visitantes vindos de buscadores&lt;/td&gt;
+                    &lt;td&gt;Google Analytics&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;th scope="row"&gt;Posição Média&lt;/th&gt;
+                    &lt;td&gt;Posição nas páginas de resultado&lt;/td&gt;
+                    &lt;td&gt;Search Console&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;th scope="row"&gt;CTR&lt;/th&gt;
+                    &lt;td&gt;Taxa de cliques nos resultados&lt;/td&gt;
+                    &lt;td&gt;Search Console&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/section&gt;
+    
+    &lt;section&gt;
+        &lt;h2&gt;Dicas Extras&lt;/h2&gt;
+        
+        &lt;aside class="tip"&gt;
+            &lt;h3&gt;💡 Dica Pro&lt;/h3&gt;
+            &lt;p&gt;
+                Use &lt;mark&gt;dados estruturados&lt;/mark&gt; para ajudar os buscadores 
+                a entender melhor seu conteúdo e aumentar as chances de 
+                aparecer em rich snippets.
+            &lt;/p&gt;
+        &lt;/aside&gt;
+        
+        &lt;p&gt;
+            &lt;small&gt;
+                Lembre-se: SEO é um processo contínuo. Os resultados aparecem 
+                gradualmente, então seja &lt;strong&gt;paciente e consistente&lt;/strong&gt;.
+            &lt;/small&gt;
+        &lt;/p&gt;
+    &lt;/section&gt;
+    
+    &lt;footer&gt;
+        &lt;p&gt;
+            Artigo atualizado em 
+            &lt;time datetime="2024-08-05"&gt;5 de agosto de 2024&lt;/time&gt;
+        &lt;/p&gt;
+        
+        &lt;div class="article-meta"&gt;
+            &lt;p&gt;Tempo de leitura: ~8 minutos&lt;/p&gt;
+            &lt;p&gt;Categoria: &lt;a href="/categoria/seo"&gt;SEO&lt;/a&gt;&lt;/p&gt;
+            &lt;p&gt;
+                Tags: 
+                &lt;a href="/tag/seo" rel="tag"&gt;#SEO&lt;/a&gt;, 
+                &lt;a href="/tag/marketing-digital" rel="tag"&gt;#MarketingDigital&lt;/a&gt;, 
+                &lt;a href="/tag/google" rel="tag"&gt;#Google&lt;/a&gt;
+            &lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+&lt;/article&gt;</code></pre>
+            </div>
+
+            <div class="destaque warning">
+                <h4>⚠️ Quando Usar Cada Elemento</h4>
+                <ul>
+                    <li><strong>&lt;article&gt;:</strong> Conteúdo que faz sentido independentemente</li>
+                    <li><strong>&lt;section&gt;:</strong> Agrupamento temático de conteúdo relacionado</li>
+                    <li><strong>&lt;aside&gt;:</strong> Conteúdo relacionado mas não essencial</li>
+                    <li><strong>&lt;time&gt;:</strong> Datas, horários e durações</li>
+                    <li><strong>&lt;address&gt;:</strong> Informações de contato do autor</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Exercício 3 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 3: Portal de Notícias</h4>
+            <p>
+                Crie a página inicial de um portal de notícias com:
+            </p>
+            <ul>
+                <li>Múltiplos articles para notícias</li>
+                <li>Sections para categorizar conteúdo</li>
+                <li>Elementos semânticos apropriados (time, address, etc.)</li>
+                <li>Aside com notícias relacionadas</li>
+                <li>Estrutura otimizada para SEO</li>
+            </ul>
+        </div>
+
+        <!-- Seção 4: Landmarks e Acessibilidade -->
+        <section class="secao">
+            <h2>🧭 4. Landmarks ARIA</h2>
+            
+            <h3>🎯 Landmarks Implícitos vs Explícitos</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Landmarks implícitos (elementos semânticos) --&gt;
+&lt;header&gt;&lt;!-- landmark: banner --&gt;&lt;/header&gt;
+&lt;nav&gt;&lt;!-- landmark: navigation --&gt;&lt;/nav&gt;
+&lt;main&gt;&lt;!-- landmark: main --&gt;&lt;/main&gt;
+&lt;aside&gt;&lt;!-- landmark: complementary --&gt;&lt;/aside&gt;
+&lt;footer&gt;&lt;!-- landmark: contentinfo --&gt;&lt;/footer&gt;
+
+&lt;!-- Landmarks explícitos (com role) --&gt;
+&lt;div role="banner"&gt;&lt;!-- equivale a header --&gt;&lt;/div&gt;
+&lt;div role="navigation"&gt;&lt;!-- equivale a nav --&gt;&lt;/div&gt;
+&lt;div role="main"&gt;&lt;!-- equivale a main --&gt;&lt;/div&gt;
+&lt;div role="complementary"&gt;&lt;!-- equivale a aside --&gt;&lt;/div&gt;
+&lt;div role="contentinfo"&gt;&lt;!-- equivale a footer --&gt;&lt;/div&gt;
+
+&lt;!-- Landmarks adicionais --&gt;
+&lt;section role="search"&gt;&lt;!-- área de busca --&gt;&lt;/section&gt;
+&lt;section role="region" aria-labelledby="section-title"&gt;
+    &lt;h2 id="section-title"&gt;Seção Especial&lt;/h2&gt;
+&lt;/section&gt;</code></pre>
+            </div>
+
+            <h3>🏷️ Labels para Landmarks</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Múltiplas navegações - usar aria-label --&gt;
+&lt;nav aria-label="Menu principal"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="/produtos"&gt;Produtos&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;nav aria-label="Breadcrumb"&gt;
+    &lt;ol&gt;
+        &lt;li&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="/categoria"&gt;Categoria&lt;/a&gt;&lt;/li&gt;
+        &lt;li aria-current="page"&gt;Produto Atual&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/nav&gt;
+
+&lt;nav aria-label="Paginação"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="?page=1" rel="prev"&gt;← Anterior&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="?page=3" rel="next"&gt;Próxima →&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;!-- Usando aria-labelledby para referenciar cabeçalho --&gt;
+&lt;section aria-labelledby="produtos-destaque"&gt;
+    &lt;h2 id="produtos-destaque"&gt;Produtos em Destaque&lt;/h2&gt;
+    &lt;!-- conteúdo da seção --&gt;
+&lt;/section&gt;
+
+&lt;!-- Aside com múltiplas seções --&gt;
+&lt;aside aria-label="Conteúdo relacionado"&gt;
+    &lt;section aria-labelledby="artigos-relacionados"&gt;
+        &lt;h3 id="artigos-relacionados"&gt;Artigos Relacionados&lt;/h3&gt;
+        &lt;!-- lista de artigos --&gt;
+    &lt;/section&gt;
+    
+    &lt;section aria-labelledby="newsletter-signup"&gt;
+        &lt;h3 id="newsletter-signup"&gt;Newsletter&lt;/h3&gt;
+        &lt;!-- formulário de inscrição --&gt;
+    &lt;/section&gt;
+&lt;/aside&gt;</code></pre>
+            </div>
+
+            <h3>🔍 Skip Links e Navegação</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Site Acessível&lt;/title&gt;
+    &lt;style&gt;
+        .skip-links {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 1000;
+        }
+        
+        .skip-links:focus {
+            top: 6px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Skip links para navegação rápida --&gt;
+    &lt;a href="#main-content" class="skip-links"&gt;
+        Pular para o conteúdo principal
+    &lt;/a&gt;
+    &lt;a href="#main-navigation" class="skip-links"&gt;
+        Pular para a navegação
+    &lt;/a&gt;
+    &lt;a href="#sidebar" class="skip-links"&gt;
+        Pular para a barra lateral
+    &lt;/a&gt;
+
+    &lt;header role="banner"&gt;
+        &lt;h1&gt;Nome do Site&lt;/h1&gt;
+        
+        &lt;nav id="main-navigation" role="navigation" aria-label="Menu principal"&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="/" aria-current="page"&gt;Home&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="/sobre"&gt;Sobre&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="/contato"&gt;Contato&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;main id="main-content" role="main"&gt;
+        &lt;h1&gt;Título da Página&lt;/h1&gt;
+        &lt;!-- conteúdo principal --&gt;
+    &lt;/main&gt;
+
+    &lt;aside id="sidebar" role="complementary" aria-label="Barra lateral"&gt;
+        &lt;!-- conteúdo da sidebar --&gt;
+    &lt;/aside&gt;
+
+    &lt;footer role="contentinfo"&gt;
+        &lt;!-- informações de rodapé --&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <div class="destaque tip">
+                <h4>💡 Boas Práticas de Landmarks</h4>
+                <ul>
+                    <li>Use apenas um &lt;main&gt; por página</li>
+                    <li>O &lt;header&gt; principal deve ter role="banner"</li>
+                    <li>O &lt;footer&gt; principal deve ter role="contentinfo"</li>
+                    <li>Use aria-label ou aria-labelledby para landmarks múltiplos</li>
+                    <li>Teste com screen readers para validar a navegação</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Exercício 4 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 4: E-commerce Semântico</h4>
+            <p>
+                Crie a página de produto de um e-commerce com:
+            </p>
+            <ul>
+                <li>Estrutura de landmarks completa</li>
+                <li>Skip links para navegação rápida</li>
+                <li>Microdata para produtos (schema.org)</li>
+                <li>Navegação breadcrumb semântica</li>
+                <li>Reviews usando elements appropriados</li>
+                <li>Testes de acessibilidade com screen reader</li>
+            </ul>
+        </div>
+
+        <!-- Resumo da Aula -->
+        <section class="secao">
+            <h2>📋 Resumo da Aula</h2>
+            
+            <div class="recursos">
+                <div class="recurso-card">
+                    <h4>💡 Conceitos Base</h4>
+                    <p>Semântica vs apresentação, benefícios para SEO e acessibilidade.</p>
+                </div>
+                
+                <div class="recurso-card">
+                    <h4>🏛️ Estrutura</h4>
+                    <p>Header, nav, main, aside, footer e organização hierárquica.</p>
+                </div>
+                
+                <div class="recurso-card">
+                    <h4>📰 Conteúdo</h4>
+                    <p>Article, section, time, address e elementos de marcação.</p>
+                </div>
+                
+                <div class="recurso-card">
+                    <h4>🧭 Landmarks</h4>
+                    <p>ARIA roles, labels e navegação acessível com skip links.</p>
+                </div>
+            </div>
+
+            <div class="checklist">
+                <h4>✅ Checklist HTML Semântico</h4>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="semantic1">
+                        <label for="semantic1">Estrutura com elementos semânticos apropriados</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="semantic2">
+                        <label for="semantic2">Hierarquia de cabeçalhos lógica (H1-H6)</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="semantic3">
+                        <label for="semantic3">Landmarks ARIA configurados</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="semantic4">
+                        <label for="semantic4">Skip links implementados</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="semantic5">
+                        <label for="semantic5">Microdata para SEO</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="semantic6">
+                        <label for="semantic6">Teste com screen reader realizado</label>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Navegação do Curso -->
+        <nav class="course-navigation">
+            <div class="nav-buttons">
+                <a href="aula-07-formularios-avancados.html" class="nav-btn secondary">
+                    ← 🚀 Aula Anterior
+                </a>
+                <a href="aula-09-acessibilidade.html" class="nav-btn primary">
+                    ♿ Próxima Aula →
+                </a>
+            </div>
+        </nav>
+
+        <!-- Footer da Aula -->
+        <footer class="aula-footer">
+            <h3>🎉 HTML Semântico Dominado!</h3>
+            <p>
+                Excelente! Agora você entende como estruturar páginas com significado. 
+                Na próxima aula, vamos aprofundar na acessibilidade web.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Marcar como concluída
+            function marcarAulaConcluida() {
+                const progresso = JSON.parse(localStorage.getItem('curso-html-progresso') || '[]');
+                if (!progresso.includes(8)) {
+                    progresso.push(8);
+                    localStorage.setItem('curso-html-progresso', JSON.stringify(progresso));
+                }
+            }
+
+            // Observer para footer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        marcarAulaConcluida();
+                    }
+                });
+            });
+            
+            const footer = document.querySelector('.aula-footer');
+            if (footer) {
+                observer.observe(footer);
+            }
+
+            // Gerenciar checklist
+            const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
+            checkboxes.forEach((checkbox, index) => {
+                const saved = localStorage.getItem(`aula-8-semantic-${index}`);
+                if (saved === 'true') {
+                    checkbox.checked = true;
+                }
+                
+                checkbox.addEventListener('change', () => {
+                    localStorage.setItem(`aula-8-semantic-${index}`, checkbox.checked);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 9: Acessibilidade Web - Curso HTML Fundamentals</title>
+    <meta name="description" content="Nona aula do curso de HTML: domine acessibilidade web, ARIA, navegação por teclado e inclusão digital.">
+    <link rel="stylesheet" href="assets/style-aulas.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♿</text></svg>">
+</head>
+<body>
+    <div class="aula-container">
+        <!-- Navegação -->
+        <nav class="aula-nav">
+            <a href="aula-08-html-semantico.html" class="nav-btn">
+                ← 🏗️ Aula Anterior
+            </a>
+            <a href="index.html" class="nav-btn">
+                📚 Curso
+            </a>
+            <a href="aula-10-seo-metatags.html" class="nav-btn">
+                📈 Próxima Aula →
+            </a>
+        </nav>
+
+        <!-- Header da Aula -->
+        <header class="aula-header">
+            <div class="aula-numero">AULA 9</div>
+            <h1 class="aula-titulo">♿ Acessibilidade Web</h1>
+            <p class="aula-descricao">
+                Aprenda a criar sites inclusivos e acessíveis para todos os usuários,
+                usando ARIA, navegação por teclado e as melhores práticas de inclusão digital.
+            </p>
+            <div class="aula-meta">
+                <div class="meta-item">
+                    <span>⏱️</span> <span>60 minutos</span>
+                </div>
+                <div class="meta-item">
+                    <span>🎯</span> <span>Avançado</span>
+                </div>
+                <div class="meta-item">
+                    <span>📝</span> <span>4 Exercícios</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Objetivos da Aula -->
+        <div class="objetivos">
+            <h3>🎯 Objetivos de Aprendizagem</h3>
+            <ul>
+                <li>Entender os princípios fundamentais da acessibilidade web</li>
+                <li>Dominar ARIA (Accessible Rich Internet Applications)</li>
+                <li>Implementar navegação por teclado eficiente</li>
+                <li>Criar conteúdo inclusivo para deficientes visuais</li>
+                <li>Aplicar testes de acessibilidade e validação</li>
+            </ul>
+        </div>
+
+        <!-- Seção 1: Fundamentos -->
+        <section class="secao">
+            <h2>🌍 1. Fundamentos da Acessibilidade</h2>
+            
+            <div class="destaque info">
+                <h4>🎯 O que é Acessibilidade Web?</h4>
+                <p>
+                    Acessibilidade web significa tornar sites e aplicações utilizáveis por 
+                    <strong>todas as pessoas</strong>, incluindo aquelas com deficiências 
+                    visuais, auditivas, motoras ou cognitivas.
+                </p>
+            </div>
+
+            <div class="explicacao">
+                <h4>🌟 Por que Acessibilidade É Essencial?</h4>
+                <p>
+                    Acessibilidade não é apenas <strong>"coisa de especialista"</strong> - é um direito humano fundamental 
+                    e uma necessidade de mercado. Imagine que 23% da população brasileira tem alguma deficiência. 
+                    Isso significa que <strong>1 em cada 4 pessoas</strong> pode ter dificuldades para usar seu site!
+                </p>
+                <p>
+                    <strong>Benefícios reais da acessibilidade:</strong>
+                </p>
+                <ul>
+                    <li>💰 <strong>Mercado maior:</strong> Alcança 45 milhões de brasileiros com deficiência</li>
+                    <li>🎯 <strong>SEO melhor:</strong> Google prioriza sites acessíveis nos resultados</li>
+                    <li>👥 <strong>Usabilidade geral:</strong> Beneficia todos os usuários, não apenas PCDs</li>
+                    <li>⚖️ <strong>Conformidade legal:</strong> Lei Brasileira de Inclusão (LBI) exige acessibilidade</li>
+                    <li>🏆 <strong>Reputação:</strong> Demonstra responsabilidade social e inclusão</li>
+                </ul>
+                <p>
+                    <strong>Mito quebrado:</strong> "Acessibilidade é cara e complexa". Na verdade, quando implementada 
+                    desde o início, custa apenas <strong>1% a mais</strong> do projeto total e evita retrabalho futuro.
+                </p>
+            </div>
+
+            <h3>📊 Dados sobre Deficiência</h3>
+            <div class="explicacao">
+                <h4>📈 A Realidade dos Números</h4>
+                <p>
+                    Os números sobre deficiência no Brasil são <strong>impressionantes</strong> e mostram a importância 
+                    real da acessibilidade web. Não são apenas estatísticas - são pessoas reais que precisam 
+                    acessar informações, comprar produtos, estudar e trabalhar online.
+                </p>
+                <p>
+                    <strong>Tipos de deficiências mais comuns:</strong>
+                </p>
+                <ul>
+                    <li>👁️ <strong>Visual:</strong> 6,5M pessoas (cegueira, baixa visão, daltonismo)</li>
+                    <li>👂 <strong>Auditiva:</strong> 2,3M pessoas (surdez, perda auditiva)</li>
+                    <li>🚶 <strong>Motora:</strong> 7M pessoas (problemas de mobilidade, tremores)</li>
+                    <li>🧠 <strong>Cognitiva:</strong> Dislexia, TDAH, deficiência intelectual</li>
+                </ul>
+                <p>
+                    <strong>Insight importante:</strong> Muitas deficiências são <strong>invisíveis</strong>. 
+                    Daltonismo atinge 8% dos homens, dislexia afeta 5-10% da população, e deficiências 
+                    temporárias (braço quebrado, olho inflamado) podem afetar qualquer pessoa.
+                </p>
+            </div>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;section aria-labelledby="estatisticas-titulo"&gt;
+    &lt;h3 id="estatisticas-titulo"&gt;Estatísticas de Deficiência no Brasil&lt;/h3&gt;
+    
+    &lt;div class="stats-grid"&gt;
+        &lt;div class="stat-card"&gt;
+            &lt;div class="stat-number" aria-label="45 milhões"&gt;45M&lt;/div&gt;
+            &lt;div class="stat-label"&gt;Pessoas com algum tipo de deficiência&lt;/div&gt;
+            &lt;div class="stat-source"&gt;Fonte: IBGE 2019&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class="stat-card"&gt;
+            &lt;div class="stat-number" aria-label="6,5 milhões"&gt;6,5M&lt;/div&gt;
+            &lt;div class="stat-label"&gt;Pessoas com deficiência visual&lt;/div&gt;
+            &lt;div class="stat-source"&gt;Incluindo cegueira e baixa visão&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class="stat-card"&gt;
+            &lt;div class="stat-number" aria-label="23%"&gt;23%&lt;/div&gt;
+            &lt;div class="stat-label"&gt;Da população brasileira&lt;/div&gt;
+            &lt;div class="stat-source"&gt;Possui alguma deficiência&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+            </div>
+
+            <h3>🎯 Princípios WCAG 2.1</h3>
+            <div class="explicacao">
+                <h4>🏛️ As 4 Colunas da Acessibilidade</h4>
+                <p>
+                    WCAG (Web Content Accessibility Guidelines) são as <strong>diretrizes internacionais</strong> 
+                    para acessibilidade web, como uma "constituição" da inclusão digital. São 4 princípios 
+                    fundamentais que funcionam como pilares de sustentação.
+                </p>
+                <p>
+                    <strong>Analogia prática:</strong> Imagine um cinema acessível:
+                </p>
+                <ul>
+                    <li>🎬 <strong>Perceptível:</strong> Legendas para surdos, áudiodescrição para cegos</li>
+                    <li>🎮 <strong>Operável:</strong> Controles que funcionam sem mouse, tempo adequado</li>
+                    <li>📖 <strong>Compreensível:</strong> Instruções claras, interface previsível</li>
+                    <li>🔧 <strong>Robusto:</strong> Funciona em diferentes equipamentos e tecnologias</li>
+                </ul>
+                <p>
+                    <strong>Níveis de conformidade:</strong>
+                </p>
+                <ul>
+                    <li>🥉 <strong>A:</strong> Básico (mínimo aceitável)</li>
+                    <li>🥈 <strong>AA:</strong> Padrão recomendado (exigido por leis)</li>
+                    <li>🥇 <strong>AAA:</strong> Avançado (ideal mas nem sempre prático)</li>
+                </ul>
+            </div>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;section aria-labelledby="principios-wcag"&gt;
+    &lt;h3 id="principios-wcag"&gt;Os 4 Princípios da Acessibilidade&lt;/h3&gt;
+    
+    &lt;dl class="principles-list"&gt;
+        &lt;dt&gt;
+            &lt;span class="principle-number"&gt;1&lt;/span&gt;
+            &lt;strong&gt;Perceptível&lt;/strong&gt;
+        &lt;/dt&gt;
+        &lt;dd&gt;
+            Informações e componentes da interface devem ser apresentados 
+            de forma que os usuários possam percebê-los.
+            &lt;ul&gt;
+                &lt;li&gt;Texto alternativo para imagens&lt;/li&gt;
+                &lt;li&gt;Legendas para vídeos&lt;/li&gt;
+                &lt;li&gt;Contraste de cores adequado&lt;/li&gt;
+                &lt;li&gt;Conteúdo redimensionável&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/dd&gt;
+        
+        &lt;dt&gt;
+            &lt;span class="principle-number"&gt;2&lt;/span&gt;
+            &lt;strong&gt;Operável&lt;/strong&gt;
+        &lt;/dt&gt;
+        &lt;dd&gt;
+            Componentes da interface e navegação devem ser operáveis.
+            &lt;ul&gt;
+                &lt;li&gt;Funcionalidade via teclado&lt;/li&gt;
+                &lt;li&gt;Tempo suficiente para leitura&lt;/li&gt;
+                &lt;li&gt;Sem conteúdo que cause convulsões&lt;/li&gt;
+                &lt;li&gt;Navegação e localização de conteúdo&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/dd&gt;
+        
+        &lt;dt&gt;
+            &lt;span class="principle-number"&gt;3&lt;/span&gt;
+            &lt;strong&gt;Compreensível&lt;/strong&gt;
+        &lt;/dt&gt;
+        &lt;dd&gt;
+            Informações e operação da interface devem ser compreensíveis.
+            &lt;ul&gt;
+                &lt;li&gt;Texto legível e compreensível&lt;/li&gt;
+                &lt;li&gt;Conteúdo previsível&lt;/li&gt;
+                &lt;li&gt;Assistência na entrada de dados&lt;/li&gt;
+                &lt;li&gt;Prevenção e correção de erros&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/dd&gt;
+        
+        &lt;dt&gt;
+            &lt;span class="principle-number"&gt;4&lt;/span&gt;
+            &lt;strong&gt;Robusto&lt;/strong&gt;
+        &lt;/dt&gt;
+        &lt;dd&gt;
+            Conteúdo deve ser robusto para interpretação por tecnologias assistivas.
+            &lt;ul&gt;
+                &lt;li&gt;Compatibilidade com leitores de tela&lt;/li&gt;
+                &lt;li&gt;Código válido e semântico&lt;/li&gt;
+                &lt;li&gt;Funcionamento em diferentes dispositivos&lt;/li&gt;
+                &lt;li&gt;Futuro-compatível&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/dd&gt;
+    &lt;/dl&gt;
+&lt;/section&gt;</code></pre>
+            </div>
+
+            <div class="destaque tip">
+                <h4>💡 Benefícios da Acessibilidade</h4>
+                <ul>
+                    <li><strong>Inclusão:</strong> Atende mais usuários e clientes</li>
+                    <li><strong>SEO:</strong> Melhora indexação e ranking</li>
+                    <li><strong>Usabilidade:</strong> Beneficia todos os usuários</li>
+                    <li><strong>Legal:</strong> Cumpre legislação de inclusão</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Exercício 1 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 1: Auditoria de Acessibilidade</h4>
+            <p>
+                Faça uma auditoria de acessibilidade em um site existente:
+            </p>
+            <ul>
+                <li>Use ferramentas automáticas (axe, WAVE)</li>
+                <li>Teste navegação apenas com teclado</li>
+                <li>Verifique contraste de cores</li>
+                <li>Teste com leitor de tela</li>
+                <li>Documente problemas encontrados</li>
+            </ul>
+        </div>
+
+        <!-- Seção 2: ARIA -->
+        <section class="secao">
+            <h2>🎭 2. ARIA (Accessible Rich Internet Applications)</h2>
+            
+            <div class="explicacao">
+                <h4>🎪 ARIA - O Tradutor Universal</h4>
+                <p>
+                    ARIA é como um <strong>"tradutor simultâneo"</strong> entre seu código JavaScript moderno 
+                    e as tecnologias assistivas (leitores de tela, navegação por voz, etc.). 
+                    Enquanto HTML básico funciona naturalmente com essas tecnologias, elementos 
+                    customizados precisam de "legendas" ARIA.
+                </p>
+                <p>
+                    <strong>Quando usar ARIA:</strong>
+                </p>
+                <ul>
+                    <li>🚫 <strong>Nunca primeiro:</strong> HTML semântico sempre tem prioridade</li>
+                    <li>⚡ <strong>Componentes dinâmicos:</strong> Modais, dropdowns, tabs personalizados</li>
+                    <li>📱 <strong>SPAs modernas:</strong> React, Vue, Angular com interações complexas</li>
+                    <li>🎯 <strong>Estados temporários:</strong> Loading, erro, sucesso</li>
+                </ul>
+                <p>
+                    <strong>Regra de ouro:</strong> "Se não quebrar sem ARIA, não precisa de ARIA". 
+                    Use apenas quando HTML semântico não for suficiente.
+                </p>
+            </div>
+            
+            <h3>🏷️ Atributos ARIA Essenciais</h3>
+            <div class="explicacao">
+                <h4>🏷️ Os Rótulos que Salvam Vidas</h4>
+                <p>
+                    Atributos ARIA são como <strong>etiquetas explicativas</strong> que você cola nos elementos 
+                    para que leitores de tela entendam o que são e como funcionam. É a diferença entre 
+                    um usuário cego ouvir "botão" vs "botão fechar janela modal".
+                </p>
+                <p>
+                    <strong>Hierarquia de nomeação (ordem de prioridade):</strong>
+                </p>
+                <ol>
+                    <li><strong>aria-labelledby:</strong> Referencia outro elemento (mais flexível)</li>
+                    <li><strong>aria-label:</strong> Nome direto (mais simples)</li>
+                    <li><strong>Conteúdo do elemento:</strong> Texto visível</li>
+                    <li><strong>title:</strong> Tooltip (último recurso)</li>
+                </ol>
+                <p>
+                    <strong>Dica profissional:</strong> Use <code>aria-labelledby</code> quando já existe 
+                    um título visível na página. Use <code>aria-label</code> para elementos que não 
+                    têm texto visível (como botão "×" para fechar).
+                </p>
+            </div>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- aria-label: fornece nome acessível --&gt;
+&lt;button aria-label="Fechar janela modal"&gt;×&lt;/button&gt;
+&lt;input type="search" aria-label="Buscar produtos"&gt;
+
+&lt;!-- aria-labelledby: referencia elemento que rotula --&gt;
+&lt;h2 id="billing-title"&gt;Informações de Cobrança&lt;/h2&gt;
+&lt;fieldset aria-labelledby="billing-title"&gt;
+    &lt;!-- campos do formulário --&gt;
+&lt;/fieldset&gt;
+
+&lt;!-- aria-describedby: referencia descrição adicional --&gt;
+&lt;input type="password" 
+       id="password" 
+       aria-describedby="pwd-help pwd-error"&gt;
+&lt;div id="pwd-help"&gt;Mínimo 8 caracteres&lt;/div&gt;
+&lt;div id="pwd-error" role="alert"&gt;Senha muito fraca&lt;/div&gt;
+
+&lt;!-- aria-expanded: estado de expansão --&gt;
+&lt;button aria-expanded="false" 
+        aria-controls="menu-list"
+        onclick="toggleMenu()"&gt;
+    Menu ☰
+&lt;/button&gt;
+&lt;ul id="menu-list" hidden&gt;
+    &lt;li&gt;&lt;a href="/home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/about"&gt;Sobre&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- aria-current: indica item atual --&gt;
+&lt;nav aria-label="Breadcrumb"&gt;
+    &lt;ol&gt;
+        &lt;li&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="/categoria"&gt;Categoria&lt;/a&gt;&lt;/li&gt;
+        &lt;li aria-current="page"&gt;Produto Atual&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/nav&gt;
+
+&lt;!-- aria-hidden: oculta de leitores de tela --&gt;
+&lt;span aria-hidden="true"&gt;👤&lt;/span&gt; Perfil do Usuário
+&lt;img src="decorative.jpg" alt="" aria-hidden="true"&gt;</code></pre>
+            </div>
+
+            <h3>🎯 Roles ARIA Importantes</h3>
+            <div class="explicacao">
+                <h4>🎭 Papéis que Elementos Representam</h4>
+                <p>
+                    Roles ARIA são como <strong>"profissões"</strong> que você atribui aos elementos HTML. 
+                    É como dizer: "este div não é apenas um div, ele é um botão", ou "esta ul não é 
+                    uma lista comum, é um menu de navegação".
+                </p>
+                <p>
+                    <strong>Principais categorias de roles:</strong>
+                </p>
+                <ul>
+                    <li>🏗️ <strong>Landmark roles:</strong> navigation, main, banner, contentinfo (estruturam a página)</li>
+                    <li>🎮 <strong>Widget roles:</strong> button, tab, menu, dialog (elementos interativos)</li>
+                    <li>📄 <strong>Document roles:</strong> article, note, tooltip (conteúdo informativo)</li>
+                    <li>🏷️ <strong>Abstract roles:</strong> widget, input (bases para outros roles)</li>
+                </ul>
+                <p>
+                    <strong>Tabs vs Accordion:</strong> Tabs permitem navegar entre seções relacionadas 
+                    (como abas de navegador), enquanto accordions mostram/escondem seções independentes 
+                    (como FAQs expansíveis).
+                </p>
+                <p>
+                    <strong>Dialog vs Alertdialog:</strong> Dialog é para interações complexas (formulários), 
+                    alertdialog é para confirmações simples que exigem resposta imediata.
+                </p>
+            </div>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Navegação com tabs --&gt;
+&lt;div role="tablist" aria-label="Configurações da conta"&gt;
+    &lt;button role="tab" 
+            aria-selected="true" 
+            aria-controls="panel-perfil"
+            id="tab-perfil"&gt;
+        Perfil
+    &lt;/button&gt;
+    &lt;button role="tab" 
+            aria-selected="false" 
+            aria-controls="panel-seguranca"
+            id="tab-seguranca"&gt;
+        Segurança
+    &lt;/button&gt;
+    &lt;button role="tab" 
+            aria-selected="false" 
+            aria-controls="panel-notificacoes"
+            id="tab-notificacoes"&gt;
+        Notificações
+    &lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div role="tabpanel" 
+     id="panel-perfil" 
+     aria-labelledby="tab-perfil"&gt;
+    &lt;h3&gt;Configurações de Perfil&lt;/h3&gt;
+    &lt;!-- conteúdo do painel --&gt;
+&lt;/div&gt;
+
+&lt;div role="tabpanel" 
+     id="panel-seguranca" 
+     aria-labelledby="tab-seguranca" 
+     hidden&gt;
+    &lt;h3&gt;Configurações de Segurança&lt;/h3&gt;
+    &lt;!-- conteúdo do painel --&gt;
+&lt;/div&gt;
+
+&lt;!-- Alertas e status --&gt;
+&lt;div role="alert" aria-live="assertive"&gt;
+    Erro: Falha ao salvar as configurações
+&lt;/div&gt;
+
+&lt;div role="status" aria-live="polite"&gt;
+    Salvando configurações...
+&lt;/div&gt;
+
+&lt;!-- Dialog modal --&gt;
+&lt;div role="dialog" 
+     aria-modal="true" 
+     aria-labelledby="dialog-title"
+     aria-describedby="dialog-description"&gt;
+    &lt;h2 id="dialog-title"&gt;Confirmar Exclusão&lt;/h2&gt;
+    &lt;p id="dialog-description"&gt;
+        Esta ação não pode ser desfeita. Tem certeza?
+    &lt;/p&gt;
+    &lt;button&gt;Cancelar&lt;/button&gt;
+    &lt;button&gt;Excluir&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Toolbar --&gt;
+&lt;div role="toolbar" aria-label="Ferramentas de formatação"&gt;
+    &lt;button aria-pressed="false" aria-label="Negrito"&gt;
+        &lt;strong&gt;B&lt;/strong&gt;
+    &lt;/button&gt;
+    &lt;button aria-pressed="false" aria-label="Itálico"&gt;
+        &lt;em&gt;I&lt;/em&gt;
+    &lt;/button&gt;
+    &lt;button aria-pressed="false" aria-label="Sublinhado"&gt;
+        &lt;u&gt;U&lt;/u&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Lista com opções --&gt;
+&lt;ul role="listbox" aria-label="Escolher cor"&gt;
+    &lt;li role="option" aria-selected="true"&gt;Azul&lt;/li&gt;
+    &lt;li role="option" aria-selected="false"&gt;Verde&lt;/li&gt;
+    &lt;li role="option" aria-selected="false"&gt;Vermelho&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+            </div>
+
+            <h3>🔄 Live Regions</h3>
+            <div class="explicacao">
+                <h4>📢 Anúncios Automáticos Inteligentes</h4>
+                <p>
+                    Live Regions são <strong>"alto-falantes automáticos"</strong> que avisam usuários de leitores 
+                    de tela quando algo muda na página. É essencial para SPAs e interfaces dinâmicas 
+                    onde conteúdo aparece/desaparece sem recarregar a página.
+                </p>
+                <p>
+                    <strong>Tipos de urgência:</strong>
+                </p>
+                <ul>
+                    <li>🔇 <strong>off:</strong> Não anuncia (padrão)</li>
+                    <li>😌 <strong>polite:</strong> Espera usuário terminar de ler (status, progresso)</li>
+                    <li>🚨 <strong>assertive:</strong> Interrompe imediatamente (erros críticos)</li>
+                </ul>
+                <p>
+                    <strong>Casos de uso práticos:</strong>
+                </p>
+                <ul>
+                    <li>✅ <strong>Formulários:</strong> "Campo salvo", "Erro de validação"</li>
+                    <li>🛒 <strong>E-commerce:</strong> "Item adicionado ao carrinho"</li>
+                    <li>💬 <strong>Chat:</strong> "Nova mensagem recebida"</li>
+                    <li>📊 <strong>Dashboards:</strong> "Dados atualizados"</li>
+                </ul>
+                <p>
+                    <strong>Cuidado:</strong> Use com moderação! Muitos anúncios irritam usuários. 
+                    É como ter alguém falando no seu ouvido o tempo todo.
+                </p>
+            </div>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Região que atualiza automaticamente --&gt;
+&lt;div aria-live="polite" id="status-updates"&gt;
+    &lt;!-- Conteúdo será anunciado quando mudar --&gt;
+&lt;/div&gt;
+
+&lt;!-- Alertas urgentes --&gt;
+&lt;div aria-live="assertive" id="error-messages"&gt;
+    &lt;!-- Erros serão anunciados imediatamente --&gt;
+&lt;/div&gt;
+
+&lt;!-- Exemplo: formulário com feedback --&gt;
+&lt;form&gt;
+    &lt;label for="username"&gt;Nome de usuário&lt;/label&gt;
+    &lt;input type="text" 
+           id="username" 
+           required
+           aria-describedby="username-error"&gt;
+    
+    &lt;div id="username-error" 
+         aria-live="polite" 
+         aria-atomic="true"
+         style="display: none;"&gt;
+        &lt;!-- Mensagens de erro aparecerão aqui --&gt;
+    &lt;/div&gt;
+    
+    &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;script&gt;
+// Exemplo de atualização de live region
+function showError(message) {
+    const errorDiv = document.getElementById('username-error');
+    errorDiv.textContent = message;
+    errorDiv.style.display = 'block';
+    // Será anunciado automaticamente pelo screen reader
+}
+
+function clearError() {
+    const errorDiv = document.getElementById('username-error');
+    errorDiv.textContent = '';
+    errorDiv.style.display = 'none';
+}
+&lt;/script&gt;</code></pre>
+            </div>
+
+            <div class="destaque warning">
+                <h4>⚠️ ARIA - Boas Práticas</h4>
+                <ul>
+                    <li>Use HTML semântico primeiro, ARIA apenas quando necessário</li>
+                    <li>Sempre teste com leitores de tela reais</li>
+                    <li>Mantenha aria-expanded sincronizado com estado visual</li>
+                    <li>Use aria-hidden com cuidado, pode ocultar conteúdo importante</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Exercício 2 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 2: Sistema de Tabs Acessível</h4>
+            <p>
+                Crie um sistema de tabs completamente acessível:
+            </p>
+            <ul>
+                <li>Navegação com setas e Enter/Space</li>
+                <li>ARIA roles e properties corretos</li>
+                <li>Focus management adequado</li>
+                <li>Anúncios de mudança de estado</li>
+                <li>Suporte a screen readers</li>
+            </ul>
+        </div>
+
+        <!-- Seção 3: Navegação por Teclado -->
+        <section class="secao">
+            <h2>⌨️ 3. Navegação por Teclado</h2>
+            
+            <div class="explicacao">
+                <h4>🎹 A Arte da Navegação Sem Mouse</h4>
+                <p>
+                    Navegação por teclado é como <strong>"dirigir sem volante"</strong> - precisa ser intuitiva 
+                    e previsível. Muitos usuários dependem exclusivamente do teclado: pessoas cegas, 
+                    com deficiências motoras, ou mesmo usuários avançados que preferem atalhos.
+                </p>
+                <p>
+                    <strong>Quem usa navegação por teclado:</strong>
+                </p>
+                <ul>
+                    <li>👁️ <strong>Usuários cegos:</strong> Com leitores de tela</li>
+                    <li>🤲 <strong>Deficiências motoras:</strong> Dificuldade para usar mouse</li>
+                    <li>💻 <strong>Power users:</strong> Programadores e usuários avançados</li>
+                    <li>🎮 <strong>Situacionais:</strong> Mouse quebrado, touchpad ruim</li>
+                    <li>📱 <strong>Mobile/TV:</strong> Controles remotos e direcionais</li>
+                </ul>
+                <p>
+                    <strong>Estatística importante:</strong> Cerca de 15% dos usuários web usam 
+                    navegação por teclado regularmente, não apenas PCDs.
+                </p>
+            </div>
+            
+            <h3>🎯 Teclas Padrão</h3>
+            <div class="explicacao">
+                <h4>🗺️ O Mapa Universal do Teclado</h4>
+                <p>
+                    Existe um <strong>"código da estrada"</strong> para navegação por teclado que todos 
+                    os sites devem seguir. É como sinais de trânsito - funcionam porque são universais.
+                </p>
+                <p>
+                    <strong>Teclas fundamentais e suas funções:</strong>
+                </p>
+                <ul>
+                    <li>⭐ <strong>Tab/Shift+Tab:</strong> Navegar entre elementos (mais importante!)</li>
+                    <li>↩️ <strong>Enter:</strong> Ativar links e botões de submit</li>
+                    <li>⎵ <strong>Espaço:</strong> Ativar botões, marcar checkboxes, scroll</li>
+                    <li>🔤 <strong>Setas:</strong> Navegar em grupos (tabs, menus, sliders)</li>
+                    <li>🏠 <strong>Home/End:</strong> Início/fim de listas ou conteúdo</li>
+                    <li>🚪 <strong>Escape:</strong> Fechar modais, cancelar ações</li>
+                </ul>
+                <p>
+                    <strong>Regra importante:</strong> Se funciona com mouse, deve funcionar com teclado. 
+                    Se não tem equivalente no teclado, repense o design.
+                </p>
+            </div>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Elemento focável personalizado --&gt;
+&lt;div class="custom-button" 
+     tabindex="0" 
+     role="button"
+     aria-label="Abrir menu de configurações"
+     onkeydown="handleKeyDown(event)"
+     onclick="openSettings()"&gt;
+    ⚙️ Configurações
+&lt;/div&gt;
+
+&lt;script&gt;
+function handleKeyDown(event) {
+    // Enter ou Space ativam o botão
+    if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openSettings();
+    }
+    // Escape fecha menus/modals
+    else if (event.key === 'Escape') {
+        closeMenu();
+    }
+}
+
+// Padrões de navegação por teclado
+const keyboardPatterns = {
+    // Tab: próximo elemento focável
+    // Shift + Tab: elemento anterior
+    // Enter: ativar botão/link
+    // Space: ativar botão, marcar checkbox
+    // Arrow keys: navegação em grupos (tabs, menus)
+    // Escape: fechar modal/menu
+    // Home/End: primeiro/último item
+    // Page Up/Down: navegação em listas longas
+};
+&lt;/script&gt;</code></pre>
+            </div>
+
+            <h3>🎯 Focus Management</h3>
+            <div class="explicacao">
+                <h4>🎯 Controlando a Atenção Digital</h4>
+                <p>
+                    Focus management é como ser um <strong>"diretor de cinema"</strong> da web - você controla 
+                    onde a "câmera" (foco) está apontando. Para usuários de teclado e leitores de tela, 
+                    o foco é literalmente onde eles "estão" na página.
+                </p>
+                <p>
+                    <strong>Situações que exigem focus management:</strong>
+                </p>
+                <ul>
+                    <li>🪟 <strong>Modais:</strong> Foco deve ir para modal e ficar "preso" lá</li>
+                    <li>📱 <strong>SPAs:</strong> Mudanças de rota precisam mover foco</li>
+                    <li>❌ <strong>Elementos removidos:</strong> Se elemento focado desaparece, mover foco</li>
+                    <li>✅ <strong>Ações completas:</strong> Após salvar, focar na mensagem de sucesso</li>
+                    <li>📋 <strong>Formulários longos:</strong> Mover para primeiro erro de validação</li>
+                </ul>
+                <p>
+                    <strong>Focus trap</strong> é como um "cercadinho digital" - o foco fica circulando 
+                    apenas entre elementos do modal/dialog, sem escapar para o fundo da página.
+                </p>
+                <p>
+                    <strong>Regra importante:</strong> Sempre restaure o foco para onde estava antes 
+                    quando modal/menu fecha. É como voltar para onde parou na leitura de um livro.
+                </p>
+            </div>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Modal com focus trap --&gt;
+&lt;div id="modal" 
+     role="dialog" 
+     aria-modal="true"
+     aria-labelledby="modal-title"
+     tabindex="-1"&gt;
+     
+    &lt;div class="modal-content"&gt;
+        &lt;h2 id="modal-title"&gt;Editar Perfil&lt;/h2&gt;
+        
+        &lt;form&gt;
+            &lt;label for="modal-name"&gt;Nome:&lt;/label&gt;
+            &lt;input type="text" id="modal-name" name="name"&gt;
+            
+            &lt;label for="modal-email"&gt;E-mail:&lt;/label&gt;
+            &lt;input type="email" id="modal-email" name="email"&gt;
+            
+            &lt;div class="modal-actions"&gt;
+                &lt;button type="button" onclick="closeModal()"&gt;Cancelar&lt;/button&gt;
+                &lt;button type="submit"&gt;Salvar&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+        
+        &lt;button class="modal-close" 
+                aria-label="Fechar modal"
+                onclick="closeModal()"&gt;×&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+class FocusTrap {
+    constructor(element) {
+        this.element = element;
+        this.focusableElements = this.getFocusableElements();
+        this.firstFocusable = this.focusableElements[0];
+        this.lastFocusable = this.focusableElements[this.focusableElements.length - 1];
+        this.previousFocus = document.activeElement;
+    }
+    
+    getFocusableElements() {
+        const selectors = [
+            'button:not([disabled])',
+            'input:not([disabled])',
+            'select:not([disabled])',
+            'textarea:not([disabled])',
+            'a[href]',
+            '[tabindex]:not([tabindex="-1"])'
+        ].join(', ');
+        
+        return Array.from(this.element.querySelectorAll(selectors));
+    }
+    
+    activate() {
+        this.element.addEventListener('keydown', this.handleKeyDown.bind(this));
+        this.firstFocusable.focus();
+    }
+    
+    deactivate() {
+        this.element.removeEventListener('keydown', this.handleKeyDown);
+        this.previousFocus.focus();
+    }
+    
+    handleKeyDown(event) {
+        if (event.key === 'Tab') {
+            if (event.shiftKey) {
+                // Shift + Tab - voltar
+                if (document.activeElement === this.firstFocusable) {
+                    event.preventDefault();
+                    this.lastFocusable.focus();
+                }
+            } else {
+                // Tab - avançar
+                if (document.activeElement === this.lastFocusable) {
+                    event.preventDefault();
+                    this.firstFocusable.focus();
+                }
+            }
+        } else if (event.key === 'Escape') {
+            this.deactivate();
+            closeModal();
+        }
+    }
+}
+
+let currentFocusTrap;
+
+function openModal() {
+    const modal = document.getElementById('modal');
+    modal.style.display = 'block';
+    
+    // Criar e ativar focus trap
+    currentFocusTrap = new FocusTrap(modal);
+    currentFocusTrap.activate();
+    
+    // Prevenir scroll da página de fundo
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    const modal = document.getElementById('modal');
+    modal.style.display = 'none';
+    
+    // Desativar focus trap
+    if (currentFocusTrap) {
+        currentFocusTrap.deactivate();
+        currentFocusTrap = null;
+    }
+    
+    // Restaurar scroll
+    document.body.style.overflow = 'auto';
+}
+&lt;/script&gt;</code></pre>
+            </div>
+
+            <h3>🧭 Skip Links Avançados</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Skip links no topo da página --&gt;
+&lt;nav class="skip-links" aria-label="Links de navegação rápida"&gt;
+    &lt;a href="#main-content"&gt;Pular para conteúdo principal&lt;/a&gt;
+    &lt;a href="#main-navigation"&gt;Pular para navegação&lt;/a&gt;
+    &lt;a href="#search"&gt;Pular para busca&lt;/a&gt;
+    &lt;a href="#sidebar"&gt;Pular para barra lateral&lt;/a&gt;
+    &lt;a href="#footer"&gt;Pular para rodapé&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;style&gt;
+.skip-links {
+    position: absolute;
+    top: -200px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: #000;
+    text-align: center;
+}
+
+.skip-links:focus-within {
+    top: 0;
+}
+
+.skip-links a {
+    display: inline-block;
+    color: #fff;
+    background: #000;
+    padding: 12px 16px;
+    text-decoration: none;
+    margin: 0 4px;
+    border-radius: 0 0 4px 4px;
+    transition: background-color 0.3s;
+}
+
+.skip-links a:focus {
+    background: #007bff;
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+/* Estilo de foco visível para todos os elementos interativos */
+button:focus,
+input:focus,
+select:focus,
+textarea:focus,
+a:focus,
+[tabindex]:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+/* Indicador de foco personalizado */
+.focus-indicator {
+    position: relative;
+}
+
+.focus-indicator:focus::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 2px solid #007bff;
+    border-radius: 4px;
+    pointer-events: none;
+}
+
+/* Ordem de tabulação customizada */
+.custom-tab-order {
+    /* Use tabindex para controlar ordem quando necessário */
+}
+
+.first-tab { tabindex: 1; }
+.second-tab { tabindex: 2; }
+.third-tab { tabindex: 3; }
+&lt;/style&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Exercício 3 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 3: Aplicação Complexa Acessível</h4>
+            <p>
+                Desenvolva uma aplicação to-do acessível com:
+            </p>
+            <ul>
+                <li>Navegação completa por teclado</li>
+                <li>Focus management inteligente</li>
+                <li>Anúncios de mudanças de estado</li>
+                <li>Atalhos de teclado úteis</li>
+                <li>Compatibilidade com screen readers</li>
+            </ul>
+        </div>
+
+        <!-- Seção 4: Testes e Ferramentas -->
+        <section class="secao">
+            <h2>🧪 4. Testes de Acessibilidade</h2>
+            
+            <div class="explicacao">
+                <h4>🔬 A Ciência da Validação Acessível</h4>
+                <p>
+                    Testar acessibilidade é como <strong>"controle de qualidade"</strong> para inclusão. 
+                    Não basta implementar ARIA e torcer para funcionar - é preciso validar com 
+                    ferramentas automáticas, testes manuais e, idealmente, usuários reais.
+                </p>
+                <p>
+                    <strong>Pirâmide de testes de acessibilidade:</strong>
+                </p>
+                <ol>
+                    <li>🤖 <strong>Automáticos (30%):</strong> axe, Lighthouse - detectam problemas óbvios</li>
+                    <li>�‍💻 <strong>Manuais (40%):</strong> Navegação por teclado, leitores de tela</li>
+                    <li>👥 <strong>Usuários reais (30%):</strong> Pessoas com deficiência testando</li>
+                </ol>
+                <p>
+                    <strong>Realidade importante:</strong> Ferramentas automáticas detectam apenas 
+                    <strong>20-30% dos problemas</strong> de acessibilidade. O resto precisa de olho humano!
+                </p>
+                <p>
+                    <strong>Frequência ideal:</strong> Testes automáticos em cada build, manuais 
+                    semanalmente, usuários reais antes de releases importantes.
+                </p>
+            </div>
+            
+            <h3>�🛠️ Ferramentas de Teste</h3>
+            <div class="explicacao">
+                <h4>🧰 Seu Kit de Ferramentas Essencial</h4>
+                <p>
+                    Cada ferramenta tem sua <strong>especialidade</strong>, como médicos especialistas. 
+                    axe é o "clínico geral", WAVE é o "radiologista", e leitores de tela são os 
+                    "especialistas em experiência real".
+                </p>
+                <p>
+                    <strong>Ranking das ferramentas por utilidade:</strong>
+                </p>
+                <ol>
+                    <li>🥇 <strong>axe DevTools:</strong> Mais preciso, menos falsos positivos</li>
+                    <li>🥈 <strong>Lighthouse:</strong> Integrado ao Chrome, fácil de usar</li>
+                    <li>🥉 <strong>WAVE:</strong> Visual, bom para iniciantes</li>
+                    <li>🏅 <strong>Screen readers:</strong> NVDA (grátis), JAWS (pago), VoiceOver (Mac/iOS)</li>
+                </ol>
+                <p>
+                    <strong>Workflow profissional:</strong> Comece com axe para encontrar problemas 
+                    óbvios, depois teste manualmente com teclado e leitor de tela.
+                </p>
+            </div>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Instalar extensões do navegador --&gt;
+&lt;!-- 
+1. axe DevTools (Deque Systems)
+2. WAVE (Web Accessibility Evaluation Tool)
+3. Lighthouse (Google)
+4. Color Contrast Analyzer
+5. Screen Reader Testing
+--&gt;
+
+&lt;!-- Teste automatizado com axe-core --&gt;
+&lt;script src="https://unpkg.com/axe-core@latest/axe.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+// Executar auditoria de acessibilidade
+axe.run(document, {
+    tags: ['wcag2a', 'wcag2aa', 'wcag21aa']
+}).then(results =&gt; {
+    if (results.violations.length === 0) {
+        console.log('✅ Nenhuma violação de acessibilidade encontrada!');
+    } else {
+        console.log('❌ Violações encontradas:', results.violations);
+        
+        results.violations.forEach(violation =&gt; {
+            console.group(`🚨 ${violation.description}`);
+            console.log(`Impacto: ${violation.impact}`);
+            console.log(`Ajuda: ${violation.helpUrl}`);
+            
+            violation.nodes.forEach(node =&gt; {
+                console.log(`Elemento: ${node.target[0]}`);
+                console.log(`HTML: ${node.html}`);
+            });
+            console.groupEnd();
+        });
+    }
+});
+&lt;/script&gt;</code></pre>
+            </div>
+
+            <h3>📋 Checklist de Testes Manuais</h3>
+            <div class="explicacao">
+                <h4>✅ A Lista Definitiva de Verificação</h4>
+                <p>
+                    Um checklist de acessibilidade é como uma <strong>"lista de pré-voo"</strong> de piloto - 
+                    sem ela, você pode esquecer algo crítico. Esta lista cobre os pontos que 
+                    ferramentas automáticas não conseguem detectar.
+                </p>
+                <p>
+                    <strong>Como usar este checklist:</strong>
+                </p>
+                <ol>
+                    <li>🖱️ <strong>Primeiro sem mouse:</strong> Desconecte o mouse e navegue só com teclado</li>
+                    <li>👁️ <strong>Depois sem visão:</strong> Feche os olhos e use leitor de tela</li>
+                    <li>🎨 <strong>Então sem cores:</strong> Use modo alto contraste ou escala de cinza</li>
+                    <li>📱 <strong>Por fim responsivo:</strong> Teste em diferentes tamanhos de tela</li>
+                </ol>
+                <p>
+                    <strong>Dica profissional:</strong> Grave sua navegação por teclado em vídeo. 
+                    Você vai se surpreender com quantos problemas só percebe assistindo depois!
+                </p>
+                <p>
+                    <strong>Tempo necessário:</strong> Uma auditoria completa leva 2-4 horas para 
+                    um site médio, mas evita semanas de retrabalho depois.
+                </p>
+            </div>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;section aria-labelledby="checklist-title"&gt;
+    &lt;h3 id="checklist-title"&gt;Lista de Verificação Manual&lt;/h3&gt;
+    
+    &lt;form&gt;
+        &lt;fieldset&gt;
+            &lt;legend&gt;🖱️ Navegação por Teclado&lt;/legend&gt;
+            
+            &lt;label&gt;
+                &lt;input type="checkbox" name="keyboard[]" value="tab-order"&gt;
+                Ordem de tabulação lógica
+            &lt;/label&gt;
+            
+            &lt;label&gt;
+                &lt;input type="checkbox" name="keyboard[]" value="focus-visible"&gt;
+                Indicador de foco visível em todos os elementos
+            &lt;/label&gt;
+            
+            &lt;label&gt;
+                &lt;input type="checkbox" name="keyboard[]" value="skip-links"&gt;
+                Skip links funcionando
+            &lt;/label&gt;
+            
+            &lt;label&gt;
+                &lt;input type="checkbox" name="keyboard[]" value="focus-trap"&gt;
+                Focus trap em modais/dialogs
+            &lt;/label&gt;
+            
+            &lt;label&gt;
+                &lt;input type="checkbox" name="keyboard[]" value="keyboard-shortcuts"&gt;
+                Atalhos de teclado documentados
+            &lt;/label&gt;
+        &lt;/fieldset&gt;
+        
+        &lt;fieldset&gt;
+            &lt;legend&gt;👁️ Conteúdo Visual&lt;/legend&gt;
+            
+            &lt;label&gt;
+                &lt;input type="checkbox" name="visual[]" value="alt-text"&gt;
+                Texto alternativo em todas as imagens informativas
+            &lt;/label&gt;
+            
+            &lt;label&gt;
+                &lt;input type="checkbox" name="visual[]" value="contrast"&gt;
+                Contraste mínimo 4.5:1 para texto normal
+            &lt;/label&gt;
+            
+            &lt;label&gt;
+                &lt;input type="checkbox" name="visual[]" value="color-only"&gt;
+                Informação não dependente apenas de cor
+            &lt;/label&gt;
+            
+            &lt;label&gt;
+                &lt;input type="checkbox" name="visual[]" value="zoom"&gt;
+                Conteúdo legível com zoom até 200%
+            &lt;/label&gt;
+        &lt;/fieldset&gt;
+        
+        &lt;fieldset&gt;
+            &lt;legend&gt;📱 Screen Reader&lt;/legend&gt;
+            
+            &lt;label&gt;
+                &lt;input type="checkbox" name="screen-reader[]" value="headings"&gt;
+                Estrutura de cabeçalhos lógica (H1-H6)
+            &lt;/label&gt;
+            
+            &lt;label&gt;
+                &lt;input type="checkbox" name="screen-reader[]" value="landmarks"&gt;
+                Landmarks ARIA identificados
+            &lt;/label&gt;
+            
+            &lt;label&gt;
+                &lt;input type="checkbox" name="screen-reader[]" value="labels"&gt;
+                Todos os formulários têm labels
+            &lt;/label&gt;
+            
+            &lt;label&gt;
+                &lt;input type="checkbox" name="screen-reader[]" value="live-regions"&gt;
+                Mudanças dinâmicas anunciadas
+            &lt;/label&gt;
+        &lt;/fieldset&gt;
+        
+        &lt;fieldset&gt;
+            &lt;legend&gt;🧠 Usabilidade Cognitiva&lt;/legend&gt;
+            
+            &lt;label&gt;
+                &lt;input type="checkbox" name="cognitive[]" value="language"&gt;
+                Linguagem clara e simples
+            &lt;/label&gt;
+            
+            &lt;label&gt;
+                &lt;input type="checkbox" name="cognitive[]" value="instructions"&gt;
+                Instruções claras para tarefas complexas
+            &lt;/label&gt;
+            
+            &lt;label&gt;
+                &lt;input type="checkbox" name="cognitive[]" value="error-prevention"&gt;
+                Prevenção e correção de erros
+            &lt;/label&gt;
+            
+            &lt;label&gt;
+                &lt;input type="checkbox" name="cognitive[]" value="timeout"&gt;
+                Tempo suficiente para completar tarefas
+            &lt;/label&gt;
+        &lt;/fieldset&gt;
+        
+        &lt;button type="submit"&gt;Gerar Relatório de Acessibilidade&lt;/button&gt;
+    &lt;/form&gt;
+&lt;/section&gt;</code></pre>
+            </div>
+
+            <h3>🔧 Configuração de Screen Readers</h3>
+            <div class="explicacao">
+                <h4>🎧 Entrando no Mundo dos Leitores de Tela</h4>
+                <p>
+                    Testar com screen readers é como <strong>"aprender um novo idioma"</strong> - no início 
+                    parece confuso, mas depois você entende como milhões de pessoas navegam na web. 
+                    É a diferença entre "achar que funciona" e "saber que funciona".
+                </p>
+                <p>
+                    <strong>Por que testar com screen readers:</strong>
+                </p>
+                <ul>
+                    <li>🎯 <strong>Realidade dos usuários:</strong> Como PCDs realmente usam seu site</li>
+                    <li>🔍 <strong>Problemas invisíveis:</strong> Issues que ferramentas automáticas não detectam</li>
+                    <li>💡 <strong>Insights de UX:</strong> Descobre fluxos confusos e melhorias</li>
+                    <li>📚 <strong>Educação:</strong> Torna você um desenvolvedor mais consciente</li>
+                </ul>
+                <p>
+                    <strong>Expectativa vs realidade:</strong> Primeira vez vai ser frustrante e lento. 
+                    Isso é normal! Usuários experientes são 10x mais rápidos que você.
+                </p>
+                <p>
+                    <strong>Dica de ouro:</strong> Comece testando sites que você conhece bem 
+                    (Google, YouTube) para entender os comandos antes de testar seus projetos.
+                </p>
+            </div>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Guia de teste com screen readers --&gt;
+&lt;section aria-labelledby="screen-reader-guide"&gt;
+    &lt;h3 id="screen-reader-guide"&gt;Testando com Leitores de Tela&lt;/h3&gt;
+    
+    &lt;div class="platform-guides"&gt;
+        &lt;article&gt;
+            &lt;h4&gt;🪟 Windows - NVDA (Gratuito)&lt;/h4&gt;
+            &lt;ol&gt;
+                &lt;li&gt;Baixe NVDA em &lt;a href="https://www.nvaccess.org"&gt;nvaccess.org&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;Instale e configure voz em português&lt;/li&gt;
+                &lt;li&gt;Comandos básicos:
+                    &lt;ul&gt;
+                        &lt;li&gt;&lt;kbd&gt;NVDA + F12&lt;/kbd&gt;: Parar/iniciar fala&lt;/li&gt;
+                        &lt;li&gt;&lt;kbd&gt;H&lt;/kbd&gt;: Navegar por cabeçalhos&lt;/li&gt;
+                        &lt;li&gt;&lt;kbd&gt;D&lt;/kbd&gt;: Navegar por landmarks&lt;/li&gt;
+                        &lt;li&gt;&lt;kbd&gt;F&lt;/kbd&gt;: Navegar por campos de formulário&lt;/li&gt;
+                        &lt;li&gt;&lt;kbd&gt;B&lt;/kbd&gt;: Navegar por botões&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/article&gt;
+        
+        &lt;article&gt;
+            &lt;h4&gt;🍎 macOS - VoiceOver (Nativo)&lt;/h4&gt;
+            &lt;ol&gt;
+                &lt;li&gt;Ativar: &lt;kbd&gt;Cmd + F5&lt;/kbd&gt; ou Configurações &gt; Acessibilidade&lt;/li&gt;
+                &lt;li&gt;Comandos básicos:
+                    &lt;ul&gt;
+                        &lt;li&gt;&lt;kbd&gt;VO + Setas&lt;/kbd&gt;: Navegar&lt;/li&gt;
+                        &lt;li&gt;&lt;kbd&gt;VO + Espaço&lt;/kbd&gt;: Ativar&lt;/li&gt;
+                        &lt;li&gt;&lt;kbd&gt;VO + U&lt;/kbd&gt;: Rotor (navegar por elementos)&lt;/li&gt;
+                        &lt;li&gt;&lt;kbd&gt;VO + H&lt;/kbd&gt;: Próximo cabeçalho&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/article&gt;
+        
+        &lt;article&gt;
+            &lt;h4&gt;📱 Mobile - TalkBack/VoiceOver&lt;/h4&gt;
+            &lt;ol&gt;
+                &lt;li&gt;&lt;strong&gt;Android TalkBack:&lt;/strong&gt; Configurações &gt; Acessibilidade&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;iOS VoiceOver:&lt;/strong&gt; Configurações &gt; Acessibilidade&lt;/li&gt;
+                &lt;li&gt;Teste gestos básicos: deslizar para navegar, tocar duas vezes para ativar&lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/article&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="testing-scenarios"&gt;
+        &lt;h4&gt;🧪 Cenários de Teste&lt;/h4&gt;
+        &lt;ol&gt;
+            &lt;li&gt;&lt;strong&gt;Navegação estrutural:&lt;/strong&gt; Use cabeçalhos para navegar&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;Preenchimento de formulários:&lt;/strong&gt; Teste labels e instruções&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;Interação com componentes:&lt;/strong&gt; Buttons, modals, tabs&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;Feedback dinâmico:&lt;/strong&gt; Verificar anúncios de mudanças&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;Tabelas:&lt;/strong&gt; Navegação por células e cabeçalhos&lt;/li&gt;
+        &lt;/ol&gt;
+    &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Exercício 4 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 4: Auditoria Completa</h4>
+            <p>
+                Faça uma auditoria completa de acessibilidade:
+            </p>
+            <ul>
+                <li>Use ferramentas automáticas (axe, WAVE, Lighthouse)</li>
+                <li>Teste manual com checklist completo</li>
+                <li>Teste com múltiplos screen readers</li>
+                <li>Teste navegação apenas por teclado</li>
+                <li>Documente e priorize correções necessárias</li>
+                <li>Implemente correções e re-teste</li>
+            </ul>
+        </div>
+
+        <!-- Resumo da Aula -->
+        <section class="secao">
+            <h2>📋 Resumo da Aula</h2>
+            
+            <div class="recursos">
+                <div class="recurso-card">
+                    <h4>🌍 Fundamentos</h4>
+                    <p>Princípios WCAG 2.1, inclusão digital e benefícios para todos.</p>
+                </div>
+                
+                <div class="recurso-card">
+                    <h4>🎭 ARIA</h4>
+                    <p>Roles, properties, states e live regions para apps dinâmicas.</p>
+                </div>
+                
+                <div class="recurso-card">
+                    <h4>⌨️ Teclado</h4>
+                    <p>Focus management, skip links e navegação eficiente.</p>
+                </div>
+                
+                <div class="recurso-card">
+                    <h4>🧪 Testes</h4>
+                    <p>Ferramentas automáticas, testes manuais e screen readers.</p>
+                </div>
+            </div>
+
+            <div class="checklist">
+                <h4>✅ Checklist de Acessibilidade</h4>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="a11y1">
+                        <label for="a11y1">Todas as imagens têm texto alternativo apropriado</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="a11y2">
+                        <label for="a11y2">Contraste de cores atende WCAG AA (4.5:1)</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="a11y3">
+                        <label for="a11y3">Navegação completa por teclado funciona</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="a11y4">
+                        <label for="a11y4">ARIA implementado corretamente</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="a11y5">
+                        <label for="a11y5">Testado com screen reader</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="a11y6">
+                        <label for="a11y6">Auditoria automática passou (axe/WAVE)</label>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Navegação do Curso -->
+        <nav class="course-navigation">
+            <div class="nav-buttons">
+                <a href="aula-08-html-semantico.html" class="nav-btn secondary">
+                    ← 🏗️ Aula Anterior
+                </a>
+                <a href="aula-10-seo-metatags.html" class="nav-btn primary">
+                    📈 Próxima Aula →
+                </a>
+            </div>
+        </nav>
+
+        <!-- Footer da Aula -->
+        <footer class="aula-footer">
+            <h3>🎉 Acessibilidade Dominada!</h3>
+            <p>
+                Excelente! Agora você pode criar sites verdadeiramente inclusivos. 
+                Na próxima aula, vamos trabalhar com SEO e meta tags.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Marcar como concluída
+            function marcarAulaConcluida() {
+                const progresso = JSON.parse(localStorage.getItem('curso-html-progresso') || '[]');
+                if (!progresso.includes(9)) {
+                    progresso.push(9);
+                    localStorage.setItem('curso-html-progresso', JSON.stringify(progresso));
+                }
+            }
+
+            // Observer para footer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        marcarAulaConcluida();
+                    }
+                });
+            });
+            
+            const footer = document.querySelector('.aula-footer');
+            if (footer) {
+                observer.observe(footer);
+            }
+
+            // Gerenciar checklist
+            const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
+            checkboxes.forEach((checkbox, index) => {
+                const saved = localStorage.getItem(`aula-9-a11y-${index}`);
+                if (saved === 'true') {
+                    checkbox.checked = true;
+                }
+                
+                checkbox.addEventListener('change', () => {
+                    localStorage.setItem(`aula-9-a11y-${index}`, checkbox.checked);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎨 Aula 1: Fundamentos CSS</title>
+    <meta name="description" content="Aprenda os fundamentos do CSS: sintaxe, seletores básicos e primeiras propriedades de estilização.">
+    <link rel="stylesheet" href="assets/style-aulas.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>">
+</head>
+<body>
+    <div class="aula-container">
+        <!-- Header da Aula -->
+        <header class="aula-header">
+            <div class="aula-numero">🎨 AULA 1</div>
+            <h1 class="aula-titulo">Fundamentos CSS</h1>
+            <p class="aula-descricao">
+                Descubra o poder do CSS! Aprenda a sintaxe fundamental, 
+                seletores básicos e como dar vida visual aos seus documentos HTML.
+            </p>
+            <div class="aula-meta">
+                <div class="meta-item">
+                    <span>⏱️</span> <span>50 min</span>
+                </div>
+                <div class="meta-item">
+                    <span>🎯</span> <span>Iniciante</span>
+                </div>
+                <div class="meta-item">
+                    <span>🎨</span> <span>Design Visual</span>
+                </div>
+                <div class="meta-item">
+                    <span>💻</span> <span>Hands-on</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Objetivos da Aula -->
+        <section class="secao">
+            <h2>🎯 Objetivos de Aprendizagem</h2>
+            
+            <div class="objetivos">
+                <div class="objetivo">
+                    <h4>🎨 Compreender CSS</h4>
+                    <p>Entender o que é CSS, sua função e importância no desenvolvimento web</p>
+                </div>
+                
+                <div class="objetivo">
+                    <h4>📝 Dominar a Sintaxe</h4>
+                    <p>Aprender a estrutura básica: seletores, propriedades e valores</p>
+                </div>
+                
+                <div class="objetivo">
+                    <h4>🎯 Seletores Básicos</h4>
+                    <p>Usar seletores de elemento, classe e ID de forma eficiente</p>
+                </div>
+                
+                <div class="objetivo">
+                    <h4>🔗 Conectar CSS ao HTML</h4>
+                    <p>Conhecer métodos de inclusão: inline, interno e externo</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conceitos Principais -->
+        <section class="secao">
+            <h2>📚 O que é CSS?</h2>
+            
+            <p>
+                <strong>CSS (Cascading Style Sheets)</strong> é a linguagem responsável pela 
+                <em>apresentação visual</em> dos documentos HTML. Enquanto o HTML define a 
+                estrutura e o conteúdo, o CSS define cores, layouts, tipografia e animações.
+            </p>
+
+            <div class="destaque info">
+                <h4>🎨 CSS = Beleza + Funcionalidade</h4>
+                <p>
+                    CSS não é apenas sobre decoração. É sobre criar interfaces <strong>funcionais</strong>, 
+                    <strong>acessíveis</strong> e <strong>responsivas</strong> que proporcionam 
+                    excelente experiência ao usuário.
+                </p>
+            </div>
+
+            <h3>🔧 A Sintaxe Fundamental</h3>
+            
+            <p>Toda regra CSS segue este padrão básico:</p>
+
+            <div class="codigo">
+                <h4>Estrutura de uma Regra CSS</h4>
+                <pre><code>seletor {
+    propriedade: valor;
+    propriedade2: valor2;
+}</code></pre>
+            </div>
+
+            <div class="recursos">
+                <div class="recurso-card">
+                    <h4>🎯 Seletor</h4>
+                    <p>Define <strong>qual elemento</strong> será estilizado</p>
+                </div>
+
+                <div class="recurso-card">
+                    <h4>🏷️ Propriedade</h4>
+                    <p>Define <strong>o que</strong> será alterado (cor, tamanho, etc.)</p>
+                </div>
+
+                <div class="recurso-card">
+                    <h4>✨ Valor</h4>
+                    <p>Define <strong>como</strong> a propriedade será aplicada</p>
+                </div>
+
+                <div class="recurso-card">
+                    <h4>🔧 Declaração</h4>
+                    <p>Conjunto completo <code>propriedade: valor;</code></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seletores Básicos -->
+        <section class="secao">
+            <h2>🎯 Seletores Básicos</h2>
+
+            <h3>1. 🏷️ Seletor de Elemento</h3>
+            <p>Seleciona todos os elementos HTML do tipo especificado:</p>
+
+            <div class="codigo">
+                <h4>Estilizando Parágrafos</h4>
+                <pre><code>p {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+}</code></pre>
+            </div>
+
+            <h3>2. 🆔 Seletor de ID</h3>
+            <p>Seleciona um elemento único com ID específico (usa #):</p>
+
+            <div class="codigo">
+                <h4>Estilizando por ID</h4>
+                <pre><code>/* HTML: &lt;h1 id="titulo-principal"&gt;Meu Título&lt;/h1&gt; */
+#titulo-principal {
+    color: #2c3e50;
+    font-size: 2.5em;
+    text-align: center;
+}</code></pre>
+            </div>
+
+            <h3>3. 🎯 Seletor de Classe</h3>
+            <p>Seleciona elementos com classe específica (usa .):</p>
+
+            <div class="codigo">
+                <h4>Estilizando por Classe</h4>
+                <pre><code>/* HTML: &lt;p class="destaque"&gt;Texto importante&lt;/p&gt; */
+.destaque {
+    background-color: #fff3cd;
+    padding: 15px;
+    border-left: 4px solid #ffc107;
+    font-weight: bold;
+}</code></pre>
+            </div>
+
+            <div class="destaque tip">
+                <h4>💡 Dica Importante</h4>
+                <ul>
+                    <li><strong>ID:</strong> Use para elementos únicos na página</li>
+                    <li><strong>Classe:</strong> Use para elementos que se repetem ou grupos</li>
+                    <li><strong>Elemento:</strong> Use para estilização global de tags HTML</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Formas de Incluir CSS -->
+        <section class="secao">
+            <h2>🔗 Como Incluir CSS no HTML</h2>
+
+            <div class="recursos">
+                <div class="recurso-card">
+                    <h4>1. 📄 CSS Externo (Recomendado)</h4>
+                    <div class="codigo">
+                        <pre><code>&lt;link rel="stylesheet" href="styles.css"&gt;</code></pre>
+                    </div>
+                    <p><strong>✅ Vantagens:</strong> Reutilizável, organizável, cacheable</p>
+                </div>
+
+                <div class="recurso-card">
+                    <h4>2. 📝 CSS Interno</h4>
+                    <div class="codigo">
+                        <pre><code>&lt;style&gt;
+    body { font-family: Arial; }
+&lt;/style&gt;</code></pre>
+                    </div>
+                    <p><strong>⚠️ Uso:</strong> Páginas únicas ou estilos específicos</p>
+                </div>
+
+                <div class="recurso-card">
+                    <h4>3. 🎨 CSS Inline</h4>
+                    <div class="codigo">
+                        <pre><code>&lt;p style="color: red;"&gt;Texto&lt;/p&gt;</code></pre>
+                    </div>
+                    <p><strong>❌ Evitar:</strong> Dificulta manutenção e organização</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exercício Prático -->
+        <section class="secao">
+            <h2>💻 Exercício Prático</h2>
+
+            <div class="exercicio">
+                <h3>🎨 Criando seu primeiro CSS</h3>
+                <p>Vamos criar uma página simples e estilizá-la com CSS!</p>
+
+                <div class="passo">
+                    <h4>📄 1. Crie o arquivo HTML (index.html)</h4>
+                    <div class="codigo">
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Minha Primeira Página com CSS&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1 id="titulo"&gt;Bem-vindo ao CSS!&lt;/h1&gt;
+    &lt;p class="introducao"&gt;Este é meu primeiro parágrafo estilizado.&lt;/p&gt;
+    &lt;p&gt;Este é um parágrafo normal.&lt;/p&gt;
+    &lt;div class="caixa-destaque"&gt;
+        &lt;h2&gt;CSS é Incrível!&lt;/h2&gt;
+        &lt;p&gt;Com CSS posso criar designs profissionais.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div class="passo">
+                    <h4>🎨 2. Crie o arquivo CSS (styles.css)</h4>
+                    <div class="codigo">
+                        <pre><code>/* Estilo global para o body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+/* Estilo para o título principal */
+#titulo {
+    color: #2c3e50;
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+/* Estilo para parágrafo de introdução */
+.introducao {
+    font-size: 1.2em;
+    color: #34495e;
+    background-color: #ecf0f1;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+/* Estilo para todos os parágrafos */
+p {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Estilo para a caixa de destaque */
+.caixa-destaque {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+.caixa-destaque h2 {
+    margin-top: 0;
+    color: #ecf0f1;
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="checklist">
+                    <h4>✅ Checklist do Exercício</h4>
+                    <label>
+                        <input type="checkbox"> Criar arquivo index.html com a estrutura fornecida
+                    </label>
+                    <label>
+                        <input type="checkbox"> Criar arquivo styles.css com os estilos
+                    </label>
+                    <label>
+                        <input type="checkbox"> Abrir a página no navegador
+                    </label>
+                    <label>
+                        <input type="checkbox"> Experimentar mudar cores e tamanhos
+                    </label>
+                    <label>
+                        <input type="checkbox"> Adicionar novos estilos pessoais
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dicas e Melhores Práticas -->
+        <section class="secao">
+            <h2>💡 Dicas e Melhores Práticas</h2>
+
+            <div class="recursos">
+                <div class="recurso-card">
+                    <h4>📋 Organização</h4>
+                    <ul>
+                        <li>Sempre use CSS externo</li>
+                        <li>Organize estilos por seções</li>
+                        <li>Use comentários descritivos</li>
+                        <li>Mantenha consistência na nomenclatura</li>
+                    </ul>
+                </div>
+
+                <div class="recurso-card">
+                    <h4>🎯 Seletores</h4>
+                    <ul>
+                        <li>Prefira classes a IDs</li>
+                        <li>Use nomes semânticos e descritivos</li>
+                        <li>Evite seletores muito específicos</li>
+                        <li>Mantenha simplicidade</li>
+                    </ul>
+                </div>
+
+                <div class="recurso-card">
+                    <h4>🔧 Código Limpo</h4>
+                    <ul>
+                        <li>Indentação consistente</li>
+                        <li>Uma propriedade por linha</li>
+                        <li>Espaços após dois pontos</li>
+                        <li>Ordem lógica das propriedades</li>
+                    </ul>
+                </div>
+
+                <div class="recurso-card">
+                    <h4>🚀 Performance</h4>
+                    <ul>
+                        <li>Evite !important</li>
+                        <li>Minimize CSS não utilizado</li>
+                        <li>Use shorthand properties</li>
+                        <li>Otimize seletores complexos</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Desafio Extra -->
+        <section class="secao">
+            <h2>🏆 Desafio Extra</h2>
+
+            <div class="destaque challenge">
+                <h4>🎨 Crie seu Cartão Pessoal</h4>
+                <p>
+                    Usando apenas HTML e CSS, crie um cartão pessoal com:
+                </p>
+                <ul>
+                    <li>Seu nome em destaque</li>
+                    <li>Uma cor de fundo interessante</li>
+                    <li>Informações pessoais estilizadas</li>
+                    <li>Bordas arredondadas</li>
+                    <li>Sombra sutil</li>
+                </ul>
+                
+                <p><strong>💡 Dica:</strong> Explore propriedades como <code>border-radius</code>, 
+                <code>box-shadow</code> e <code>text-shadow</code>!</p>
+            </div>
+        </section>
+
+        <!-- Recursos Adicionais -->
+        <section class="secao">
+            <h2>📚 Recursos para Aprofundamento</h2>
+
+            <div class="tabela-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Recurso</th>
+                            <th>Descrição</th>
+                            <th>Nível</th>
+                            <th>Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>MDN CSS Reference</strong></td>
+                            <td>Documentação oficial completa</td>
+                            <td>Iniciante+</td>
+                            <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener">Acessar</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>CSS-Tricks</strong></td>
+                            <td>Tutoriais e dicas práticas</td>
+                            <td>Todos</td>
+                            <td><a href="https://css-tricks.com/" target="_blank" rel="noopener">Acessar</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>CodePen</strong></td>
+                            <td>Experimente CSS online</td>
+                            <td>Prático</td>
+                            <td><a href="https://codepen.io/" target="_blank" rel="noopener">Acessar</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Can I Use</strong></td>
+                            <td>Compatibilidade de propriedades</td>
+                            <td>Referência</td>
+                            <td><a href="https://caniuse.com/" target="_blank" rel="noopener">Acessar</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Navegação -->
+        <nav class="course-navigation">
+            <div class="nav-buttons">
+                <a href="index.html" class="nav-btn secondary">
+                    ← 📚 Voltar ao Curso
+                </a>
+                <a href="aula-02-seletores.html" class="nav-btn primary">
+                    🎯 Próxima Aula →
+                </a>
+            </div>
+        </nav>
+
+        <!-- Footer -->
+        <footer class="aula-footer">
+            <h3>🎉 Parabéns!</h3>
+            <p>
+                Você acabou de dar seus primeiros passos no mundo do CSS! 
+                Na próxima aula, vamos aprofundar os seletores e a especificidade.
+            </p>
+        </footer>
+    </div>
+
+    <!-- JavaScript para funcionalidades da aula -->
+    <script>
+        // Marcar aula como concluída
+        function marcarConcluida() {
+            const progresso = JSON.parse(localStorage.getItem('curso-css-progresso') || '[]');
+            if (!progresso.includes(1)) {
+                progresso.push(1);
+                localStorage.setItem('curso-css-progresso', JSON.stringify(progresso));
+                
+                // Feedback visual
+                const botao = document.querySelector('.nav-btn.primary');
+                if (botao) {
+                    botao.style.background = 'linear-gradient(135deg, #4caf50, #45a049)';
+                    botao.innerHTML = '✅ Aula Concluída - Próxima →';
+                }
+            }
+        }
+
+        // Interatividade dos checkboxes
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    this.parentElement.style.color = '#4caf50';
+                    this.parentElement.style.textDecoration = 'line-through';
+                } else {
+                    this.parentElement.style.color = '';
+                    this.parentElement.style.textDecoration = '';
+                }
+                
+                // Verificar se todos estão marcados
+                const todosCheckboxes = document.querySelectorAll('input[type="checkbox"]');
+                const todosMarcados = Array.from(todosCheckboxes).every(cb => cb.checked);
+                
+                if (todosMarcados) {
+                    marcarConcluida();
+                }
+            });
+        });
+
+        // Salvar estado dos checkboxes
+        document.querySelectorAll('input[type="checkbox"]').forEach((checkbox, index) => {
+            const saved = localStorage.getItem(`aula1-check-${index}`);
+            if (saved === 'true') {
+                checkbox.checked = true;
+                checkbox.dispatchEvent(new Event('change'));
+            }
+            
+            checkbox.addEventListener('change', function() {
+                localStorage.setItem(`aula1-check-${index}`, this.checked);
+            });
+        });
+
+        // Animação de entrada para os cards
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.recurso-card, .objetivo').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

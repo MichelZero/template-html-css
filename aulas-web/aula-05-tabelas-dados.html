@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 5: Tabelas e Dados - Curso HTML Fundamentals</title>
+    <meta name="description" content="Quinta aula do curso de HTML: domine tabelas acessíveis, estruturação de dados e responsividade.">
+    <link rel="stylesheet" href="assets/style-aulas.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
+</head>
+<body>
+    <div class="aula-container">
+        <!-- Navegação -->
+        <nav class="aula-nav">
+            <a href="aula-04-imagens-midia.html" class="nav-btn">
+                ← 🖼️ Aula Anterior
+            </a>
+            <a href="index.html" class="nav-btn">
+                📚 Curso
+            </a>
+            <a href="aula-06-formularios-basicos.html" class="nav-btn">
+                📋 Próxima Aula →
+            </a>
+        </nav>
+
+        <!-- Header da Aula -->
+        <header class="aula-header">
+            <div class="aula-numero">AULA 5</div>
+            <h1 class="aula-titulo">📊 Tabelas e Dados</h1>
+            <p class="aula-descricao">
+                Aprenda a estruturar dados de forma acessível e profissional usando tabelas HTML,
+                com foco em semântica, responsividade e usabilidade.
+            </p>
+            <div class="aula-meta">
+                <div class="meta-item">
+                    <span>⏱️</span> <span>50 minutos</span>
+                </div>
+                <div class="meta-item">
+                    <span>🎯</span> <span>Intermediário</span>
+                </div>
+                <div class="meta-item">
+                    <span>📝</span> <span>4 Exercícios</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Objetivos da Aula -->
+        <div class="objetivos">
+            <h3>🎯 Objetivos de Aprendizagem</h3>
+            <ul>
+                <li>Entender a estrutura semântica de tabelas</li>
+                <li>Criar tabelas acessíveis com cabeçalhos adequados</li>
+                <li>Implementar agrupamento de dados com tbody, thead e tfoot</li>
+                <li>Aplicar responsividade em tabelas</li>
+                <li>Usar atributos de escopo e acessibilidade</li>
+            </ul>
+        </div>
+
+        <!-- Seção 1: Estrutura Básica -->
+        <section class="secao">
+            <h2>🏗️ 1. Estrutura Básica de Tabelas</h2>
+            
+            <div class="destaque info">
+                <h4>🎯 Quando Usar Tabelas</h4>
+                <p>
+                    Tabelas devem ser usadas apenas para dados tabulares - informações que fazem 
+                    sentido em linhas e colunas. Nunca use tabelas para layout da página.
+                </p>
+            </div>
+
+            <h3>📋 Elementos Fundamentais</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!-- Tabela básica --&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Nome&lt;/th&gt;
+        &lt;th&gt;Idade&lt;/th&gt;
+        &lt;th&gt;Profissão&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Ana Silva&lt;/td&gt;
+        &lt;td&gt;28&lt;/td&gt;
+        &lt;td&gt;Desenvolvedora&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Carlos Santos&lt;/td&gt;
+        &lt;td&gt;35&lt;/td&gt;
+        &lt;td&gt;Designer&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+
+            <h3>🎯 Estrutura Semântica Completa</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;table&gt;
+    &lt;caption&gt;Funcionários da Empresa - Q1 2024&lt;/caption&gt;
+    
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th scope="col"&gt;ID&lt;/th&gt;
+            &lt;th scope="col"&gt;Nome Completo&lt;/th&gt;
+            &lt;th scope="col"&gt;Departamento&lt;/th&gt;
+            &lt;th scope="col"&gt;Salário&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;001&lt;/td&gt;
+            &lt;td&gt;Maria Fernanda Costa&lt;/td&gt;
+            &lt;td&gt;Tecnologia&lt;/td&gt;
+            &lt;td&gt;R$ 8.500&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;002&lt;/td&gt;
+            &lt;td&gt;João Pedro Oliveira&lt;/td&gt;
+            &lt;td&gt;Marketing&lt;/td&gt;
+            &lt;td&gt;R$ 6.200&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;003&lt;/td&gt;
+            &lt;td&gt;Patricia Lima&lt;/td&gt;
+            &lt;td&gt;Financeiro&lt;/td&gt;
+            &lt;td&gt;R$ 7.800&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+    
+    &lt;tfoot&gt;
+        &lt;tr&gt;
+            &lt;td colspan="3"&gt;&lt;strong&gt;Total Salários:&lt;/strong&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;strong&gt;R$ 22.500&lt;/strong&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+
+            <div class="destaque warning">
+                <h4>⚠️ Elementos Obrigatórios</h4>
+                <ul>
+                    <li><strong>&lt;table&gt;:</strong> Container principal da tabela</li>
+                    <li><strong>&lt;tr&gt;:</strong> Linha da tabela (table row)</li>
+                    <li><strong>&lt;th&gt;:</strong> Célula de cabeçalho (table header)</li>
+                    <li><strong>&lt;td&gt;:</strong> Célula de dados (table data)</li>
+                    <li><strong>&lt;caption&gt;:</strong> Título/descrição da tabela</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Exercício 1 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 1: Tabela de Produtos</h4>
+            <p>
+                Crie uma tabela completa de produtos com:
+            </p>
+            <ul>
+                <li>Caption descritivo</li>
+                <li>Cabeçalhos semânticos (nome, preço, categoria, estoque)</li>
+                <li>Pelo menos 5 produtos</li>
+                <li>Linha de totais no footer</li>
+            </ul>
+        </div>
+
+        <!-- Seção 2: Acessibilidade -->
+        <section class="secao">
+            <h2>♿ 2. Tabelas Acessíveis</h2>
+            
+            <h3>🎯 Atributo Scope</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;table&gt;
+    &lt;caption&gt;Vendas por Trimestre - 2024&lt;/caption&gt;
+    
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th scope="col"&gt;Produto&lt;/th&gt;
+            &lt;th scope="col"&gt;Q1&lt;/th&gt;
+            &lt;th scope="col"&gt;Q2&lt;/th&gt;
+            &lt;th scope="col"&gt;Q3&lt;/th&gt;
+            &lt;th scope="col"&gt;Q4&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;th scope="row"&gt;Notebooks&lt;/th&gt;
+            &lt;td&gt;150&lt;/td&gt;
+            &lt;td&gt;200&lt;/td&gt;
+            &lt;td&gt;180&lt;/td&gt;
+            &lt;td&gt;220&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th scope="row"&gt;Smartphones&lt;/th&gt;
+            &lt;td&gt;300&lt;/td&gt;
+            &lt;td&gt;350&lt;/td&gt;
+            &lt;td&gt;280&lt;/td&gt;
+            &lt;td&gt;400&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+
+            <h3>🏷️ Headers Complexos</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;table&gt;
+    &lt;caption&gt;Relatório de Vendas por Região e Produto&lt;/caption&gt;
+    
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th rowspan="2" scope="col"&gt;Produto&lt;/th&gt;
+            &lt;th colspan="2" scope="colgroup"&gt;Sudeste&lt;/th&gt;
+            &lt;th colspan="2" scope="colgroup"&gt;Sul&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th scope="col"&gt;SP&lt;/th&gt;
+            &lt;th scope="col"&gt;RJ&lt;/th&gt;
+            &lt;th scope="col"&gt;RS&lt;/th&gt;
+            &lt;th scope="col"&gt;SC&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;th scope="row"&gt;Notebooks&lt;/th&gt;
+            &lt;td&gt;120&lt;/td&gt;
+            &lt;td&gt;85&lt;/td&gt;
+            &lt;td&gt;95&lt;/td&gt;
+            &lt;td&gt;60&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th scope="row"&gt;Tablets&lt;/th&gt;
+            &lt;td&gt;80&lt;/td&gt;
+            &lt;td&gt;65&lt;/td&gt;
+            &lt;td&gt;70&lt;/td&gt;
+            &lt;td&gt;45&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+
+            <h3>🗣️ ARIA para Tabelas Complexas</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;table role="table" aria-label="Dados financeiros da empresa"&gt;
+    &lt;caption id="caption-financeiro"&gt;
+        Demonstrativo Financeiro - Último Trimestre
+        &lt;div&gt;Valores em milhares de reais&lt;/div&gt;
+    &lt;/caption&gt;
+    
+    &lt;thead&gt;
+        &lt;tr role="row"&gt;
+            &lt;th scope="col" aria-describedby="caption-financeiro"&gt;
+                Mês
+            &lt;/th&gt;
+            &lt;th scope="col"&gt;Receita&lt;/th&gt;
+            &lt;th scope="col"&gt;Despesas&lt;/th&gt;
+            &lt;th scope="col"&gt;Lucro&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    
+    &lt;tbody&gt;
+        &lt;tr role="row"&gt;
+            &lt;th scope="row"&gt;Janeiro&lt;/th&gt;
+            &lt;td&gt;R$ 150k&lt;/td&gt;
+            &lt;td&gt;R$ 120k&lt;/td&gt;
+            &lt;td&gt;R$ 30k&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+
+            <div class="destaque tip">
+                <h4>💡 Dicas de Acessibilidade</h4>
+                <ul>
+                    <li>Sempre use <code>&lt;caption&gt;</code> para descrever o propósito da tabela</li>
+                    <li>Use <code>scope="col"</code> e <code>scope="row"</code> corretamente</li>
+                    <li>Para tabelas complexas, use <code>headers</code> attribute</li>
+                    <li>Mantenha estrutura lógica de leitura</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Seção 3: Colspan e Rowspan -->
+        <section class="secao">
+            <h2>🔗 3. Mesclando Células</h2>
+            
+            <h3>↔️ Colspan - Mesclagem Horizontal</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;table&gt;
+    &lt;caption&gt;Cronograma do Projeto&lt;/caption&gt;
+    
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th scope="col"&gt;Fase&lt;/th&gt;
+            &lt;th scope="col"&gt;Jan&lt;/th&gt;
+            &lt;th scope="col"&gt;Fev&lt;/th&gt;
+            &lt;th scope="col"&gt;Mar&lt;/th&gt;
+            &lt;th scope="col"&gt;Abr&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;th scope="row"&gt;Planejamento&lt;/th&gt;
+            &lt;td colspan="2"&gt;Análise e Definição&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th scope="row"&gt;Desenvolvimento&lt;/th&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td colspan="3"&gt;Codificação e Testes&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th scope="row"&gt;Entrega&lt;/th&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td&gt;Deploy&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+
+            <h3>↕️ Rowspan - Mesclagem Vertical</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;table&gt;
+    &lt;caption&gt;Equipe por Departamento&lt;/caption&gt;
+    
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th scope="col"&gt;Departamento&lt;/th&gt;
+            &lt;th scope="col"&gt;Nome&lt;/th&gt;
+            &lt;th scope="col"&gt;Cargo&lt;/th&gt;
+            &lt;th scope="col"&gt;Experiência&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;th rowspan="3" scope="rowgroup"&gt;Tecnologia&lt;/th&gt;
+            &lt;td&gt;Ana Costa&lt;/td&gt;
+            &lt;td&gt;Tech Lead&lt;/td&gt;
+            &lt;td&gt;8 anos&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Bruno Silva&lt;/td&gt;
+            &lt;td&gt;Desenvolvedor&lt;/td&gt;
+            &lt;td&gt;5 anos&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Carla Santos&lt;/td&gt;
+            &lt;td&gt;QA&lt;/td&gt;
+            &lt;td&gt;3 anos&lt;/td&gt;
+        &lt;/tr&gt;
+        
+        &lt;tr&gt;
+            &lt;th rowspan="2" scope="rowgroup"&gt;Design&lt;/th&gt;
+            &lt;td&gt;Daniel Lima&lt;/td&gt;
+            &lt;td&gt;UI Designer&lt;/td&gt;
+            &lt;td&gt;6 anos&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Elena Rodrigues&lt;/td&gt;
+            &lt;td&gt;UX Designer&lt;/td&gt;
+            &lt;td&gt;4 anos&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+
+            <h3>🎯 Combinação Complexa</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;table&gt;
+    &lt;caption&gt;Relatório de Vendas por Região e Período&lt;/caption&gt;
+    
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th rowspan="2" scope="col"&gt;Região&lt;/th&gt;
+            &lt;th colspan="4" scope="colgroup"&gt;2024&lt;/th&gt;
+            &lt;th rowspan="2" scope="col"&gt;Total&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th scope="col"&gt;Q1&lt;/th&gt;
+            &lt;th scope="col"&gt;Q2&lt;/th&gt;
+            &lt;th scope="col"&gt;Q3&lt;/th&gt;
+            &lt;th scope="col"&gt;Q4&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;th scope="row"&gt;Norte&lt;/th&gt;
+            &lt;td&gt;120&lt;/td&gt;
+            &lt;td&gt;150&lt;/td&gt;
+            &lt;td&gt;140&lt;/td&gt;
+            &lt;td&gt;160&lt;/td&gt;
+            &lt;td&gt;&lt;strong&gt;570&lt;/strong&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th scope="row"&gt;Sul&lt;/th&gt;
+            &lt;td&gt;200&lt;/td&gt;
+            &lt;td&gt;220&lt;/td&gt;
+            &lt;td&gt;210&lt;/td&gt;
+            &lt;td&gt;240&lt;/td&gt;
+            &lt;td&gt;&lt;strong&gt;870&lt;/strong&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+    
+    &lt;tfoot&gt;
+        &lt;tr&gt;
+            &lt;th scope="row"&gt;Total Geral&lt;/th&gt;
+            &lt;td&gt;&lt;strong&gt;320&lt;/strong&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;strong&gt;370&lt;/strong&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;strong&gt;350&lt;/strong&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;strong&gt;400&lt;/strong&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;strong&gt;1440&lt;/strong&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Exercício 2 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 2: Horário Escolar</h4>
+            <p>
+                Crie uma tabela de horário escolar que use:
+            </p>
+            <ul>
+                <li>Rowspan para intervalos e almoço</li>
+                <li>Colspan para aulas duplas</li>
+                <li>Cabeçalhos semânticos para dias e horários</li>
+                <li>Estrutura acessível completa</li>
+            </ul>
+        </div>
+
+        <!-- Seção 4: Responsividade -->
+        <section class="secao">
+            <h2>📱 4. Tabelas Responsivas</h2>
+            
+            <h3>🔄 Scroll Horizontal</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;div class="table-container"&gt;
+    &lt;table class="table-responsive"&gt;
+        &lt;caption&gt;Dados de Vendas - Role horizontalmente para ver mais&lt;/caption&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th scope="col"&gt;Produto&lt;/th&gt;
+                &lt;th scope="col"&gt;Jan&lt;/th&gt;
+                &lt;th scope="col"&gt;Fev&lt;/th&gt;
+                &lt;th scope="col"&gt;Mar&lt;/th&gt;
+                &lt;th scope="col"&gt;Abr&lt;/th&gt;
+                &lt;th scope="col"&gt;Mai&lt;/th&gt;
+                &lt;th scope="col"&gt;Jun&lt;/th&gt;
+                &lt;th scope="col"&gt;Total&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;th scope="row"&gt;Notebook Dell&lt;/th&gt;
+                &lt;td data-label="Jan"&gt;45&lt;/td&gt;
+                &lt;td data-label="Fev"&gt;52&lt;/td&gt;
+                &lt;td data-label="Mar"&gt;48&lt;/td&gt;
+                &lt;td data-label="Abr"&gt;55&lt;/td&gt;
+                &lt;td data-label="Mai"&gt;60&lt;/td&gt;
+                &lt;td data-label="Jun"&gt;58&lt;/td&gt;
+                &lt;td data-label="Total"&gt;&lt;strong&gt;318&lt;/strong&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <h3>📱 CSS para Responsividade</h3>
+            <div class="codigo" data-lang="CSS">
+<pre><code>/* Container para scroll horizontal */
+.table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.table-responsive {
+    min-width: 600px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Estilo mobile-first */
+@media (max-width: 768px) {
+    .table-responsive,
+    .table-responsive thead,
+    .table-responsive tbody,
+    .table-responsive th,
+    .table-responsive td,
+    .table-responsive tr {
+        display: block;
+    }
+    
+    .table-responsive thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    
+    .table-responsive tr {
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 8px;
+    }
+    
+    .table-responsive td {
+        border: none;
+        padding: 10px;
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+    
+    .table-responsive td:before {
+        content: attr(data-label) ": ";
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        text-align: left;
+        font-weight: bold;
+    }
+}</code></pre>
+            </div>
+
+            <h3>🎯 Tabela Cards para Mobile</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;div class="products-table"&gt;
+    &lt;div class="table-header"&gt;
+        &lt;h3&gt;Produtos em Destaque&lt;/h3&gt;
+        &lt;p&gt;Confira nossa seleção especial&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="table-responsive-cards"&gt;
+        &lt;div class="product-card"&gt;
+            &lt;h4&gt;Smartphone Samsung Galaxy&lt;/h4&gt;
+            &lt;div class="product-details"&gt;
+                &lt;span class="label"&gt;Preço:&lt;/span&gt;
+                &lt;span class="value"&gt;R$ 1.299,00&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class="product-details"&gt;
+                &lt;span class="label"&gt;Categoria:&lt;/span&gt;
+                &lt;span class="value"&gt;Eletrônicos&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class="product-details"&gt;
+                &lt;span class="label"&gt;Estoque:&lt;/span&gt;
+                &lt;span class="value"&gt;25 unidades&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class="product-card"&gt;
+            &lt;h4&gt;Notebook Lenovo ThinkPad&lt;/h4&gt;
+            &lt;div class="product-details"&gt;
+                &lt;span class="label"&gt;Preço:&lt;/span&gt;
+                &lt;span class="value"&gt;R$ 2.899,00&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class="product-details"&gt;
+                &lt;span class="label"&gt;Categoria:&lt;/span&gt;
+                &lt;span class="value"&gt;Computadores&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class="product-details"&gt;
+                &lt;span class="label"&gt;Estoque:&lt;/span&gt;
+                &lt;span class="value"&gt;12 unidades&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="destaque tip">
+                <h4>💡 Estratégias de Responsividade</h4>
+                <ul>
+                    <li><strong>Scroll Horizontal:</strong> Para tabelas com muitas colunas</li>
+                    <li><strong>Tabela Card:</strong> Transformar linhas em cards no mobile</li>
+                    <li><strong>Priorização:</strong> Mostrar apenas colunas essenciais</li>
+                    <li><strong>Agrupamento:</strong> Agrupar dados relacionados</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Exercício 3 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 3: Dashboard Responsivo</h4>
+            <p>
+                Crie um dashboard com tabelas que se adaptem bem ao mobile:
+            </p>
+            <ul>
+                <li>Tabela de métricas com scroll horizontal</li>
+                <li>Lista de usuários que vira cards no mobile</li>
+                <li>Tabela de relatórios com colunas priorizadas</li>
+                <li>CSS responsivo com breakpoints</li>
+            </ul>
+        </div>
+
+        <!-- Seção 5: Estilização e UX -->
+        <section class="secao">
+            <h2>🎨 5. Estilização e UX</h2>
+            
+            <h3>🎯 CSS Base para Tabelas</h3>
+            <div class="codigo" data-lang="CSS">
+<pre><code>/* Estilos base */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+caption {
+    caption-side: top;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #495057;
+    border-top: 2px solid #007bff;
+}
+
+/* Zebra striping */
+tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* Hover effects */
+tbody tr:hover {
+    background-color: #e8f4fd;
+    cursor: default;
+}
+
+/* Focus para acessibilidade */
+th:focus, td:focus {
+    outline: 2px solid #007bff;
+    outline-offset: -2px;
+}</code></pre>
+            </div>
+
+            <h3>📊 Tabela com Indicadores Visuais</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;table class="status-table"&gt;
+    &lt;caption&gt;Status dos Projetos da Equipe&lt;/caption&gt;
+    
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th scope="col"&gt;Projeto&lt;/th&gt;
+            &lt;th scope="col"&gt;Responsável&lt;/th&gt;
+            &lt;th scope="col"&gt;Progresso&lt;/th&gt;
+            &lt;th scope="col"&gt;Status&lt;/th&gt;
+            &lt;th scope="col"&gt;Prazo&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;strong&gt;Site E-commerce&lt;/strong&gt;&lt;/td&gt;
+            &lt;td&gt;Ana Silva&lt;/td&gt;
+            &lt;td&gt;
+                &lt;div class="progress-bar"&gt;
+                    &lt;div class="progress-fill" style="width: 75%"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                75%
+            &lt;/td&gt;
+            &lt;td&gt;&lt;span class="status em-andamento"&gt;Em Andamento&lt;/span&gt;&lt;/td&gt;
+            &lt;td&gt;15/08/2024&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;strong&gt;App Mobile&lt;/strong&gt;&lt;/td&gt;
+            &lt;td&gt;Bruno Costa&lt;/td&gt;
+            &lt;td&gt;
+                &lt;div class="progress-bar"&gt;
+                    &lt;div class="progress-fill" style="width: 100%"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                100%
+            &lt;/td&gt;
+            &lt;td&gt;&lt;span class="status concluido"&gt;Concluído&lt;/span&gt;&lt;/td&gt;
+            &lt;td&gt;10/08/2024&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;strong&gt;Dashboard Admin&lt;/strong&gt;&lt;/td&gt;
+            &lt;td&gt;Carla Santos&lt;/td&gt;
+            &lt;td&gt;
+                &lt;div class="progress-bar"&gt;
+                    &lt;div class="progress-fill" style="width: 30%"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                30%
+            &lt;/td&gt;
+            &lt;td&gt;&lt;span class="status atrasado"&gt;Atrasado&lt;/span&gt;&lt;/td&gt;
+            &lt;td&gt;05/08/2024&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+
+            <h3>🎨 CSS para Indicadores</h3>
+            <div class="codigo" data-lang="CSS">
+<pre><code>/* Progress bar */
+.progress-bar {
+    width: 100px;
+    height: 8px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #28a745, #20c997);
+    transition: width 0.3s ease;
+}
+
+/* Status badges */
+.status {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status.concluido {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.status.em-andamento {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+.status.atrasado {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Sortable headers */
+.sortable {
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+}
+
+.sortable:hover {
+    background-color: #e3f2fd;
+}
+
+.sortable:after {
+    content: "⇅";
+    position: absolute;
+    right: 8px;
+    opacity: 0.5;
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Exercício 4 -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício 4: Painel Administrativo</h4>
+            <p>
+                Crie um painel administrativo completo com:
+            </p>
+            <ul>
+                <li>Tabela de usuários com filtros visuais</li>
+                <li>Indicadores de status coloridos</li>
+                <li>Barras de progresso para métricas</li>
+                <li>Ordenação clicável nos cabeçalhos</li>
+                <li>Design responsivo profissional</li>
+            </ul>
+        </div>
+
+        <!-- Resumo da Aula -->
+        <section class="secao">
+            <h2>📋 Resumo da Aula</h2>
+            
+            <div class="recursos">
+                <div class="recurso-card">
+                    <h4>🏗️ Estrutura Semântica</h4>
+                    <p>thead, tbody, tfoot, caption e elementos corretos para dados tabulares.</p>
+                </div>
+                
+                <div class="recurso-card">
+                    <h4>♿ Acessibilidade</h4>
+                    <p>Scope, headers, ARIA e navegação por teclado em tabelas.</p>
+                </div>
+                
+                <div class="recurso-card">
+                    <h4>🔗 Mesclagem</h4>
+                    <p>Colspan e rowspan para estruturas complexas e relatórios.</p>
+                </div>
+                
+                <div class="recurso-card">
+                    <h4>📱 Responsividade</h4>
+                    <p>Técnicas para adaptar tabelas a diferentes tamanhos de tela.</p>
+                </div>
+            </div>
+
+            <div class="checklist">
+                <h4>✅ Checklist de Tabelas</h4>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="table1">
+                        <label for="table1">Caption descritivo sempre presente</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="table2">
+                        <label for="table2">Cabeçalhos com scope adequado</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="table3">
+                        <label for="table3">Estrutura thead, tbody, tfoot</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="table4">
+                        <label for="table4">Responsividade implementada</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="table5">
+                        <label for="table5">Acessibilidade validada</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="table6">
+                        <label for="table6">Estilização profissional</label>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Navegação do Curso -->
+        <nav class="course-navigation">
+            <div class="nav-buttons">
+                <a href="aula-04-imagens-midia.html" class="nav-btn secondary">
+                    ← 🖼️ Aula Anterior
+                </a>
+                <a href="aula-06-formularios-basicos.html" class="nav-btn primary">
+                    📋 Próxima Aula →
+                </a>
+            </div>
+        </nav>
+
+        <!-- Footer da Aula -->
+        <footer class="aula-footer">
+            <h3>🎉 Dados Organizados!</h3>
+            <p>
+                Excelente! Agora você domina a criação de tabelas acessíveis e responsivas. 
+                Na próxima aula, vamos começar com formulários básicos.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Marcar como concluída
+            function marcarAulaConcluida() {
+                const progresso = JSON.parse(localStorage.getItem('curso-html-progresso') || '[]');
+                if (!progresso.includes(5)) {
+                    progresso.push(5);
+                    localStorage.setItem('curso-html-progresso', JSON.stringify(progresso));
+                }
+            }
+
+            // Observer para footer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        marcarAulaConcluida();
+                    }
+                });
+            });
+            
+            const footer = document.querySelector('.aula-footer');
+            if (footer) {
+                observer.observe(footer);
+            }
+
+            // Gerenciar checklist
+            const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
+            checkboxes.forEach((checkbox, index) => {
+                const saved = localStorage.getItem(`aula-5-table-${index}`);
+                if (saved === 'true') {
+                    checkbox.checked = true;
+                }
+                
+                checkbox.addEventListener('change', () => {
+                    localStorage.setItem(`aula-5-table-${index}`, checkbox.checked);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
