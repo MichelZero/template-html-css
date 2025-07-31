@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Meta tags obrigatórias para HTML5 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título da página -->
+    <title>Guia Completo: HTML Fundamentals</title>
+    
+    <!-- Meta tags para SEO -->
+    <meta name="description" content="Guia completo sobre HTML com exemplos práticos, semântica, acessibilidade e boas práticas">
+    <meta name="keywords" content="html, html5, guia, tutorial, desenvolvimento web, semântica, acessibilidade">
+    <meta name="author" content="Michel Zero">
+    
+    <!-- Link para o arquivo CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Highlight.js para syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    
+    <!-- Estilos específicos para o guia -->
+    <style>
+        /* Estilos específicos para a página do guia */
+        .guide-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .guide-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .guide-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .guide-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            line-height: 1.7;
+        }
+        
+        .guide-toc {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid #007bff;
+        }
+        
+        .guide-toc h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .guide-toc ol {
+            padding-left: 1.5rem;
+        }
+        
+        .guide-toc li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .guide-toc a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .guide-toc a:hover {
+            text-decoration: underline;
+        }
+        
+        .guide-section {
+            margin: 3rem 0;
+            padding: 2rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .guide-section:last-child {
+            border-bottom: none;
+        }
+        
+        .guide-section h2 {
+            color: #2c3e50;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #007bff;
+        }
+        
+        .guide-section h3 {
+            color: #2c3e50;
+            font-size: 1.6rem;
+            margin: 2rem 0 1rem 0;
+        }
+        
+        .guide-section h4 {
+            color: #495057;
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-left: 4px solid #007bff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .info-box h4 {
+            color: #007bff;
+            font-size: 1.2rem;
+            margin: 0 0 1rem 0;
+            font-weight: 600;
+        }
+        
+        .info-box ul {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+        
+        .info-box li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            position: relative;
+        }
+        
+        .code-block pre {
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .inline-code {
+            background: #f1f3f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        .example-box {
+            border: 2px solid #28a745;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background: #f8fff9;
+        }
+        
+        .example-box h4 {
+            color: #28a745;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        .warning-box {
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background: #fffef7;
+        }
+        
+        .warning-box h4 {
+            color: #856404;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        .tip-box {
+            border: 2px solid #17a2b8;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background: #f7fdff;
+        }
+        
+        .tip-box h4 {
+            color: #0c5460;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .good-example {
+            border: 2px solid #28a745;
+            border-radius: 8px;
+            padding: 1rem;
+            background: #f8fff9;
+        }
+        
+        .good-example h5 {
+            color: #28a745;
+            margin-bottom: 1rem;
+        }
+        
+        .bad-example {
+            border: 2px solid #dc3545;
+            border-radius: 8px;
+            padding: 1rem;
+            background: #fff8f8;
+        }
+        
+        .bad-example h5 {
+            color: #dc3545;
+            margin-bottom: 1rem;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+        
+        .guide-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .guide-table th {
+            background: #007bff;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .guide-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .guide-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .checklist {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .checklist h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .checklist ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .checklist li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .checklist li::before {
+            content: '☐';
+            position: absolute;
+            left: 0;
+            color: #007bff;
+            font-size: 1.2em;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: none;
+        }
+        
+        .back-to-top:hover {
+            background: #0056b3;
+        }
+        
+        @media (max-width: 768px) {
+            .guide-title {
+                font-size: 2rem;
+            }
+            
+            .guide-content {
+                padding: 2rem 1rem;
+            }
+            
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Botão voltar ao topo -->
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Cabeçalho do Guia -->
+    <header class="guide-header">
+        <div class="container">
+            <h1 class="guide-title">📖 Guia Completo: HTML Fundamentals</h1>
+            <p class="guide-subtitle">
+                Este guia explica todos os conceitos fundamentais do HTML (HyperText Markup Language), 
+                baseado no template criado neste projeto, com exemplos práticos e boas práticas.
+            </p>
+            <a href="index.html" class="btn btn-primary" style="margin-top: 2rem;">
+                <i class="fas fa-home"></i> Voltar ao Template
+            </a>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="guide-content">
+        <!-- Índice -->
+        <nav class="guide-toc" aria-label="Índice do guia">
+            <h2>📋 Índice</h2>
+            <ol>
+                <li><a href="#introducao">Introdução ao HTML</a></li>
+                <li><a href="#estrutura-basica">Estrutura Básica</a></li>
+                <li><a href="#tags-fundamentais">Tags Fundamentais</a></li>
+                <li><a href="#semantica-html5">Semântica HTML5</a></li>
+                <li><a href="#formularios">Formulários</a></li>
+                <li><a href="#meta-tags-seo">Meta Tags e SEO</a></li>
+                <li><a href="#acessibilidade">Acessibilidade</a></li>
+                <li><a href="#boas-praticas">Boas Práticas</a></li>
+                <li><a href="#exemplos-praticos">Exemplos Práticos</a></li>
+                <li><a href="#ferramentas">Ferramentas Úteis</a></li>
+                <li><a href="#recursos">Recursos de Aprendizado</a></li>
+                <li><a href="#checklist">Checklist HTML</a></li>
+            </ol>
+        </nav>
+
+        <!-- Seção 1: Introdução ao HTML -->
+        <section id="introducao" class="guide-section">
+            <h2>🌐 Introdução ao HTML</h2>
+            
+            <p>HTML (HyperText Markup Language) é a linguagem de marcação padrão para criar páginas web. Ela descreve a estrutura e o conteúdo de uma página usando elementos (tags).</p>
+
+            <div class="info-box">
+                <h4>Por que HTML é importante?</h4>
+                <ul>
+                    <li>É a <strong>base fundamental</strong> de toda página web</li>
+                    <li>Define a <strong>estrutura semântica</strong> do conteúdo</li>
+                    <li>Permite que navegadores <strong>interpretem e exibam</strong> informações corretamente</li>
+                    <li>É <strong>universalmente suportado</strong> por todos os dispositivos e navegadores</li>
+                    <li>Serve como <strong>fundação</strong> para CSS (estilo) e JavaScript (interatividade)</li>
+                </ul>
+            </div>
+
+            <h3>O que é uma Tag?</h3>
+            <p>Uma tag é um elemento HTML que define o início e o fim de um bloco de conteúdo. As tags são escritas entre colchetes angulares &lt; &gt;.</p>
+            
+            <div class="code-block">
+                <pre><code class="language-html">&lt;tagname&gt;conteúdo&lt;/tagname&gt;</code></pre>
+            </div>
+
+            <div class="info-box">
+                <h4>Características das Tags:</h4>
+                <ul>
+                    <li>São <strong>case-insensitive</strong> (não diferencia maiúsculas/minúsculas), mas a convenção é usar minúsculas</li>
+                    <li>Podem ser <strong>aninhadas</strong> (uma dentro da outra)</li>
+                    <li>Devem ser <strong>fechadas</strong> na ordem correta (LIFO - Last In, First Out)</li>
+                    <li>Algumas são <strong>auto-fecháveis</strong> e não precisam de tag de fechamento</li>
+                </ul>
+            </div>
+
+            <h3>Estrutura de uma Tag</h3>
+            <ul>
+                <li><strong>Tag de abertura</strong>: <code class="inline-code">&lt;tagname&gt;</code> - Marca o início do elemento</li>
+                <li><strong>Conteúdo</strong>: texto ou outros elementos HTML</li>
+                <li><strong>Tag de fechamento</strong>: <code class="inline-code">&lt;/tagname&gt;</code> - Marca o fim do elemento (note a barra /)</li>
+            </ul>
+
+            <h4>Exemplo com aninhamento:</h4>
+            <div class="code-block">
+                <pre><code class="language-html">&lt;div&gt;
+    &lt;h1&gt;Título Principal&lt;/h1&gt;
+    &lt;p&gt;Este é um &lt;strong&gt;parágrafo&lt;/strong&gt; com texto em negrito.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <h3>Tags Auto-fecháveis</h3>
+            <div class="code-block">
+                <pre><code class="language-html">&lt;img src="imagem.jpg" alt="Descrição"&gt;
+&lt;br&gt;
+&lt;hr&gt;
+&lt;input type="text"&gt;</code></pre>
+            </div>
+
+            <div class="info-box">
+                <h4>🤔 Por que usar Tags Auto-fecháveis?</h4>
+                <p>As tags auto-fecháveis (também chamadas de "void elements" ou "empty elements") existem por razões técnicas e semânticas importantes:</p>
+                
+                <ol>
+                    <li><strong>Não possuem conteúdo interno</strong>: Essas tags não "envolvem" conteúdo como outras tags fazem</li>
+                    <li><strong>Representam elementos únicos</strong>: São elementos que existem por si só (como uma imagem ou quebra de linha)</li>
+                    <li><strong>Maior eficiência</strong>: Não precisam de tag de fechamento, tornando o código mais limpo</li>
+                    <li><strong>Padrão HTML5</strong>: É a forma correta e moderna de escrever esses elementos</li>
+                </ol>
+            </div>
+
+            <div class="code-block">
+                <h4>Exemplos práticos do porquê:</h4>
+                <pre><code class="language-html">&lt;!-- ❌ ERRADO: Tentar fechar uma tag auto-fechável --&gt;
+&lt;img src="foto.jpg" alt="Foto"&gt;&lt;/img&gt;  &lt;!-- Inválido! --&gt;
+&lt;br&gt;&lt;/br&gt;                              &lt;!-- Inválido! --&gt;
+
+&lt;!-- ✅ CORRETO: Tags auto-fecháveis --&gt;
+&lt;img src="foto.jpg" alt="Foto"&gt;       &lt;!-- Válido --&gt;
+&lt;br&gt;                                   &lt;!-- Válido --&gt;
+
+&lt;!-- Para comparação, tags que TÊM conteúdo: --&gt;
+&lt;p&gt;Este parágrafo TEM conteúdo interno&lt;/p&gt;  &lt;!-- Precisa fechar --&gt;
+&lt;div&gt;Esta div TEM conteúdo dentro&lt;/div&gt;     &lt;!-- Precisa fechar --&gt;</code></pre>
+            </div>
+
+            <div class="info-box">
+                <h4>Tags auto-fecháveis mais comuns:</h4>
+                <ul>
+                    <li><code>&lt;img&gt;</code> - Exibe imagens (não tem "conteúdo interno")</li>
+                    <li><code>&lt;br&gt;</code> - Quebra de linha (é um ponto específico, não um "container")</li>
+                    <li><code>&lt;hr&gt;</code> - Linha horizontal (é uma linha, não contém texto)</li>
+                    <li><code>&lt;input&gt;</code> - Campos de formulário (o valor está no atributo, não dentro da tag)</li>
+                    <li><code>&lt;meta&gt;</code> - Metadados da página (informações sobre a página, não conteúdo visível)</li>
+                    <li><code>&lt;link&gt;</code> - Links para recursos externos (CSS, favicon, etc.)</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h4>✅ Vantagens das tags auto-fecháveis:</h4>
+                <ol>
+                    <li><strong>Código mais limpo</strong>: Menos tags para digitar e manter</li>
+                    <li><strong>Menos erros</strong>: Não é possível esquecer de fechar a tag</li>
+                    <li><strong>Melhor performance</strong>: Menos processamento pelo navegador</li>
+                    <li><strong>Semântica clara</strong>: Deixa claro que o elemento não contém conteúdo</li>
+                </ol>
+            </div>
+
+            <h3>O que é um Atributo?</h3>
+            <p>Um atributo é uma característica adicional que pode ser adicionada a uma tag HTML para fornecer mais informações sobre o elemento. Os atributos são sempre especificados na tag de abertura e consistem em um nome e um valor.</p>
+            
+            <div class="code-block">
+                <pre><code class="language-html">&lt;img src="imagem.jpg" alt="Descrição"&gt;</code></pre>
+            </div>
+
+            <div class="info-box">
+                <h4>Estrutura dos Atributos:</h4>
+                <ul>
+                    <li><strong>Nome do atributo</strong>: define que tipo de informação (ex: src, alt, class)</li>
+                    <li><strong>Valor do atributo</strong>: a informação específica (entre aspas)</li>
+                    <li><strong>Sintaxe</strong>: nome="valor"</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h4>Atributos Globais (funcionam em qualquer elemento):</h4>
+                <ul>
+                    <li><code>id</code> - Identificador único do elemento</li>
+                    <li><code>class</code> - Classe CSS para estilização</li>
+                    <li><code>style</code> - Estilos CSS inline</li>
+                    <li><code>title</code> - Texto de ajuda ao passar o mouse</li>
+                    <li><code>lang</code> - Idioma do conteúdo</li>
+                    <li><code>data-*</code> - Atributos customizados para dados</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Seção 2: Estrutura Básica -->
+        <section id="estrutura-basica" class="guide-section">
+            <h2>🏗️ Estrutura Básica</h2>
+
+            <h3>Documento HTML Mínimo</h3>
+            <p>Todo documento HTML segue uma estrutura padrão que garante compatibilidade e funcionalidade adequada:</p>
+            
+            <div class="code-block">
+                <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Título da Página&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Olá, Mundo!&lt;/h1&gt;
+    &lt;p&gt;Este é meu primeiro parágrafo.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <h3>Explicação Detalhada dos Elementos</h3>
+            <div class="table-container">
+                <table class="guide-table">
+                    <thead>
+                        <tr>
+                            <th>Elemento</th>
+                            <th>Descrição</th>
+                            <th>Por que é Importante</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code class="inline-code">&lt;!DOCTYPE html&gt;</code></td>
+                            <td>Declara que é um documento HTML5</td>
+                            <td>Garante que o navegador interprete o código como HTML5 moderno</td>
+                        </tr>
+                        <tr>
+                            <td><code class="inline-code">&lt;html lang="pt-BR"&gt;</code></td>
+                            <td>Elemento raiz que contém todo o conteúdo</td>
+                            <td>Define o idioma principal da página para acessibilidade e SEO</td>
+                        </tr>
+                        <tr>
+                            <td><code class="inline-code">&lt;head&gt;</code></td>
+                            <td>Metadados não visíveis na página</td>
+                            <td>Contém informações técnicas, links para CSS/JS, e meta tags</td>
+                        </tr>
+                        <tr>
+                            <td><code class="inline-code">&lt;body&gt;</code></td>
+                            <td>Conteúdo visível da página</td>
+                            <td>Tudo que o usuário vê e interage na página</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Seção &lt;head&gt; - Metadados Essenciais</h3>
+            <p>A seção <code>&lt;head&gt;</code> é crucial para o funcionamento adequado da página:</p>
+            
+            <div class="code-block">
+                <pre><code class="language-html">&lt;head&gt;
+    &lt;!-- Obrigatório: Define codificação de caracteres --&gt;
+    &lt;meta charset="UTF-8"&gt;
+    
+    &lt;!-- Obrigatório: Configuração para dispositivos móveis --&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    
+    &lt;!-- Obrigatório: Título que aparece na aba do navegador --&gt;
+    &lt;title&gt;Minha Página Web&lt;/title&gt;
+    
+    &lt;!-- Recomendado: Descrição para motores de busca --&gt;
+    &lt;meta name="description" content="Descrição da página"&gt;
+    
+    &lt;!-- Opcional: Link para folha de estilo --&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;</code></pre>
+            </div>
+
+            <div class="info-box">
+                <h4>Meta Tags Fundamentais:</h4>
+                <ul>
+                    <li><strong><code>charset="UTF-8"</code></strong>: Permite caracteres especiais (acentos, emojis, símbolos)</li>
+                    <li><strong><code>viewport</code></strong>: Torna a página responsiva em dispositivos móveis</li>
+                    <li><strong><code>title</code></strong>: Aparece na aba do navegador e é usado pelo Google nos resultados de busca</li>
+                </ul>
+            </div>
+
+            <h3>Seção &lt;body&gt; - Conteúdo da Página</h3>
+            <p>O <code>&lt;body&gt;</code> contém todo o conteúdo visível e interativo:</p>
+            
+            <div class="code-block">
+                <pre><code class="language-html">&lt;body&gt;
+    &lt;!-- Cabeçalho da página --&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Título Principal&lt;/h1&gt;
+        &lt;nav&gt;Menu de navegação&lt;/nav&gt;
+    &lt;/header&gt;
+    
+    &lt;!-- Conteúdo principal --&gt;
+    &lt;main&gt;
+        &lt;section&gt;
+            &lt;h2&gt;Seção de conteúdo&lt;/h2&gt;
+            &lt;p&gt;Parágrafo com texto.&lt;/p&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+    
+    &lt;!-- Rodapé da página --&gt;
+    &lt;footer&gt;
+        &lt;p&gt;© 2025 Meu Site&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Seção 3: Tags Fundamentais -->
+        <section id="tags-fundamentais" class="guide-section">
+            <h2>🏷️ Tags Fundamentais</h2>
+
+            <h3>1. Títulos (Headings)</h3>
+            <div class="code-block">
+                <pre><code class="language-html">&lt;h1&gt;Título Principal&lt;/h1&gt;        &lt;!-- Mais importante --&gt;
+&lt;h2&gt;Título Secundário&lt;/h2&gt;
+&lt;h3&gt;Subtítulo&lt;/h3&gt;
+&lt;h4&gt;Título de Quarto Nível&lt;/h4&gt;
+&lt;h5&gt;Título de Quinto Nível&lt;/h5&gt;
+&lt;h6&gt;Título Menor&lt;/h6&gt;             &lt;!-- Menos importante --&gt;</code></pre>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Regras importantes:</h4>
+                <ul>
+                    <li>Use apenas um <code class="inline-code">&lt;h1&gt;</code> por página</li>
+                    <li>Mantenha hierarquia lógica (h1 → h2 → h3)</li>
+                    <li>Não pule níveis (h1 → h3)</li>
+                </ul>
+            </div>
+
+            <h3>2. Parágrafos e Texto</h3>
+            <div class="code-block">
+                <pre><code class="language-html">&lt;p&gt;Este é um parágrafo normal.&lt;/p&gt;
+
+&lt;p&gt;Texto com &lt;strong&gt;negrito semântico&lt;/strong&gt; e &lt;em&gt;itálico semântico&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Texto com &lt;b&gt;negrito visual&lt;/b&gt; e &lt;i&gt;itálico visual&lt;/i&gt;.&lt;/p&gt;
+
+&lt;p&gt;Texto &lt;mark&gt;destacado&lt;/mark&gt; e &lt;del&gt;riscado&lt;/del&gt;.&lt;/p&gt;
+
+&lt;p&gt;H&lt;sub&gt;2&lt;/sub&gt;O e E=mc&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt;
+
+&lt;!-- Quebra de linha --&gt;
+&lt;p&gt;Primeira linha&lt;br&gt;Segunda linha&lt;/p&gt;
+
+&lt;!-- Linha horizontal --&gt;
+&lt;hr&gt;</code></pre>
+            </div>
+
+            <h3>3. Listas</h3>
+            
+            <h4>Lista Não Ordenada</h4>
+            <div class="code-block">
+                <pre><code class="language-html">&lt;ul&gt;
+    &lt;li&gt;Item 1&lt;/li&gt;
+    &lt;li&gt;Item 2&lt;/li&gt;
+    &lt;li&gt;Item 3&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+            </div>
+
+            <h4>Lista Ordenada</h4>
+            <div class="code-block">
+                <pre><code class="language-html">&lt;ol&gt;
+    &lt;li&gt;Primeiro item&lt;/li&gt;
+    &lt;li&gt;Segundo item&lt;/li&gt;
+    &lt;li&gt;Terceiro item&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+            </div>
+
+            <h4>Lista de Definições</h4>
+            <div class="code-block">
+                <pre><code class="language-html">&lt;dl&gt;
+    &lt;dt&gt;HTML&lt;/dt&gt;
+    &lt;dd&gt;HyperText Markup Language&lt;/dd&gt;
+    
+    &lt;dt&gt;CSS&lt;/dt&gt;
+    &lt;dd&gt;Cascading Style Sheets&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+            </div>
+
+            <h3>4. Links</h3>
+            <div class="code-block">
+                <pre><code class="language-html">&lt;!-- Link externo --&gt;
+&lt;a href="https://www.google.com"&gt;Google&lt;/a&gt;
+
+&lt;!-- Link interno (mesma página) --&gt;
+&lt;a href="#secao"&gt;Ir para seção&lt;/a&gt;
+
+&lt;!-- Link para e-mail --&gt;
+&lt;a href="mailto:contato@exemplo.com"&gt;Enviar e-mail&lt;/a&gt;
+
+&lt;!-- Link para telefone --&gt;
+&lt;a href="tel:+5511999999999"&gt;Ligar&lt;/a&gt;
+
+&lt;!-- Link que abre em nova aba --&gt;
+&lt;a href="https://www.google.com" target="_blank" rel="noopener"&gt;Google&lt;/a&gt;</code></pre>
+            </div>
+
+            <h3>5. Imagens</h3>
+            <div class="code-block">
+                <pre><code class="language-html">&lt;!-- Imagem básica --&gt;
+&lt;img src="imagem.jpg" alt="Descrição da imagem"&gt;
+
+&lt;!-- Imagem com dimensões --&gt;
+&lt;img src="imagem.jpg" alt="Descrição" width="300" height="200"&gt;
+
+&lt;!-- Imagem responsiva --&gt;
+&lt;img src="imagem.jpg" alt="Descrição" style="max-width: 100%; height: auto;"&gt;
+
+&lt;!-- Imagem com diferentes tamanhos --&gt;
+&lt;picture&gt;
+    &lt;source media="(max-width: 600px)" srcset="imagem-pequena.jpg"&gt;
+    &lt;source media="(max-width: 1200px)" srcset="imagem-media.jpg"&gt;
+    &lt;img src="imagem-grande.jpg" alt="Descrição"&gt;
+&lt;/picture&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Seção 4: Semântica HTML5 -->
+        <section id="semantica-html5" class="guide-section">
+            <h2>🎯 Semântica HTML5</h2>
+            
+            <p>O HTML5 introduziu elementos semânticos que dão significado ao conteúdo, melhorando SEO e acessibilidade.</p>
+
+            <h3>Elementos Semânticos</h3>
+            <div class="table-container">
+                <table class="guide-table">
+                    <thead>
+                        <tr>
+                            <th>Elemento</th>
+                            <th>Uso</th>
+                            <th>Exemplo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code class="inline-code">&lt;header&gt;</code></td>
+                            <td>Cabeçalho da página ou seção</td>
+                            <td>Logo, navegação</td>
+                        </tr>
+                        <tr>
+                            <td><code class="inline-code">&lt;nav&gt;</code></td>
+                            <td>Navegação principal</td>
+                            <td>Menu, breadcrumb</td>
+                        </tr>
+                        <tr>
+                            <td><code class="inline-code">&lt;main&gt;</code></td>
+                            <td>Conteúdo principal</td>
+                            <td>Área central da página</td>
+                        </tr>
+                        <tr>
+                            <td><code class="inline-code">&lt;article&gt;</code></td>
+                            <td>Conteúdo independente</td>
+                            <td>Post, notícia</td>
+                        </tr>
+                        <tr>
+                            <td><code class="inline-code">&lt;section&gt;</code></td>
+                            <td>Seção temática</td>
+                            <td>Capítulo, parte</td>
+                        </tr>
+                        <tr>
+                            <td><code class="inline-code">&lt;aside&gt;</code></td>
+                            <td>Conteúdo relacionado</td>
+                            <td>Sidebar, widgets</td>
+                        </tr>
+                        <tr>
+                            <td><code class="inline-code">&lt;footer&gt;</code></td>
+                            <td>Rodapé</td>
+                            <td>Copyright, links</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Exemplo do Nosso Template</h3>
+            <div class="code-block">
+                <pre><code class="language-html">&lt;!-- CABEÇALHO/HEADER --&gt;
+&lt;header class="header"&gt;
+    &lt;div class="container"&gt;
+        &lt;!-- Logo/Nome do site --&gt;
+        &lt;div class="logo"&gt;
+            &lt;h1&gt;MeuSite&lt;/h1&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- Menu de navegação --&gt;
+        &lt;nav class="nav"&gt;
+            &lt;ul class="nav-list"&gt;
+                &lt;li class="nav-item"&gt;&lt;a href="#home" class="nav-link"&gt;Início&lt;/a&gt;&lt;/li&gt;
+                &lt;li class="nav-item"&gt;&lt;a href="#about" class="nav-link"&gt;Sobre&lt;/a&gt;&lt;/li&gt;
+                &lt;li class="nav-item"&gt;&lt;a href="#services" class="nav-link"&gt;Serviços&lt;/a&gt;&lt;/li&gt;
+                &lt;li class="nav-item"&gt;&lt;a href="#contact" class="nav-link"&gt;Contato&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/div&gt;
+&lt;/header&gt;
+
+&lt;!-- CONTEÚDO PRINCIPAL --&gt;
+&lt;main&gt;
+    &lt;!-- SEÇÃO HERO (Banner principal) --&gt;
+    &lt;section id="home" class="hero"&gt;
+        &lt;div class="hero-content"&gt;
+            &lt;h1 class="hero-title"&gt;Bem-vindo ao Nosso Site&lt;/h1&gt;
+            &lt;p class="hero-subtitle"&gt;Criando experiências digitais incríveis&lt;/p&gt;
+            &lt;button class="btn btn-primary"&gt;Saiba Mais&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/main&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Seção 5: Formulários -->
+        <section id="formularios" class="guide-section">
+            <h2>📝 Formulários</h2>
+            
+            <p>Os formulários são essenciais para interação do usuário com a página.</p>
+
+            <h3>Estrutura Básica</h3>
+            <div class="code-block">
+                <pre><code class="language-html">&lt;form action="/processar" method="POST"&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;Informações Pessoais&lt;/legend&gt;
+        
+        &lt;div class="form-group"&gt;
+            &lt;label for="nome"&gt;Nome:&lt;/label&gt;
+            &lt;input type="text" id="nome" name="nome" required&gt;
+        &lt;/div&gt;
+        
+        &lt;div class="form-group"&gt;
+            &lt;label for="email"&gt;E-mail:&lt;/label&gt;
+            &lt;input type="email" id="email" name="email" required&gt;
+        &lt;/div&gt;
+        
+        &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+            </div>
+
+            <h3>Tipos de Input</h3>
+            <div class="code-block">
+                <pre><code class="language-html">&lt;!-- Texto --&gt;
+&lt;input type="text" placeholder="Digite seu nome"&gt;
+
+&lt;!-- E-mail (com validação) --&gt;
+&lt;input type="email" placeholder="email@exemplo.com"&gt;
+
+&lt;!-- Senha --&gt;
+&lt;input type="password" placeholder="Sua senha"&gt;
+
+&lt;!-- Número --&gt;
+&lt;input type="number" min="0" max="100" step="1"&gt;
+
+&lt;!-- Data --&gt;
+&lt;input type="date"&gt;
+
+&lt;!-- Checkbox --&gt;
+&lt;input type="checkbox" id="aceito" name="aceito"&gt;
+&lt;label for="aceito"&gt;Aceito os termos&lt;/label&gt;
+
+&lt;!-- Radio buttons --&gt;
+&lt;input type="radio" id="masc" name="genero" value="masculino"&gt;
+&lt;label for="masc"&gt;Masculino&lt;/label&gt;</code></pre>
+            </div>
+
+            <h3>Exemplo do Nosso Template</h3>
+            <div class="code-block">
+                <pre><code class="language-html">&lt;div class="contact-form"&gt;
+    &lt;form&gt;
+        &lt;div class="form-group"&gt;
+            &lt;label for="name"&gt;Nome&lt;/label&gt;
+            &lt;input type="text" id="name" name="name" required&gt;
+        &lt;/div&gt;
+        
+        &lt;div class="form-group"&gt;
+            &lt;label for="email"&gt;E-mail&lt;/label&gt;
+            &lt;input type="email" id="email" name="email" required&gt;
+        &lt;/div&gt;
+        
+        &lt;div class="form-group"&gt;
+            &lt;label for="message"&gt;Mensagem&lt;/label&gt;
+            &lt;textarea id="message" name="message" rows="5" required&gt;&lt;/textarea&gt;
+        &lt;/div&gt;
+        
+        &lt;button type="submit" class="btn btn-primary"&gt;Enviar Mensagem&lt;/button&gt;
+    &lt;/form&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Seção 6: Meta Tags e SEO -->
+        <section id="meta-tags-seo" class="guide-section">
+            <h2>🎯 Meta Tags e SEO</h2>
+            
+            <p>As meta tags fornecem informações sobre a página para navegadores e mecanismos de busca.</p>
+
+            <h3>Meta Tags Essenciais</h3>
+            <div class="code-block">
+                <pre><code class="language-html">&lt;head&gt;
+    &lt;!-- Codificação de caracteres --&gt;
+    &lt;meta charset="UTF-8"&gt;
+    
+    &lt;!-- Viewport para responsividade --&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    
+    &lt;!-- Título da página (aparece na aba) --&gt;
+    &lt;title&gt;Título da Página - Até 60 caracteres&lt;/title&gt;
+    
+    &lt;!-- Descrição para motores de busca --&gt;
+    &lt;meta name="description" content="Descrição da página com 150-160 caracteres"&gt;
+    
+    &lt;!-- Palavras-chave (menos importante hoje) --&gt;
+    &lt;meta name="keywords" content="palavra1, palavra2, palavra3"&gt;
+    
+    &lt;!-- Autor da página --&gt;
+    &lt;meta name="author" content="Seu Nome"&gt;
+&lt;/head&gt;</code></pre>
+            </div>
+
+            <h3>Open Graph (Facebook, LinkedIn)</h3>
+            <div class="code-block">
+                <pre><code class="language-html">&lt;meta property="og:title" content="Título da Página"&gt;
+&lt;meta property="og:description" content="Descrição da página"&gt;
+&lt;meta property="og:image" content="https://exemplo.com/imagem.jpg"&gt;
+&lt;meta property="og:url" content="https://exemplo.com/pagina"&gt;
+&lt;meta property="og:type" content="website"&gt;
+&lt;meta property="og:site_name" content="Nome do Site"&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Seção 7: Acessibilidade -->
+        <section id="acessibilidade" class="guide-section">
+            <h2>♿ Acessibilidade</h2>
+            
+            <p>Tornar seu site acessível é fundamental para incluir todos os usuários.</p>
+
+            <h3>Atributos de Acessibilidade</h3>
+            <div class="code-block">
+                <pre><code class="language-html">&lt;!-- Texto alternativo para imagens --&gt;
+&lt;img src="grafico.jpg" alt="Gráfico mostrando crescimento de 20% nas vendas"&gt;
+
+&lt;!-- Labels para formulários --&gt;
+&lt;label for="usuario"&gt;Nome de usuário:&lt;/label&gt;
+&lt;input type="text" id="usuario" name="usuario"&gt;
+
+&lt;!-- Ou usando aria-label --&gt;
+&lt;input type="search" aria-label="Buscar produtos"&gt;
+
+&lt;!-- Botões acessíveis --&gt;
+&lt;button aria-label="Fechar modal"&gt;×&lt;/button&gt;
+
+&lt;!-- Landmarks --&gt;
+&lt;nav aria-label="Navegação principal"&gt;
+&lt;main aria-label="Conteúdo principal"&gt;
+&lt;aside aria-label="Barra lateral"&gt;</code></pre>
+            </div>
+
+            <div class="tip-box">
+                <h4>💡 Dica de Acessibilidade</h4>
+                <p>Sempre teste seu site usando apenas o teclado (tecla Tab) para navegar. Se conseguir acessar todos os elementos importantes, está no caminho certo!</p>
+            </div>
+        </section>
+
+        <!-- Seção 8: Boas Práticas -->
+        <section id="boas-praticas" class="guide-section">
+            <h2>✅ Boas Práticas</h2>
+
+            <h3>1. Semântica e Estrutura</h3>
+            <div class="comparison">
+                <div class="good-example">
+                    <h5>✅ Bom: Semântico</h5>
+                    <div class="code-block">
+                        <pre><code class="language-html">&lt;article&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Título do Artigo&lt;/h1&gt;
+        &lt;time&gt;15/01/2025&lt;/time&gt;
+    &lt;/header&gt;
+    &lt;p&gt;Conteúdo do artigo...&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+                    </div>
+                </div>
+                
+                <div class="bad-example">
+                    <h5>❌ Ruim: Não semântico</h5>
+                    <div class="code-block">
+                        <pre><code class="language-html">&lt;div class="artigo"&gt;
+    &lt;div class="titulo"&gt;Título do Artigo&lt;/div&gt;
+    &lt;div class="data"&gt;15/01/2025&lt;/div&gt;
+    &lt;div class="conteudo"&gt;Conteúdo do artigo...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <h3>2. Atributos Obrigatórios</h3>
+            <div class="code-block">
+                <pre><code class="language-html">&lt;!-- Imagens sempre com alt --&gt;
+&lt;img src="foto.jpg" alt="Descrição da foto"&gt;
+
+&lt;!-- Formulários com labels --&gt;
+&lt;label for="nome"&gt;Nome:&lt;/label&gt;
+&lt;input type="text" id="nome" name="nome"&gt;
+
+&lt;!-- Links externos com segurança --&gt;
+&lt;a href="https://site-externo.com" target="_blank" rel="noopener noreferrer"&gt;
+    Link externo
+&lt;/a&gt;</code></pre>
+            </div>
+
+            <h3>3. Performance</h3>
+            <div class="code-block">
+                <pre><code class="language-html">&lt;!-- Carregamento lazy de imagens --&gt;
+&lt;img src="imagem.jpg" alt="Descrição" loading="lazy"&gt;
+
+&lt;!-- Preload de recursos importantes --&gt;
+&lt;link rel="preload" href="fonte-importante.woff2" as="font" type="font/woff2"&gt;
+
+&lt;!-- DNS prefetch --&gt;
+&lt;link rel="dns-prefetch" href="//fonts.googleapis.com"&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Seção 9: Exemplos Práticos -->
+        <section id="exemplos-praticos" class="guide-section">
+            <h2>💡 Exemplos Práticos</h2>
+
+            <h3>1. Card de Produto</h3>
+            <div class="code-block">
+                <pre><code class="language-html">&lt;article class="produto-card"&gt;
+    &lt;figure&gt;
+        &lt;img src="produto.jpg" alt="Smartphone XYZ" loading="lazy"&gt;
+        &lt;figcaption class="visuallyhidden"&gt;Imagem do produto&lt;/figcaption&gt;
+    &lt;/figure&gt;
+    
+    &lt;div class="produto-info"&gt;
+        &lt;h3&gt;Smartphone XYZ&lt;/h3&gt;
+        &lt;p class="preco"&gt;
+            &lt;span class="sr-only"&gt;Preço:&lt;/span&gt;
+            &lt;data value="899.99"&gt;R$ 899,99&lt;/data&gt;
+        &lt;/p&gt;
+        &lt;p class="descricao"&gt;Smartphone com 128GB de armazenamento...&lt;/p&gt;
+        
+        &lt;button type="button" aria-describedby="produto-1-info"&gt;
+            Adicionar ao carrinho
+        &lt;/button&gt;
+        &lt;div id="produto-1-info" class="sr-only"&gt;
+            Smartphone XYZ por R$ 899,99
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+            </div>
+
+            <h3>2. Navegação Breadcrumb</h3>
+            <div class="code-block">
+                <pre><code class="language-html">&lt;nav aria-label="Breadcrumb"&gt;
+    &lt;ol class="breadcrumb"&gt;
+        &lt;li&gt;&lt;a href="/"&gt;Início&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="/produtos"&gt;Produtos&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="/produtos/eletronicos"&gt;Eletrônicos&lt;/a&gt;&lt;/li&gt;
+        &lt;li aria-current="page"&gt;Smartphones&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Seção 10: Ferramentas Úteis -->
+        <section id="ferramentas" class="guide-section">
+            <h2>🔧 Ferramentas Úteis</h2>
+
+            <h3>Validação e Teste</h3>
+            <ul>
+                <li><strong><a href="https://validator.w3.org/" target="_blank" rel="noopener">W3C HTML Validator</a></strong> - Valida código HTML</li>
+                <li><strong><a href="https://wave.webaim.org/" target="_blank" rel="noopener">WAVE</a></strong> - Testa acessibilidade</li>
+                <li><strong><a href="https://developers.google.com/web/tools/lighthouse" target="_blank" rel="noopener">Lighthouse</a></strong> - Auditoria completa</li>
+                <li><strong><a href="https://gsnedders.html5.org/outliner/" target="_blank" rel="noopener">HTML5 Outliner</a></strong> - Verifica estrutura</li>
+            </ul>
+
+            <h3>Extensões VS Code</h3>
+            <ul>
+                <li><strong>HTML CSS Support</strong> - Autocomplete de CSS em HTML</li>
+                <li><strong>Auto Rename Tag</strong> - Renomeia tags automaticamente</li>
+                <li><strong>HTML Snippets</strong> - Snippets úteis para HTML</li>
+                <li><strong>Live Server</strong> - Servidor local para desenvolvimento</li>
+            </ul>
+
+            <h3>Geradores Online</h3>
+            <ul>
+                <li><strong><a href="https://html-generator.com/" target="_blank" rel="noopener">HTML Generator</a></strong> - Gera código HTML</li>
+                <li><strong><a href="https://metatags.io/" target="_blank" rel="noopener">Meta Tags Generator</a></strong> - Gera meta tags</li>
+                <li><strong><a href="https://favicon.io/" target="_blank" rel="noopener">Favicon Generator</a></strong> - Cria favicons</li>
+            </ul>
+        </section>
+
+        <!-- Seção 11: Recursos de Aprendizado -->
+        <section id="recursos" class="guide-section">
+            <h2>📚 Recursos de Aprendizado</h2>
+
+            <ul>
+                <li><strong><a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" target="_blank" rel="noopener">MDN Web Docs</a></strong> - Documentação oficial</li>
+                <li><strong><a href="https://htmlreference.io/" target="_blank" rel="noopener">HTML Reference</a></strong> - Referência visual</li>
+                <li><strong><a href="https://caniuse.com/" target="_blank" rel="noopener">Can I Use</a></strong> - Compatibilidade de navegadores</li>
+                <li><strong><a href="https://html.spec.whatwg.org/" target="_blank" rel="noopener">HTML5 Spec</a></strong> - Especificação oficial</li>
+            </ul>
+        </section>
+
+        <!-- Seção 12: Checklist -->
+        <section id="checklist" class="guide-section">
+            <h2>✅ Checklist HTML</h2>
+
+            <div class="checklist">
+                <h3>Estrutura</h3>
+                <ul>
+                    <li>DOCTYPE declarado</li>
+                    <li>Atributo lang definido</li>
+                    <li>Meta charset UTF-8</li>
+                    <li>Meta viewport para responsividade</li>
+                    <li>Título descritivo (&lt; 60 caracteres)</li>
+                </ul>
+
+                <h3>Semântica</h3>
+                <ul>
+                    <li>Uso correto de elementos semânticos</li>
+                    <li>Hierarquia de títulos lógica</li>
+                    <li>Um h1 por página</li>
+                    <li>Landmarks definidos (header, nav, main, footer)</li>
+                </ul>
+
+                <h3>Acessibilidade</h3>
+                <ul>
+                    <li>Alt text em todas as imagens</li>
+                    <li>Labels em todos os inputs</li>
+                    <li>Contraste adequado</li>
+                    <li>Navegação por teclado</li>
+                    <li>Estados de foco visíveis</li>
+                </ul>
+
+                <h3>Performance</h3>
+                <ul>
+                    <li>Imagens otimizadas</li>
+                    <li>Loading lazy quando apropriado</li>
+                    <li>Meta tags de SEO</li>
+                    <li>Links externos com rel apropriado</li>
+                </ul>
+
+                <h3>Validação</h3>
+                <ul>
+                    <li>HTML válido (W3C Validator)</li>
+                    <li>Teste de acessibilidade (WAVE)</li>
+                    <li>Teste em múltiplos navegadores</li>
+                    <li>Teste em dispositivos móveis</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Conclusão -->
+        <section class="guide-section">
+            <div class="tip-box">
+                <h4>🎉 Parabéns!</h4>
+                <p>Este guia fornece uma base sólida para criar documentos HTML bem estruturados, semânticos e acessíveis. Pratique criando diferentes tipos de conteúdo e sempre valide seu código!</p>
+                <p style="margin-top: 1rem;">
+                    <a href="index.html" class="btn btn-primary">
+                        <i class="fas fa-home"></i> Voltar ao Template
+                    </a>
+                    <a href="GUIA-CSS.md" class="btn btn-primary" style="margin-left: 1rem;">
+                        <i class="fas fa-paint-brush"></i> Ver Guia CSS
+                    </a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>📖 Guia HTML</h3>
+                    <p>Guia completo de HTML fundamentals com exemplos práticos e boas práticas.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Links Úteis</h4>
+                    <ul>
+                        <li><a href="index.html">Template Principal</a></li>
+                        <li><a href="GUIA-CSS.md">Guia CSS</a></li>
+                        <li><a href="#introducao">Voltar ao Início</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Recursos</h4>
+                    <ul>
+                        <li><a href="https://validator.w3.org/" target="_blank">W3C Validator</a></li>
+                        <li><a href="https://developer.mozilla.org/pt-BR/" target="_blank">MDN Docs</a></li>
+                        <li><a href="https://wave.webaim.org/" target="_blank">WAVE Tool</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Template HTML/CSS. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Highlight.js initialization
+        hljs.highlightAll();
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add copy button to code blocks
+        document.querySelectorAll('.code-block pre').forEach(pre => {
+            const button = document.createElement('button');
+            button.className = 'copy-btn';
+            button.innerHTML = '<i class="fas fa-copy"></i>';
+            button.style.cssText = `
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                background: #007bff;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                padding: 8px;
+                cursor: pointer;
+                font-size: 12px;
+            `;
+            
+            button.addEventListener('click', () => {
+                const code = pre.textContent;
+                navigator.clipboard.writeText(code).then(() => {
+                    button.innerHTML = '<i class="fas fa-check"></i>';
+                    setTimeout(() => {
+                        button.innerHTML = '<i class="fas fa-copy"></i>';
+                    }, 2000);
+                });
+            });
+            
+            pre.parentElement.style.position = 'relative';
+            pre.parentElement.appendChild(button);
+        });
+    </script>
+</body>
+</html>

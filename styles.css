@@ -4,9 +4,9 @@
 
 /* Reset básico para remover estilos padrão do navegador */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; /* Inclui padding e border no cálculo da largura/altura */
+    margin: 0; /* Remove margens padrão do navegador */
+    padding: 0; /* Remove preenchimentos padrão do navegador */
+    box-sizing: border-box; /* Inclui padding e border no cálculo da largura/altura total */
 }
 
 /* Configurações globais do documento */
@@ -35,46 +35,58 @@ body {
 
 /* Botões estilizados */
 .btn {
-    display: inline-block;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 600;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s ease; /* Transição suave para hover */
-    font-size: 1rem;
+    display: inline-block; /* Exibe como bloco inline para permitir dimensões personalizadas */
+    /* background-color: #28a745; Cor de fundo padrão comentada */
+    padding: 12px 24px; /* Preenchimento interno (vertical horizontal) */
+    border: none; /* Remove borda padrão */
+    /* color: white; Cor do texto comentada */
+    border-radius: 5px; /* Bordas arredondadas para suavizar cantos */
+    text-decoration: none; /* Remove sublinhado de links */
+    font-weight: 600; /* Peso da fonte (semi-negrito) */
+    text-align: center; /* Alinha o texto ao centro */
+    cursor: pointer; /* Muda cursor para ponteiro ao passar o mouse */
+    transition: all 0.3s ease; /* Transição suave para todas as propriedades em 0.3s */
+    font-size: 1rem; /* Tamanho da fonte base (16px) */ 
 }
 
+/* Classe para botões primários */
 .btn-primary {
-    background-color: #007bff;
-    color: white;
+    background-color: #007bff; /* Cor de fundo azul primária do botão */
+    color: white; /* Cor do texto branca para contraste */
 }
 
+/* Efeito de hover para botões primários */
 .btn-primary:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px); /* Efeito de elevação no hover */
+    background-color: #0056b3; /* Cor mais escura no hover para feedback visual */
+    transform: translateY(-2px); /* Efeito de elevação no hover (move para cima) */
+}
+
+/* Espaçamento específico para o botão do guia na seção hero */
+.hero-guide-btn {
+    margin-left: 1rem; /* Espaçamento à esquerda do botão do guia */
 }
 
 /* Cabeçalhos de seção */
 .section-header {
-    text-align: center;
-    margin-bottom: 3rem;
+    text-align: center; /* Centraliza o texto */
+    margin-top: 3rem; /* Espaço acima do cabeçalho */
+    margin-bottom: 3rem; /* Espaço abaixo do cabeçalho */
 }
 
+/* Títulos de seção */
 .section-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #2c3e50;
-    margin-bottom: 1rem;
+    font-size: 2.5rem; /* Tamanho grande da fonte (40px) */
+    font-weight: 700; /* Peso da fonte negrito */
+    color: #2c3e50; /* Cor azul escura para destaque */
+    margin-bottom: 1rem; /* Margem inferior para espaçamento */
 }
 
+/* Subtítulos de seção */
 .section-subtitle {
-    font-size: 1.2rem;
-    color: #6c757d;
-    max-width: 600px;
-    margin: 0 auto;
+    font-size: 1.2rem; /* Tamanho ligeiramente maior que o texto normal */
+    color: #6c757d; /* Cor cinza para subtítulo */
+    max-width: 600px; /* Largura máxima para melhor legibilidade */
+    margin: 0 auto; /* Centraliza horizontalmente */
 }
 
 /* ================================================
@@ -82,25 +94,25 @@ body {
    ================================================ */
 
 .header {
-    background-color: #fff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sombra sutil */
+    background-color: #fff; /* Fundo branco para o cabeçalho */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sombra sutil para separar do conteúdo */
     position: sticky; /* Fixa no topo ao fazer scroll */
-    top: 0;
-    z-index: 1000; /* Fica acima de outros elementos */
+    top: 0; /* Posição no topo da tela */
+    z-index: 1000; /* Fica acima de outros elementos sobrepostos */
 }
 
 .header .container {
-    display: flex;
-    justify-content: space-between; /* Espaça logo e menu */
-    align-items: center;
-    padding: 1rem 20px;
+    display: flex; /* Layout flexível */
+    justify-content: space-between; /* Espaça logo e menu nas extremidades */
+    align-items: center; /* Alinha verticalmente ao centro */
+    padding: 1rem 20px; /* Preenchimento interno (vertical horizontal) */
 }
 
 /* Logo */
 .logo h1 {
-    color: #007bff;
-    font-size: 1.8rem;
-    font-weight: 700;
+    color: #007bff; /* Cor azul para a marca */
+    font-size: 1.8rem; /* Tamanho da fonte do logo */
+    font-weight: 700; /* Peso negrito para destaque */
 }
 
 /* Menu de navegação */
@@ -111,46 +123,46 @@ body {
 }
 
 .nav-link {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    position: relative;
+    text-decoration: none; /* Remove sublinhado padrão dos links */
+    color: #333; /* Cor escura padrão para os links */
+    font-weight: 500; /* Peso médio da fonte */
+    transition: color 0.3s ease; /* Transição suave da cor */
+    position: relative; /* Posicionamento relativo para pseudo-elemento */
 }
 
 .nav-link:hover {
-    color: #007bff;
+    color: #007bff; /* Muda para azul no hover */
 }
 
 /* Efeito de sublinhado no hover */
 .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: #007bff;
-    transition: width 0.3s ease;
+    content: ''; /* Conteúdo vazio para criar o sublinhado */
+    position: absolute; /* Posicionamento absoluto em relação ao link */
+    bottom: -5px; /* Posiciona abaixo do texto */
+    left: 0; /* Alinha à esquerda */
+    width: 0; /* Largura inicial zero */
+    height: 2px; /* Altura do sublinhado */
+    background-color: #007bff; /* Cor azul do sublinhado */
+    transition: width 0.3s ease; /* Transição suave da largura */
 }
 
 .nav-link:hover::after {
-    width: 100%;
+    width: 100%; /* Expande para largura total no hover */
 }
 
 /* Menu hambúrguer (oculto por padrão) */
 .hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 4px;
+    display: none; /* Oculto por padrão (só aparece em mobile) */
+    flex-direction: column; /* Empilha as barras verticalmente */
+    cursor: pointer; /* Cursor de ponteiro */
+    gap: 4px; /* Espaçamento entre as barras */
 }
 
 .hamburger span {
-    width: 25px;
-    height: 3px;
-    background-color: #333;
-    transition: all 0.3s ease;
+    width: 25px; /* Largura das barras */
+    height: 3px; /* Altura das barras */
+    background-color: #333; /* Cor escura das barras */
+    transition: all 0.3s ease; /* Transição para animação */
 }
 
 /* ================================================
@@ -158,51 +170,51 @@ body {
    ================================================ */
 
 .hero {
-    height: 100vh; /* Altura total da tela */
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    position: relative;
-    overflow: hidden;
+    height: 100vh; /* Altura total da tela (viewport height) */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Gradiente diagonal */
+    display: flex; /* Layout flexível */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    text-align: center; /* Alinha texto ao centro */
+    color: white; /* Texto branco para contraste */
+    position: relative; /* Posicionamento relativo para elementos filhos */
+    overflow: hidden; /* Oculta conteúdo que sair dos limites */
 }
 
 .hero-content {
     z-index: 2; /* Fica acima do background */
-    max-width: 800px;
-    padding: 0 20px;
+    max-width: 800px; /* Largura máxima do conteúdo */
+    padding: 0 20px; /* Preenchimento lateral */
 }
 
 .hero-title {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    animation: fadeInUp 1s ease-out; /* Animação de entrada */
+    font-size: 3.5rem; /* Tamanho grande para título principal */
+    font-weight: 700; /* Peso negrito */
+    margin-bottom: 1rem; /* Margem inferior */
+    animation: fadeInUp 1s ease-out; /* Animação de entrada suave */
 }
 
 .hero-subtitle {
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-    animation: fadeInUp 1s ease-out 0.3s both; /* Delay na animação */
+    font-size: 1.3rem; /* Tamanho médio para subtítulo */
+    margin-bottom: 2rem; /* Margem inferior maior */
+    opacity: 0.9; /* Levemente transparente */
+    animation: fadeInUp 1s ease-out 0.3s both; /* Animação com delay de 0.3s */
 }
 
 .hero .btn {
-    animation: fadeInUp 1s ease-out 0.6s both;
+    animation: fadeInUp 1s ease-out 0.6s both; /* Animação do botão com delay de 0.6s */
 }
 
 /* Background animado (opcional) */
 .hero-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('https://via.placeholder.com/1920x1080') center/cover;
-    opacity: 0.3;
-    z-index: 1;
+    position: absolute; /* Posicionamento absoluto */
+    top: 0; /* Alinhado ao topo */
+    left: 0; /* Alinhado à esquerda */
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+    background: url('https://via.placeholder.com/1920x1080') center/cover; /* Imagem de fundo */
+    opacity: 0.3; /* Transparência para não ofuscar o texto */
+    z-index: 1; /* Fica atrás do conteúdo */
 }
 
 /* ================================================
@@ -210,38 +222,38 @@ body {
    ================================================ */
 
 .about {
-    padding: 5rem 0;
-    background-color: #f8f9fa;
+    padding: 5rem 0; /* Preenchimento vertical generoso */
+    background-color: #f8f9fa; /* Fundo cinza claro para contraste */
 }
 
 .about-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Duas colunas iguais */
-    gap: 3rem;
-    align-items: center;
+    display: grid; /* Layout em grade */
+    grid-template-columns: 1fr 1fr; /* Duas colunas iguais (50% cada) */
+    gap: 3rem; /* Espaçamento entre as colunas */
+    align-items: center; /* Alinha itens verticalmente ao centro */
 }
 
 .about-text h3 {
-    color: #2c3e50;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    margin-top: 2rem;
+    color: #2c3e50; /* Cor escura para títulos */
+    font-size: 1.5rem; /* Tamanho médio da fonte */
+    margin-bottom: 1rem; /* Margem inferior */
+    margin-top: 2rem; /* Margem superior para espaçamento */
 }
 
 .about-text h3:first-child {
-    margin-top: 0;
+    margin-top: 0; /* Remove margem superior do primeiro título */
 }
 
 .about-text p {
-    color: #6c757d;
-    line-height: 1.7;
+    color: #6c757d; /* Cor cinza para texto */
+    line-height: 1.7; /* Altura da linha para melhor legibilidade */
 }
 
 .about-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 100%; /* Largura total do container */
+    height: auto; /* Altura automática para manter proporção */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Sombra sutil para profundidade */
 }
 
 /* ================================================
@@ -249,52 +261,52 @@ body {
    ================================================ */
 
 .services {
-    padding: 5rem 0;
-    background-color: #fff;
+    padding: 5rem 0; /* Preenchimento vertical */
+    background-color: #fff; /* Fundo branco */
 }
 
 .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid responsivo */
-    gap: 2rem;
+    display: grid; /* Layout em grade */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid responsivo: mín 300px */
+    gap: 2rem; /* Espaçamento entre cards */
 }
 
 .service-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: white; /* Fundo branco do card */
+    padding: 2rem; /* Preenchimento interno generoso */
+    border-radius: 10px; /* Bordas arredondadas */
+    text-align: center; /* Centraliza o conteúdo */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* Sombra sutil */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transições suaves */
 }
 
 .service-card:hover {
-    transform: translateY(-10px); /* Eleva o card no hover */
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    transform: translateY(-10px); /* Eleva o card 10px no hover */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15); /* Sombra mais pronunciada no hover */
 }
 
 .service-icon {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.5rem;
-    font-size: 2rem;
-    color: white;
+    width: 80px; /* Largura do ícone */
+    height: 80px; /* Altura do ícone */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Gradiente de fundo */
+    border-radius: 50%; /* Formato circular */
+    display: flex; /* Layout flexível */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    margin: 0 auto 1.5rem; /* Centraliza e adiciona margem inferior */
+    font-size: 2rem; /* Tamanho do ícone */
+    color: white; /* Cor branca do ícone */
 }
 
 .service-title {
-    font-size: 1.3rem;
-    color: #2c3e50;
-    margin-bottom: 1rem;
+    font-size: 1.3rem; /* Tamanho da fonte do título */
+    color: #2c3e50; /* Cor escura */
+    margin-bottom: 1rem; /* Margem inferior */
 }
 
 .service-description {
-    color: #6c757d;
-    line-height: 1.6;
+    color: #6c757d; /* Cor cinza para descrição */
+    line-height: 1.6; /* Altura da linha para legibilidade */
 }
 
 /* ================================================
@@ -302,85 +314,85 @@ body {
    ================================================ */
 
 .contact {
-    padding: 5rem 0;
-    background-color: #f8f9fa;
+    padding: 5rem 0; /* Preenchimento vertical */
+    background-color: #f8f9fa; /* Fundo cinza claro */
 }
 
 .contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    display: grid; /* Layout em grade */
+    grid-template-columns: 1fr 1fr; /* Duas colunas iguais */
+    gap: 3rem; /* Espaçamento entre colunas */
 }
 
 /* Formulário de contato */
 .contact-form {
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    background: white; /* Fundo branco do formulário */
+    padding: 2rem; /* Preenchimento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* Sombra sutil */
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem; /* Margem inferior entre campos */
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: #2c3e50;
+    display: block; /* Exibe em bloco (ocupa linha inteira) */
+    margin-bottom: 0.5rem; /* Margem inferior pequena */
+    font-weight: 600; /* Peso semi-negrito */
+    color: #2c3e50; /* Cor escura */
 }
 
 .form-group input,
 .form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid #e9ecef;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
+    width: 100%; /* Largura total */
+    padding: 12px; /* Preenchimento interno */
+    border: 2px solid #e9ecef; /* Borda cinza clara */
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: 1rem; /* Tamanho da fonte */
+    transition: border-color 0.3s ease; /* Transição suave da cor da borda */
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-    outline: none;
-    border-color: #007bff;
+    outline: none; /* Remove outline padrão */
+    border-color: #007bff; /* Muda cor da borda para azul no foco */
 }
 
 /* Informações de contato */
 .contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    display: flex; /* Layout flexível */
+    flex-direction: column; /* Direção vertical */
+    gap: 2rem; /* Espaçamento entre itens */
 }
 
 .contact-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
+    display: flex; /* Layout flexível */
+    align-items: flex-start; /* Alinha ao topo */
+    gap: 1rem; /* Espaçamento entre ícone e texto */
 }
 
 .contact-item i {
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.2rem;
-    flex-shrink: 0; /* Não diminui o tamanho */
+    width: 50px; /* Largura do ícone */
+    height: 50px; /* Altura do ícone */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Gradiente de fundo */
+    border-radius: 50%; /* Formato circular */
+    display: flex; /* Layout flexível */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    color: white; /* Cor branca do ícone */
+    font-size: 1.2rem; /* Tamanho do ícone */
+    flex-shrink: 0; /* Não diminui o tamanho quando houver pouco espaço */
 }
 
 .contact-item h4 {
-    color: #2c3e50;
-    margin-bottom: 0.5rem;
+    color: #2c3e50; /* Cor escura para título */
+    margin-bottom: 0.5rem; /* Margem inferior pequena */
 }
 
 .contact-item p {
-    color: #6c757d;
-    margin: 0;
+    color: #6c757d; /* Cor cinza para texto */
+    margin: 0; /* Remove margem padrão */
 }
 
 /* ================================================
@@ -388,78 +400,78 @@ body {
    ================================================ */
 
 .footer {
-    background-color: #2c3e50;
-    color: white;
-    padding: 3rem 0 1rem;
+    background-color: #2c3e50; /* Fundo escuro */
+    color: white; /* Texto branco */
+    padding: 3rem 0 1rem; /* Preenchimento: 3rem topo, 1rem inferior */
 }
 
 .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
+    display: grid; /* Layout em grade */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Colunas responsivas */
+    gap: 2rem; /* Espaçamento entre colunas */
+    margin-bottom: 2rem; /* Margem inferior */
 }
 
 .footer-section h3,
 .footer-section h4 {
-    margin-bottom: 1rem;
-    color: #ecf0f1;
+    margin-bottom: 1rem; /* Margem inferior para títulos */
+    color: #ecf0f1; /* Cor clara para títulos */
 }
 
 .footer-section p,
 .footer-section ul {
-    color: #bdc3c7;
-    line-height: 1.6;
+    color: #bdc3c7; /* Cor cinza clara para texto */
+    line-height: 1.6; /* Altura da linha para legibilidade */
 }
 
 .footer-section ul {
-    list-style: none;
+    list-style: none; /* Remove marcadores da lista */
 }
 
 .footer-section ul li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.5rem; /* Margem inferior entre itens */
 }
 
 .footer-section ul li a {
-    color: #bdc3c7;
-    text-decoration: none;
-    transition: color 0.3s ease;
+    color: #bdc3c7; /* Cor cinza clara para links */
+    text-decoration: none; /* Remove sublinhado */
+    transition: color 0.3s ease; /* Transição suave da cor */
 }
 
 .footer-section ul li a:hover {
-    color: #007bff;
+    color: #007bff; /* Muda para azul no hover */
 }
 
 /* Redes sociais */
 .social-links {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
+    display: flex; /* Layout flexível */
+    gap: 1rem; /* Espaçamento entre ícones */
+    margin-top: 1rem; /* Margem superior */
 }
 
 .social-link {
-    width: 40px;
-    height: 40px;
-    background-color: #34495e;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
+    width: 40px; /* Largura do ícone */
+    height: 40px; /* Altura do ícone */
+    background-color: #34495e; /* Fundo cinza escuro */
+    border-radius: 50%; /* Formato circular */
+    display: flex; /* Layout flexível */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    color: white; /* Cor branca do ícone */
+    text-decoration: none; /* Remove sublinhado */
+    transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
 }
 
 .social-link:hover {
-    background-color: #007bff;
+    background-color: #007bff; /* Muda para azul no hover */
 }
 
 /* Copyright */
 .footer-bottom {
-    border-top: 1px solid #34495e;
-    padding-top: 1rem;
-    text-align: center;
-    color: #bdc3c7;
+    border-top: 1px solid #34495e; /* Borda superior cinza */
+    padding-top: 1rem; /* Preenchimento superior */
+    text-align: center; /* Centraliza o texto */
+    color: #bdc3c7; /* Cor cinza clara */
 }
 
 /* ================================================
@@ -468,12 +480,12 @@ body {
 
 @keyframes fadeInUp {
     from {
-        opacity: 0;
-        transform: translateY(30px);
+        opacity: 0; /* Inicia transparente */
+        transform: translateY(30px); /* Inicia 30px abaixo */
     }
     to {
-        opacity: 1;
-        transform: translateY(0);
+        opacity: 1; /* Termina opaco */
+        transform: translateY(0); /* Termina na posição original */
     }
 }
 
@@ -485,93 +497,93 @@ body {
 @media (max-width: 768px) {
     /* Header responsivo */
     .nav {
-        display: none;
+        display: none; /* Oculta navegação normal */
     }
     
     .hamburger {
-        display: flex;
+        display: flex; /* Mostra menu hambúrguer */
     }
     
     .nav-list {
-        position: fixed;
-        top: 70px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 70px);
-        background-color: white;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        padding-top: 2rem;
-        transition: left 0.3s ease;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        position: fixed; /* Posicionamento fixo */
+        top: 70px; /* Abaixo do header */
+        left: -100%; /* Inicia fora da tela (esquerda) */
+        width: 100%; /* Largura total */
+        height: calc(100vh - 70px); /* Altura da tela menos header */
+        background-color: white; /* Fundo branco */
+        flex-direction: column; /* Direção vertical */
+        justify-content: flex-start; /* Alinha ao topo */
+        align-items: center; /* Centraliza horizontalmente */
+        padding-top: 2rem; /* Preenchimento superior */
+        transition: left 0.3s ease; /* Transição suave de entrada */
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* Sombra */
     }
     
     .nav-list.active {
-        left: 0;
+        left: 0; /* Move para posição visível quando ativo */
     }
     
     .nav-item {
-        margin: 1rem 0;
+        margin: 1rem 0; /* Margem vertical entre itens */
     }
     
     /* Hero responsivo */
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.5rem; /* Reduz tamanho da fonte */
     }
     
     .hero-subtitle {
-        font-size: 1.1rem;
+        font-size: 1.1rem; /* Reduz tamanho da fonte */
     }
     
     /* Seções responsivas */
     .section-title {
-        font-size: 2rem;
+        font-size: 2rem; /* Reduz tamanho da fonte */
     }
     
     .about-content,
     .contact-content {
         grid-template-columns: 1fr; /* Uma coluna em telas pequenas */
-        gap: 2rem;
+        gap: 2rem; /* Reduz espaçamento */
     }
     
     .services-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Uma coluna para serviços */
     }
     
     .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
+        grid-template-columns: 1fr; /* Uma coluna no footer */
+        text-align: center; /* Centraliza texto */
     }
 }
 
 /* Smartphones (480px e abaixo) */
 @media (max-width: 480px) {
     .container {
-        padding: 0 15px;
+        padding: 0 15px; /* Reduz preenchimento lateral */
     }
     
     .hero-title {
-        font-size: 2rem;
+        font-size: 2rem; /* Reduz ainda mais o título */
     }
     
     .hero-subtitle {
-        font-size: 1rem;
+        font-size: 1rem; /* Reduz subtítulo */
     }
     
     .section-title {
-        font-size: 1.8rem;
+        font-size: 1.8rem; /* Reduz título das seções */
     }
     
     .service-card,
     .contact-form {
-        padding: 1.5rem;
+        padding: 1.5rem; /* Reduz preenchimento interno */
     }
     
     .contact-item {
-        text-align: center;
-        flex-direction: column;
-        align-items: center;
+        text-align: center; /* Centraliza itens de contato */
+        flex-direction: column; /* Empilha verticalmente */
+        align-items: center; /* Centraliza horizontalmente */
     }
 }
 
@@ -584,14 +596,14 @@ button:focus,
 input:focus,
 textarea:focus,
 a:focus {
-    outline: 2px solid #007bff;
-    outline-offset: 2px;
+    outline: 2px solid #007bff; /* Contorno azul para indicar foco */
+    outline-offset: 2px; /* Espaçamento do contorno */
 }
 
 /* Estados de hover para melhor UX */
 .service-card:hover .service-icon {
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
+    transform: scale(1.1); /* Aumenta o ícone em 10% no hover */
+    transition: transform 0.3s ease; /* Transição suave da transformação */
 }
 
 /* ================================================
@@ -602,15 +614,15 @@ a:focus {
     .header,
     .footer,
     .btn {
-        display: none;
+        display: none; /* Oculta elementos não necessários na impressão */
     }
     
     body {
-        font-size: 12pt;
-        line-height: 1.4;
+        font-size: 12pt; /* Tamanho de fonte otimizado para impressão */
+        line-height: 1.4; /* Altura da linha mais compacta */
     }
     
     .section-title {
-        font-size: 18pt;
+        font-size: 18pt; /* Tamanho de título para impressão */
     }
 }

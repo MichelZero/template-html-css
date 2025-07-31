@@ -26,6 +26,7 @@ Este projeto contém:
 template-html-css/
 ├── index.html          # Página principal
 ├── styles.css          # Arquivo de estilos
+├── GUIA-HTML.md        # Guia completo de HTML
 ├── GUIA-CSS.md         # Guia completo de CSS
 └── README.md           # Este arquivo
 ```
@@ -65,7 +66,19 @@ O template é totalmente responsivo com breakpoints para:
 
 ## 📖 Documentação
 
-Consulte o arquivo `GUIA-CSS.md` para um guia completo sobre:
+Consulte os guias completos para aprender HTML e CSS:
+
+### 📄 GUIA-HTML.md
+Guia completo sobre HTML com:
+- Estrutura básica de documentos
+- Tags fundamentais e semântica
+- Formulários e validação
+- Meta tags e SEO
+- Acessibilidade
+- Boas práticas e exemplos
+
+### 🎨 GUIA-CSS.md  
+Guia completo sobre CSS com:
 - Seletores CSS
 - Propriedades fundamentais
 - Layout e posicionamento
