@@ -1,5 +1,24 @@
+/* ===== IMAGEM BOX MODEL ===== */
+.img-boxmodel {
+    max-width: 400px;
+    display: block;
+    margin: 2rem auto;
+}
+/* ===== IMAGEM BOX MODEL =====
+   Estiliza imagens ilustrativas do box model para centralizar e limitar largura. */
+/* USADO EM: Aula 04 - Box Model e em qualquer aula que precise ilustrar
+   conceitos visuais com imagens centralizadas e responsivas. */
+.img-boxmodel {
+    max-width: 400px; /* Limita largura máxima da imagem */
+    display: block;   /* Faz a imagem ocupar uma linha inteira */
+    margin: 2rem auto;/* Centraliza e adiciona espaçamento vertical */
+}
 /* ===== CSS COURSE FRAMEWORK ===== */
 /* Framework educacional para o Curso CSS Fundamentals */
+/* Este framework é usado em todas as aulas do curso CSS,
+   proporcionando uma experiência visual consistente e moderna.
+   Cada componente foi projetado para facilitar o aprendizado
+   e destacar conceitos importantes. */
 
 /* ===== VARIÁVEIS CSS ===== */
 :root {
@@ -49,6 +68,17 @@
     --radius-lg: 12px;
     --radius-xl: 16px;
 }
+/*
+=============================
+VARIÁVEIS CSS GLOBAIS
+-----------------------------
+Definem cores, espaçamentos, tipografia e outros padrões reutilizáveis.
+Alterar aqui afeta todo o visual do framework.
+=============================
+*/
+/* COMO USAR: Para manter consistência visual, sempre use estas variáveis
+   em vez de valores hardcoded. Para adicionar uma nova cor ou espaçamento,
+   defina aqui primeiro e depois referencie com var(--nome-da-variavel). */
 
 /* ===== RESET E BASE ===== */
 * {
@@ -56,6 +86,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* ===== RESET E BASE =====
+   Remove margens/paddings padrão e define box-sizing global.
+   Aplica tipografia e suavização de fontes. */
 
 html {
     scroll-behavior: smooth;
@@ -82,6 +115,10 @@ body {
     margin-top: var(--spacing-xl);
     margin-bottom: var(--spacing-xl);
 }
+/* ===== CONTAINER PRINCIPAL =====
+   Limita largura máxima, centraliza e aplica fundo, sombra e borda arredondada. */
+/* USADO EM: Elemento principal que envolve todo o conteúdo de cada aula.
+   <div class="aula-container"> ... conteúdo da aula ... </div> */
 
 /* ===== HEADER DA AULA ===== */
 .aula-header {
@@ -94,6 +131,10 @@ body {
     position: relative;
     overflow: hidden;
 }
+/* ===== HEADER DA AULA =====
+   Estiliza o cabeçalho de cada aula com gradiente, cor clara e grid decorativo. */
+/* USADO EM: Cabeçalho de cada aula, com título, descrição e metadados.
+   <header class="aula-header"> ... título e descrição ... </header> */
 
 .aula-header::before {
     content: '';
@@ -150,6 +191,7 @@ body {
     background: rgba(255, 255, 255, 0.1);
     padding: var(--spacing-sm) var(--spacing-md);
     border-radius: var(--radius-md);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     font-weight: 500;
 }
@@ -166,6 +208,11 @@ body {
     box-shadow: var(--shadow-sm);
     border: 1px solid var(--border-light);
 }
+/* ===== NAVEGAÇÃO =====
+   Estiliza barra de navegação entre aulas e botões de navegação. */
+/* USADO EM: Navegação entre aulas e seções.
+   <nav class="aula-nav"> ... botões de navegação ... </nav> 
+   Botões recebem classes .nav-btn, .primary ou .secondary */
 
 .nav-btn {
     display: inline-flex;
@@ -195,6 +242,10 @@ body {
     margin-bottom: var(--spacing-xl);
     border-left: 4px solid var(--primary-color);
 }
+/* ===== OBJETIVOS =====
+   Bloco visual para listar objetivos de aprendizagem da aula. */
+/* USADO EM: Seção inicial de cada aula para apresentar objetivos de aprendizagem.
+   <div class="objetivos"> ... lista de objetivos ... </div> */
 
 .objetivos h3 {
     color: var(--primary-color);
@@ -229,6 +280,10 @@ body {
     box-shadow: var(--shadow-sm);
     border: 1px solid var(--border-light);
 }
+/* ===== SEÇÕES =====
+   Estiliza cada seção de conteúdo da aula, com espaçamento, sombra e títulos destacados. */
+/* USADO EM: Cada bloco principal de conteúdo da aula.
+   <section class="secao"> ... conteúdo da seção ... </section> */
 
 .secao h2 {
     color: var(--primary-color);
@@ -276,6 +331,11 @@ body {
     position: relative;
     border: 1px solid #333;
 }
+/* ===== CÓDIGO =====
+   Bloco para exibir exemplos de código com fundo escuro, borda e destaque de linguagem. */
+/* USADO EM: Blocos de exemplo de código CSS, HTML, JS, etc.
+   <div class="codigo" data-lang="CSS"> <pre><code>...</code></pre> </div>
+   O atributo data-lang define o rótulo que aparece no canto superior direito. */
 
 .codigo::before {
     content: attr(data-lang);
@@ -308,6 +368,16 @@ body {
 .codigo .css-value { color: #ce9178; }
 .codigo .css-selector { color: #d7ba7d; }
 .codigo .css-comment { color: #6a9955; }
+/* ===== HIGHLIGHTING DE CSS =====
+   Cores para propriedades, valores, seletores e comentários em blocos de código. */
+/* USADO EM: Dentro dos blocos de código para destacar sintaxe.
+   Aplicar classes .css-property, .css-value, .css-selector e .css-comment
+   aos respectivos elementos dentro do <code>. */
+/* ===== HIGHLIGHTING DE CSS =====
+   Cores para propriedades, valores, seletores e comentários em blocos de código. */
+/* USADO EM: Dentro dos blocos de código para destacar sintaxe.
+   Aplicar classes .css-property, .css-value, .css-selector e .css-comment
+   aos respectivos elementos dentro do <code>. */
 
 /* ===== DESTAQUES ===== */
 .destaque {
@@ -317,6 +387,13 @@ body {
     border-left: 4px solid;
     position: relative;
 }
+/* ===== DESTAQUES =====
+   Blocos de informação, dicas, alertas e sucesso com cores e gradientes distintos. */
+/* USADO EM: Informações importantes, dicas, avisos e exemplos de sucesso.
+   <div class="destaque info"> ... conteúdo informativo ... </div>
+   <div class="destaque tip"> ... dicas úteis ... </div>
+   <div class="destaque warning"> ... avisos importantes ... </div>
+   <div class="destaque success"> ... exemplos de bom uso ... </div> */
 
 .destaque.info {
     background: linear-gradient(135deg, #e3f2fd, #f1f8e9);
@@ -357,6 +434,11 @@ body {
     margin: var(--spacing-xl) 0;
     position: relative;
 }
+/* ===== EXERCÍCIOS =====
+   Bloco visual para exercícios práticos, com destaque e ícone. */
+/* USADO EM: Seções de exercícios práticos para os alunos.
+   <div class="exercicio"> ... instruções do exercício ... </div>
+   <div class="exercicio-resultado"> ... exemplo de solução ... </div> */
 
 .exercicio::before {
     content: "💪";
@@ -395,6 +477,12 @@ body {
     gap: var(--spacing-lg);
     margin: var(--spacing-lg) 0;
 }
+/* ===== RECURSOS E CARDS =====
+   Estiliza cards de recursos e links extras ao final da aula. */
+/* USADO EM: Seções de recursos adicionais, ferramentas e leituras.
+   <div class="recursos"> 
+     <div class="recurso-card"> ... conteúdo do card ... </div>
+   </div> */
 
 .recurso-card {
     background: var(--light-bg);
@@ -461,6 +549,15 @@ body {
     border: 1px solid var(--border-light);
     margin: var(--spacing-lg) 0;
 }
+/* ===== CHECKLISTS =====
+   Bloco visual para listas de verificação de aprendizado. */
+/* USADO EM: Listas de verificação para alunos marcarem seu progresso.
+   <div class="checklist">
+     <h4>✅ Checklist</h4>
+     <ul>
+       <li><input type="checkbox" id="item1"><label for="item1">Item</label></li>
+     </ul>
+   </div> */
 
 .checklist h4 {
     margin-top: 0;
@@ -502,6 +599,12 @@ body {
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
 }
+/* ===== TABELAS =====
+   Estilização de tabelas para dados e comparativos. */
+/* USADO EM: Apresentação de dados tabulares, comparativos e exemplos.
+   <div class="tabela-container">
+     <table> ... conteúdo da tabela ... </table>
+   </div> */
 
 table {
     width: 100%;
@@ -536,6 +639,15 @@ tr:hover {
     background: linear-gradient(135deg, #f8fafc, #f1f5f9);
     border-radius: var(--radius-lg);
 }
+/* ===== NAVEGAÇÃO DO CURSO =====
+   Barra de navegação entre aulas, com destaque para próxima aula. */
+/* USADO EM: Rodapé de cada aula para navegar entre as aulas.
+   <nav class="course-navigation">
+     <div class="nav-buttons">
+       <a href="aula-anterior.html" class="nav-btn secondary">← Anterior</a>
+       <a href="proxima-aula.html" class="nav-btn primary">Próxima →</a>
+     </div>
+   </nav> */
 
 .nav-buttons {
     display: flex;
@@ -589,6 +701,13 @@ tr:hover {
     border-radius: var(--radius-lg);
     margin-top: var(--spacing-xxl);
 }
+/* ===== FOOTER =====
+   Rodapé estilizado para encerrar a aula com mensagem motivacional. */
+/* USADO EM: Rodapé final de cada aula, com mensagem de encerramento.
+   <footer class="aula-footer">
+     <h3>🎉 Título de Conclusão</h3>
+     <p>Mensagem motivacional e próximos passos</p>
+   </footer> */
 
 .aula-footer h3 {
     margin-bottom: var(--spacing-md);
@@ -634,6 +753,18 @@ tr:hover {
         font-size: 2rem;
     }
 }
+/* ===== RESPONSIVIDADE =====
+   Media queries para adaptar layout e tipografia em diferentes tamanhos de tela. */
+/* APLICAÇÃO: Ajustes automáticos para diferentes dispositivos:
+   - 1024px: Tablets e telas médias
+   - 768px: Tablets pequenos e celulares em paisagem
+   - 480px: Celulares em modo retrato */
+/* ===== RESPONSIVIDADE =====
+   Media queries para adaptar layout e tipografia em diferentes tamanhos de tela. */
+/* APLICAÇÃO: Ajustes automáticos para diferentes dispositivos:
+   - 1024px: Tablets e telas médias
+   - 768px: Tablets pequenos e celulares em paisagem
+   - 480px: Celulares em modo retrato */
 
 @media (max-width: 768px) {
     .aula-meta {
@@ -707,6 +838,14 @@ tr:hover {
         transform: translateY(0);
     }
 }
+/* ===== ANIMAÇÕES =====
+   Keyframes e animações para entrada suave de seções e container. */
+/* APLICAÇÃO: Animações aplicadas automaticamente aos elementos:
+   - fadeIn: Para o container principal, entrada suave
+   - slideInUp: Para seções, entrando de baixo para cima com leve delay */
+/* APLICAÇÃO: Animações aplicadas automaticamente aos elementos:
+   - fadeIn: Para o container principal, entrada suave
+   - slideInUp: Para seções, entrando de baixo para cima com leve delay */
 
 @keyframes fadeIn {
     from {
@@ -776,7 +915,19 @@ tr:hover {
         border: 2px solid #ccc;
     }
 }
-/* Utility Classes */
+/* ===== IMPRESSÃO =====
+   Ajustes para impressão: remove navegação, ajusta cores e espaçamentos. */
+/* APLICAÇÃO: Ativado automaticamente quando o usuário imprime a página.
+   Otimiza a página para impressão removendo elementos interativos,
+   ajustando cores para economizar tinta e garantindo quebras de página
+   adequadas entre seções. */
+/* ===== IMPRESSÃO =====
+   Ajustes para impressão: remove navegação, ajusta cores e espaçamentos. */
+/* APLICAÇÃO: Ativado automaticamente quando o usuário imprime a página.
+   Otimiza a página para impressão removendo elementos interativos,
+   ajustando cores para economizar tinta e garantindo quebras de página
+   adequadas entre seções. */
+/* ===== UTILITÁRIOS ===== */
 .course-meta-spacing {
     margin-bottom: 10px;
 }
@@ -785,3 +936,13 @@ tr:hover {
     list-style: none;
     padding: 0;
 }
+/* ===== UTILITÁRIOS =====
+   Classes utilitárias para espaçamento e listas limpas. */
+/* USADO EM: Aplicação pontual para ajustes de layout.
+   .course-meta-spacing: Espaçamento inferior para metadados
+   .clean-list: Remove marcadores e padding de listas */
+/* ===== UTILITÁRIOS =====
+   Classes utilitárias para espaçamento e listas limpas. */
+/* USADO EM: Aplicação pontual para ajustes de layout.
+   .course-meta-spacing: Espaçamento inferior para metadados
+   .clean-list: Remove marcadores e padding de listas */

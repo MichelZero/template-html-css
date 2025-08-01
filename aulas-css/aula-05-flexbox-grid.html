@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧩 Aula 5: Flexbox e Grid Layout</title>
+    <meta name="description" content="Aprenda a criar layouts modernos e responsivos usando Flexbox e CSS Grid, as ferramentas mais poderosas para organização de elementos na página.">
+    <link rel="stylesheet" href="assets/style-aulas.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧩</text></svg>">
+</head>
+<body>
+    <div class="aula-container">
+        <!-- Header da Aula -->
+        <header class="aula-header">
+            <div class="aula-numero">🧩 AULA 5</div>
+            <h1 class="aula-titulo">Flexbox e Grid Layout</h1>
+            <p class="aula-descricao">
+                Domine as duas ferramentas mais poderosas do CSS moderno para criação de layouts: Flexbox e Grid. Aprenda a organizar elementos de forma fluida e responsiva para criar interfaces complexas com facilidade.
+            </p>
+            <div class="aula-meta">
+                <div class="meta-item">
+                    <span>⏱️</span> <span>60 min</span>
+                </div>
+                <div class="meta-item">
+                    <span>🎯</span> <span>Essencial</span>
+                </div>
+                <div class="meta-item">
+                    <span>🧩</span> <span>Layout</span>
+                </div>
+                <div class="meta-item">
+                    <span>📱</span> <span>Responsividade</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navegação entre Aulas -->
+        <nav class="aula-nav">
+            <a href="aula-04-box-model.html" class="nav-btn">← Aula Anterior</a>
+            <a href="index.html" class="nav-btn">Índice</a>
+            <a href="aula-06-responsividade.html" class="nav-btn">Próxima Aula →</a>
+        </nav>
+
+        <!-- Objetivos da Aula -->
+        <section class="secao">
+            <h2>🎯 Objetivos de Aprendizagem</h2>
+            <div class="objetivos">
+                <div class="objetivo">
+                    <h4>🔄 Entender Flexbox</h4>
+                    <p>Compreender como usar Flexbox para criar layouts unidimensionais flexíveis e dinâmicos.</p>
+                </div>
+                <div class="objetivo">
+                    <h4>📏 Dominar Grid</h4>
+                    <p>Utilizar CSS Grid para construir layouts bidimensionais complexos com precisão.</p>
+                </div>
+                <div class="objetivo">
+                    <h4>🤹 Combinar Técnicas</h4>
+                    <p>Aprender quando e como usar cada sistema de layout para obter os melhores resultados.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 1: Introdução ao Flexbox -->
+        <section class="secao">
+            <h2>🔄 1. Flexbox: Layout Unidimensional</h2>
+            <p>
+                Flexbox (Flexible Box Layout) é um modelo de layout unidimensional projetado para organizar elementos em uma única direção - em linha ou coluna. É ideal para componentes de interface como menus, cards, formulários e qualquer layout que precise se adaptar dinamicamente ao espaço disponível.
+            </p>
+            
+            <h3>Conceitos Básicos do Flexbox</h3>
+            <p>
+                O Flexbox trabalha com dois eixos principais: o <strong>eixo principal</strong> (main axis) e o <strong>eixo cruzado</strong> (cross axis). A direção do eixo principal é determinada pela propriedade <code>flex-direction</code>.
+            </p>
+            
+            <div class="codigo" data-lang="CSS">
+<pre><code>.container {
+    display: flex;
+    flex-direction: row; /* Valores: row, row-reverse, column, column-reverse */
+    justify-content: space-between; /* Alinhamento no eixo principal */
+    align-items: center; /* Alinhamento no eixo cruzado */
+    flex-wrap: wrap; /* Permite quebra de linha dos elementos */
+    gap: 20px; /* Espaçamento entre os elementos */
+}</code></pre>
+            </div>
+            
+            <div class="destaque info">
+                <h4>💡 Elementos do Flexbox</h4>
+                <ul>
+                    <li><strong>Container Flex</strong>: Elemento pai que recebe <code>display: flex</code></li>
+                    <li><strong>Itens Flex</strong>: Filhos diretos do container flex</li>
+                    <li><strong>Eixos</strong>: Principal (direção do layout) e Cruzado (perpendicular ao principal)</li>
+                </ul>
+            </div>
+            
+            <h3>Propriedades do Container Flex</h3>
+            <div class="tabela-container">
+                <table>
+                    <tr>
+                        <th>Propriedade</th>
+                        <th>Função</th>
+                        <th>Valores Comuns</th>
+                    </tr>
+                    <tr>
+                        <td>display</td>
+                        <td>Define um container flex</td>
+                        <td>flex, inline-flex</td>
+                    </tr>
+                    <tr>
+                        <td>flex-direction</td>
+                        <td>Define a direção do eixo principal</td>
+                        <td>row, column, row-reverse, column-reverse</td>
+                    </tr>
+                    <tr>
+                        <td>justify-content</td>
+                        <td>Alinhamento no eixo principal</td>
+                        <td>flex-start, flex-end, center, space-between, space-around</td>
+                    </tr>
+                    <tr>
+                        <td>align-items</td>
+                        <td>Alinhamento no eixo cruzado</td>
+                        <td>flex-start, flex-end, center, stretch, baseline</td>
+                    </tr>
+                    <tr>
+                        <td>flex-wrap</td>
+                        <td>Controla quebra de linha</td>
+                        <td>nowrap, wrap, wrap-reverse</td>
+                    </tr>
+                    <tr>
+                        <td>gap</td>
+                        <td>Espaçamento entre itens</td>
+                        <td>10px, 1rem, etc.</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <h3>Propriedades dos Itens Flex</h3>
+            <div class="tabela-container">
+                <table>
+                    <tr>
+                        <th>Propriedade</th>
+                        <th>Função</th>
+                        <th>Valores Comuns</th>
+                    </tr>
+                    <tr>
+                        <td>flex-grow</td>
+                        <td>Fator de crescimento</td>
+                        <td>0, 1, 2, etc.</td>
+                    </tr>
+                    <tr>
+                        <td>flex-shrink</td>
+                        <td>Fator de redução</td>
+                        <td>0, 1, 2, etc.</td>
+                    </tr>
+                    <tr>
+                        <td>flex-basis</td>
+                        <td>Tamanho inicial</td>
+                        <td>auto, 0, 100px, etc.</td>
+                    </tr>
+                    <tr>
+                        <td>flex</td>
+                        <td>Atalho para as três propriedades acima</td>
+                        <td>flex: 1; (1 1 0%)</td>
+                    </tr>
+                    <tr>
+                        <td>order</td>
+                        <td>Controla a ordem de exibição</td>
+                        <td>0, 1, -1, etc.</td>
+                    </tr>
+                    <tr>
+                        <td>align-self</td>
+                        <td>Alinhamento individual no eixo cruzado</td>
+                        <td>auto, flex-start, center, etc.</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="destaque tip">
+                <h4>🔍 Dica Prática</h4>
+                <p>
+                    A propriedade <code>flex: 1;</code> é um atalho muito usado que equivale a <code>flex: 1 1 0%;</code> fazendo com que o item cresça para ocupar o espaço disponível. É ideal para criar layouts fluidos.
+                </p>
+            </div>
+        </section>
+
+        <!-- Seção 2: Grid Layout -->
+        <section class="secao">
+            <h2>📏 2. CSS Grid: Layout Bidimensional</h2>
+            <p>
+                CSS Grid Layout é um sistema de layout bidimensional que permite criar estruturas complexas de linhas e colunas simultaneamente. Diferente do Flexbox (unidimensional), o Grid oferece controle preciso sobre posicionamento em ambas as direções.
+            </p>
+            
+            <h3>Conceitos Básicos do Grid</h3>
+            <p>
+                O Grid trabalha com <strong>linhas</strong> e <strong>colunas</strong> que criam células onde os elementos são posicionados. É possível definir áreas nomeadas para melhor organização do layout.
+            </p>
+            
+            <div class="codigo" data-lang="CSS">
+<pre><code>.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Três colunas com tamanhos iguais */
+    grid-template-rows: auto 200px auto; /* Três linhas com alturas diferentes */
+    gap: 16px; /* Espaçamento entre as células */
+    grid-template-areas: 
+        "header header header"
+        "sidebar content content"
+        "footer footer footer";
+}</code></pre>
+            </div>
+            
+            <div class="destaque info">
+                <h4>📐 Unidade fr (fração)</h4>
+                <p>
+                    A unidade <code>fr</code> representa uma fração do espaço disponível. Por exemplo, em <code>grid-template-columns: 1fr 2fr</code>, a segunda coluna terá o dobro da largura da primeira.
+                </p>
+            </div>
+            
+            <h3>Propriedades do Container Grid</h3>
+            <div class="tabela-container">
+                <table>
+                    <tr>
+                        <th>Propriedade</th>
+                        <th>Função</th>
+                        <th>Exemplo</th>
+                    </tr>
+                    <tr>
+                        <td>display</td>
+                        <td>Define um container grid</td>
+                        <td>grid, inline-grid</td>
+                    </tr>
+                    <tr>
+                        <td>grid-template-columns</td>
+                        <td>Define colunas</td>
+                        <td>100px 1fr auto</td>
+                    </tr>
+                    <tr>
+                        <td>grid-template-rows</td>
+                        <td>Define linhas</td>
+                        <td>auto 200px 1fr</td>
+                    </tr>
+                    <tr>
+                        <td>gap</td>
+                        <td>Espaçamento entre células</td>
+                        <td>10px, row-gap, column-gap</td>
+                    </tr>
+                    <tr>
+                        <td>grid-template-areas</td>
+                        <td>Define áreas nomeadas</td>
+                        <td>"header header" "side main"</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <h3>Posicionamento de Itens no Grid</h3>
+            <div class="codigo" data-lang="CSS">
+<pre><code>/* Posicionamento por área nomeada */
+.header {
+    grid-area: header;
+}
+
+/* Posicionamento por linha/coluna */
+.sidebar {
+    grid-column: 1 / 2; /* Início / Fim */
+    grid-row: 2 / 4;    /* Ocupa da linha 2 até a 4 */
+}
+
+/* Atalho para posicionamento (linha-início / coluna-início / linha-fim / coluna-fim) */
+.content {
+    grid-area: 2 / 2 / 3 / 4;
+}</code></pre>
+            </div>
+            
+            <div class="destaque warning">
+                <h4>⚠️ Atenção</h4>
+                <p>
+                    Ao usar números para posicionamento no grid, lembre-se que as linhas são numeradas começando do 1 (não do 0 como em arrays). A linha de término não é incluída no intervalo, similar a como funciona o <code>slice()</code> em JavaScript.
+                </p>
+            </div>
+            
+            <h3>Funções Especiais do Grid</h3>
+            <div class="tabela-container">
+                <table>
+                    <tr>
+                        <th>Função</th>
+                        <th>Uso</th>
+                        <th>Exemplo</th>
+                    </tr>
+                    <tr>
+                        <td>repeat()</td>
+                        <td>Repete padrões de tamanho</td>
+                        <td>repeat(3, 1fr) = 1fr 1fr 1fr</td>
+                    </tr>
+                    <tr>
+                        <td>minmax()</td>
+                        <td>Define tamanho mínimo e máximo</td>
+                        <td>minmax(100px, 1fr)</td>
+                    </tr>
+                    <tr>
+                        <td>auto-fill</td>
+                        <td>Cria o máximo de tracks possíveis</td>
+                        <td>repeat(auto-fill, minmax(200px, 1fr))</td>
+                    </tr>
+                    <tr>
+                        <td>auto-fit</td>
+                        <td>Similar ao auto-fill, mas colapsa tracks vazios</td>
+                        <td>repeat(auto-fit, minmax(200px, 1fr))</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- Seção 3: Quando usar cada um -->
+        <section class="secao">
+            <h2>🤹 3. Flexbox vs Grid: Quando Usar Cada Um</h2>
+            
+            <p>
+                Flexbox e Grid são complementares, não concorrentes. Saber quando usar cada um é crucial para um desenvolvimento eficiente.
+            </p>
+            
+            <div class="tabela-container">
+                <table>
+                    <tr>
+                        <th>Use Flexbox quando:</th>
+                        <th>Use Grid quando:</th>
+                    </tr>
+                    <tr>
+                        <td>- Precisar de um layout unidimensional (linha OU coluna)</td>
+                        <td>- Precisar de layout bidimensional (linhas E colunas)</td>
+                    </tr>
+                    <tr>
+                        <td>- O design for baseado em conteúdo (content-first)</td>
+                        <td>- O design for baseado em layout (layout-first)</td>
+                    </tr>
+                    <tr>
+                        <td>- Para pequenos componentes de UI (menus, barras de ferramentas)</td>
+                        <td>- Para layouts complexos de página inteira</td>
+                    </tr>
+                    <tr>
+                        <td>- Para distribuição de espaço entre itens</td>
+                        <td>- Para alinhamento preciso em duas dimensões</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="destaque success">
+                <h4>💡 Melhor Prática</h4>
+                <p>
+                    Use Grid para o layout principal da página e Flexbox para componentes menores dentro dela. Essa combinação traz o melhor dos dois mundos.
+                </p>
+            </div>
+            
+            <h3>Exemplo de Combinação</h3>
+            <div class="codigo" data-lang="CSS">
+<pre><code>/* Layout da página com Grid */
+.page {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header"
+        "sidebar content"
+        "footer footer";
+    min-height: 100vh;
+}
+
+/* Menu de navegação com Flexbox */
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+/* Cards com Flexbox */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.card {
+    flex: 1 0 300px; /* Cresce, não encolhe, base 300px */
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Exercício Prático -->
+        <section class="secao">
+            <h2>💪 Exercício Prático</h2>
+            <div class="exercicio">
+                <h4>Layout Responsivo com Flexbox e Grid</h4>
+                <p>
+                    Crie um layout para uma página de blog com:
+                </p>
+                <ul>
+                    <li>Header com menu usando Flexbox</li>
+                    <li>Layout principal com sidebar e conteúdo usando Grid</li>
+                    <li>Cards de artigos usando Flexbox dentro do conteúdo</li>
+                    <li>Footer com três colunas usando Grid</li>
+                </ul>
+                <p>
+                    Certifique-se de que o layout seja responsivo e adapte-se a diferentes tamanhos de tela.
+                </p>
+                
+                <div class="exercicio-resultado">
+                    <div class="codigo" data-lang="HTML">
+<pre><code>&lt;div class="blog-page"&gt;
+    &lt;header class="header"&gt;
+        &lt;div class="logo"&gt;MeuBlog&lt;/div&gt;
+        &lt;nav class="menu"&gt;
+            &lt;a href="#"&gt;Home&lt;/a&gt;
+            &lt;a href="#"&gt;Artigos&lt;/a&gt;
+            &lt;a href="#"&gt;Sobre&lt;/a&gt;
+            &lt;a href="#"&gt;Contato&lt;/a&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+    
+    &lt;main class="content-area"&gt;
+        &lt;aside class="sidebar"&gt;
+            &lt;h3&gt;Categorias&lt;/h3&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#"&gt;CSS&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;HTML&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;JavaScript&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/aside&gt;
+        
+        &lt;section class="articles"&gt;
+            &lt;h2&gt;Artigos Recentes&lt;/h2&gt;
+            &lt;div class="card-container"&gt;
+                &lt;article class="card"&gt;
+                    &lt;h3&gt;Dominando Flexbox&lt;/h3&gt;
+                    &lt;p&gt;Aprenda todos os segredos do Flexbox...&lt;/p&gt;
+                &lt;/article&gt;
+                &lt;article class="card"&gt;
+                    &lt;h3&gt;CSS Grid na Prática&lt;/h3&gt;
+                    &lt;p&gt;Como criar layouts complexos...&lt;/p&gt;
+                &lt;/article&gt;
+                &lt;article class="card"&gt;
+                    &lt;h3&gt;Combinando os Dois&lt;/h3&gt;
+                    &lt;p&gt;A melhor estratégia para layouts modernos...&lt;/p&gt;
+                &lt;/article&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+    
+    &lt;footer class="footer"&gt;
+        &lt;div class="footer-section"&gt;
+            &lt;h4&gt;Sobre&lt;/h4&gt;
+            &lt;p&gt;Blog dedicado ao CSS moderno&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="footer-section"&gt;
+            &lt;h4&gt;Links&lt;/h4&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Termos&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Privacidade&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;div class="footer-section"&gt;
+            &lt;h4&gt;Contato&lt;/h4&gt;
+            &lt;p&gt;email@exemplo.com&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                    <div class="codigo" data-lang="CSS">
+<pre><code>/* Layout da Página */
+.blog-page {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    min-height: 100vh;
+}
+
+/* Header com Flexbox */
+.header {
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #1976d2;
+    color: white;
+}
+
+.menu {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Área de Conteúdo com Grid */
+.content-area {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* Sidebar */
+.sidebar {
+    background: #f5f5f5;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+/* Artigos com Flexbox */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.card {
+    flex: 1 0 300px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Footer com Grid */
+.footer {
+    grid-area: footer;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    background: #333;
+    color: white;
+    padding: 2rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .content-area {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer {
+        grid-template-columns: 1fr;
+    }
+    
+    .header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recursos Adicionais -->
+        <section class="secao">
+            <h2>📚 Recursos Adicionais</h2>
+            <div class="recursos">
+                <div class="recurso-card">
+                    <h4>Guia Flexbox da MDN</h4>
+                    <p>Documentação detalhada com exemplos interativos sobre Flexbox.</p>
+                    <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS/CSS_Flexible_Box_Layout" class="recurso-link" target="_blank" rel="noopener">Acessar →</a>
+                </div>
+                <div class="recurso-card">
+                    <h4>Guia CSS Grid da MDN</h4>
+                    <p>Referência completa sobre CSS Grid com tutoriais passo a passo.</p>
+                    <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS/CSS_Grid_Layout" class="recurso-link" target="_blank" rel="noopener">Acessar →</a>
+                </div>
+                <div class="recurso-card">
+                    <h4>CSS Tricks - Guia Completo de Flexbox</h4>
+                    <p>Um dos melhores guias visuais sobre Flexbox disponíveis.</p>
+                    <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="recurso-link" target="_blank" rel="noopener">Acessar →</a>
+                </div>
+                <div class="recurso-card">
+                    <h4>CSS Tricks - Guia Completo de Grid</h4>
+                    <p>Guia visual detalhado sobre todas as propriedades do CSS Grid.</p>
+                    <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" class="recurso-link" target="_blank" rel="noopener">Acessar →</a>
+                </div>
+                <div class="recurso-card">
+                    <h4>Flexbox Froggy</h4>
+                    <p>Jogo interativo para praticar os conceitos de Flexbox.</p>
+                    <a href="https://flexboxfroggy.com/#pt-br" class="recurso-link" target="_blank" rel="noopener">Jogar →</a>
+                </div>
+                <div class="recurso-card">
+                    <h4>Grid Garden</h4>
+                    <p>Jogo interativo para aprender CSS Grid enquanto cuida de um jardim.</p>
+                    <a href="https://cssgridgarden.com/#pt-br" class="recurso-link" target="_blank" rel="noopener">Jogar →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Checklist -->
+        <section class="secao">
+            <h2>✅ Checklist de Aprendizado</h2>
+            <div class="checklist">
+                <h4>Verifique seu progresso nesta aula:</h4>
+                <ul>
+                    <li><input type="checkbox" id="check1"><label for="check1">Entendo os conceitos básicos do Flexbox (container, itens, eixos)</label></li>
+                    <li><input type="checkbox" id="check2"><label for="check2">Sei usar as propriedades principais do container flex (justify-content, align-items)</label></li>
+                    <li><input type="checkbox" id="check3"><label for="check3">Compreendo como os itens flex crescem e encolhem (flex-grow, flex-shrink)</label></li>
+                    <li><input type="checkbox" id="check4"><label for="check4">Entendo os conceitos básicos do CSS Grid (linhas, colunas, células)</label></li>
+                    <li><input type="checkbox" id="check5"><label for="check5">Sei criar layouts com grid-template-columns e grid-template-rows</label></li>
+                    <li><input type="checkbox" id="check6"><label for="check6">Consigo posicionar elementos usando grid-area ou grid-column/grid-row</label></li>
+                    <li><input type="checkbox" id="check7"><label for="check7">Sei quando usar Flexbox e quando usar Grid em um projeto</label></li>
+                    <li><input type="checkbox" id="check8"><label for="check8">Consigo combinar Flexbox e Grid para criar layouts complexos</label></li>
+                    <li><input type="checkbox" id="check9"><label for="check9">Sei criar layouts responsivos adaptando propriedades do Flexbox e Grid</label></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Conclusão da Aula -->
+        <footer class="aula-footer">
+            <h3>🎉 Parabéns! Você agora domina as técnicas modernas de layout CSS</h3>
+            <p>
+                Com o conhecimento de Flexbox e Grid, você tem as ferramentas necessárias para criar praticamente qualquer layout web moderno. Na próxima aula, vamos aprofundar na responsividade para garantir que seus designs funcionem em qualquer dispositivo.
+            </p>
+            <a href="aula-06-responsividade.html" class="proxima-aula">
+                Continue para a próxima aula →
+            </a>
+        </footer>
+
+        <!-- Navegação do Curso -->
+        <nav class="course-navigation">
+            <div class="nav-buttons">
+                <a href="aula-04-box-model.html" class="nav-btn secondary">
+                    ← Aula Anterior: Box Model
+                </a>
+                <a href="aula-06-responsividade.html" class="nav-btn primary">
+                    Próxima Aula: Responsividade →
+                </a>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>

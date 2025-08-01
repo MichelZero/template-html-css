@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📦 Aula 4: Box Model e Espaçamento</title>
+    <meta name="description" content="Entenda o Box Model do CSS, margens, bordas, preenchimento e como controlar o espaçamento dos elementos na página.">
+    <link rel="stylesheet" href="assets/style-aulas.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📦</text></svg>">
+</head>
+<body>
+    <div class="aula-container">
+        <!-- Header da Aula -->
+        <header class="aula-header">
+            <div class="aula-numero">📦 AULA 4</div>
+            <h1 class="aula-titulo">Box Model e Espaçamento</h1>
+            <p class="aula-descricao">
+                Domine o Box Model do CSS: margens, bordas, preenchimento, dimensões e espaçamento. Aprenda a controlar o layout de qualquer elemento na web.
+            </p>
+            <div class="aula-meta">
+                <div class="meta-item">
+                    <span>⏱️</span> <span>50 min</span>
+                </div>
+                <div class="meta-item">
+                    <span>🎯</span> <span>Essencial</span>
+                </div>
+                <div class="meta-item">
+                    <span>📦</span> <span>Box Model</span>
+                </div>
+                <div class="meta-item">
+                    <span>🧩</span> <span>Layout</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Objetivos da Aula -->
+        <section class="secao">
+            <h2>🎯 Objetivos de Aprendizagem</h2>
+            <div class="objetivos">
+                <div class="objetivo">
+                    <h4>📦 Entender o Box Model</h4>
+                    <p>Compreender como o CSS calcula o tamanho e o espaçamento dos elementos.</p>
+                </div>
+                <div class="objetivo">
+                    <h4>🧩 Controlar Espaçamento</h4>
+                    <p>Usar margin, padding e border para criar layouts organizados.</p>
+                </div>
+                <div class="objetivo">
+                    <h4>🔍 Prática Visual</h4>
+                    <p>Visualizar e depurar o box model no navegador.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 1: O que é Box Model? -->
+        <section class="secao">
+            <h2>📦 1. O que é Box Model?</h2>
+            <p>
+                Todo elemento HTML é uma "caixa" composta por <strong>conteúdo</strong>, <strong>preenchimento (padding)</strong>, <strong>borda (border)</strong> e <strong>margem (margin)</strong>. O box model define como essas partes se relacionam e determinam o espaço ocupado na página.
+            </p>
+            <img src="https://developer.mozilla.org/pt-BR/docs/Learn/CSS/Building_blocks/The_box_model/box-model.png" alt="Ilustração do Box Model" class="img-boxmodel">
+            <div class="codigo" data-lang="CSS">
+<pre><code>/* Exemplo de box model */
+.box {
+    width: 300px;
+    padding: 20px;
+    border: 4px solid #1976d2;
+    margin: 24px auto;
+    background: #e3f2fd;
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Seção 2: Margin, Border, Padding, Content -->
+        <section class="secao">
+            <h2>🧩 2. Margin, Border, Padding, Content</h2>
+            <p>
+                <strong>margin</strong>: Espaço externo à borda.<br>
+                <strong>border</strong>: Linha ao redor do elemento.<br>
+                <strong>padding</strong>: Espaço interno entre o conteúdo e a borda.<br>
+                <strong>content</strong>: O conteúdo em si (texto, imagem, etc).
+            </p>
+            <div class="codigo" data-lang="CSS">
+<pre><code>.exemplo {
+    margin: 16px;
+    border: 2px dashed #42a5f5;
+    padding: 12px 24px;
+    background: #fff;
+}</code></pre>
+            </div>
+            <div class="destaque tip">
+                <h4>💡 Dica</h4>
+                <ul>
+                    <li>Use <strong>ferramentas de inspeção</strong> do navegador para visualizar o box model de qualquer elemento.</li>
+                    <li>O <strong>padding</strong> aumenta o tamanho da caixa, enquanto a <strong>margin</strong> afasta o elemento dos outros.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Seção 3: box-sizing -->
+        <section class="secao">
+            <h2>🔧 3. Propriedade <code>box-sizing</code></h2>
+            <p>
+                Por padrão, o CSS soma padding e border à largura/altura do elemento (<code>content-box</code>). Com <code>box-sizing: border-box</code>, o padding e a border ficam "dentro" da largura definida, facilitando o layout responsivo.
+            </p>
+            <div class="codigo" data-lang="CSS">
+<pre><code>/* Padrão recomendado para todos os projetos */
+* {
+    box-sizing: border-box;
+}</code></pre>
+            </div>
+            <div class="destaque info">
+                <h4>🎯 Boas Práticas</h4>
+                <ul>
+                    <li>Sempre use <code>box-sizing: border-box</code> no reset global.</li>
+                    <li>Facilita o cálculo de tamanhos e evita bugs de layout.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Seção 4: Espaçamento e Layout -->
+        <section class="secao">
+            <h2>📏 4. Espaçamento e Layout</h2>
+            <p>
+                Combine margin, padding e border para criar layouts organizados e responsivos. Use <strong>shorthand</strong> para simplificar o código.
+            </p>
+            <div class="codigo" data-lang="CSS">
+<pre><code>/* Shorthand para margin e padding */
+.box {
+    margin: 24px 12px 24px 12px; /* top, right, bottom, left */
+    padding: 16px 32px;          /* top/bottom, right/left */
+}</code></pre>
+            </div>
+            <div class="destaque tip">
+                <h4>💡 Dica Visual</h4>
+                <ul>
+                    <li>Use cores de fundo temporárias para visualizar o espaçamento durante o desenvolvimento.</li>
+                    <li>Ferramentas como <a href="https://css-tricks.com/the-css-box-model/" target="_blank" rel="noopener">CSS-Tricks Box Model</a> ajudam a entender visualmente.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Exercício Prático -->
+        <div class="exercicio">
+            <h4>🏋️‍♂️ Exercício: Cartão com Box Model</h4>
+            <p>
+                Crie um cartão de perfil com:
+            </p>
+            <ul>
+                <li>Margem externa para afastar do topo</li>
+                <li>Padding interno para o conteúdo</li>
+                <li>Borda arredondada e sombra</li>
+                <li>Foto, nome e descrição</li>
+            </ul>
+        </div>
+
+        <!-- Resumo da Aula -->
+        <section class="secao">
+            <h2>📋 Resumo da Aula</h2>
+            <ul>
+                <li>📦 Box Model: content, padding, border, margin</li>
+                <li>🧩 Espaçamento e layout com margin/padding</li>
+                <li>🔧 box-sizing: border-box para projetos modernos</li>
+                <li>💡 Boas práticas para layouts responsivos</li>
+            </ul>
+        </section>
+
+        <!-- Navegação do Curso -->
+        <nav class="course-navigation">
+            <div class="nav-buttons">
+                <a href="aula-03-cores-tipografia.html" class="nav-btn secondary">
+                    ← Aula Anterior
+                </a>
+                <a href="aula-05-flexbox-grid.html" class="nav-btn primary">
+                    Próxima Aula →
+                </a>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>
