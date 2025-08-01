@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ Aula 7: Transforms e Transitions</title>
+    <meta name="description" content="Aprenda a criar animações suaves e efeitos visuais impressionantes usando transformações e transições CSS.">
+    <link rel="stylesheet" href="assets/style-aulas.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+</head>
+<body>
+    <div class="aula-container">
+        <!-- Header da Aula -->
+        <header class="aula-header">
+            <div class="aula-numero">✨ AULA 7</div>
+            <h1 class="aula-titulo">Transforms e Transitions</h1>
+            <p class="aula-descricao">
+                Aprenda a adicionar movimento e vida aos seus sites com transformações CSS e transições suaves. 
+                Domine efeitos visuais dinâmicos que melhoram a experiência do usuário sem comprometer a performance.
+            </p>
+            <div class="aula-meta">
+                <div class="meta-item">
+                    <span>⏱️</span> <span>50 min</span>
+                </div>
+                <div class="meta-item">
+                    <span>🎯</span> <span>Avançado</span>
+                </div>
+                <div class="meta-item">
+                    <span>✨</span> <span>Animações</span>
+                </div>
+                <div class="meta-item">
+                    <span>🎨</span> <span>UX/UI</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navegação entre Aulas -->
+        <nav class="aula-nav">
+            <a href="aula-06-responsividade.html" class="nav-btn">← Aula Anterior</a>
+            <a href="index.html" class="nav-btn">Índice</a>
+            <a href="aula-08-animacoes.html" class="nav-btn">Próxima Aula →</a>
+        </nav>
+
+        <!-- Objetivos da Aula -->
+        <section class="secao">
+            <h2>🎯 Objetivos de Aprendizagem</h2>
+            <div class="objetivos">
+                <div class="objetivo">
+                    <h4>🔄 Dominar Transformações CSS</h4>
+                    <p>Compreender e aplicar transformações 2D e 3D para manipular elementos visualmente.</p>
+                </div>
+                <div class="objetivo">
+                    <h4>⏱️ Criar Transições Suaves</h4>
+                    <p>Implementar transições entre estados para criar experiências de usuário fluidas e agradáveis.</p>
+                </div>
+                <div class="objetivo">
+                    <h4>🎭 Combinar Efeitos</h4>
+                    <p>Aprender a unir transformações e transições para criar interações complexas e atraentes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 1: Transformações CSS -->
+        <section class="secao">
+            <h2>🔄 1. Transformações CSS</h2>
+            <p>
+                As transformações CSS permitem que você modifique a forma, posição e tamanho de elementos HTML sem alterar o fluxo do documento. É uma ferramenta poderosa para criar efeitos visuais interessantes e interfaces dinâmicas.
+            </p>
+            
+            <div class="destaque info">
+                <h4>💡 Por que usar transformações?</h4>
+                <ul>
+                    <li><strong>Performance:</strong> Transformações são otimizadas pelos navegadores e geralmente processadas pela GPU</li>
+                    <li><strong>Precisão:</strong> Permitem controle detalhado sobre modificações visuais</li>
+                    <li><strong>Não afetam o fluxo:</strong> Diferente de alterar width/height, transformações não afetam o posicionamento de outros elementos</li>
+                    <li><strong>Animações suaves:</strong> Combinam perfeitamente com transições e animações</li>
+                </ul>
+            </div>
+            
+            <h3>Transformações 2D</h3>
+            <p>
+                Transformações 2D operam nos eixos X (horizontal) e Y (vertical), permitindo rotações, escalonamentos, translações e distorções em um plano bidimensional.
+            </p>
+            
+            <div class="tabela-container">
+                <table>
+                    <tr>
+                        <th>Função</th>
+                        <th>Descrição</th>
+                        <th>Exemplo</th>
+                    </tr>
+                    <tr>
+                        <td>translate(x, y)</td>
+                        <td>Move um elemento nos eixos X e Y</td>
+                        <td><code>transform: translate(20px, 10px);</code></td>
+                    </tr>
+                    <tr>
+                        <td>translateX(x)</td>
+                        <td>Move um elemento horizontalmente</td>
+                        <td><code>transform: translateX(20px);</code></td>
+                    </tr>
+                    <tr>
+                        <td>translateY(y)</td>
+                        <td>Move um elemento verticalmente</td>
+                        <td><code>transform: translateY(10px);</code></td>
+                    </tr>
+                    <tr>
+                        <td>scale(x, y)</td>
+                        <td>Redimensiona um elemento nos eixos X e Y</td>
+                        <td><code>transform: scale(1.5, 0.8);</code></td>
+                    </tr>
+                    <tr>
+                        <td>scaleX(x)</td>
+                        <td>Redimensiona um elemento horizontalmente</td>
+                        <td><code>transform: scaleX(1.5);</code></td>
+                    </tr>
+                    <tr>
+                        <td>scaleY(y)</td>
+                        <td>Redimensiona um elemento verticalmente</td>
+                        <td><code>transform: scaleY(0.8);</code></td>
+                    </tr>
+                    <tr>
+                        <td>rotate(angle)</td>
+                        <td>Gira um elemento</td>
+                        <td><code>transform: rotate(45deg);</code></td>
+                    </tr>
+                    <tr>
+                        <td>skew(x-angle, y-angle)</td>
+                        <td>Distorce um elemento</td>
+                        <td><code>transform: skew(10deg, 5deg);</code></td>
+                    </tr>
+                </table>
+            </div>
+            
+            <h3>Exemplos de Transformações 2D</h3>
+            <div class="codigo" data-lang="CSS">
+<pre><code>/* Botão que cresce ligeiramente ao hover */
+.button {
+    background: blue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+}
+
+.button:hover {
+    transform: scale(1.1); /* Cresce 10% */
+}
+
+/* Card que eleva ao hover */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Move 10px para cima */
+}
+
+/* Ícone que gira ao hover */
+.icon {
+    width: 24px;
+    height: 24px;
+}
+
+.icon:hover {
+    transform: rotate(180deg); /* Gira 180 graus */
+}</code></pre>
+            </div>
+            
+            <h3>Transform Origin</h3>
+            <p>
+                A propriedade <code>transform-origin</code> permite alterar o ponto de origem da transformação, que por padrão é o centro do elemento.
+            </p>
+            
+            <div class="codigo" data-lang="CSS">
+<pre><code>/* Por padrão, a origem é o centro (50% 50%) */
+.element {
+    transform: rotate(45deg);
+    transform-origin: 50% 50%;
+}
+
+/* Rotação a partir do canto superior esquerdo */
+.element-corner {
+    transform: rotate(45deg);
+    transform-origin: 0 0;
+}
+
+/* Rotação a partir do ponto inferior direito */
+.element-bottom-right {
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}</code></pre>
+            </div>
+            
+            <h3>Transformações 3D</h3>
+            <p>
+                Transformações 3D introduzem o eixo Z (profundidade), permitindo manipular elementos no espaço tridimensional.
+            </p>
+            
+            <div class="tabela-container">
+                <table>
+                    <tr>
+                        <th>Função</th>
+                        <th>Descrição</th>
+                        <th>Exemplo</th>
+                    </tr>
+                    <tr>
+                        <td>translate3d(x, y, z)</td>
+                        <td>Move um elemento nos eixos X, Y e Z</td>
+                        <td><code>transform: translate3d(20px, 10px, 30px);</code></td>
+                    </tr>
+                    <tr>
+                        <td>translateZ(z)</td>
+                        <td>Move um elemento no eixo Z</td>
+                        <td><code>transform: translateZ(30px);</code></td>
+                    </tr>
+                    <tr>
+                        <td>scale3d(x, y, z)</td>
+                        <td>Redimensiona em 3D</td>
+                        <td><code>transform: scale3d(1.5, 0.8, 2);</code></td>
+                    </tr>
+                    <tr>
+                        <td>rotateX(angle)</td>
+                        <td>Gira em torno do eixo X</td>
+                        <td><code>transform: rotateX(45deg);</code></td>
+                    </tr>
+                    <tr>
+                        <td>rotateY(angle)</td>
+                        <td>Gira em torno do eixo Y</td>
+                        <td><code>transform: rotateY(45deg);</code></td>
+                    </tr>
+                    <tr>
+                        <td>rotateZ(angle)</td>
+                        <td>Gira em torno do eixo Z (equivalente ao rotate())</td>
+                        <td><code>transform: rotateZ(45deg);</code></td>
+                    </tr>
+                    <tr>
+                        <td>perspective(length)</td>
+                        <td>Define a perspectiva</td>
+                        <td><code>transform: perspective(1000px);</code></td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="destaque tip">
+                <h4>🔍 Perspectiva em Transformações 3D</h4>
+                <p>
+                    Para que transformações 3D tenham o efeito de profundidade desejado, é necessário definir uma perspectiva. Isso pode ser feito de duas maneiras:
+                </p>
+                <ol>
+                    <li>Com a propriedade <code>perspective</code> no elemento pai</li>
+                    <li>Como função <code>perspective()</code> dentro da propriedade transform</li>
+                </ol>
+                <div class="codigo" data-lang="CSS">
+<pre><code>/* Método 1: No elemento pai */
+.container {
+    perspective: 1000px;
+}
+
+.child {
+    transform: rotateY(45deg);
+}
+
+/* Método 2: Na própria transformação */
+.element {
+    transform: perspective(1000px) rotateY(45deg);
+}</code></pre>
+                </div>
+                <p>Quanto menor o valor da perspectiva, mais dramático é o efeito 3D.</p>
+            </div>
+            
+            <h3>Exemplo de Card Flip 3D</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;div class="flip-card"&gt;
+    &lt;div class="flip-card-inner"&gt;
+        &lt;div class="flip-card-front"&gt;
+            &lt;h3&gt;Frente do Card&lt;/h3&gt;
+            &lt;p&gt;Passe o mouse para virar&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="flip-card-back"&gt;
+            &lt;h3&gt;Verso do Card&lt;/h3&gt;
+            &lt;p&gt;Conteúdo adicional aqui!&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            
+            <div class="codigo" data-lang="CSS">
+<pre><code>.flip-card {
+    width: 300px;
+    height: 200px;
+    perspective: 1000px; /* Importante para o efeito 3D */
+}
+
+.flip-card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d; /* Preserva o 3D para elementos filhos */
+    transition: transform 0.8s;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Oculta o verso do elemento */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.flip-card-front {
+    background-color: #bde0fe;
+    color: #333;
+}
+
+.flip-card-back {
+    background-color: #3a86ff;
+    color: white;
+    transform: rotateY(180deg);
+}</code></pre>
+            </div>
+            
+            <div class="destaque warning">
+                <h4>⚠️ Considerações sobre Transformações 3D</h4>
+                <ul>
+                    <li>A propriedade <code>transform-style: preserve-3d;</code> é crucial para manter o espaço 3D entre elementos aninhados.</li>
+                    <li><code>backface-visibility: hidden;</code> impede que o verso de um elemento seja visível quando girado.</li>
+                    <li>Transformações 3D podem consumir mais recursos. Teste em dispositivos mais antigos.</li>
+                    <li>Alguns navegadores podem ter implementações diferentes ou bugs específicos com transformações 3D complexas.</li>
+                </ul>
+            </div>
+            
+            <h3>Múltiplas Transformações</h3>
+            <p>
+                É possível combinar várias transformações em uma única regra, aplicando-as da direita para a esquerda.
+            </p>
+            
+            <div class="codigo" data-lang="CSS">
+<pre><code>/* Primeiro rotaciona, depois dimensiona, por fim move */
+.element {
+    transform: translate(20px, 10px) scale(1.5) rotate(45deg);
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Seção 2: Transições CSS -->
+        <section class="secao">
+            <h2>⏱️ 2. Transições CSS</h2>
+            <p>
+                As transições CSS permitem animar a mudança de um valor de propriedade para outro de maneira suave e controlada. Em vez de alterações instantâneas, transições criam uma animação gradual entre dois estados.
+            </p>
+            
+            <div class="destaque info">
+                <h4>💡 Quando Usar Transições?</h4>
+                <ul>
+                    <li>Para feedback visual após interações do usuário (hover, focus, click)</li>
+                    <li>Para suavizar mudanças de estado em interfaces</li>
+                    <li>Para criar microinterações que melhoram a experiência do usuário</li>
+                    <li>Para chamar atenção para alterações específicas na interface</li>
+                </ul>
+            </div>
+            
+            <h3>Propriedades de Transição</h3>
+            <div class="tabela-container">
+                <table>
+                    <tr>
+                        <th>Propriedade</th>
+                        <th>Descrição</th>
+                        <th>Exemplo</th>
+                    </tr>
+                    <tr>
+                        <td>transition-property</td>
+                        <td>Especifica quais propriedades serão animadas</td>
+                        <td><code>transition-property: opacity, transform;</code></td>
+                    </tr>
+                    <tr>
+                        <td>transition-duration</td>
+                        <td>Define quanto tempo a transição leva</td>
+                        <td><code>transition-duration: 0.3s;</code></td>
+                    </tr>
+                    <tr>
+                        <td>transition-timing-function</td>
+                        <td>Define como a transição progride ao longo do tempo</td>
+                        <td><code>transition-timing-function: ease-in-out;</code></td>
+                    </tr>
+                    <tr>
+                        <td>transition-delay</td>
+                        <td>Atraso antes do início da transição</td>
+                        <td><code>transition-delay: 0.1s;</code></td>
+                    </tr>
+                    <tr>
+                        <td>transition</td>
+                        <td>Atalho para as quatro propriedades acima</td>
+                        <td><code>transition: transform 0.3s ease-in-out 0.1s;</code></td>
+                    </tr>
+                </table>
+            </div>
+            
+            <h3>Syntax da Propriedade Shorthand</h3>
+            <div class="codigo" data-lang="CSS">
+<pre><code>/* Formato: property duration timing-function delay */
+transition: all 0.3s ease 0s;
+
+/* Transição para múltiplas propriedades */
+transition: 
+    transform 0.3s ease-out,
+    color 0.2s linear,
+    background-color 0.5s ease-in;</code></pre>
+            </div>
+            
+            <h3>Timing Functions (Funções de Temporização)</h3>
+            <p>
+                As funções de temporização controlam a progressão da transição, definindo como os valores intermediários são calculados.
+            </p>
+            
+            <div class="tabela-container">
+                <table>
+                    <tr>
+                        <th>Função</th>
+                        <th>Descrição</th>
+                    </tr>
+                    <tr>
+                        <td>ease</td>
+                        <td>Inicia devagar, acelera no meio e termina devagar (padrão)</td>
+                    </tr>
+                    <tr>
+                        <td>linear</td>
+                        <td>Velocidade constante do início ao fim</td>
+                    </tr>
+                    <tr>
+                        <td>ease-in</td>
+                        <td>Inicia devagar e termina em velocidade máxima</td>
+                    </tr>
+                    <tr>
+                        <td>ease-out</td>
+                        <td>Inicia rápido e desacelera até parar</td>
+                    </tr>
+                    <tr>
+                        <td>ease-in-out</td>
+                        <td>Inicia e termina devagar, com aceleração no meio</td>
+                    </tr>
+                    <tr>
+                        <td>cubic-bezier(n,n,n,n)</td>
+                        <td>Define uma curva bezier personalizada</td>
+                    </tr>
+                    <tr>
+                        <td>steps(n, start|end)</td>
+                        <td>Cria uma transição em etapas discretas</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <h3>Exemplos de Transições Básicas</h3>
+            <div class="codigo" data-lang="CSS">
+<pre><code>/* Transição de hover básica */
+.button {
+    background-color: #3a86ff;
+    color: white;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Transições com diferentes timing functions */
+.card {
+    opacity: 0.7;
+    transform: scale(0.95);
+}
+
+.card.zoom-linear {
+    transition: all 0.5s linear;
+}
+
+.card.zoom-ease-in {
+    transition: all 0.5s ease-in;
+}
+
+.card.zoom-ease-out {
+    transition: all 0.5s ease-out;
+}
+
+.card.zoom-bounce {
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover {
+    opacity: 1;
+    transform: scale(1);
+}</code></pre>
+            </div>
+            
+            <div class="destaque tip">
+                <h4>🛠 Ferramentas para Cubic Bezier</h4>
+                <p>
+                    Criar funções cubic-bezier personalizadas pode ser complicado. Estas ferramentas online podem ajudar:
+                </p>
+                <ul>
+                    <li><a href="https://cubic-bezier.com/" target="_blank" rel="noopener">cubic-bezier.com</a> - Criador visual de curvas bezier</li>
+                    <li><a href="https://easings.net/" target="_blank" rel="noopener">easings.net</a> - Biblioteca de funções de easing pré-definidas</li>
+                </ul>
+            </div>
+            
+            <h3>Propriedades Animáveis</h3>
+            <p>
+                Nem todas as propriedades CSS podem ser animadas. As mais comuns que suportam transições são:
+            </p>
+            
+            <div class="recursos">
+                <div class="recurso-card">
+                    <h4>Dimensões</h4>
+                    <ul class="clean-list">
+                        <li>• width, height</li>
+                        <li>• min/max-width</li>
+                        <li>• min/max-height</li>
+                        <li>• padding, margin</li>
+                    </ul>
+                </div>
+                <div class="recurso-card">
+                    <h4>Posicionamento</h4>
+                    <ul class="clean-list">
+                        <li>• top, right, bottom, left</li>
+                        <li>• transform</li>
+                    </ul>
+                </div>
+                <div class="recurso-card">
+                    <h4>Aparência</h4>
+                    <ul class="clean-list">
+                        <li>• color</li>
+                        <li>• background-color</li>
+                        <li>• opacity</li>
+                        <li>• border (width, color, radius)</li>
+                    </ul>
+                </div>
+                <div class="recurso-card">
+                    <h4>Texto</h4>
+                    <ul class="clean-list">
+                        <li>• font-size</li>
+                        <li>• line-height</li>
+                        <li>• letter-spacing</li>
+                        <li>• word-spacing</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="destaque warning">
+                <h4>⚠️ Propriedades Não Animáveis</h4>
+                <p>
+                    Algumas propriedades não podem ser animadas, como:
+                </p>
+                <ul>
+                    <li><code>display</code> (use <code>opacity</code> e <code>visibility</code> em conjunto)</li>
+                    <li><code>position</code> (o valor em si, não as coordenadas)</li>
+                    <li>Propriedades que têm valores discretos, como <code>font-family</code></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Seção 3: Combinando Transforms e Transitions -->
+        <section class="secao">
+            <h2>🎭 3. Combinando Transformações e Transições</h2>
+            <p>
+                A combinação de transformações e transições é onde a magia realmente acontece. Você pode criar efeitos complexos e interações ricas que melhoram significativamente a experiência do usuário.
+            </p>
+            
+            <h3>Técnicas Avançadas</h3>
+            
+            <h4>1. Efeito de Hover com Sombra e Elevação</h4>
+            <div class="codigo" data-lang="CSS">
+<pre><code>.hover-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.hover-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}</code></pre>
+            </div>
+            
+            <h4>2. Menu Hamburger Animado</h4>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;button class="hamburger" id="menu-toggle"&gt;
+    &lt;span class="line line-1"&gt;&lt;/span&gt;
+    &lt;span class="line line-2"&gt;&lt;/span&gt;
+    &lt;span class="line line-3"&gt;&lt;/span&gt;
+&lt;/button&gt;</code></pre>
+            </div>
+            
+            <div class="codigo" data-lang="CSS">
+<pre><code>.hamburger {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+.line {
+    display: block;
+    width: 30px;
+    height: 3px;
+    margin: 6px 0;
+    background: #333;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger.active .line-1 {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active .line-2 {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.hamburger.active .line-3 {
+    transform: translateY(-9px) rotate(-45deg);
+}</code></pre>
+            </div>
+            
+            <div class="codigo" data-lang="JavaScript">
+<pre><code>document.getElementById('menu-toggle').addEventListener('click', function() {
+    this.classList.toggle('active');
+});</code></pre>
+            </div>
+            
+            <h4>3. Galeria de Imagens com Efeito Hover</h4>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;div class="gallery"&gt;
+    &lt;div class="gallery-item"&gt;
+        &lt;img src="imagem1.jpg" alt="Descrição"&gt;
+        &lt;div class="overlay"&gt;
+            &lt;h3&gt;Título da Imagem&lt;/h3&gt;
+            &lt;p&gt;Descrição adicional&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- Mais itens aqui --&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            
+            <div class="codigo" data-lang="CSS">
+<pre><code>.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    height: 250px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    padding: 20px;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item:hover .overlay {
+    transform: translateY(0);
+    opacity: 1;
+}</code></pre>
+            </div>
+            
+            <h4>4. Botão com Efeito de Preenchimento</h4>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;button class="fill-button"&gt;
+    Clique Aqui
+&lt;/button&gt;</code></pre>
+            </div>
+            
+            <div class="codigo" data-lang="CSS">
+<pre><code>.fill-button {
+    position: relative;
+    padding: 12px 24px;
+    border: 2px solid #3a86ff;
+    color: #3a86ff;
+    background: transparent;
+    font-weight: bold;
+    overflow: hidden;
+    z-index: 1;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.fill-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #3a86ff;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.fill-button:hover {
+    color: white;
+}
+
+.fill-button:hover::before {
+    transform: scaleX(1);
+}</code></pre>
+            </div>
+            
+            <div class="destaque success">
+                <h4>💡 Dicas de Performance</h4>
+                <p>Para garantir transições suaves e alto desempenho:</p>
+                <ol>
+                    <li><strong>Priorize transform e opacity</strong>: Essas propriedades são as mais otimizadas para animações</li>
+                    <li><strong>Evite animar propriedades que causam reflow</strong>: Como width, height, top, left, etc.</li>
+                    <li><strong>Use will-change</strong>: Para propriedades que serão animadas frequentemente</li>
+                    <li><strong>Não exagere na duração</strong>: Transições entre 150-400ms geralmente oferecem o melhor equilíbrio</li>
+                </ol>
+                <div class="codigo" data-lang="CSS">
+<pre><code>/* Otimizando animações */
+.optimized-element {
+    will-change: transform, opacity;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 4: Casos de Uso Práticos -->
+        <section class="secao">
+            <h2>📊 4. Casos de Uso Práticos</h2>
+            
+            <h3>1. Dropdown Menu Animado</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;nav class="navbar"&gt;
+    &lt;ul&gt;
+        &lt;li class="dropdown"&gt;
+            &lt;a href="#"&gt;Produtos &lt;span&gt;▼&lt;/span&gt;&lt;/a&gt;
+            &lt;ul class="dropdown-menu"&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Categoria 1&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Categoria 2&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Categoria 3&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;!-- Mais itens de menu --&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+            
+            <div class="codigo" data-lang="CSS">
+<pre><code>.navbar ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar li {
+    position: relative;
+}
+
+.navbar a {
+    display: block;
+    padding: 15px 20px;
+    color: #333;
+    text-decoration: none;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    width: 200px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Animação da seta */
+.dropdown span {
+    display: inline-block;
+    font-size: 10px;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover span {
+    transform: rotate(180deg);
+}</code></pre>
+            </div>
+            
+            <h3>2. Carrossel de Imagens com Transições</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;div class="carousel"&gt;
+    &lt;div class="carousel-inner"&gt;
+        &lt;div class="carousel-item active"&gt;
+            &lt;img src="slide1.jpg" alt="Slide 1"&gt;
+        &lt;/div&gt;
+        &lt;div class="carousel-item"&gt;
+            &lt;img src="slide2.jpg" alt="Slide 2"&gt;
+        &lt;/div&gt;
+        &lt;div class="carousel-item"&gt;
+            &lt;img src="slide3.jpg" alt="Slide 3"&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button class="carousel-control prev"&gt;&lt;&lt;&lt;/button&gt;
+    &lt;button class="carousel-control next"&gt;&gt;&gt;&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            
+            <div class="codigo" data-lang="CSS">
+<pre><code>.carousel {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.carousel-item.active {
+    opacity: 1;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.5);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.carousel-control:hover {
+    background: rgba(255,255,255,0.8);
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}</code></pre>
+            </div>
+            
+            <div class="codigo" data-lang="JavaScript">
+<pre><code>document.addEventListener('DOMContentLoaded', () => {
+    const items = document.querySelectorAll('.carousel-item');
+    const next = document.querySelector('.next');
+    const prev = document.querySelector('.prev');
+    let currentIndex = 0;
+    
+    function showSlide(index) {
+        // Removendo classe active de todos os slides
+        items.forEach(item => item.classList.remove('active'));
+        
+        // Adicionando classe active ao slide atual
+        items[index].classList.add('active');
+        currentIndex = index;
+    }
+    
+    next.addEventListener('click', () => {
+        let nextIndex = currentIndex + 1;
+        if (nextIndex >= items.length) {
+            nextIndex = 0;
+        }
+        showSlide(nextIndex);
+    });
+    
+    prev.addEventListener('click', () => {
+        let prevIndex = currentIndex - 1;
+        if (prevIndex < 0) {
+            prevIndex = items.length - 1;
+        }
+        showSlide(prevIndex);
+    });
+});</code></pre>
+            </div>
+            
+            <h3>3. Modal com Transições</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;button id="open-modal" class="modal-button"&gt;Abrir Modal&lt;/button&gt;
+
+&lt;div class="modal" id="modal"&gt;
+    &lt;div class="modal-content"&gt;
+        &lt;span class="close"&gt;&times;&lt;/span&gt;
+        &lt;h2&gt;Título do Modal&lt;/h2&gt;
+        &lt;p&gt;Conteúdo do modal aqui...&lt;/p&gt;
+        &lt;button class="modal-button"&gt;Confirmar&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            
+            <div class="codigo" data-lang="CSS">
+<pre><code>.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    transform: scale(0.7);
+    transition: transform 0.3s ease;
+}
+
+.modal.show .modal-content {
+    transform: scale(1);
+}
+
+.close {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-button {
+    background: #3a86ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.modal-button:hover {
+    background: #1d4ed8;
+}</code></pre>
+            </div>
+            
+            <div class="codigo" data-lang="JavaScript">
+<pre><code>document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('modal');
+    const openBtn = document.getElementById('open-modal');
+    const closeBtn = document.querySelector('.close');
+    
+    openBtn.addEventListener('click', () => {
+        modal.classList.add('show');
+    });
+    
+    closeBtn.addEventListener('click', () => {
+        modal.classList.remove('show');
+    });
+    
+    // Fechando o modal clicando fora
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('show');
+        }
+    });
+});</code></pre>
+            </div>
+        </section>
+
+        <!-- Exercício Prático -->
+        <section class="secao">
+            <h2>💪 Exercício Prático</h2>
+            <div class="exercicio">
+                <h4>Menu de Navegação Responsivo com Efeitos</h4>
+                <p>
+                    Crie um menu de navegação responsivo que use transformações e transições para os seguintes efeitos:
+                </p>
+                <ul>
+                    <li>Menu hamburger que se transforma em X quando clicado</li>
+                    <li>Itens de menu com efeito hover que desliza uma borda de baixo</li>
+                    <li>Dropdown que aparece com animação</li>
+                    <li>Ícones de redes sociais que giram ao hover</li>
+                </ul>
+                
+                <div class="exercicio-resultado">
+                    <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Menu Responsivo&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+    &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header class="header"&gt;
+        &lt;div class="container"&gt;
+            &lt;div class="logo"&gt;
+                &lt;a href="#"&gt;BrandLogo&lt;/a&gt;
+            &lt;/div&gt;
+            
+            &lt;button class="hamburger" id="menu-toggle"&gt;
+                &lt;span&gt;&lt;/span&gt;
+                &lt;span&gt;&lt;/span&gt;
+                &lt;span&gt;&lt;/span&gt;
+            &lt;/button&gt;
+            
+            &lt;nav class="nav-menu"&gt;
+                &lt;ul class="main-menu"&gt;
+                    &lt;li&gt;&lt;a href="#" class="menu-item"&gt;Home&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class="dropdown"&gt;
+                        &lt;a href="#" class="menu-item"&gt;Produtos &lt;i class="fas fa-chevron-down"&gt;&lt;/i&gt;&lt;/a&gt;
+                        &lt;ul class="dropdown-menu"&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;Categoria 1&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;Categoria 2&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;Categoria 3&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#" class="menu-item"&gt;Serviços&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#" class="menu-item"&gt;Blog&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#" class="menu-item"&gt;Contato&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+                
+                &lt;div class="social-icons"&gt;
+                    &lt;a href="#" class="social-icon"&gt;&lt;i class="fab fa-facebook-f"&gt;&lt;/i&gt;&lt;/a&gt;
+                    &lt;a href="#" class="social-icon"&gt;&lt;i class="fab fa-twitter"&gt;&lt;/i&gt;&lt;/a&gt;
+                    &lt;a href="#" class="social-icon"&gt;&lt;i class="fab fa-instagram"&gt;&lt;/i&gt;&lt;/a&gt;
+                    &lt;a href="#" class="social-icon"&gt;&lt;i class="fab fa-linkedin-in"&gt;&lt;/i&gt;&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/nav&gt;
+        &lt;/div&gt;
+    &lt;/header&gt;
+    
+    &lt;main class="main"&gt;
+        &lt;div class="container"&gt;
+            &lt;h1&gt;Menu Responsivo com Transformações e Transições&lt;/h1&gt;
+            &lt;p&gt;Redimensione a janela para ver o comportamento responsivo.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/main&gt;
+    
+    &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                    <div class="codigo" data-lang="CSS">
+<pre><code>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #3a86ff;
+    --text-color: #333;
+    --background-color: #fff;
+    --transition-speed: 0.3s;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header e Navegação */
+.header {
+    background: var(--background-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.logo a {
+    color: var(--primary-color);
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+/* Menu Hamburger */
+.hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 100;
+}
+
+.hamburger span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    margin: 6px 0;
+    background: var(--text-color);
+    border-radius: 3px;
+    transition: all var(--transition-speed) ease-in-out;
+}
+
+/* Navegação Principal */
+.nav-menu {
+    display: flex;
+    align-items: center;
+}
+
+.main-menu {
+    display: flex;
+    list-style: none;
+}
+
+.main-menu li {
+    position: relative;
+    margin: 0 5px;
+}
+
+.menu-item {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    position: relative;
+    font-weight: 500;
+    transition: color var(--transition-speed) ease;
+}
+
+/* Efeito hover com borda deslizante */
+.menu-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform var(--transition-speed) ease-in-out;
+}
+
+.menu-item:hover {
+    color: var(--primary-color);
+}
+
+.menu-item:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Dropdown */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    background: var(--background-color);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all var(--transition-speed) ease;
+    list-style: none;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu a {
+    color: var(--text-color);
+    padding: 10px 15px;
+    display: block;
+    text-decoration: none;
+    transition: background var(--transition-speed) ease;
+}
+
+.dropdown-menu a:hover {
+    background: rgba(58, 134, 255, 0.1);
+}
+
+.dropdown .fa-chevron-down {
+    font-size: 12px;
+    margin-left: 5px;
+    transition: transform var(--transition-speed) ease;
+}
+
+.dropdown:hover .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+/* Ícones Sociais */
+.social-icons {
+    display: flex;
+    margin-left: 30px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    color: var(--text-color);
+    background: rgba(0,0,0,0.05);
+    border-radius: 50%;
+    margin: 0 5px;
+    transition: all var(--transition-speed) ease;
+}
+
+.social-icon:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: rotate(360deg);
+}
+
+/* Main Content */
+.main {
+    padding: 60px 0;
+    min-height: calc(100vh - 70px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.main h1 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+/* Media Query para Responsividade */
+@media (max-width: 992px) {
+    .hamburger {
+        display: block;
+    }
+    
+    /* Transformação do hamburger em X */
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 300px;
+        height: 100%;
+        background: var(--background-color);
+        flex-direction: column;
+        padding: 70px 20px 20px;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        transition: right var(--transition-speed) ease;
+        overflow-y: auto;
+    }
+    
+    .nav-menu.active {
+        right: 0;
+    }
+    
+    .main-menu {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .main-menu li {
+        margin: 0;
+    }
+    
+    .menu-item {
+        padding: 15px 0;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        max-height: 0;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        transition: max-height var(--transition-speed) ease;
+    }
+    
+    .dropdown.active .dropdown-menu {
+        max-height: 300px;
+    }
+    
+    .dropdown-menu a {
+        padding-left: 20px;
+    }
+    
+    .social-icons {
+        margin: 30px 0 0;
+        justify-content: center;
+    }
+}</code></pre>
+                    </div>
+                    <div class="codigo" data-lang="JavaScript">
+<pre><code>document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const dropdowns = document.querySelectorAll('.dropdown');
+    
+    // Toggle menu hamburger e navegação mobile
+    menuToggle.addEventListener('click', function() {
+        this.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+    
+    // Manipulação dos dropdowns em mobile
+    if (window.innerWidth <= 992) {
+        dropdowns.forEach(dropdown => {
+            const menuItem = dropdown.querySelector('.menu-item');
+            menuItem.addEventListener('click', function(e) {
+                e.preventDefault();
+                dropdown.classList.toggle('active');
+            });
+        });
+    }
+    
+    // Fecha o menu ao clicar fora dele
+    document.addEventListener('click', function(e) {
+        if (!navMenu.contains(e.target) && !menuToggle.contains(e.target) && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            menuToggle.classList.remove('active');
+        }
+    });
+    
+    // Ajusta comportamento em resize da janela
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 992) {
+            navMenu.classList.remove('active');
+            menuToggle.classList.remove('active');
+            dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
+        }
+    });
+});</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recursos Adicionais -->
+        <section class="secao">
+            <h2>📚 Recursos Adicionais</h2>
+            <div class="recursos">
+                <div class="recurso-card">
+                    <h4>MDN: Guia de Transformações CSS</h4>
+                    <p>Documentação oficial sobre transformações CSS com exemplos detalhados.</p>
+                    <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS/transform" class="recurso-link" target="_blank" rel="noopener">Acessar →</a>
+                </div>
+                <div class="recurso-card">
+                    <h4>MDN: Guia de Transições CSS</h4>
+                    <p>Explicações detalhadas sobre todas as propriedades de transição.</p>
+                    <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions" class="recurso-link" target="_blank" rel="noopener">Acessar →</a>
+                </div>
+                <div class="recurso-card">
+                    <h4>CSS Tricks: Almanaque de Transformações</h4>
+                    <p>Guia visual completo com todos os tipos de transformações e seus efeitos.</p>
+                    <a href="https://css-tricks.com/almanac/properties/t/transform/" class="recurso-link" target="_blank" rel="noopener">Acessar →</a>
+                </div>
+                <div class="recurso-card">
+                    <h4>cubic-bezier.com</h4>
+                    <p>Ferramenta interativa para criar e visualizar funções cubic-bezier.</p>
+                    <a href="https://cubic-bezier.com/" class="recurso-link" target="_blank" rel="noopener">Acessar →</a>
+                </div>
+                <div class="recurso-card">
+                    <h4>CSS Animation Rocks</h4>
+                    <p>Tutoriais e exemplos de animações e transições para inspiração.</p>
+                    <a href="https://cssanimation.rocks/" class="recurso-link" target="_blank" rel="noopener">Acessar →</a>
+                </div>
+                <div class="recurso-card">
+                    <h4>Can I Use: Transforms & Transitions</h4>
+                    <p>Verifique o suporte de navegadores para transformações e transições CSS.</p>
+                    <a href="https://caniuse.com/?search=transform" class="recurso-link" target="_blank" rel="noopener">Acessar →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Checklist -->
+        <section class="secao">
+            <h2>✅ Checklist de Aprendizado</h2>
+            <div class="checklist">
+                <h4>Verifique seu progresso nesta aula:</h4>
+                <ul>
+                    <li><input type="checkbox" id="check1"><label for="check1">Compreendo a diferença entre transformações 2D e 3D</label></li>
+                    <li><input type="checkbox" id="check2"><label for="check2">Sei aplicar diferentes tipos de transformações (translate, scale, rotate, skew)</label></li>
+                    <li><input type="checkbox" id="check3"><label for="check3">Entendo como usar transform-origin para mudar o ponto de origem</label></li>
+                    <li><input type="checkbox" id="check4"><label for="check4">Domino a sintaxe básica das transições CSS</label></li>
+                    <li><input type="checkbox" id="check5"><label for="check5">Conheço as diferentes timing functions e seus efeitos</label></li>
+                    <li><input type="checkbox" id="check6"><label for="check6">Sei quais propriedades CSS podem ser animadas eficientemente</label></li>
+                    <li><input type="checkbox" id="check7"><label for="check7">Posso combinar transformações e transições para criar efeitos complexos</label></li>
+                    <li><input type="checkbox" id="check8"><label for="check8">Compreendo boas práticas de performance para transformações e transições</label></li>
+                    <li><input type="checkbox" id="check9"><label for="check9">Consigo implementar exemplos práticos como menus, cards e botões com efeitos</label></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Conclusão da Aula -->
+        <footer class="aula-footer">
+            <h3>🎉 Parabéns! Você agora domina transformações e transições CSS!</h3>
+            <p>
+                Com o conhecimento adquirido nesta aula, você pode adicionar movimento e interatividade aos seus sites sem depender pesadamente de JavaScript. Na próxima aula, vamos explorar animações CSS completas com keyframes, levando suas habilidades de animação para o próximo nível.
+            </p>
+            <a href="aula-08-animacoes.html" class="proxima-aula">
+                Continue para a próxima aula →
+            </a>
+        </footer>
+
+        <!-- Navegação do Curso -->
+        <nav class="course-navigation">
+            <div class="nav-buttons">
+                <a href="aula-06-responsividade.html" class="nav-btn secondary">
+                    ← Aula Anterior: Responsividade
+                </a>
+                <a href="aula-08-animacoes.html" class="nav-btn primary">
+                    Próxima Aula: Animações CSS →
+                </a>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>

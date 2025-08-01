@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚙️ Aula 10: Pré-processadores CSS</title>
+    <meta name="description" content="Aprenda sobre Sass, SCSS, Less e outros pré-processadores CSS que melhoram produtividade e organização do seu código de estilo.">
+    <link rel="stylesheet" href="assets/style-aulas.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
+    <style>
+        /* Estilos específicos para exemplos desta aula */
+        .demo-preprocessor {
+            margin: 1.5rem auto;
+            padding: 1.5rem;
+            max-width: 600px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+        }
+
+        .codigo-comparacao {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.5rem auto;
+        }
+
+        @media (max-width: 768px) {
+            .codigo-comparacao {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .codigo-coluna {
+            border-radius: 8px;
+        }
+
+        .codigo-coluna h4 {
+            padding: 0.5rem;
+            margin: 0;
+            background-color: #6d28d9;
+            color: white;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .codigo-scss h4 {
+            background-color: #be185d;
+        }
+
+        .codigo-less h4 {
+            background-color: #2563eb;
+        }
+
+        .codigo-stylus h4 {
+            background-color: #047857;
+        }
+
+        .codigo-css h4 {
+            background-color: #0369a1;
+        }
+
+        .codigo-coluna pre {
+            margin: 0;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        .fases-processamento {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 1.5rem auto;
+            gap: 0.5rem;
+        }
+
+        .fase {
+            padding: 1rem;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            position: relative;
+        }
+
+        .fase::after {
+            content: "↓";
+            position: absolute;
+            bottom: -1.25rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            color: #6d28d9;
+            z-index: 1;
+        }
+
+        .fase:last-child::after {
+            display: none;
+        }
+
+        .tipo-codigo {
+            font-weight: 500;
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+            color: white;
+        }
+
+        .tipo-scss {
+            background-color: #be185d;
+        }
+
+        .tipo-css {
+            background-color: #0369a1;
+        }
+
+        .tipo-js {
+            background-color: #ca8a04;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem auto;
+        }
+        
+        .benefit-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            background-color: #f8f9fa;
+        }
+        
+        .benefit-card h4 {
+            color: #6d28d9;
+            margin-top: 0;
+        }
+
+        .metodologia-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            background-color: #f8f9fa;
+        }
+        
+        .metodologia-card h4 {
+            margin-top: 0;
+            color: #6d28d9;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="aula-container">
+        <!-- Header da Aula -->
+        <header class="aula-header">
+            <div class="aula-numero">⚙️ AULA 10</div>
+            <h1>Pré-processadores CSS</h1>
+            <p class="aula-meta">
+                <span>⏱️ Duração: 65 minutos</span>
+                <span>🎯 Nível: Avançado</span>
+                <span>👨‍💻 Prática: Sim</span>
+            </p>
+        </header>
+
+        <!-- Progresso da Aula -->
+        <div class="progresso-aula">
+            <div class="progresso-titulo">Seu progresso nesta aula</div>
+            <div class="progresso-barra">
+                <div class="progresso-concluido" style="width: 0%"></div>
+            </div>
+            <div class="progresso-porcentagem">0%</div>
+        </div>
+
+        <!-- Navegação -->
+        <div class="aula-navegacao">
+            <a href="aula-09-css-moderno.html" class="aula-anterior">
+                ⬅️ Aula anterior: CSS Moderno
+            </a>
+            <a href="aula-11-css-javascript.html" class="aula-proxima">
+                Próxima aula: CSS e JavaScript ➡️
+            </a>
+        </div>
+
+        <!-- Objetivos de Aprendizado -->
+        <section class="secao objetivos" id="objetivos">
+            <h2>🎯 Objetivos de Aprendizado</h2>
+            <p>Ao final desta aula, você será capaz de:</p>
+            
+            <div class="lista-objetivos">
+                <div class="objetivo">
+                    <input type="checkbox" id="obj1" class="objetivo-checkbox">
+                    <label for="obj1">Entender o conceito e benefícios dos pré-processadores CSS</label>
+                </div>
+                <div class="objetivo">
+                    <input type="checkbox" id="obj2" class="objetivo-checkbox">
+                    <label for="obj2">Dominar os recursos fundamentais do Sass/SCSS como variáveis, nesting, mixins e funções</label>
+                </div>
+                <div class="objetivo">
+                    <input type="checkbox" id="obj3" class="objetivo-checkbox">
+                    <label for="obj3">Organizar código CSS em arquivos parciais e módulos reutilizáveis</label>
+                </div>
+                <div class="objetivo">
+                    <input type="checkbox" id="obj4" class="objetivo-checkbox">
+                    <label for="obj4">Conhecer diferentes pré-processadores (Sass, Less, Stylus) e suas particularidades</label>
+                </div>
+                <div class="objetivo">
+                    <input type="checkbox" id="obj5" class="objetivo-checkbox">
+                    <label for="obj5">Implementar arquiteturas CSS escaláveis utilizando pré-processadores</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Introdução -->
+        <section class="secao" id="introducao">
+            <h2>🔍 O que são Pré-processadores CSS?</h2>
+            
+            <p>Os <strong>pré-processadores CSS</strong> são ferramentas que estendem as capacidades do CSS padrão, adicionando funcionalidades como variáveis, funções, mixins e outras características de linguagens de programação que não existem nativamente no CSS. Eles transformam um código com sintaxe estendida em CSS válido que os navegadores podem interpretar.</p>
+            
+            <div class="fases-processamento">
+                <div class="fase">
+                    <span class="tipo-codigo tipo-scss">SCSS</span> Código fonte escrito na sintaxe do pré-processador
+                </div>
+                <div class="fase">
+                    <span class="tipo-js">Compilação</span> Processamento por compilador (linha de comando, task runner, bundler)
+                </div>
+                <div class="fase">
+                    <span class="tipo-codigo tipo-css">CSS</span> Código CSS padrão otimizado para produção
+                </div>
+            </div>
+            
+            <p>Os pré-processadores resolvem muitas limitações do CSS tradicional, permitindo:</p>
+            <ul>
+                <li>Manter código mais organizado e modular</li>
+                <li>Reduzir repetição e aumentar reusabilidade</li>
+                <li>Implementar lógica programática em estilos</li>
+                <li>Facilitar a manutenção em projetos grandes</li>
+                <li>Criar sistemas de design consistentes</li>
+            </ul>
+
+            <div class="destaque tip">
+                <h4>💡 Observação</h4>
+                <p>Com a evolução do CSS (como vimos na aula anterior sobre CSS Moderno), alguns recursos que eram exclusivos dos pré-processadores agora existem nativamente no CSS, como variáveis (Custom Properties). No entanto, pré-processadores ainda oferecem muitos benefícios além do CSS nativo.</p>
+            </div>
+        </section>
+
+        <!-- Principais Pré-processadores -->
+        <section class="secao" id="principais-preprocessadores">
+            <h2>🔧 Principais Pré-processadores</h2>
+            
+            <p>Existem vários pré-processadores CSS disponíveis, cada um com sua própria sintaxe e características específicas. Os três mais populares são:</p>
+
+            <div class="tabela-container">
+                <table class="tabela-comparacao">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Sass/SCSS</th>
+                            <th>Less</th>
+                            <th>Stylus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Criado em</strong></td>
+                            <td>2006</td>
+                            <td>2009</td>
+                            <td>2010</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Linguagem</strong></td>
+                            <td>Ruby (original), Dart/JS (atual)</td>
+                            <td>JavaScript</td>
+                            <td>JavaScript</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sintaxe</strong></td>
+                            <td>SCSS (.scss) ou Sass indentado (.sass)</td>
+                            <td>Similar ao CSS (.less)</td>
+                            <td>Flexível, opcional pontuação (.styl)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Popularidade</strong></td>
+                            <td>Muito alta</td>
+                            <td>Alta</td>
+                            <td>Média</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Destaque</strong></td>
+                            <td>Comunidade robusta, muitas bibliotecas</td>
+                            <td>Curva de aprendizado suave</td>
+                            <td>Sintaxe expressiva e concisa</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>Nesta aula, focaremos principalmente no <strong>Sass/SCSS</strong> por sua popularidade e adoção generalizada na indústria, mas também mencionaremos recursos de outros pré-processadores quando relevantes.</p>
+        </section>
+
+        <!-- SASS/SCSS Introdução -->
+        <section class="secao" id="sass-intro">
+            <h2>🎨 Sass: Syntactically Awesome Style Sheets</h2>
+            
+            <p>O <strong>Sass</strong> (Syntactically Awesome Style Sheets) é o pré-processador CSS mais maduro, poderoso e estável. Ele está disponível em duas sintaxes:</p>
+
+            <div class="codigo-comparacao">
+                <div class="codigo-coluna">
+                    <h4>Sintaxe SCSS (.scss)</h4>
+                    <div class="codigo-exemplo">
+                        <pre><code>$primary-color: #6d28d9;
+
+.button {
+    background-color: $primary-color;
+    color: white;
+    
+    &:hover {
+        background-color: darken($primary-color, 10%);
+    }
+}</code></pre>
+                    </div>
+                </div>
+                <div class="codigo-coluna">
+                    <h4>Sintaxe Sass (.sass)</h4>
+                    <div class="codigo-exemplo">
+                        <pre><code>$primary-color: #6d28d9
+
+.button
+    background-color: $primary-color
+    color: white
+    
+    &:hover
+        background-color: darken($primary-color, 10%)</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <p>A sintaxe SCSS é mais popular porque:</p>
+            <ul>
+                <li>É uma extensão direta do CSS - todo CSS válido é também SCSS válido</li>
+                <li>Usa chaves e ponto e vírgula como o CSS padrão</li>
+                <li>Tem uma curva de aprendizado menor para quem já conhece CSS</li>
+            </ul>
+
+            <div class="destaque important">
+                <h4>⚠️ Observação</h4>
+                <p>Nesta aula, usaremos principalmente a sintaxe SCSS por sua maior adoção na indústria.</p>
+            </div>
+        </section>
+
+        <!-- Configuração do Ambiente -->
+        <section class="secao" id="configuracao">
+            <h2>⚙️ Configuração de Ambiente</h2>
+            
+            <p>Antes de mergulhar nos recursos do Sass, é importante saber como configurar um ambiente para trabalhar com pré-processadores:</p>
+
+            <h3>1. Via linha de comando</h3>
+            <div class="codigo-exemplo">
+                <pre><code># Instalar Sass globalmente via npm
+npm install -g sass
+
+# Compilar um arquivo SCSS para CSS
+sass input.scss output.css
+
+# Observar mudanças e recompilar automaticamente
+sass --watch input.scss:output.css
+
+# Compilar um diretório inteiro
+sass --watch scss/:css/</code></pre>
+            </div>
+
+            <h3>2. Via Task Runners/Bundlers</h3>
+            <p>Para projetos maiores, geralmente usa-se ferramentas de automação:</p>
+            <ul>
+                <li><strong>Webpack</strong> com sass-loader</li>
+                <li><strong>Gulp</strong> ou <strong>Grunt</strong> com plugins de Sass</li>
+                <li><strong>Vite</strong>, <strong>Parcel</strong> ou outros bundlers modernos</li>
+            </ul>
+
+            <div class="codigo-exemplo">
+                <pre><code>// Exemplo de configuração com Webpack
+module.exports = {
+  // ...
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader', 
+          'css-loader', 
+          'sass-loader'
+        ]
+      }
+    ]
+  }
+};</code></pre>
+            </div>
+
+            <h3>3. Extensões de VS Code</h3>
+            <ul>
+                <li><strong>Live Sass Compiler</strong> - Compila Sass/SCSS dentro do VS Code com live reload</li>
+                <li><strong>Sass</strong> - Suporte a linguagem Sass</li>
+            </ul>
+
+            <div class="destaque tip">
+                <h4>💡 Dica para Iniciantes</h4>
+                <p>Se você está começando, considere usar a extensão Live Sass Compiler no VS Code para facilitar o processo de compilação durante o aprendizado.</p>
+            </div>
+        </section>
+
+        <!-- Características do SCSS -->
+        <section class="secao" id="caracteristicas-scss">
+            <h2>✨ Recursos Fundamentais do Sass/SCSS</h2>
+            
+            <h3>1. Variáveis</h3>
+            <p>As variáveis no Sass começam com o símbolo $ e permitem armazenar valores reutilizáveis.</p>
+            
+            <div class="codigo-exemplo">
+                <pre><code>// Definindo variáveis
+$cor-primaria: #6d28d9;
+$cor-secundaria: #a78bfa;
+$espacamento-base: 16px;
+$fonte-principal: 'Roboto', sans-serif;
+
+// Usando variáveis
+body {
+    font-family: $fonte-principal;
+    color: $cor-primaria;
+    padding: $espacamento-base;
+}
+
+.button {
+    background-color: $cor-primaria;
+    padding: $espacamento-base;
+    margin-bottom: $espacamento-base * 2;
+}</code></pre>
+            </div>
+
+            <h3>2. Nesting (Aninhamento)</h3>
+            <p>O aninhamento permite escrever seletores CSS de maneira mais organizada, refletindo a hierarquia HTML.</p>
+            
+            <div class="codigo-comparacao">
+                <div class="codigo-coluna codigo-scss">
+                    <h4>SCSS</h4>
+                    <div class="codigo-exemplo">
+                        <pre><code>nav {
+    background-color: #333;
+    
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        
+        li {
+            display: inline-block;
+            
+            a {
+                color: white;
+                
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}</code></pre>
+                    </div>
+                </div>
+                <div class="codigo-coluna codigo-css">
+                    <h4>CSS Resultante</h4>
+                    <div class="codigo-exemplo">
+                        <pre><code>nav {
+    background-color: #333;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    color: white;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="destaque warning">
+                <h4>⚠️ Cuidado</h4>
+                <p>Aninhamento excessivo pode criar seletores CSS muito específicos e causar problemas de especificidade. Tente limitar o aninhamento a no máximo 3-4 níveis.</p>
+            </div>
+
+            <h3>3. Mixins</h3>
+            <p>Os mixins são blocos de código reutilizáveis que podem aceitar parâmetros, semelhantes a funções.</p>
+            
+            <div class="codigo-exemplo">
+                <pre><code>// Definindo um mixin
+@mixin flex-center($direcao: row) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direcao;
+}
+
+// Usando o mixin
+.card {
+    @include flex-center(column);
+    padding: 20px;
+    background-color: white;
+}
+
+// Mixin com argumentos opcionais
+@mixin button($bg: #6d28d9, $color: white) {
+    background-color: $bg;
+    color: $color;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 4px;
+}
+
+.primary-button {
+    @include button;
+}
+
+.secondary-button {
+    @include button(#f3f4f6, #333);
+}</code></pre>
+            </div>
+
+            <h3>4. Herança/Extensão com @extend</h3>
+            <p>A diretiva @extend permite que um seletor herde os estilos de outro seletor.</p>
+            
+            <div class="codigo-exemplo">
+                <pre><code>// Classe base
+.message {
+    border: 1px solid #ccc;
+    padding: 10px;
+    color: #333;
+}
+
+// Classes que herdam da classe base
+.success {
+    @extend .message;
+    border-color: green;
+    color: green;
+}
+
+.error {
+    @extend .message;
+    border-color: red;
+    color: red;
+}
+
+.warning {
+    @extend .message;
+    border-color: orange;
+    color: #856404;
+}</code></pre>
+            </div>
+
+            <div class="destaque tip">
+                <h4>💡 Dica</h4>
+                <p>Use placeholders (@extend %placeholder) para criar classes de utilitário que não geram CSS por si só, apenas quando estendidas.</p>
+                <pre><code>// Placeholder
+%flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    @extend %flex-center;
+}
+
+.modal-content {
+    @extend %flex-center;
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Recursos Avançados do SCSS -->
+        <section class="secao" id="caracteristicas-avancadas">
+            <h2>🚀 Recursos Avançados do Sass/SCSS</h2>
+            
+            <h3>1. Partials e Importação</h3>
+            <p>Os partials são arquivos SCSS separados que podem ser importados em outros arquivos, ajudando na organização do código.</p>
+            
+            <div class="codigo-exemplo">
+                <pre><code>// _variables.scss (o underscore indica que é um partial)
+$cor-primaria: #6d28d9;
+$cor-secundaria: #a78bfa;
+
+// _mixins.scss
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// main.scss
+@import 'variables';
+@import 'mixins';
+
+body {
+    color: $cor-primaria;
+}
+
+.container {
+    @include flex-center;
+}</code></pre>
+            </div>
+
+            <div class="destaque important">
+                <h4>⚠️ Atualização Importante</h4>
+                <p>O <code>@import</code> está sendo substituído pela regra <code>@use</code> em versões mais recentes do Sass, que oferece melhor encapsulamento de namespace:</p>
+                <pre><code>// main.scss com @use
+@use 'variables' as v;
+@use 'mixins' as m;
+
+body {
+    color: v.$cor-primaria;
+}
+
+.container {
+    @include m.flex-center;
+}</code></pre>
+            </div>
+
+            <h3>2. Funções</h3>
+            <p>O Sass permite criar funções personalizadas para operações complexas.</p>
+            
+            <div class="codigo-exemplo">
+                <pre><code>// Definindo uma função
+@function calculate-width($col, $total: 12) {
+    @return percentage($col / $total);
+}
+
+// Usando a função
+.col-4 {
+    width: calculate-width(4); // Retorna 33.33333%
+}
+
+.col-6 {
+    width: calculate-width(6); // Retorna 50%
+}
+
+// Funções integradas
+.button {
+    background-color: #6d28d9;
+    
+    &:hover {
+        background-color: darken(#6d28d9, 10%); // Escurece a cor
+    }
+    
+    &.light {
+        background-color: lighten(#6d28d9, 20%); // Clareia a cor
+    }
+}</code></pre>
+            </div>
+
+            <h3>3. Controle de Fluxo</h3>
+            <p>O Sass inclui diretivas de controle de fluxo como @if, @for, @each e @while.</p>
+            
+            <div class="codigo-exemplo">
+                <pre><code>// Condicional @if
+@mixin theme($dark-mode: false) {
+    @if $dark-mode {
+        background-color: #333;
+        color: white;
+    } @else {
+        background-color: white;
+        color: #333;
+    }
+}
+
+// Loop @for
+@for $i from 1 through 5 {
+    .mt-#{$i} {
+        margin-top: $i * 0.25rem;
+    }
+}
+
+// Loop @each
+$colors: (
+    "primary": #6d28d9,
+    "secondary": #a78bfa,
+    "success": #059669
+);
+
+@each $name, $color in $colors {
+    .text-#{$name} {
+        color: $color;
+    }
+    .bg-#{$name} {
+        background-color: $color;
+    }
+}</code></pre>
+            </div>
+
+            <h3>4. Maps</h3>
+            <p>Os maps no Sass são coleções de pares chave-valor que permitem armazenar e acessar valores relacionados.</p>
+            
+            <div class="codigo-exemplo">
+                <pre><code>// Definindo um map
+$breakpoints: (
+    "small": 576px,
+    "medium": 768px,
+    "large": 992px,
+    "xlarge": 1200px
+);
+
+// Acessando valores do map
+@mixin respond-to($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media (min-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    } @else {
+        @warn "Breakpoint '#{$breakpoint}' não encontrado!";
+    }
+}
+
+// Usando o mixin de media query
+.container {
+    width: 100%;
+    
+    @include respond-to("medium") {
+        width: 90%;
+        max-width: 720px;
+    }
+    
+    @include respond-to("large") {
+        max-width: 960px;
+    }
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Arquitetura com Pré-processadores -->
+        <section class="secao" id="arquitetura">
+            <h2>🏗️ Arquitetura CSS com Pré-processadores</h2>
+            
+            <p>Um dos maiores benefícios dos pré-processadores é a capacidade de estruturar melhor o código CSS. Existem várias metodologias populares:</p>
+
+            <div class="metodologia-card">
+                <h4>7-1 Pattern</h4>
+                <p>Organiza o código em 7 pastas diferentes e 1 arquivo principal:</p>
+                <div class="codigo-exemplo">
+                    <pre><code>sass/
+|
+|– abstracts/         # Variáveis, mixins, funções
+|   |– _variables.scss
+|   |– _mixins.scss
+|   |– _functions.scss
+|
+|– base/              # Estilos base, reset, tipografia
+|   |– _reset.scss
+|   |– _typography.scss
+|
+|– components/        # Componentes reutilizáveis
+|   |– _buttons.scss
+|   |– _forms.scss
+|   |– _cards.scss
+|
+|– layout/            # Elementos principais do layout
+|   |– _header.scss
+|   |– _footer.scss
+|   |– _navigation.scss
+|   |– _grid.scss
+|
+|– pages/             # Estilos específicos de páginas
+|   |– _home.scss
+|   |– _about.scss
+|
+|– themes/            # Variações de tema
+|   |– _light.scss
+|   |– _dark.scss
+|
+|– vendors/           # Bibliotecas externas
+|   |– _bootstrap.scss
+|
+`– main.scss          # Arquivo principal que importa tudo</code></pre>
+                </div>
+            </div>
+
+            <div class="metodologia-card">
+                <h4>ITCSS (Inverted Triangle CSS)</h4>
+                <p>Organiza o código por especificidade e alcance crescentes:</p>
+                <ol>
+                    <li><strong>Settings:</strong> Variáveis globais e configurações</li>
+                    <li><strong>Tools:</strong> Mixins e funções</li>
+                    <li><strong>Generic:</strong> Reset e estilos de normalização</li>
+                    <li><strong>Elements:</strong> Estilos de elementos HTML básicos</li>
+                    <li><strong>Objects:</strong> Padrões estruturais não decorados</li>
+                    <li><strong>Components:</strong> Componentes de UI específicos</li>
+                    <li><strong>Utilities:</strong> Helpers de utilidade e sobrescrita</li>
+                </ol>
+            </div>
+
+            <div class="destaque example">
+                <h4>🔍 Considerações para Escolher uma Arquitetura</h4>
+                <ul>
+                    <li><strong>Tamanho do projeto:</strong> Para projetos pequenos, estruturas simples podem ser suficientes</li>
+                    <li><strong>Equipe:</strong> Projetos maiores com várias pessoas precisam de mais estrutura</li>
+                    <li><strong>Consistência:</strong> O mais importante é a consistência, independente da arquitetura escolhida</li>
+                    <li><strong>Documentação:</strong> Documente a estrutura para novos membros da equipe</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Comparação com CSS Moderno -->
+        <section class="secao" id="vs-css-moderno">
+            <h2>🔄 Pré-processadores vs. CSS Moderno</h2>
+            
+            <p>Com a evolução do CSS nativo, alguns recursos anteriormente exclusivos dos pré-processadores agora estão disponíveis diretamente no CSS.</p>
+
+            <div class="tabela-container">
+                <table class="tabela-comparacao">
+                    <thead>
+                        <tr>
+                            <th>Recurso</th>
+                            <th>SCSS</th>
+                            <th>CSS Moderno</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Variáveis</td>
+                            <td><code>$cor-primaria: #6d28d9;</code></td>
+                            <td><code>--cor-primaria: #6d28d9;</code></td>
+                        </tr>
+                        <tr>
+                            <td>Escopo</td>
+                            <td>Escopo léxico</td>
+                            <td>Cascata e herança CSS</td>
+                        </tr>
+                        <tr>
+                            <td>Cálculos</td>
+                            <td><code>width: $width * 2;</code></td>
+                            <td><code>width: calc(var(--width) * 2);</code></td>
+                        </tr>
+                        <tr>
+                            <td>Funções</td>
+                            <td>Nativas e personalizadas</td>
+                            <td>Limitadas a nativas</td>
+                        </tr>
+                        <tr>
+                            <td>Nesting</td>
+                            <td>Completo</td>
+                            <td>Limitado (ainda experimental)</td>
+                        </tr>
+                        <tr>
+                            <td>Modularização</td>
+                            <td>@import, @use</td>
+                            <td>@import (limitado)</td>
+                        </tr>
+                        <tr>
+                            <td>Lógica Programática</td>
+                            <td>@if, @for, @each</td>
+                            <td>Não disponível</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="destaque important">
+                <h4>💡 Quando usar cada um?</h4>
+                <p><strong>Use pré-processadores quando:</strong></p>
+                <ul>
+                    <li>Precisar de lógica condicional e loops</li>
+                    <li>Trabalhar com projetos grandes que se beneficiam de modularização</li>
+                    <li>Quiser criar mixins e funções personalizadas</li>
+                    <li>Precisar de variáveis que são compiladas (valores calculados em compilação)</li>
+                </ul>
+                <p><strong>Use CSS moderno quando:</strong></p>
+                <ul>
+                    <li>Precisar de variáveis que podem mudar dinamicamente em runtime</li>
+                    <li>Quiser simplicidade sem processo de build</li>
+                    <li>Trabalhar em projetos menores</li>
+                    <li>Estiver focado em navegadores modernos</li>
+                </ul>
+            </div>
+
+            <p>Na prática, muitos projetos usam uma <strong>abordagem híbrida</strong>: pré-processadores para organização e lógica avançada, combinados com recursos modernos de CSS para dinamismo em runtime.</p>
+        </section>
+
+        <!-- Benefícios e Considerações -->
+        <section class="secao" id="beneficios-consideracoes">
+            <h2>📊 Benefícios e Considerações</h2>
+            
+            <h3>Benefícios dos Pré-processadores</h3>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h4>Produtividade</h4>
+                    <p>Recursos como mixins e funções reduzem código repetitivo e agilizam o desenvolvimento.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h4>Manutenção</h4>
+                    <p>Estrutura modular e variáveis facilitam alterações globais e atualizações.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h4>Organização</h4>
+                    <p>Possibilidade de dividir o código em múltiplos arquivos menores e mais gerenciáveis.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h4>Consistência</h4>
+                    <p>Variáveis e mixins garantem consistência em toda a aplicação.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h4>Reusabilidade</h4>
+                    <p>Criar componentes e estilos reaproveitáveis através de mixins e extend.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h4>Recursos Avançados</h4>
+                    <p>Lógica condicional e funções para casos de uso avançados.</p>
+                </div>
+            </div>
+
+            <h3>Considerações e Desvantagens</h3>
+            
+            <div class="destaque warning">
+                <h4>⚠️ Pontos de Atenção</h4>
+                <ul>
+                    <li><strong>Complexidade:</strong> Adiciona mais uma camada ao processo de desenvolvimento</li>
+                    <li><strong>Processo de build:</strong> Necessita de configuração e etapa de compilação</li>
+                    <li><strong>Debugging:</strong> Pode dificultar a depuração, já que o CSS gerado é diferente do código fonte</li>
+                    <li><strong>Curva de aprendizado:</strong> Membros novos na equipe precisam aprender a sintaxe específica</li>
+                    <li><strong>Código gerado maior:</strong> Especialmente com uso excessivo de @extend</li>
+                    <li><strong>Sobrecomplicação:</strong> Risco de criar código desnecessariamente complexo</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Outros Pré-processadores -->
+        <section class="secao" id="outros-preprocessadores">
+            <h2>🌐 Outros Pré-processadores</h2>
+            
+            <h3>LESS</h3>
+            <p>Less é uma alternativa ao Sass que roda em JavaScript e tem uma sintaxe muito próxima ao CSS.</p>
+            
+            <div class="codigo-comparacao">
+                <div class="codigo-coluna codigo-less">
+                    <h4>LESS</h4>
+                    <div class="codigo-exemplo">
+                        <pre><code>@primary-color: #6d28d9;
+
+.button {
+    background-color: @primary-color;
+    
+    &:hover {
+        background-color: darken(@primary-color, 10%);
+    }
+    
+    // Mixins em LESS
+    .border-radius(4px);
+}
+
+// Definindo um mixin
+.border-radius(@radius) {
+    border-radius: @radius;
+}</code></pre>
+                    </div>
+                </div>
+                <div class="codigo-coluna codigo-scss">
+                    <h4>SCSS Equivalente</h4>
+                    <div class="codigo-exemplo">
+                        <pre><code>$primary-color: #6d28d9;
+
+.button {
+    background-color: $primary-color;
+    
+    &:hover {
+        background-color: darken($primary-color, 10%);
+    }
+    
+    @include border-radius(4px);
+}
+
+// Definindo um mixin
+@mixin border-radius($radius) {
+    border-radius: $radius;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Stylus</h3>
+            <p>Stylus é um pré-processador expressivo com sintaxe flexível e minimalista.</p>
+            
+            <div class="codigo-comparacao">
+                <div class="codigo-coluna codigo-stylus">
+                    <h4>Stylus</h4>
+                    <div class="codigo-exemplo">
+                        <pre><code>primary-color = #6d28d9
+
+.button
+    background-color primary-color
+    
+    &:hover
+        background-color darken(primary-color, 10%)
+    
+    border-radius(4px)
+
+// Definindo uma função/mixin
+border-radius(radius)
+    border-radius radius</code></pre>
+                    </div>
+                </div>
+                <div class="codigo-coluna codigo-scss">
+                    <h4>SCSS Equivalente</h4>
+                    <div class="codigo-exemplo">
+                        <pre><code>$primary-color: #6d28d9;
+
+.button {
+    background-color: $primary-color;
+    
+    &:hover {
+        background-color: darken($primary-color, 10%);
+    }
+    
+    @include border-radius(4px);
+}
+
+// Definindo um mixin
+@mixin border-radius($radius) {
+    border-radius: $radius;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="destaque tip">
+                <h4>💡 Observação</h4>
+                <p>A escolha entre diferentes pré-processadores muitas vezes depende de preferência pessoal, ecossistema existente do projeto, ou requisitos específicos. Sass/SCSS continua sendo a opção mais comum na indústria.</p>
+            </div>
+        </section>
+
+        <!-- Integração com Frameworks -->
+        <section class="secao" id="integracao-frameworks">
+            <h2>🔄 Integração com Frameworks</h2>
+            
+            <p>Muitos frameworks front-end e bibliotecas têm suporte integrado para pré-processadores CSS:</p>
+
+            <div class="tabela-container">
+                <table class="tabela-comparacao">
+                    <thead>
+                        <tr>
+                            <th>Framework/Ferramenta</th>
+                            <th>Integração</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>React (Create React App)</td>
+                            <td>Suporte incorporado para Sass (.scss)</td>
+                        </tr>
+                        <tr>
+                            <td>Vue CLI</td>
+                            <td>Configuração durante a criação do projeto para Sass, Less ou Stylus</td>
+                        </tr>
+                        <tr>
+                            <td>Angular</td>
+                            <td>Suporte nativo para Sass em componentes</td>
+                        </tr>
+                        <tr>
+                            <td>Next.js</td>
+                            <td>Suporte para .scss e .sass com mínima configuração</td>
+                        </tr>
+                        <tr>
+                            <td>Bootstrap</td>
+                            <td>Disponível em versão Sass para customização</td>
+                        </tr>
+                        <tr>
+                            <td>Tailwind CSS</td>
+                            <td>Configurável através de PostCSS, compatível com Sass</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="destaque example">
+                <h4>✨ Exemplo: Configuração em Create React App</h4>
+                <ol>
+                    <li>Instalar Sass: <code>npm install sass</code></li>
+                    <li>Renomear arquivos .css para .scss</li>
+                    <li>Importar nos componentes: <code>import './styles.scss';</code></li>
+                </ol>
+                <p>Não é necessária nenhuma configuração adicional!</p>
+            </div>
+        </section>
+
+        <!-- Tendências Futuras -->
+        <section class="secao" id="tendencias">
+            <h2>🔮 Tendências e Futuro</h2>
+            
+            <p>O cenário de estilos no front-end está sempre evoluindo. Algumas tendências atuais e futuras:</p>
+
+            <h3>1. CSS-in-JS</h3>
+            <p>Soluções como Styled Components, Emotion e CSS Modules permitem escrever CSS diretamente no JavaScript.</p>
+            
+            <div class="codigo-exemplo">
+                <pre><code>// Exemplo de Styled Components
+import styled from 'styled-components';
+
+const Button = styled.button`
+    background-color: ${props => props.primary ? '#6d28d9' : 'white'};
+    color: ${props => props.primary ? 'white' : '#6d28d9'};
+    padding: 0.5em 1em;
+    border: 2px solid #6d28d9;
+    border-radius: 4px;
+`;
+
+// Uso
+<Button primary>Primary Button</Button>
+<Button>Secondary Button</Button></code></pre>
+            </div>
+
+            <h3>2. PostCSS</h3>
+            <p>Uma ferramenta que transforma CSS com plugins JavaScript, permitindo usar recursos futuros do CSS hoje.</p>
+
+            <h3>3. Utility-First CSS</h3>
+            <p>Frameworks como Tailwind CSS que usam classes de utilidade para construir interfaces.</p>
+            
+            <div class="codigo-exemplo">
+                <pre><code><!-- Exemplo de Tailwind CSS -->
+<div class="p-4 max-w-md mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4">
+  <div>
+    <div class="text-xl font-medium text-black">Card Title</div>
+    <p class="text-gray-500">Card description here...</p>
+  </div>
+</div></code></pre>
+            </div>
+
+            <h3>4. Evolução do CSS Nativo</h3>
+            <p>À medida que o CSS nativo evolui, incorporando recursos como Container Queries, :has(), e Cascade Layers, a necessidade de algumas funcionalidades dos pré-processadores diminui.</p>
+
+            <div class="destaque important">
+                <h4>💡 O que esperar</h4>
+                <p>Provavelmente veremos uma abordagem híbrida por um bom tempo: pré-processadores para organização e recursos programáticos, combinados com CSS moderno para dinamismo em runtime e abordagens específicas de frameworks para componentes.</p>
+            </div>
+        </section>
+
+        <!-- Exercícios Práticos -->
+        <section class="secao exercicios" id="exercicios">
+            <h2>✏️ Exercícios Práticos</h2>
+            
+            <div class="exercicio">
+                <h3>Exercício 1: Sistema de Cores com Sass</h3>
+                <p>Crie um sistema de cores completo usando SCSS que inclua:</p>
+                <ul>
+                    <li>Variáveis para cores primárias, secundárias e neutras</li>
+                    <li>Funções para gerar tons mais claros e escuros automaticamente</li>
+                    <li>Classes de utilidade para aplicar cores a texto e background</li>
+                </ul>
+                <div class="exercicio-dica">
+                    <p><strong>Dica:</strong> Use funções como <code>lighten()</code>, <code>darken()</code>, <code>mix()</code> e loops <code>@each</code> para gerar variações.</p>
+                </div>
+            </div>
+
+            <div class="exercicio">
+                <h3>Exercício 2: Sistema de Grid Responsivo</h3>
+                <p>Implemente um sistema de grid personalizado usando mixins SCSS que:</p>
+                <ul>
+                    <li>Suporte diferentes números de colunas (12 por padrão)</li>
+                    <li>Tenha breakpoints para múltiplos tamanhos de tela</li>
+                    <li>Inclua utilitários para offset e ordenação</li>
+                </ul>
+                <div class="exercicio-dica">
+                    <p><strong>Dica:</strong> Use <code>@for</code> para gerar classes de coluna e maps para gerenciar breakpoints.</p>
+                </div>
+            </div>
+
+            <div class="exercicio">
+                <h3>Exercício 3: Biblioteca de Componentes</h3>
+                <p>Crie uma mini-biblioteca de componentes UI usando SCSS que inclua:</p>
+                <ul>
+                    <li>Botões com variações (primário, secundário, outline)</li>
+                    <li>Cards com diferentes estilos</li>
+                    <li>Sistema de alertas/notificações</li>
+                    <li>Componentes de formulário estilizados</li>
+                </ul>
+                <div class="exercicio-dica">
+                    <p><strong>Dica:</strong> Organize seu código usando a estrutura 7-1 e crie mixins reutilizáveis para padrões comuns.</p>
+                </div>
+            </div>
+
+            <div class="exercicio">
+                <h3>Desafio: Tema Dinâmico com Sass e CSS Variables</h3>
+                <p>Crie um sistema de tema completo combinando o melhor do Sass e das variáveis CSS nativas:</p>
+                <ul>
+                    <li>Use Sass para gerar variáveis CSS para múltiplos temas</li>
+                    <li>Implemente troca de tema em tempo real com JavaScript</li>
+                    <li>Suporte modo claro/escuro e temas personalizados</li>
+                    <li>Permita componentes que herdam o tema global ou usam temas específicos</li>
+                </ul>
+                <div class="exercicio-dica">
+                    <p><strong>Dica:</strong> Gere variáveis CSS usando loops Sass e use JavaScript para trocar classes ou atributos <code>data-</code> que ativam diferentes temas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ferramentas e Recursos -->
+        <section class="secao recursos-adicionais">
+            <h2>🔧 Ferramentas e Recursos</h2>
+            
+            <div class="recursos-lista">
+                <div class="recurso-item">
+                    <h4>Documentação Oficial</h4>
+                    <ul>
+                        <li><a href="https://sass-lang.com/documentation/" target="_blank" rel="noopener">Sass Documentation</a></li>
+                        <li><a href="https://lesscss.org/" target="_blank" rel="noopener">Less CSS</a></li>
+                        <li><a href="https://stylus-lang.com/" target="_blank" rel="noopener">Stylus</a></li>
+                    </ul>
+                </div>
+
+                <div class="recurso-item">
+                    <h4>Frameworks e Bibliotecas</h4>
+                    <ul>
+                        <li><a href="https://github.com/twbs/bootstrap-sass" target="_blank" rel="noopener">Bootstrap Sass</a></li>
+                        <li><a href="https://bulma.io/" target="_blank" rel="noopener">Bulma (baseado em Sass)</a></li>
+                        <li><a href="https://sass-mq.github.io/sass-mq/" target="_blank" rel="noopener">Sass MQ (Media Queries)</a></li>
+                    </ul>
+                </div>
+
+                <div class="recurso-item">
+                    <h4>Ferramentas Online</h4>
+                    <ul>
+                        <li><a href="https://www.sassmeister.com/" target="_blank" rel="noopener">SassMeister (playground online)</a></li>
+                        <li><a href="https://scalescss.github.io/scale/" target="_blank" rel="noopener">SCALE (Arquitetura SCSS)</a></li>
+                        <li><a href="https://sass-guidelin.es/" target="_blank" rel="noopener">Sass Guidelines</a></li>
+                    </ul>
+                </div>
+
+                <div class="recurso-item">
+                    <h4>Tutoriais Avançados</h4>
+                    <ul>
+                        <li><a href="https://css-tricks.com/introducing-sass-modules/" target="_blank" rel="noopener">CSS-Tricks: Sass Modules</a></li>
+                        <li><a href="https://www.smashingmagazine.com/2018/01/seven-principles-for-using-sass/" target="_blank" rel="noopener">Smashing Magazine: 7 Principles of Sass</a></li>
+                        <li><a href="https://www.sitepoint.com/architecture-sass-project/" target="_blank" rel="noopener">SitePoint: Architecture for a Sass Project</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resumo -->
+        <section class="secao resumo">
+            <h2>📝 Resumo</h2>
+            
+            <div class="destaque tip">
+                <h4>Pontos-chave desta aula</h4>
+                <ul>
+                    <li>Pré-processadores CSS estendem o CSS com funcionalidades de programação como variáveis, mixins, funções e lógica</li>
+                    <li>O Sass/SCSS é o pré-processador mais popular, com ampla adoção e comunidade ativa</li>
+                    <li>Recursos como nesting, partials, mixins e funções melhoram a organização e manutenção do código</li>
+                    <li>Arquiteturas como 7-1 e ITCSS ajudam a estruturar projetos CSS maiores de forma escalável</li>
+                    <li>O CSS moderno incorporou alguns recursos dos pré-processadores, como variáveis, mas ainda há vantagens em usar ambos</li>
+                    <li>A escolha da ferramenta deve considerar o tamanho do projeto, necessidades específicas e o ecossistema existente</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Próximos Passos -->
+        <section class="secao proximos-passos">
+            <h2>🚀 Próximos Passos</h2>
+            
+            <p>Agora que você entende pré-processadores CSS, pode explorar:</p>
+            <ul>
+                <li>Configuração de projetos reais com Sass/SCSS</li>
+                <li>Criação de sistemas de design completos com pré-processadores</li>
+                <li>Integração com ferramentas modernas como PostCSS e CSS Modules</li>
+                <li>Otimização de código CSS com técnicas avançadas de pré-processadores</li>
+            </ul>
+
+            <p>Na próxima aula, exploraremos a integração entre CSS e JavaScript, incluindo como manipular estilos dinamicamente e criar animações avançadas!</p>
+        </section>
+
+        <!-- Navegação -->
+        <div class="aula-navegacao">
+            <a href="aula-09-css-moderno.html" class="aula-anterior">
+                ⬅️ Aula anterior: CSS Moderno
+            </a>
+            <a href="aula-11-css-javascript.html" class="aula-proxima">
+                Próxima aula: CSS e JavaScript ➡️
+            </a>
+        </div>
+
+        <!-- Rodapé -->
+        <footer class="aula-footer">
+            <p>© 2023 Curso CSS Fundamentals | Criado com 💜 e muito CSS</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Script para atualizar a barra de progresso
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.objetivo-checkbox');
+            const progressBar = document.querySelector('.progresso-concluido');
+            const progressText = document.querySelector('.progresso-porcentagem');
+            
+            function updateProgress() {
+                const total = checkboxes.length;
+                let checked = 0;
+                
+                checkboxes.forEach(checkbox => {
+                    if (checkbox.checked) checked++;
+                });
+                
+                const percentage = Math.round((checked / total) * 100);
+                progressBar.style.width = percentage + '%';
+                progressText.textContent = percentage + '%';
+                
+                // Salvar progresso no localStorage
+                localStorage.setItem('progressoAula10', JSON.stringify({
+                    total: total,
+                    completed: checked,
+                    objectives: [...checkboxes].map(cb => cb.checked)
+                }));
+            }
+            
+            // Carregar progresso salvo
+            const savedProgress = localStorage.getItem('progressoAula10');
+            if (savedProgress) {
+                const progress = JSON.parse(savedProgress);
+                if (progress.objectives && progress.objectives.length === checkboxes.length) {
+                    progress.objectives.forEach((checked, i) => {
+                        checkboxes[i].checked = checked;
+                    });
+                    updateProgress();
+                }
+            }
+            
+            // Atualizar quando os checkboxes mudarem
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updateProgress);
+            });
+        });
+    </script>
+</body>
+</html>

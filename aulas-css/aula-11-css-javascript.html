@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌐 Aula 11: CSS e JavaScript</title>
+    <meta name="description" content="Aprenda a integrar CSS e JavaScript para criar interfaces dinâmicas, animações avançadas e interações complexas em aplicações web modernas.">
+    <link rel="stylesheet" href="assets/style-aulas.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+    <style>
+        /* Estilos específicos para exemplos desta aula */
+        .demo-container {
+            margin: 1.5rem auto;
+            padding: 1.5rem;
+            max-width: 600px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+        }
+
+        .demo-interactive {
+            border: 2px solid #6d28d9;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .demo-interactive:hover {
+            box-shadow: 0 5px 15px rgba(109, 40, 217, 0.2);
+        }
+        
+        /* Classes para manipulação via JS */
+        .active {
+            background-color: #6d28d9;
+            color: white;
+        }
+        
+        .highlight {
+            background-color: #fef3c7;
+            border-left: 4px solid #d97706;
+            padding-left: 1rem;
+        }
+        
+        .fade {
+            opacity: 0.5;
+            transition: opacity 0.5s;
+        }
+        
+        /* Classes de animação para JS */
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .slide-in {
+            animation: slideIn 0.5s forwards;
+        }
+        
+        .bounce {
+            animation: bounce 1s infinite;
+        }
+        
+        /* Exemplos de interação */
+        .toggle-container {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .toggle-btn {
+            background-color: #e5e7eb;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .toggle-btn.active {
+            background-color: #6d28d9;
+            color: white;
+        }
+        
+        /* Tema escuro */
+        .theme-dark {
+            --bg-color: #1f2937;
+            --text-color: #f9fafb;
+            --border-color: #374151;
+            --highlight-color: #5b21b6;
+        }
+        
+        .theme-light {
+            --bg-color: #f9fafb;
+            --text-color: #1f2937;
+            --border-color: #e5e7eb;
+            --highlight-color: #8b5cf6;
+        }
+        
+        .theme-container {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            padding: 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .theme-container button {
+            background-color: var(--highlight-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        /* Exemplos de drag/drop */
+        .draggable {
+            padding: 1rem;
+            background-color: #6d28d9;
+            color: white;
+            border-radius: 4px;
+            margin: 0.5rem;
+            cursor: move;
+            transition: transform 0.2s;
+            user-select: none;
+        }
+        
+        .draggable.dragging {
+            opacity: 0.5;
+            transform: scale(1.05);
+        }
+        
+        .drop-zone {
+            min-height: 100px;
+            border: 2px dashed #6d28d9;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+        
+        .drop-zone.drag-over {
+            background-color: rgba(109, 40, 217, 0.1);
+        }
+
+        /* Exemplo para Web Animation API */
+        .animation-target {
+            width: 100px;
+            height: 100px;
+            background-color: #6d28d9;
+            margin: 1rem auto;
+            border-radius: 8px;
+        }
+        
+        .animation-controls {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+        
+        .animation-controls button {
+            padding: 0.5rem 1rem;
+            border: none;
+            background-color: #6d28d9;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        /* Exemplo para IntersectionObserver */
+        .scroll-item {
+            padding: 2rem;
+            margin: 2rem 0;
+            background-color: #f3f4f6;
+            border-radius: 8px;
+            transform: translateX(-100px);
+            opacity: 0;
+            transition: all 0.5s ease-out;
+        }
+        
+        .scroll-item.visible {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="aula-container">
+        <!-- Header da Aula -->
+        <header class="aula-header">
+            <div class="aula-numero">🌐 AULA 11</div>
+            <h1>CSS e JavaScript</h1>
+            <p class="aula-meta">
+                <span>⏱️ Duração: 55 minutos</span>
+                <span>🎯 Nível: Avançado</span>
+                <span>👨‍💻 Prática: Sim</span>
+            </p>
+        </header>
+
+        <!-- Progresso da Aula -->
+        <div class="progresso-aula">
+            <div class="progresso-titulo">Seu progresso nesta aula</div>
+            <div class="progresso-barra">
+                <div class="progresso-concluido" style="width: 0%"></div>
+            </div>
+            <div class="progresso-porcentagem">0%</div>
+        </div>
+
+        <!-- Navegação -->
+        <div class="aula-navegacao">
+            <a href="aula-10-preprocessadores.html" class="aula-anterior">
+                ⬅️ Aula anterior: Pré-processadores CSS
+            </a>
+            <a href="aula-12-metodologias.html" class="aula-proxima">
+                Próxima aula: Metodologias CSS ➡️
+            </a>
+        </div>
+
+        <!-- Objetivos de Aprendizado -->
+        <section class="secao objetivos" id="objetivos">
+            <h2>🎯 Objetivos de Aprendizado</h2>
+            <p>Ao final desta aula, você será capaz de:</p>
+            
+            <div class="lista-objetivos">
+                <div class="objetivo">
+                    <input type="checkbox" id="obj1" class="objetivo-checkbox">
+                    <label for="obj1">Entender a relação entre CSS e JavaScript para criação de interfaces interativas</label>
+                </div>
+                <div class="objetivo">
+                    <input type="checkbox" id="obj2" class="objetivo-checkbox">
+                    <label for="obj2">Manipular estilos e classes CSS dinamicamente usando JavaScript</label>
+                </div>
+                <div class="objetivo">
+                    <input type="checkbox" id="obj3" class="objetivo-checkbox">
+                    <label for="obj3">Criar animações avançadas com CSS e JavaScript</label>
+                </div>
+                <div class="objetivo">
+                    <input type="checkbox" id="obj4" class="objetivo-checkbox">
+                    <label for="obj4">Implementar interações complexas como drag and drop e scroll animations</label>
+                </div>
+                <div class="objetivo">
+                    <input type="checkbox" id="obj5" class="objetivo-checkbox">
+                    <label for="obj5">Aplicar APIs modernas como CSS Variables, Web Animation API e IntersectionObserver</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Introdução -->
+        <section class="secao" id="introducao">
+            <h2>🔄 CSS e JavaScript: O Poder da Integração</h2>
+            
+            <p>O CSS e o JavaScript, quando combinados, formam uma poderosa ferramenta para criar experiências de usuário dinâmicas, interativas e envolventes. Enquanto o CSS define a apresentação visual, o JavaScript permite manipular esses estilos em resposta às ações do usuário ou a eventos do sistema.</p>
+            
+            <p>Nesta aula, exploraremos como:</p>
+            <ul>
+                <li>Manipular estilos CSS diretamente via JavaScript</li>
+                <li>Trabalhar com classes CSS para mudanças de estado</li>
+                <li>Criar animações avançadas com controle programático</li>
+                <li>Implementar interações complexas do usuário</li>
+                <li>Utilizar APIs modernas para efeitos sofisticados</li>
+            </ul>
+
+            <div class="destaque tip">
+                <h4>💡 Lembre-se</h4>
+                <p>A regra de ouro é: use CSS para estilização e animações simples, e JavaScript para lógica e interatividade complexa. Quando ambos trabalham juntos, você aproveita o melhor dos dois mundos.</p>
+            </div>
+        </section>
+
+        <!-- Manipulando Estilos com JavaScript -->
+        <section class="secao" id="manipulando-estilos">
+            <h2>🎮 Manipulando Estilos com JavaScript</h2>
+            
+            <p>Existem três maneiras principais de manipular estilos CSS através de JavaScript:</p>
+
+            <h3>1. Manipulando Diretamente a Propriedade style</h3>
+            <p>Você pode acessar e modificar diretamente as propriedades CSS de um elemento através do objeto <code>style</code>.</p>
+            
+            <div class="demo-container demo-interactive" id="styleDemo">
+                <p>Clique aqui para mudar o estilo diretamente</p>
+            </div>
+            
+            <div class="codigo-exemplo">
+                <pre><code>// Manipulando o estilo diretamente
+const element = document.getElementById('styleDemo');
+
+element.addEventListener('click', () => {
+    // Propriedades CSS são acessadas em camelCase
+    element.style.backgroundColor = '#6d28d9';
+    element.style.color = 'white';
+    element.style.padding = '20px';
+    element.style.borderRadius = '10px';
+    element.style.transition = 'all 0.3s ease';
+});</code></pre>
+            </div>
+
+            <div class="destaque warning">
+                <h4>⚠️ Considerações</h4>
+                <p>Manipular diretamente a propriedade <code>style</code>:</p>
+                <ul>
+                    <li>Adiciona estilos inline, que têm alta especificidade</li>
+                    <li>Substitui apenas estilos individuais, não o conjunto completo</li>
+                    <li>Requer o uso de camelCase (ex: <code>backgroundColor</code> em vez de <code>background-color</code>)</li>
+                    <li>É adequado para alterações dinâmicas baseadas em cálculos ou posições</li>
+                </ul>
+            </div>
+
+            <h3>2. Manipulando Classes CSS</h3>
+            <p>Uma abordagem mais flexível e organizada é adicionar, remover ou alternar classes CSS predefinidas.</p>
+            
+            <div class="demo-container demo-interactive" id="classDemo">
+                <p>Clique aqui para alternar classes CSS</p>
+            </div>
+            
+            <div class="codigo-exemplo">
+                <pre><code>// Manipulando classes
+const element = document.getElementById('classDemo');
+
+element.addEventListener('click', () => {
+    // Alternar uma classe
+    element.classList.toggle('active');
+    
+    // Adicionar uma classe
+    // element.classList.add('highlight');
+    
+    // Remover uma classe
+    // element.classList.remove('highlight');
+    
+    // Verificar se uma classe existe
+    // if (element.classList.contains('active')) { ... }
+});</code></pre>
+            </div>
+
+            <div class="destaque tip">
+                <h4>💡 Prática Recomendada</h4>
+                <p>Manipular classes CSS é geralmente a abordagem preferida porque:</p>
+                <ul>
+                    <li>Separa as preocupações: mantém os estilos no CSS e a lógica no JavaScript</li>
+                    <li>Permite alternar facilmente entre estados visuais predefinidos</li>
+                    <li>Aproveita o sistema de cascata e especificidade do CSS</li>
+                    <li>É mais fácil de manter e estender</li>
+                </ul>
+            </div>
+
+            <h3>3. Definindo/Obtendo Propriedades Computadas</h3>
+            <p>Você pode obter os estilos computados de um elemento, independentemente de como esses estilos foram definidos.</p>
+            
+            <div class="codigo-exemplo">
+                <pre><code>// Obtendo estilos computados
+const element = document.getElementById('someElement');
+const styles = window.getComputedStyle(element);
+
+console.log(styles.backgroundColor); // rgb(255, 255, 255)
+console.log(styles.fontSize); // 16px
+
+// Você pode usar isso para tomar decisões com base no estilo atual
+if (styles.display === 'none') {
+    // O elemento está oculto
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- CSS Variables e JavaScript -->
+        <section class="secao" id="css-variables">
+            <h2>🎛️ CSS Variables e JavaScript</h2>
+            
+            <p>As variáveis CSS (Custom Properties) fornecem uma maneira poderosa de criar interfaces dinâmicas, pois podem ser manipuladas em tempo real com JavaScript.</p>
+            
+            <div class="theme-container theme-light" id="themeDemo">
+                <h3>Tema dinâmico com variáveis CSS</h3>
+                <p>Este container usa variáveis CSS para definir cores e espaçamentos.</p>
+                <button id="toggleTheme">Alternar Tema</button>
+            </div>
+            
+            <div class="codigo-exemplo">
+                <pre><code>/* CSS com variáveis */
+.theme-dark {
+    --bg-color: #1f2937;
+    --text-color: #f9fafb;
+    --border-color: #374151;
+    --highlight-color: #5b21b6;
+}
+
+.theme-light {
+    --bg-color: #f9fafb;
+    --text-color: #1f2937;
+    --border-color: #e5e7eb;
+    --highlight-color: #8b5cf6;
+}
+
+.theme-container {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+/* JavaScript para alternar o tema */
+const themeContainer = document.getElementById('themeDemo');
+const themeButton = document.getElementById('toggleTheme');
+
+themeButton.addEventListener('click', () => {
+    themeContainer.classList.toggle('theme-dark');
+    themeContainer.classList.toggle('theme-light');
+});</code></pre>
+            </div>
+
+            <h3>Manipulando Variáveis CSS Individualmente</h3>
+            <p>Você também pode definir e obter variáveis CSS diretamente:</p>
+            
+            <div class="codigo-exemplo">
+                <pre><code>// Definindo uma variável CSS
+document.documentElement.style.setProperty('--highlight-color', '#9333ea');
+
+// Obtendo o valor de uma variável CSS
+const highlightColor = getComputedStyle(document.documentElement)
+    .getPropertyValue('--highlight-color');</code></pre>
+            </div>
+
+            <div class="destaque example">
+                <h4>✨ Casos de uso para variáveis CSS com JavaScript</h4>
+                <ul>
+                    <li><strong>Temas dinâmicos:</strong> Alternar entre modo claro/escuro ou temas personalizados</li>
+                    <li><strong>UI reativa:</strong> Ajustar estilos com base em ações do usuário</li>
+                    <li><strong>Visualizações de dados:</strong> Atualizar cores em gráficos ou mapas de calor</li>
+                    <li><strong>Animações:</strong> Controlar parâmetros de animação dinamicamente</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Animações CSS com JavaScript -->
+        <section class="secao" id="animacoes">
+            <h2>✨ Animações CSS com JavaScript</h2>
+            
+            <p>As animações CSS são poderosas por si só, mas quando combinadas com JavaScript, oferecem controle granular e possibilidades criativas expandidas.</p>
+
+            <h3>1. Adicionando/Removendo Classes de Animação</h3>
+            <p>A forma mais simples de controlar animações é adicionar ou remover classes que contêm as definições de animação.</p>
+            
+            <div class="demo-container">
+                <div class="animation-target" id="animTarget"></div>
+                <div class="animation-controls">
+                    <button id="animBounce">Bounce</button>
+                    <button id="animSlide">Slide</button>
+                    <button id="animStop">Parar</button>
+                </div>
+            </div>
+            
+            <div class="codigo-exemplo">
+                <pre><code>/* CSS com animações */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.bounce { animation: bounce 1s infinite; }
+.slide-in { animation: slideIn 0.5s forwards; }
+
+/* JavaScript para controlar a animação */
+document.getElementById('animBounce').addEventListener('click', () => {
+    const target = document.getElementById('animTarget');
+    target.classList.remove('slide-in');
+    target.classList.add('bounce');
+});
+
+document.getElementById('animSlide').addEventListener('click', () => {
+    const target = document.getElementById('animTarget');
+    target.classList.remove('bounce');
+    target.classList.add('slide-in');
+});
+
+document.getElementById('animStop').addEventListener('click', () => {
+    const target = document.getElementById('animTarget');
+    target.classList.remove('bounce', 'slide-in');
+});</code></pre>
+            </div>
+
+            <h3>2. Controlando Animações com JavaScript</h3>
+            <p>Você pode controlar detalhes de animação e sincronizar com eventos ou lógica de aplicativo.</p>
+            
+            <div class="codigo-exemplo">
+                <pre><code>// Eventos de animação
+const element = document.querySelector('.animated-element');
+
+element.addEventListener('animationstart', () => {
+    console.log('Animação iniciada');
+});
+
+element.addEventListener('animationend', () => {
+    console.log('Animação concluída');
+    // Execute ações após o término da animação
+    element.classList.add('post-animation-state');
+});
+
+element.addEventListener('animationiteration', () => {
+    console.log('Ciclo de animação concluído');
+});</code></pre>
+            </div>
+
+            <h3>3. Web Animation API</h3>
+            <p>A API de Animação da Web oferece controle total sobre animações diretamente no JavaScript.</p>
+            
+            <div class="codigo-exemplo">
+                <pre><code>// Criando uma animação com Web Animation API
+const element = document.querySelector('.animation-target');
+
+// Definindo keyframes
+const keyframes = [
+    { transform: 'translateX(0) scale(1)', backgroundColor: '#6d28d9' },
+    { transform: 'translateX(100px) scale(1.2)', backgroundColor: '#9333ea' },
+    { transform: 'translateX(0) scale(1)', backgroundColor: '#6d28d9' }
+];
+
+// Definindo opções de tempo
+const options = {
+    duration: 2000,
+    iterations: Infinity,
+    easing: 'ease-in-out'
+};
+
+// Criando e iniciando a animação
+const animation = element.animate(keyframes, options);
+
+// Controlando a animação
+document.getElementById('pauseBtn').addEventListener('click', () => animation.pause());
+document.getElementById('playBtn').addEventListener('click', () => animation.play());
+document.getElementById('reverseBtn').addEventListener('click', () => animation.reverse());</code></pre>
+            </div>
+
+            <div class="destaque important">
+                <h4>🔄 CSS vs JavaScript para Animações</h4>
+                <table>
+                    <tr>
+                        <th>Animações com CSS</th>
+                        <th>Animações com JavaScript</th>
+                    </tr>
+                    <tr>
+                        <td>Melhor performance para animações simples</td>
+                        <td>Necessário para animações baseadas em lógica complexa</td>
+                    </tr>
+                    <tr>
+                        <td>Declarativas e fáceis de implementar</td>
+                        <td>Maior controle e flexibilidade</td>
+                    </tr>
+                    <tr>
+                        <td>Limitadas a keyframes predefinidos</td>
+                        <td>Podem reagir a eventos e dados em tempo real</td>
+                    </tr>
+                    <tr>
+                        <td>Boas para transições de estado</td>
+                        <td>Boas para animações interativas ou baseadas em física</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- Interações Avançadas -->
+        <section class="secao" id="interacoes-avancadas">
+            <h2>🖱️ Interações Avançadas</h2>
+            
+            <p>Combinando CSS e JavaScript, podemos criar interações complexas e responsivas.</p>
+
+            <h3>Drag and Drop</h3>
+            <p>Implementação de uma funcionalidade simples de arrastar e soltar:</p>
+            
+            <div class="demo-container">
+                <h4>Arraste os itens entre as áreas</h4>
+                <div class="drop-zone" id="zone1">
+                    <div class="draggable" draggable="true">Item 1</div>
+                    <div class="draggable" draggable="true">Item 2</div>
+                    <div class="draggable" draggable="true">Item 3</div>
+                </div>
+                <div class="drop-zone" id="zone2">
+                    <!-- Área para soltar -->
+                </div>
+            </div>
+            
+            <div class="codigo-exemplo">
+                <pre><code>/* CSS para drag and drop */
+.draggable {
+    padding: 1rem;
+    background-color: #6d28d9;
+    color: white;
+    cursor: move;
+    transition: transform 0.2s;
+}
+
+.draggable.dragging {
+    opacity: 0.5;
+    transform: scale(1.05);
+}
+
+.drop-zone {
+    min-height: 100px;
+    border: 2px dashed #6d28d9;
+    padding: 1rem;
+}
+
+.drop-zone.drag-over {
+    background-color: rgba(109, 40, 217, 0.1);
+}
+
+/* JavaScript para drag and drop */
+const draggables = document.querySelectorAll('.draggable');
+const dropZones = document.querySelectorAll('.drop-zone');
+
+draggables.forEach(draggable => {
+    draggable.addEventListener('dragstart', () => {
+        draggable.classList.add('dragging');
+    });
+    
+    draggable.addEventListener('dragend', () => {
+        draggable.classList.remove('dragging');
+    });
+});
+
+dropZones.forEach(zone => {
+    zone.addEventListener('dragover', e => {
+        e.preventDefault();
+        zone.classList.add('drag-over');
+    });
+    
+    zone.addEventListener('dragleave', () => {
+        zone.classList.remove('drag-over');
+    });
+    
+    zone.addEventListener('drop', e => {
+        e.preventDefault();
+        zone.classList.remove('drag-over');
+        
+        const dragging = document.querySelector('.dragging');
+        if (dragging) {
+            zone.appendChild(dragging);
+        }
+    });
+});</code></pre>
+            </div>
+
+            <h3>Scroll Animations</h3>
+            <p>Use a Intersection Observer API para criar efeitos baseados na posição de rolagem:</p>
+            
+            <div class="demo-container">
+                <p><strong>Role para ver os itens aparecerem:</strong></p>
+                <div class="scroll-item">Scroll Item 1</div>
+                <div class="scroll-item">Scroll Item 2</div>
+                <div class="scroll-item">Scroll Item 3</div>
+                <div class="scroll-item">Scroll Item 4</div>
+            </div>
+            
+            <div class="codigo-exemplo">
+                <pre><code>/* CSS para elementos que vão animar no scroll */
+.scroll-item {
+    padding: 2rem;
+    margin: 2rem 0;
+    background-color: #f3f4f6;
+    transform: translateX(-100px);
+    opacity: 0;
+    transition: all 0.5s ease-out;
+}
+
+.scroll-item.visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* JavaScript com IntersectionObserver */
+const scrollItems = document.querySelectorAll('.scroll-item');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        } else {
+            // Opcional: remover a classe quando o item sair da visualização
+            // entry.target.classList.remove('visible');
+        }
+    });
+}, {
+    threshold: 0.1 // Porcentagem do item visível necessária para disparar
+});
+
+scrollItems.forEach(item => {
+    observer.observe(item);
+});</code></pre>
+            </div>
+        </section>
+
+        <!-- APIs Modernas -->
+        <section class="secao" id="apis-modernas">
+            <h2>🌟 APIs Modernas para CSS e JavaScript</h2>
+            
+            <p>Várias APIs modernas melhoram a integração entre CSS e JavaScript:</p>
+
+            <h3>1. ResizeObserver</h3>
+            <p>Monitora mudanças no tamanho de elementos, útil para ajustes de layout responsivos sem usar media queries.</p>
+            
+            <div class="codigo-exemplo">
+                <pre><code>// Monitorando o tamanho de um elemento
+const element = document.querySelector('.resize-observe');
+
+const resizeObserver = new ResizeObserver(entries => {
+    for (let entry of entries) {
+        const { width, height } = entry.contentRect;
+        
+        // Adaptar estilos com base no tamanho
+        if (width < 500) {
+            entry.target.classList.add('compact');
+        } else {
+            entry.target.classList.remove('compact');
+        }
+    }
+});
+
+resizeObserver.observe(element);</code></pre>
+            </div>
+
+            <h3>2. MutationObserver</h3>
+            <p>Observa mudanças no DOM, incluindo atributos como classes CSS.</p>
+            
+            <div class="codigo-exemplo">
+                <pre><code>// Monitorando mudanças em classes CSS
+const element = document.querySelector('.observe-changes');
+
+const observer = new MutationObserver(mutations => {
+    for (let mutation of mutations) {
+        if (mutation.attributeName === 'class') {
+            const currentClasses = mutation.target.className;
+            console.log('Classes alteradas:', currentClasses);
+            
+            // Reagir a classes específicas
+            if (currentClasses.includes('active')) {
+                // Fazer algo quando a classe 'active' for adicionada
+            }
+        }
+    }
+});
+
+// Configurar o que observar
+observer.observe(element, { attributes: true });</code></pre>
+            </div>
+
+            <h3>3. CSS Typed Object Model</h3>
+            <p>Parte das APIs Houdini, fornece uma interface orientada a objetos para trabalhar com valores CSS.</p>
+            
+            <div class="codigo-exemplo">
+                <pre><code>// Usando Typed OM para manipulações de estilo mais rápidas e tipadas
+const elem = document.querySelector('.typed-om-example');
+
+// Abordagem tradicional
+elem.style.opacity = 0.5;
+
+// Abordagem com Typed OM
+elem.attributeStyleMap.set('opacity', 0.5);
+
+// Trabalhar com unidades
+elem.attributeStyleMap.set('font-size', CSS.px(16));
+elem.attributeStyleMap.set('padding', CSS.px(20));
+
+// Animações matemáticas - combinar valores
+const paddingAnimation = elem.attributeStyleMap.get('padding').value + 10;
+elem.attributeStyleMap.set('padding', CSS.px(paddingAnimation));</code></pre>
+            </div>
+
+            <div class="destaque tip">
+                <h4>💡 Dica</h4>
+                <p>Ao trabalhar com APIs modernas, sempre verifique o suporte do navegador e forneça fallbacks quando necessário.</p>
+                <pre><code>// Verificando suporte a uma API antes de usá-la
+if ('IntersectionObserver' in window) {
+    // Usar IntersectionObserver
+} else {
+    // Fallback para scroll event listener
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Frameworks e Bibliotecas -->
+        <section class="secao" id="frameworks-bibliotecas">
+            <h2>📚 Frameworks e Bibliotecas</h2>
+            
+            <p>Existem muitas bibliotecas que facilitam a integração entre CSS e JavaScript:</p>
+
+            <div class="tabela-container">
+                <table class="tabela-comparacao">
+                    <thead>
+                        <tr>
+                            <th>Biblioteca</th>
+                            <th>Descrição</th>
+                            <th>Casos de Uso</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>GSAP</td>
+                            <td>Biblioteca robusta de animação com amplo suporte de navegador</td>
+                            <td>Animações complexas, sequências, controle de linha do tempo</td>
+                        </tr>
+                        <tr>
+                            <td>Animate.css</td>
+                            <td>Coleção de animações CSS prontas para usar</td>
+                            <td>Animações simples controladas por classes</td>
+                        </tr>
+                        <tr>
+                            <td>Motion One</td>
+                            <td>API moderna para animação baseada na Web Animations API</td>
+                            <td>Alternativa leve ao GSAP com sintaxe moderna</td>
+                        </tr>
+                        <tr>
+                            <td>Framer Motion</td>
+                            <td>Biblioteca de animação para React</td>
+                            <td>Animações em aplicativos React</td>
+                        </tr>
+                        <tr>
+                            <td>AOS</td>
+                            <td>Animate On Scroll</td>
+                            <td>Efeitos de rolagem simples sem código JavaScript personalizado</td>
+                        </tr>
+                        <tr>
+                            <td>Popmotion</td>
+                            <td>Biblioteca funcional de animação</td>
+                            <td>Animações baseadas em física, gestos</td>
+                        </tr>
+                        <tr>
+                            <td>Sortable.js</td>
+                            <td>Biblioteca de drag-and-drop</td>
+                            <td>Listas ordenáveis e arrastar e soltar</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="codigo-exemplo">
+                <pre><code>// Exemplo com GSAP
+import { gsap } from "gsap";
+
+// Animação simples
+gsap.to(".box", {
+    duration: 1,
+    x: 100,
+    rotation: 360,
+    ease: "bounce"
+});
+
+// Timeline para sequências
+const tl = gsap.timeline();
+tl.to(".box1", { duration: 0.5, x: 100 })
+  .to(".box2", { duration: 0.5, y: 50 }, "-=0.25")
+  .to(".box3", { duration: 0.5, scale: 1.2 });</code></pre>
+            </div>
+        </section>
+
+        <!-- Melhores Práticas -->
+        <section class="secao" id="melhores-praticas">
+            <h2>👌 Melhores Práticas</h2>
+            
+            <div class="destaque tip">
+                <h4>💡 Dicas para Integração Eficiente de CSS e JavaScript</h4>
+                <ol>
+                    <li><strong>Separação de Preocupações:</strong> Mantenha estilos no CSS sempre que possível, use JavaScript apenas para manipulação dinâmica e lógica.</li>
+                    <li><strong>Priorize Classes sobre Estilos Inline:</strong> Adicionar/remover classes é mais limpo e eficiente do que manipular estilos individuais.</li>
+                    <li><strong>Considere a Performance:</strong> Animações baseadas em CSS geralmente têm melhor desempenho, principalmente para propriedades que podem ser aceleradas por GPU (transform, opacity).</li>
+                    <li><strong>Minimize Reflows:</strong> Agrupe modificações DOM e evite leituras/gravações alternadas para minimizar reflows.</li>
+                    <li><strong>Use RequestAnimationFrame:</strong> Para animações baseadas em JavaScript, use requestAnimationFrame em vez de setInterval/setTimeout.</li>
+                    <li><strong>Detecte Recursos:</strong> Sempre verifique o suporte do navegador antes de usar recursos modernos.</li>
+                    <li><strong>Pré-carregue Recursos:</strong> Adicione classes como .preload durante o carregamento para evitar animações indesejadas.</li>
+                    <li><strong>Respeite Preferências do Usuário:</strong> Verifique media queries como prefers-reduced-motion.</li>
+                </ol>
+            </div>
+
+            <div class="codigo-exemplo">
+                <pre><code>// Exemplo de minimização de reflows
+// Ruim: Causa múltiplos reflows
+element.style.width = '100px';
+console.log(element.offsetWidth); // Força reflow
+element.style.height = '100px';   // Outro reflow
+element.style.margin = '10px';    // Mais um reflow
+
+// Bom: Agrupa mudanças
+// Leituras
+const width = element.offsetWidth;
+const height = element.offsetHeight;
+
+// Então escritas (todas de uma vez)
+element.style.cssText = 'width: 100px; height: 100px; margin: 10px;';
+
+// Ou use classes
+element.classList.add('new-dimensions');</code></pre>
+            </div>
+
+            <div class="destaque warning">
+                <h4>⚠️ Armadilhas Comuns a Evitar</h4>
+                <ul>
+                    <li><strong>Sobrecomplexidade:</strong> Não use JavaScript quando CSS puro for suficiente</li>
+                    <li><strong>Excesso de animações:</strong> Animações demais podem afetar a performance e a experiência do usuário</li>
+                    <li><strong>Ignorar acessibilidade:</strong> Certifique-se de que suas interações funcionem com teclado e leitores de tela</li>
+                    <li><strong>Estourar o orçamento de performance:</strong> Monitore o impacto das suas animações e interações na CPU/GPU</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Exercícios Práticos -->
+        <section class="secao exercicios" id="exercicios">
+            <h2>✏️ Exercícios Práticos</h2>
+            
+            <div class="exercicio">
+                <h3>Exercício 1: Toggle de Temas</h3>
+                <p>Implemente um sistema de temas claro/escuro utilizando variáveis CSS e JavaScript:</p>
+                <ul>
+                    <li>Defina um conjunto de variáveis CSS para cores, fontes e espaçamentos</li>
+                    <li>Crie dois temas (claro e escuro) com valores diferentes</li>
+                    <li>Implemente um botão toggle que alterna entre os temas</li>
+                    <li>Salve a preferência do usuário no localStorage</li>
+                    <li>Bônus: Sincronize com a preferência do sistema (prefers-color-scheme)</li>
+                </ul>
+            </div>
+
+            <div class="exercicio">
+                <h3>Exercício 2: Animação de Menu Responsivo</h3>
+                <p>Crie um menu responsivo (hambúrguer) com animações suaves:</p>
+                <ul>
+                    <li>Menu que se expande/colapsa em dispositivos móveis</li>
+                    <li>Animação suave para o ícone do hambúrguer (transformando em X)</li>
+                    <li>Transição para os itens de menu aparecendo em sequência</li>
+                    <li>Efeito de sobreposição no resto da página quando o menu estiver aberto</li>
+                </ul>
+                <div class="exercicio-dica">
+                    <p><strong>Dica:</strong> Use CSS para as animações e JavaScript apenas para alternar classes.</p>
+                </div>
+            </div>
+
+            <div class="exercicio">
+                <h3>Exercício 3: Galeria com Efeitos de Rolagem</h3>
+                <p>Implemente uma galeria de imagens/cartões que reage à posição de rolagem:</p>
+                <ul>
+                    <li>Use IntersectionObserver para detectar quando os itens entram na viewport</li>
+                    <li>Aplique diferentes efeitos de entrada (fade in, slide in, zoom)</li>
+                    <li>Implemente um efeito parallax nas imagens de fundo</li>
+                    <li>Adicione uma funcionalidade para filtrar/ordenar itens com animações de transição</li>
+                </ul>
+            </div>
+
+            <div class="exercicio">
+                <h3>Desafio: Interfaces Interativas Avançadas</h3>
+                <p>Escolha e implemente uma das seguintes interfaces interativas:</p>
+                <ol>
+                    <li><strong>Carrossel Personalizado:</strong> Com efeitos de transição, navegação por toque e indicadores interativos</li>
+                    <li><strong>Formulário Dinâmico:</strong> Com validações em tempo real, animações de feedback e progress steps</li>
+                    <li><strong>Kanban Board:</strong> Com drag-and-drop entre colunas e animações suaves</li>
+                    <li><strong>Visualizador de Dados:</strong> Com gráficos animados que respondem a interações do usuário</li>
+                </ol>
+                <div class="exercicio-dica">
+                    <p><strong>Dica:</strong> Combine todas as técnicas vistas nesta aula, mas priorize a experiência do usuário e a acessibilidade.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ferramentas e Recursos -->
+        <section class="secao recursos-adicionais">
+            <h2>🔧 Ferramentas e Recursos</h2>
+            
+            <div class="recursos-lista">
+                <div class="recurso-item">
+                    <h4>Documentação</h4>
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS/Using_CSS_animations" target="_blank" rel="noopener">MDN: Usando Animações CSS</a></li>
+                        <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/API/Web_Animations_API" target="_blank" rel="noopener">MDN: Web Animations API</a></li>
+                        <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/API/CSS_Object_Model" target="_blank" rel="noopener">MDN: CSS Object Model</a></li>
+                    </ul>
+                </div>
+
+                <div class="recurso-item">
+                    <h4>Bibliotecas</h4>
+                    <ul>
+                        <li><a href="https://greensock.com/gsap/" target="_blank" rel="noopener">GSAP (GreenSock Animation Platform)</a></li>
+                        <li><a href="https://animate.style/" target="_blank" rel="noopener">Animate.css</a></li>
+                        <li><a href="https://motion.dev/" target="_blank" rel="noopener">Motion One</a></li>
+                        <li><a href="https://sortablejs.github.io/Sortable/" target="_blank" rel="noopener">Sortable.js</a></li>
+                    </ul>
+                </div>
+
+                <div class="recurso-item">
+                    <h4>Ferramentas</h4>
+                    <ul>
+                        <li><a href="https://animista.net/" target="_blank" rel="noopener">Animista: Gerador de animações CSS</a></li>
+                        <li><a href="https://cubic-bezier.com/" target="_blank" rel="noopener">Cubic-bezier: Editor visual para timing functions</a></li>
+                        <li><a href="https://chrome.google.com/webstore/detail/css-peeper/mbnbehikldjhnfehhnaidhjhoofhpehk" target="_blank" rel="noopener">CSS Peeper: Extensão Chrome para inspecionar estilos</a></li>
+                    </ul>
+                </div>
+
+                <div class="recurso-item">
+                    <h4>Tutoriais Avançados</h4>
+                    <ul>
+                        <li><a href="https://css-tricks.com/almanac/properties/a/animation/" target="_blank" rel="noopener">CSS-Tricks: Almanaque de Animação</a></li>
+                        <li><a href="https://tympanus.net/codrops/css_reference/" target="_blank" rel="noopener">Codrops: Referências CSS</a></li>
+                        <li><a href="https://www.smashingmagazine.com/2020/03/css-animations-react-developers/" target="_blank" rel="noopener">Smashing Magazine: CSS Animation for React Devs</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resumo -->
+        <section class="secao resumo">
+            <h2>📝 Resumo</h2>
+            
+            <div class="destaque tip">
+                <h4>Pontos-chave desta aula</h4>
+                <ul>
+                    <li>Existem três principais maneiras de manipular CSS com JavaScript: estilos diretos, classes e propriedades computadas</li>
+                    <li>CSS Variables (Custom Properties) permitem criar interfaces dinâmicas e temas personalizáveis</li>
+                    <li>As animações CSS podem ser controladas via JavaScript para timing preciso e interatividade</li>
+                    <li>APIs modernas como IntersectionObserver, ResizeObserver e Web Animations API expandem as possibilidades de interação</li>
+                    <li>Combinações de CSS e JavaScript permitem implementar interações avançadas como drag-and-drop e animações de rolagem</li>
+                    <li>Priorize a manipulação de classes sobre estilos inline para código mais limpo e performático</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Próximos Passos -->
+        <section class="secao proximos-passos">
+            <h2>🚀 Próximos Passos</h2>
+            
+            <p>Agora que você entende como CSS e JavaScript trabalham juntos, pode explorar:</p>
+            <ul>
+                <li>Arquiteturas CSS para aplicações interativas de grande escala</li>
+                <li>Frameworks de animação avançados para efeitos complexos</li>
+                <li>CSS Houdini para estender as capacidades do CSS</li>
+                <li>Otimização de performance para animações e interações</li>
+            </ul>
+
+            <p>Na próxima aula, exploraremos metodologias CSS que ajudam a organizar e escalar estilos em projetos grandes!</p>
+        </section>
+
+        <!-- Navegação -->
+        <div class="aula-navegacao">
+            <a href="aula-10-preprocessadores.html" class="aula-anterior">
+                ⬅️ Aula anterior: Pré-processadores CSS
+            </a>
+            <a href="aula-12-metodologias.html" class="aula-proxima">
+                Próxima aula: Metodologias CSS ➡️
+            </a>
+        </div>
+
+        <!-- Rodapé -->
+        <footer class="aula-footer">
+            <p>© 2023 Curso CSS Fundamentals | Criado com 💜 e muito CSS</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Script para atualizar a barra de progresso
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.objetivo-checkbox');
+            const progressBar = document.querySelector('.progresso-concluido');
+            const progressText = document.querySelector('.progresso-porcentagem');
+            
+            function updateProgress() {
+                const total = checkboxes.length;
+                let checked = 0;
+                
+                checkboxes.forEach(checkbox => {
+                    if (checkbox.checked) checked++;
+                });
+                
+                const percentage = Math.round((checked / total) * 100);
+                progressBar.style.width = percentage + '%';
+                progressText.textContent = percentage + '%';
+                
+                // Salvar progresso no localStorage
+                localStorage.setItem('progressoAula11', JSON.stringify({
+                    total: total,
+                    completed: checked,
+                    objectives: [...checkboxes].map(cb => cb.checked)
+                }));
+            }
+            
+            // Carregar progresso salvo
+            const savedProgress = localStorage.getItem('progressoAula11');
+            if (savedProgress) {
+                const progress = JSON.parse(savedProgress);
+                if (progress.objectives && progress.objectives.length === checkboxes.length) {
+                    progress.objectives.forEach((checked, i) => {
+                        checkboxes[i].checked = checked;
+                    });
+                    updateProgress();
+                }
+            }
+            
+            // Atualizar quando os checkboxes mudarem
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updateProgress);
+            });
+            
+            // Demo de manipulação de estilo
+            const styleDemo = document.getElementById('styleDemo');
+            if (styleDemo) {
+                styleDemo.addEventListener('click', () => {
+                    styleDemo.style.backgroundColor = '#6d28d9';
+                    styleDemo.style.color = 'white';
+                    styleDemo.style.padding = '20px';
+                    styleDemo.style.borderRadius = '10px';
+                });
+            }
+            
+            // Demo de manipulação de classe
+            const classDemo = document.getElementById('classDemo');
+            if (classDemo) {
+                classDemo.addEventListener('click', () => {
+                    classDemo.classList.toggle('active');
+                });
+            }
+            
+            // Demo de tema
+            const themeContainer = document.getElementById('themeDemo');
+            const themeButton = document.getElementById('toggleTheme');
+            if (themeContainer && themeButton) {
+                themeButton.addEventListener('click', () => {
+                    themeContainer.classList.toggle('theme-dark');
+                    themeContainer.classList.toggle('theme-light');
+                });
+            }
+            
+            // Demo de animação
+            const animTarget = document.getElementById('animTarget');
+            const animBounce = document.getElementById('animBounce');
+            const animSlide = document.getElementById('animSlide');
+            const animStop = document.getElementById('animStop');
+            
+            if (animTarget && animBounce && animSlide && animStop) {
+                animBounce.addEventListener('click', () => {
+                    animTarget.classList.remove('slide-in');
+                    animTarget.classList.add('bounce');
+                });
+                
+                animSlide.addEventListener('click', () => {
+                    animTarget.classList.remove('bounce');
+                    animTarget.classList.add('slide-in');
+                });
+                
+                animStop.addEventListener('click', () => {
+                    animTarget.classList.remove('bounce', 'slide-in');
+                });
+            }
+            
+            // Demo de drag and drop
+            const draggables = document.querySelectorAll('.draggable');
+            const dropZones = document.querySelectorAll('.drop-zone');
+            
+            if (draggables.length > 0 && dropZones.length > 0) {
+                draggables.forEach(draggable => {
+                    draggable.addEventListener('dragstart', () => {
+                        draggable.classList.add('dragging');
+                    });
+                    
+                    draggable.addEventListener('dragend', () => {
+                        draggable.classList.remove('dragging');
+                    });
+                });
+                
+                dropZones.forEach(zone => {
+                    zone.addEventListener('dragover', e => {
+                        e.preventDefault();
+                        zone.classList.add('drag-over');
+                    });
+                    
+                    zone.addEventListener('dragleave', () => {
+                        zone.classList.remove('drag-over');
+                    });
+                    
+                    zone.addEventListener('drop', e => {
+                        e.preventDefault();
+                        zone.classList.remove('drag-over');
+                        
+                        const dragging = document.querySelector('.dragging');
+                        if (dragging) {
+                            zone.appendChild(dragging);
+                        }
+                    });
+                });
+            }
+            
+            // Demo de scroll animations
+            const scrollItems = document.querySelectorAll('.scroll-item');
+            
+            if (scrollItems.length > 0 && 'IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+                
+                scrollItems.forEach(item => {
+                    observer.observe(item);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

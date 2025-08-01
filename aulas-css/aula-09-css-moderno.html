@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔮 Aula 9: CSS Moderno</title>
+    <meta name="description" content="Aprenda as tecnologias mais recentes do CSS incluindo variáveis (custom properties), funções, layouts avançados e recursos modernos do CSS.">
+    <link rel="stylesheet" href="assets/style-aulas.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔮</text></svg>">
+    <style>
+        /* Estilos específicos para exemplos desta aula */
+        :root {
+            --cor-principal: #6d28d9;
+            --cor-secundaria: #7c3aed;
+            --cor-texto: #333;
+            --cor-fundo: #f9fafb;
+            --espacamento-padrao: 1rem;
+            --borda-radius: 8px;
+            --sombra-padrao: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --fonte-principal: 'Segoe UI', system-ui, sans-serif;
+            --max-largura: 1200px;
+        }
+
+        .demo-vars {
+            margin: 1.5rem auto;
+            padding: 1.5rem;
+            max-width: 500px;
+            border: 1px solid #ddd;
+            border-radius: var(--borda-radius);
+            background-color: var(--cor-fundo);
+            box-shadow: var(--sombra-padrao);
+            font-family: var(--fonte-principal);
+        }
+
+        .tema-escuro {
+            --cor-principal: #9333ea;
+            --cor-secundaria: #a855f7;
+            --cor-texto: #f9fafb;
+            --cor-fundo: #111827;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--cor-principal);
+            color: white;
+            border: none;
+            border-radius: var(--borda-radius);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: var(--fonte-principal);
+        }
+
+        .btn:hover {
+            background-color: var(--cor-secundaria);
+            transform: translateY(-2px);
+        }
+
+        .btn-texto {
+            color: var(--cor-texto);
+        }
+
+        /* Exemplos de calc() */
+        .container-calc {
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid #ddd;
+            padding: 1rem;
+            border-radius: var(--borda-radius);
+        }
+        
+        .item-calc {
+            background-color: var(--cor-principal);
+            color: white;
+            height: 50px;
+            margin-bottom: 10px;
+            padding: 1rem;
+            width: calc(100% - 40px);
+            border-radius: var(--borda-radius);
+        }
+        
+        .item-calc-half {
+            width: calc(50% - 20px);
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        /* Exemplo de CSS Grid com fr */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 1rem;
+            margin: 1.5rem auto;
+            max-width: 600px;
+        }
+        
+        .grid-item {
+            background-color: var(--cor-principal);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            border-radius: var(--borda-radius);
+        }
+
+        /* Exemplos de clamp() */
+        .texto-responsivo {
+            font-size: clamp(1rem, 2vw + 0.5rem, 2rem);
+            line-height: 1.5;
+            margin: 1rem 0;
+        }
+        
+        .container-responsivo {
+            width: clamp(300px, 80%, 1000px);
+            margin: 0 auto;
+            padding: 1rem;
+            background-color: var(--cor-fundo);
+            border-radius: var(--borda-radius);
+            border: 1px solid #ddd;
+        }
+
+        /* Demonstração para :is() e :where() */
+        .seletor-avancado :is(h3, h4, h5) {
+            color: var(--cor-principal);
+            margin-bottom: 0.5rem;
+        }
+        
+        .seletor-avancado :where(ul, ol) li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Demonstração para supports */
+        .suporte-moderno {
+            padding: 1rem;
+            border-radius: var(--borda-radius);
+            margin: 1rem 0;
+        }
+        
+        @supports (backdrop-filter: blur(10px)) {
+            .suporte-moderno {
+                background-color: rgba(255, 255, 255, 0.7);
+                backdrop-filter: blur(10px);
+            }
+        }
+        
+        @supports not (backdrop-filter: blur(10px)) {
+            .suporte-moderno {
+                background-color: rgba(255, 255, 255, 0.95);
+                border: 1px solid #ddd;
+            }
+        }
+
+        /* Demonstração de aspect-ratio */
+        .aspect-ratio-box {
+            width: 100%;
+            max-width: 400px;
+            margin: 1rem auto;
+            background-color: var(--cor-principal);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 16/9;
+            border-radius: var(--borda-radius);
+        }
+
+        /* Demonstração de subgrid */
+        .grid-parent {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 1rem;
+            margin: 1.5rem auto;
+            max-width: 600px;
+        }
+        
+        /* Simulação de subgrid para navegadores que ainda não suportam */
+        .grid-child {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto 1fr auto;
+            gap: 0.5rem;
+            background-color: var(--cor-fundo);
+            border: 1px solid #ddd;
+            padding: 1rem;
+            border-radius: var(--borda-radius);
+        }
+    </style>
+</head>
+<body>
+    <div class="aula-container">
+        <!-- Header da Aula -->
+        <header class="aula-header">
+            <div class="aula-numero">🔮 AULA 9</div>
+            <h1>CSS Moderno</h1>
+            <p class="aula-meta">
+                <span>⏱️ Duração: 55 minutos</span>
+                <span>🎯 Nível: Avançado</span>
+                <span>👨‍💻 Prática: Sim</span>
+            </p>
+        </header>
+
+        <!-- Progresso da Aula -->
+        <div class="progresso-aula">
+            <div class="progresso-titulo">Seu progresso nesta aula</div>
+            <div class="progresso-barra">
+                <div class="progresso-concluido" style="width: 0%"></div>
+            </div>
+            <div class="progresso-porcentagem">0%</div>
+        </div>
+
+        <!-- Navegação -->
+        <div class="aula-navegacao">
+            <a href="aula-08-animacoes.html" class="aula-anterior">
+                ⬅️ Aula anterior: Animações CSS
+            </a>
+            <a href="aula-10-preprocessadores.html" class="aula-proxima">
+                Próxima aula: Pré-processadores CSS ➡️
+            </a>
+        </div>
+
+        <!-- Objetivos de Aprendizado -->
+        <section class="secao objetivos" id="objetivos">
+            <h2>🎯 Objetivos de Aprendizado</h2>
+            <p>Ao final desta aula, você será capaz de:</p>
+            
+            <div class="lista-objetivos">
+                <div class="objetivo">
+                    <input type="checkbox" id="obj1" class="objetivo-checkbox">
+                    <label for="obj1">Compreender e utilizar variáveis CSS (Custom Properties)</label>
+                </div>
+                <div class="objetivo">
+                    <input type="checkbox" id="obj2" class="objetivo-checkbox">
+                    <label for="obj2">Aplicar funções CSS como calc(), clamp(), min() e max()</label>
+                </div>
+                <div class="objetivo">
+                    <input type="checkbox" id="obj3" class="objetivo-checkbox">
+                    <label for="obj3">Implementar seletores avançados como :is(), :where() e :has()</label>
+                </div>
+                <div class="objetivo">
+                    <input type="checkbox" id="obj4" class="objetivo-checkbox">
+                    <label for="obj4">Utilizar recursos modernos como Container Queries e Subgrid</label>
+                </div>
+                <div class="objetivo">
+                    <input type="checkbox" id="obj5" class="objetivo-checkbox">
+                    <label for="obj5">Aplicar CSS moderno com foco em compatibilidade entre navegadores</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Introdução -->
+        <section class="secao" id="introducao">
+            <h2>✨ A Evolução do CSS</h2>
+            
+            <p>O CSS evoluiu dramaticamente nos últimos anos, passando de uma linguagem de estilo simples para uma ferramenta poderosa e versátil. Os recursos modernos do CSS transformaram a forma como desenvolvemos interfaces, permitindo soluções mais elegantes, manutenção simplificada e funcionalidades anteriormente possíveis apenas com JavaScript.</p>
+            
+            <p>Nesta aula, vamos explorar os recursos mais recentes do CSS que estão mudando a forma como escrevemos estilos:</p>
+            <ul>
+                <li>Variáveis CSS (Custom Properties) para código mais dinâmico e manutenível</li>
+                <li>Funções matemáticas como calc(), min(), max() e clamp() para layouts dinâmicos</li>
+                <li>Novos seletores que simplificam regras complexas</li>
+                <li>Layout avançado com recursos como subgrid e container queries</li>
+                <li>Recursos experimentais que apontam para o futuro do CSS</li>
+            </ul>
+
+            <div class="destaque tip">
+                <h4>💡 Dica</h4>
+                <p>O CSS moderno permite resolver problemas complexos de design com código limpo e simples, mas mantenha sempre em mente a compatibilidade com navegadores. Use recursos como @supports para fornecer fallbacks quando necessário.</p>
+            </div>
+        </section>
+
+        <!-- CSS Custom Properties (Variáveis) -->
+        <section class="secao" id="custom-properties">
+            <h2>🎛️ Custom Properties (Variáveis CSS)</h2>
+            
+            <p>As variáveis CSS, ou Custom Properties, permitem armazenar e reutilizar valores em todo o seu código. Diferentemente das variáveis de pré-processadores (como Sass), elas são nativas do navegador, parte do DOM e podem ser manipuladas com JavaScript.</p>
+
+            <div class="codigo-exemplo">
+                <pre><code>/* Definindo variáveis CSS */
+:root {
+    --cor-principal: #6d28d9;
+    --cor-secundaria: #7c3aed;
+    --espacamento-base: 1rem;
+    --borda-radius: 8px;
+}
+
+/* Usando variáveis CSS */
+.botao {
+    background-color: var(--cor-principal);
+    padding: var(--espacamento-base);
+    border-radius: var(--borda-radius);
+}
+
+.destaque {
+    color: var(--cor-secundaria);
+    margin-bottom: calc(var(--espacamento-base) * 2);
+}</code></pre>
+            </div>
+
+            <h3>Vantagens das Custom Properties</h3>
+            <ul>
+                <li><strong>Cascateiam:</strong> Valores podem ser sobrescritos seguindo as regras de cascata do CSS</li>
+                <li><strong>Escopo:</strong> Podem ser redefinidas dentro de qualquer seletor</li>
+                <li><strong>Dinâmicas:</strong> Modificáveis em tempo real com JavaScript</li>
+                <li><strong>Responsivas:</strong> Podem mudar com media queries</li>
+            </ul>
+
+            <div class="demo-vars">
+                <h3>Demonstração: Temas com Custom Properties</h3>
+                <p class="btn-texto">Este é um painel com cores definidas por variáveis.</p>
+                <button class="btn" id="toggleTheme">Alternar Tema</button>
+            </div>
+
+            <div class="codigo-exemplo">
+                <pre><code>/* Definindo tema claro (padrão) */
+:root {
+    --cor-principal: #6d28d9;
+    --cor-secundaria: #7c3aed;
+    --cor-texto: #333;
+    --cor-fundo: #f9fafb;
+}
+
+/* Tema escuro */
+.tema-escuro {
+    --cor-principal: #9333ea;
+    --cor-secundaria: #a855f7;
+    --cor-texto: #f9fafb;
+    --cor-fundo: #111827;
+}
+
+/* Elementos usando variáveis */
+.painel {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+.botao {
+    background-color: var(--cor-principal);
+}</code></pre>
+            </div>
+
+            <div class="destaque important">
+                <h4>⚠️ Importante</h4>
+                <p>Ao usar variáveis CSS, sempre forneça um valor de fallback para navegadores antigos:</p>
+                <code>color: var(--cor-texto, #333);</code>
+            </div>
+        </section>
+
+        <!-- Funções CSS -->
+        <section class="secao" id="css-functions">
+            <h2>🧮 Funções CSS Modernas</h2>
+            
+            <p>O CSS moderno inclui poderosas funções matemáticas e lógicas que permitem criar layouts mais dinâmicos e responsivos sem depender de JavaScript.</p>
+
+            <h3>calc(): Cálculos Dinâmicos</h3>
+            <p>A função <code>calc()</code> permite realizar cálculos misturando unidades diferentes.</p>
+
+            <div class="container-calc">
+                <div class="item-calc">width: calc(100% - 40px)</div>
+                <div class="item-calc-half">width: calc(50% - 20px)</div>
+                <div class="item-calc-half">width: calc(50% - 20px)</div>
+            </div>
+
+            <div class="codigo-exemplo">
+                <pre><code>.container {
+    width: 80%;
+    max-width: 600px;
+}
+
+.item {
+    /* Calcula a largura total menos margens */
+    width: calc(100% - 40px);
+}
+
+.item-half {
+    /* Item com metade da largura menos margens */
+    width: calc(50% - 20px);
+    margin-right: 10px;
+}</code></pre>
+            </div>
+
+            <h3>min(), max() e clamp(): Valores Responsivos</h3>
+            <p>Estas funções permitem definir valores mínimos, máximos ou valores que se ajustam dentro de um intervalo.</p>
+            
+            <div class="container-responsivo">
+                <p class="texto-responsivo">Este texto usa <code>font-size: clamp(1rem, 2vw + 0.5rem, 2rem)</code> para tamanho responsivo que nunca fica muito pequeno ou muito grande.</p>
+            </div>
+
+            <div class="codigo-exemplo">
+                <pre><code>/* min(): escolhe o menor dos valores */
+width: min(300px, 100%);  /* Será 100% até 300px, depois será 300px */
+
+/* max(): escolhe o maior dos valores */
+width: max(50%, 500px);  /* Será 500px até que 50% seja maior */
+
+/* clamp(): mantém um valor entre mínimo e máximo */
+font-size: clamp(1rem, 2vw + 0.5rem, 2rem);
+width: clamp(300px, 80%, 1000px);</code></pre>
+            </div>
+
+            <div class="destaque example">
+                <h4>💡 Caso de Uso</h4>
+                <p>O <code>clamp()</code> é perfeito para tipografia responsiva e layouts fluidos, eliminando a necessidade de muitas media queries.</p>
+            </div>
+        </section>
+
+        <!-- Unidades Modernas -->
+        <section class="secao" id="unidades-modernas">
+            <h2>📏 Unidades Modernas</h2>
+            
+            <p>Além das unidades tradicionais como px, em, rem e %, o CSS moderno introduz novas unidades que facilitam layouts responsivos.</p>
+
+            <div class="tabela-container">
+                <table class="tabela-comparacao">
+                    <thead>
+                        <tr>
+                            <th>Unidade</th>
+                            <th>Descrição</th>
+                            <th>Caso de Uso</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>fr</code></td>
+                            <td>Fração do espaço disponível (apenas em Grid)</td>
+                            <td>Layouts de grade flexíveis</td>
+                        </tr>
+                        <tr>
+                            <td><code>ch</code></td>
+                            <td>Largura do caractere "0" da fonte atual</td>
+                            <td>Largura de texto e colunas</td>
+                        </tr>
+                        <tr>
+                            <td><code>vw/vh</code></td>
+                            <td>1% da largura/altura da viewport</td>
+                            <td>Elementos responsivos à viewport</td>
+                        </tr>
+                        <tr>
+                            <td><code>vmin/vmax</code></td>
+                            <td>1% do menor/maior valor entre largura e altura da viewport</td>
+                            <td>Responsividade proporcional</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Exemplo: Unidade fr no Grid</h3>
+            <div class="grid-container">
+                <div class="grid-item">1fr</div>
+                <div class="grid-item">1fr</div>
+                <div class="grid-item">1fr</div>
+            </div>
+
+            <div class="codigo-exemplo">
+                <pre><code>/* Grade com três colunas iguais */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+}
+
+/* Layout com áreas de tamanhos diferentes */
+.grid-avancado {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    /* A coluna do meio tem o dobro do tamanho */
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Seletores Avançados -->
+        <section class="secao" id="seletores-avancados">
+            <h2>🔍 Seletores Modernos</h2>
+            
+            <p>Os seletores modernos do CSS simplificam significativamente a forma como visamos elementos, reduzindo a repetição e melhorando a legibilidade.</p>
+
+            <h3>:is() e :where() - Agrupamento de Seletores</h3>
+            <div class="seletor-avancado">
+                <h3>Este é um título h3</h3>
+                <h4>Este é um título h4</h4>
+                <p>Este é um parágrafo normal.</p>
+                <ul>
+                    <li>Item de lista não ordenada</li>
+                    <li>Outro item de lista</li>
+                </ul>
+                <ol>
+                    <li>Item de lista ordenada</li>
+                    <li>Outro item de lista ordenada</li>
+                </ol>
+            </div>
+
+            <div class="codigo-exemplo">
+                <pre><code>/* Sem :is() - repetitivo */
+header h1, header h2, header h3,
+nav h1, nav h2, nav h3,
+main h1, main h2, main h3 {
+    color: blue;
+}
+
+/* Com :is() - simplificado */
+:is(header, nav, main) :is(h1, h2, h3) {
+    color: blue;
+}
+
+/* :where() funciona de maneira similar, mas com especificidade zero */
+:where(ul, ol) li {
+    margin-bottom: 0.5rem;
+}</code></pre>
+            </div>
+
+            <div class="destaque important">
+                <h4>⚠️ Importante</h4>
+                <p>A principal diferença entre <code>:is()</code> e <code>:where()</code> está na especificidade. O <code>:is()</code> assume a especificidade do seu argumento mais específico, enquanto <code>:where()</code> tem especificidade zero.</p>
+            </div>
+
+            <h3>:has() - Seletor de "Pai"</h3>
+            <p>O seletor <code>:has()</code> permite selecionar elementos com base em seus filhos ou conteúdo - algo que era impossível antes no CSS.</p>
+
+            <div class="codigo-exemplo">
+                <pre><code>/* Seleciona parágrafos que contêm imagens */
+p:has(img) {
+    display: flex;
+    align-items: center;
+}
+
+/* Estiliza cards diferentes se tiverem botões ou não */
+.card:has(.btn) {
+    padding-bottom: 3rem;
+}
+
+/* Estiliza listas apenas se tiverem mais de 3 itens */
+ul:has(li:nth-child(3)):has(li:nth-child(4)) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Layout Avançado -->
+        <section class="secao" id="layout-avancado">
+            <h2>📐 Layout Avançado</h2>
+            
+            <h3>Container Queries</h3>
+            <p>Enquanto Media Queries são baseadas na viewport (janela do navegador), Container Queries permitem aplicar estilos com base no tamanho do elemento pai, possibilitando componentes realmente reutilizáveis.</p>
+
+            <div class="codigo-exemplo">
+                <pre><code>/* Primeiro definimos o container */
+.card-container {
+    container-type: inline-size;
+    container-name: card;
+}
+
+/* Então aplicamos estilos baseados no tamanho do container */
+@container card (min-width: 400px) {
+    .card {
+        display: flex;
+    }
+    
+    .card-image {
+        width: 40%;
+    }
+    
+    .card-content {
+        width: 60%;
+    }
+}</code></pre>
+            </div>
+
+            <h3>Aspect Ratio</h3>
+            <p>A propriedade <code>aspect-ratio</code> permite manter uma proporção consistente em elementos, independentemente do seu tamanho.</p>
+
+            <div class="aspect-ratio-box">
+                16:9
+            </div>
+
+            <div class="codigo-exemplo">
+                <pre><code>/* Um elemento sempre com proporção 16:9 */
+.video-container {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-color: #000;
+}
+
+/* Proporção 1:1 para imagens de perfil */
+.avatar {
+    width: 100%;
+    max-width: 200px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 50%;
+}</code></pre>
+            </div>
+
+            <h3>Subgrid</h3>
+            <p>Subgrid permite que elementos filhos de um grid herdem a estrutura do grid pai, facilitando alinhamentos complexos.</p>
+
+            <div class="grid-parent">
+                <div class="grid-child">
+                    <h3>Cabeçalho</h3>
+                    <p>Este é o conteúdo principal que pode ter diferentes tamanhos em diferentes cards.</p>
+                    <button class="btn">Ação</button>
+                </div>
+                <div class="grid-child">
+                    <h3>Cabeçalho</h3>
+                    <p>Conteúdo com texto mais longo para demonstrar o alinhamento. Independentemente do tamanho do conteúdo, os botões ficarão alinhados.</p>
+                    <button class="btn">Ação</button>
+                </div>
+                <div class="grid-child">
+                    <h3>Cabeçalho</h3>
+                    <p>Texto curto.</p>
+                    <button class="btn">Ação</button>
+                </div>
+            </div>
+
+            <div class="codigo-exemplo">
+                <pre><code>/* Grid pai */
+.grid-parent {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+}
+
+/* Grid filho usando subgrid */
+.grid-child {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 3; /* Ocupa 3 linhas do grid pai */
+}</code></pre>
+            </div>
+
+            <div class="destaque warning">
+                <h4>⚠️ Nota de Compatibilidade</h4>
+                <p>Subgrid e Container Queries são recursos muito recentes e podem não ter suporte em todos os navegadores. Sempre verifique a compatibilidade e forneça fallbacks quando necessário.</p>
+            </div>
+        </section>
+
+        <!-- Feature Queries -->
+        <section class="secao" id="feature-queries">
+            <h2>🔎 Feature Queries (@supports)</h2>
+            
+            <p>As Feature Queries permitem aplicar estilos com base na compatibilidade do navegador, possibilitando aprimoramentos progressivos e fallbacks elegantes.</p>
+
+            <div class="suporte-moderno">
+                <p>Este elemento usa backdrop-filter quando suportado, ou um fundo opaco quando não suportado.</p>
+            </div>
+
+            <div class="codigo-exemplo">
+                <pre><code>/* Verificando suporte para backdrop-filter */
+@supports (backdrop-filter: blur(10px)) {
+    .modal {
+        background-color: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+    }
+}
+
+/* Alternativa para navegadores sem suporte */
+@supports not (backdrop-filter: blur(10px)) {
+    .modal {
+        background-color: rgba(255, 255, 255, 0.95);
+    }
+}
+
+/* Verificação de múltiplos recursos com operadores lógicos */
+@supports (display: grid) and (gap: 1rem) {
+    .container {
+        display: grid;
+        gap: 1rem;
+    }
+}</code></pre>
+            </div>
+
+            <div class="destaque tip">
+                <h4>💡 Melhor Prática</h4>
+                <p>Use @supports para aprimoramento progressivo: primeiro forneça uma solução básica que funcione em todos os lugares, depois aprimore para navegadores modernos com @supports.</p>
+            </div>
+        </section>
+
+        <!-- Novos Pseudo-elementos e Pseudo-classes -->
+        <section class="secao" id="pseudo">
+            <h2>✒️ Novos Pseudo-elementos e Pseudo-classes</h2>
+            
+            <p>O CSS moderno introduziu diversos novos pseudo-seletores que permitem acesso a elementos específicos ou estados que antes eram impossíveis de selecionar.</p>
+
+            <div class="tabela-container">
+                <table class="tabela-comparacao">
+                    <thead>
+                        <tr>
+                            <th>Seletor</th>
+                            <th>Descrição</th>
+                            <th>Exemplo de Uso</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>::marker</code></td>
+                            <td>Seleciona o marcador de um item de lista</td>
+                            <td>Personalizar o estilo de marcadores de listas</td>
+                        </tr>
+                        <tr>
+                            <td><code>:focus-visible</code></td>
+                            <td>Aplica estilos apenas quando o foco é relevante para o usuário</td>
+                            <td>Melhorar a acessibilidade sem comprometer a estética</td>
+                        </tr>
+                        <tr>
+                            <td><code>:focus-within</code></td>
+                            <td>Seleciona um elemento quando ele ou qualquer descendente tem foco</td>
+                            <td>Destacar formulários ou grupos quando um campo está ativo</td>
+                        </tr>
+                        <tr>
+                            <td><code>:empty</code></td>
+                            <td>Seleciona elementos sem filhos</td>
+                            <td>Esconder contêineres vazios ou mostrar mensagem alternativa</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="codigo-exemplo">
+                <pre><code>/* Personalizar marcadores de lista */
+li::marker {
+    color: var(--cor-principal);
+    font-weight: bold;
+}
+
+/* Estilizar quando o campo ou qualquer elemento dentro dele tem foco */
+.form-group:focus-within {
+    background-color: #f0f0f0;
+}
+
+/* Usar :focus-visible apenas para acessibilidade por teclado */
+button:focus {
+    /* Estilo mínimo para todos os focos */
+    outline: none;
+}
+
+button:focus-visible {
+    /* Contorno mais visível apenas para navegação por teclado */
+    outline: 2px solid var(--cor-principal);
+    outline-offset: 2px;
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Práticas Modernas -->
+        <section class="secao" id="boas-praticas">
+            <h2>🛠️ Práticas Modernas de CSS</h2>
+            
+            <p>Além dos novos recursos, surgiram melhores práticas para escrever CSS eficiente e manutenível:</p>
+
+            <h3>1. Progressive Enhancement (Aprimoramento Progressivo)</h3>
+            <p>Comece com uma base funcional para todos os navegadores e adicione camadas de aprimoramento para navegadores modernos.</p>
+            
+            <div class="codigo-exemplo">
+                <pre><code>/* Base para todos os navegadores */
+.grid {
+    display: block;
+}
+
+/* Aprimoramento para navegadores com suporte a grid */
+@supports (display: grid) {
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+}</code></pre>
+            </div>
+
+            <h3>2. Escreva CSS Resiliente</h3>
+            <p>Use valores de fallback e CSS com "autolimpeza" que funciona mesmo quando algumas partes não são suportadas.</p>
+            
+            <div class="codigo-exemplo">
+                <pre><code>/* Fornecendo um fallback antes do valor moderno */
+.elemento {
+    /* Fallback para navegadores antigos */
+    width: 90%;
+    /* Versão moderna que será usada quando suportada */
+    width: clamp(300px, 90%, 1200px);
+    
+    /* Fallback para cor */
+    background-color: #6d28d9;
+    /* Variável com fallback */
+    background-color: var(--cor-principal, #6d28d9);
+}</code></pre>
+            </div>
+
+            <h3>3. Evite Reset Completos de CSS</h3>
+            <p>Prefira normalize.css ou pequenos resets específicos em vez de resets completos.</p>
+
+            <h3>4. Encapsulamento com Escopo CSS</h3>
+            <p>Use custom properties, nomes de classe com prefixo ou soluções como CSS Modules para isolar estilos.</p>
+            
+            <div class="codigo-exemplo">
+                <pre><code>/* Organização com namespaces */
+.componente-card__header { }
+.componente-card__body { }
+.componente-card__footer { }
+
+/* Escopo com variáveis específicas do componente */
+.componente {
+    --componente-espacamento: 1rem;
+    --componente-cor: blue;
+    
+    padding: var(--componente-espacamento);
+    color: var(--componente-cor);
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Exercícios Práticos -->
+        <section class="secao exercicios" id="exercicios">
+            <h2>✏️ Exercícios Práticos</h2>
+            
+            <div class="exercicio">
+                <h3>Exercício 1: Sistema de Temas com Custom Properties</h3>
+                <p>Crie um sistema de temas claro/escuro utilizando Custom Properties e JavaScript para alternar entre eles. Defina variáveis para cores, fontes e espaçamentos.</p>
+                <div class="exercicio-dica">
+                    <p><strong>Dica:</strong> Defina suas variáveis no :root e crie uma classe .tema-escuro que substitui essas variáveis.</p>
+                </div>
+            </div>
+
+            <div class="exercicio">
+                <h3>Exercício 2: Layout Responsivo com Funções Modernas</h3>
+                <p>Crie um layout de cards que:</p>
+                <ul>
+                    <li>Use clamp() para tamanhos de fonte responsivos sem media queries</li>
+                    <li>Use calc() para espaçamentos proporcionais</li>
+                    <li>Mantenha proporção fixa com aspect-ratio</li>
+                    <li>Use min() ou max() para limites de largura</li>
+                </ul>
+                <div class="exercicio-dica">
+                    <p><strong>Dica:</strong> Tente combinar várias funções, como <code>width: clamp(300px, calc(50% - 2rem), 600px);</code></p>
+                </div>
+            </div>
+
+            <div class="exercicio">
+                <h3>Exercício 3: Simplificação com Seletores Modernos</h3>
+                <p>Refatore o seguinte CSS usando seletores modernos como :is(), :where() e :has() para reduzir a repetição:</p>
+                <pre><code>header h1, header h2, header h3 { font-family: 'Georgia', serif; }
+main h1, main h2, main h3 { font-family: 'Georgia', serif; }
+footer h1, footer h2, footer h3 { font-family: 'Georgia', serif; }
+
+.card button:hover, .card a:hover, .card .link:hover { color: blue; }
+
+article img + p, article video + p, article figure + p { font-style: italic; }</code></pre>
+                <div class="exercicio-dica">
+                    <p><strong>Dica:</strong> Use :is() para agrupar tanto seletores de elementos quanto contextos semelhantes.</p>
+                </div>
+            </div>
+
+            <div class="exercicio">
+                <h3>Desafio: Componente Adaptativo Avançado</h3>
+                <p>Crie um componente de card que se adapte ao seu contêiner (não à viewport), utilizando recursos modernos:</p>
+                <ul>
+                    <li>Container Queries para layout adaptativo</li>
+                    <li>Subgrid para alinhamento de elementos entre cards</li>
+                    <li>@supports para fornecer fallbacks</li>
+                    <li>Custom Properties para personalização</li>
+                </ul>
+                <div class="exercicio-dica">
+                    <p><strong>Dica:</strong> Lembre-se que Container Queries e Subgrid são recursos recentes. Use @supports para fornecer alternativas para navegadores sem suporte.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ferramentas e Recursos -->
+        <section class="secao recursos-adicionais">
+            <h2>🔧 Ferramentas e Recursos</h2>
+            
+            <div class="recursos-lista">
+                <div class="recurso-item">
+                    <h4>Verificação de Compatibilidade</h4>
+                    <ul>
+                        <li><a href="https://caniuse.com/" target="_blank">Can I Use</a> - Verificar suporte de recursos nos navegadores</li>
+                        <li><a href="https://www.browserstack.com/" target="_blank">BrowserStack</a> - Teste em diferentes navegadores e dispositivos</li>
+                    </ul>
+                </div>
+
+                <div class="recurso-item">
+                    <h4>Documentação</h4>
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS" target="_blank">MDN Web Docs: CSS</a></li>
+                        <li><a href="https://web.dev/learn/css/" target="_blank">web.dev: Learn CSS</a></li>
+                        <li><a href="https://css-tricks.com/guides/" target="_blank">CSS-Tricks Guides</a></li>
+                    </ul>
+                </div>
+
+                <div class="recurso-item">
+                    <h4>Ferramentas Úteis</h4>
+                    <ul>
+                        <li><a href="https://type-scale.com/" target="_blank">Type Scale</a> - Crie escalas tipográficas responsivas</li>
+                        <li><a href="https://cssgrid-generator.netlify.app/" target="_blank">CSS Grid Generator</a> - Gere layouts de grid visualmente</li>
+                        <li><a href="https://www.smashingmagazine.com/2021/03/complete-guide-css-container-queries/" target="_blank">Guia completo de Container Queries</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resumo -->
+        <section class="secao resumo">
+            <h2>📝 Resumo</h2>
+            
+            <div class="destaque tip">
+                <h4>Pontos-chave desta aula</h4>
+                <ul>
+                    <li>Custom Properties (variáveis CSS) permitem valores reutilizáveis e dinâmicos</li>
+                    <li>Funções como calc(), min(), max() e clamp() possibilitam layouts responsivos sem media queries</li>
+                    <li>Seletores avançados como :is(), :where() e :has() simplificam o código e permitem seleção mais precisa</li>
+                    <li>Container Queries, Subgrid e Aspect Ratio oferecem controle de layout mais granular</li>
+                    <li>Feature Queries (@supports) permitem uso seguro de recursos modernos com fallbacks</li>
+                    <li>O CSS moderno facilita aprimoramento progressivo e código mais manutenível</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Próximos Passos -->
+        <section class="secao proximos-passos">
+            <h2>🚀 Próximos Passos</h2>
+            
+            <p>Agora que você conhece os recursos modernos do CSS, continue explorando:</p>
+            <ul>
+                <li>Pré-processadores como Sass/SCSS para estender ainda mais as capacidades do CSS</li>
+                <li>CSS-in-JS e metodologias como CSS Modules para melhor encapsulamento</li>
+                <li>CSS Houdini para extender as capacidades de renderização do CSS</li>
+                <li>Acompanhe as novas propostas de CSS através do CSS Working Group</li>
+            </ul>
+
+            <p>Na próxima aula, exploraremos pré-processadores CSS, que complementam os recursos nativos do CSS moderno com funcionalidades adicionais!</p>
+        </section>
+
+        <!-- Navegação -->
+        <div class="aula-navegacao">
+            <a href="aula-08-animacoes.html" class="aula-anterior">
+                ⬅️ Aula anterior: Animações CSS
+            </a>
+            <a href="aula-10-preprocessadores.html" class="aula-proxima">
+                Próxima aula: Pré-processadores CSS ➡️
+            </a>
+        </div>
+
+        <!-- Rodapé -->
+        <footer class="aula-footer">
+            <p>© 2023 Curso CSS Fundamentals | Criado com 💜 e muito CSS</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Script para atualizar a barra de progresso
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.objetivo-checkbox');
+            const progressBar = document.querySelector('.progresso-concluido');
+            const progressText = document.querySelector('.progresso-porcentagem');
+            
+            function updateProgress() {
+                const total = checkboxes.length;
+                let checked = 0;
+                
+                checkboxes.forEach(checkbox => {
+                    if (checkbox.checked) checked++;
+                });
+                
+                const percentage = Math.round((checked / total) * 100);
+                progressBar.style.width = percentage + '%';
+                progressText.textContent = percentage + '%';
+                
+                // Salvar progresso no localStorage
+                localStorage.setItem('progressoAula9', JSON.stringify({
+                    total: total,
+                    completed: checked,
+                    objectives: [...checkboxes].map(cb => cb.checked)
+                }));
+            }
+            
+            // Carregar progresso salvo
+            const savedProgress = localStorage.getItem('progressoAula9');
+            if (savedProgress) {
+                const progress = JSON.parse(savedProgress);
+                if (progress.objectives && progress.objectives.length === checkboxes.length) {
+                    progress.objectives.forEach((checked, i) => {
+                        checkboxes[i].checked = checked;
+                    });
+                    updateProgress();
+                }
+            }
+            
+            // Atualizar quando os checkboxes mudarem
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updateProgress);
+            });
+
+            // Toggle theme demo
+            const demoElement = document.querySelector('.demo-vars');
+            const themeToggle = document.getElementById('toggleTheme');
+            
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    demoElement.classList.toggle('tema-escuro');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ Aula 13: Performance CSS</title>
+    <meta name="description" content="Aprenda técnicas avançadas para otimizar o desempenho do CSS: Critical CSS, lazy loading, minificação, organização e boas práticas para sites rápidos.">
+    <link rel="stylesheet" href="assets/style-aulas.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+</head>
+<body>
+    <div class="aula-container">
+        <!-- Header da Aula -->
+        <header class="aula-header">
+            <div class="aula-numero">⚡ AULA 13</div>
+            <h1 class="aula-titulo">Performance CSS</h1>
+            <p class="aula-descricao">
+                Descubra como acelerar o carregamento do seu site com técnicas modernas de otimização de CSS. Aprenda sobre Critical CSS, lazy loading, minificação, organização e práticas que garantem uma experiência rápida para o usuário.
+            </p>
+            <div class="aula-meta">
+                <div class="meta-item">
+                    <span>⏱️</span> <span>45 min</span>
+                </div>
+                <div class="meta-item">
+                    <span>🎯</span> <span>Avançado</span>
+                </div>
+                <div class="meta-item">
+                    <span>⚡</span> <span>Performance</span>
+                </div>
+                <div class="meta-item">
+                    <span>🚀</span> <span>Otimização</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navegação entre Aulas -->
+        <nav class="aula-nav">
+            <a href="aula-12-metodologias.html" class="nav-btn">← Aula Anterior</a>
+            <a href="index.html" class="nav-btn">Índice</a>
+            <a href="aula-14-projeto-final.html" class="nav-btn">Próxima Aula →</a>
+        </nav>
+
+        <!-- Objetivos da Aula -->
+        <section class="secao">
+            <h2>🎯 Objetivos de Aprendizagem</h2>
+            <div class="objetivos">
+                <div class="objetivo">
+                    <h4>⚡ Otimizar o Carregamento do CSS</h4>
+                    <p>Aprender técnicas para reduzir o tempo de carregamento e melhorar a experiência do usuário.</p>
+                </div>
+                <div class="objetivo">
+                    <h4>🚀 Aplicar Critical CSS e Lazy Loading</h4>
+                    <p>Entender como priorizar estilos essenciais e carregar recursos sob demanda.</p>
+                </div>
+                <div class="objetivo">
+                    <h4>🔧 Minificar e Organizar Arquivos CSS</h4>
+                    <p>Descobrir como minificar, dividir e organizar o CSS para projetos escaláveis e rápidos.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 1: Por que Performance é Importante? -->
+        <section class="secao">
+            <h2>🚀 1. Por que Performance CSS é Essencial?</h2>
+            <p>
+                Sites rápidos aumentam conversões, melhoram SEO e oferecem melhor experiência ao usuário. O CSS pode impactar diretamente o tempo de carregamento e renderização da página.
+            </p>
+            <div class="destaque info">
+                <h4>💡 Impactos da Performance</h4>
+                <ul>
+                    <li><strong>SEO:</strong> Google prioriza sites rápidos</li>
+                    <li><strong>Conversão:</strong> Usuários abandonam sites lentos</li>
+                    <li><strong>Experiência:</strong> Layouts lentos frustram o usuário</li>
+                    <li><strong>Mobile:</strong> Performance é ainda mais crítica em conexões móveis</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Seção 2: Critical CSS -->
+        <section class="secao">
+            <h2>⚡ 2. Critical CSS: Estilos Essenciais Primeiro</h2>
+            <p>
+                Critical CSS é a técnica de separar e carregar primeiro os estilos necessários para renderizar o conteúdo acima da dobra (parte visível inicial do site). Isso acelera o tempo de exibição para o usuário.
+            </p>
+            <h3>Como Implementar Critical CSS</h3>
+            <ul>
+                <li>Identifique os estilos essenciais para o layout inicial</li>
+                <li>Inclua esses estilos diretamente no <code>&lt;head&gt;</code> do HTML</li>
+                <li>Carregue o restante do CSS de forma assíncrona</li>
+            </ul>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;style&gt;
+  /* Critical CSS aqui */
+  body { font-family: 'Segoe UI', sans-serif; background: #fff; }
+  .header { background: #5222d0; color: #fff; }
+&lt;/style&gt;
+&lt;link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+</code></pre>
+            </div>
+        </section>
+
+        <!-- Seção 3: Lazy Loading de CSS -->
+        <section class="secao">
+            <h2>🛠️ 3. Lazy Loading de CSS</h2>
+            <p>
+                Lazy loading permite carregar arquivos CSS sob demanda, apenas quando necessários. Isso reduz o peso inicial da página e melhora a performance.
+            </p>
+            <h3>Exemplo de Lazy Loading</h3>
+            <div class="codigo" data-lang="JavaScript">
+<pre><code>// Carregar CSS extra após interação
+var link = document.createElement('link');
+link.rel = 'stylesheet';
+link.href = 'extra-styles.css';
+document.head.appendChild(link);
+</code></pre>
+            </div>
+        </section>
+
+        <!-- Seção 4: Minificação e Organização -->
+        <section class="secao">
+            <h2>🔧 4. Minificação e Organização de Arquivos CSS</h2>
+            <p>
+                Minificar remove espaços, comentários e reduz o tamanho do arquivo CSS. Dividir o CSS em arquivos menores por página ou componente também ajuda na performance.
+            </p>
+            <h3>Ferramentas Populares</h3>
+            <ul>
+                <li><strong>Minificação:</strong> cssnano, CleanCSS, Terser</li>
+                <li><strong>Build Tools:</strong> Webpack, Parcel, Vite</li>
+                <li><strong>Pré-processadores:</strong> Sass, Less (permitem modularização)</li>
+            </ul>
+            <div class="destaque tip">
+                <h4>🔍 Dicas de Organização</h4>
+                <ul>
+                    <li>Use importação condicional (<code>@import</code> ou <code>link</code> dinâmico)</li>
+                    <li>Divida estilos globais, de componentes e de páginas</li>
+                    <li>Remova CSS não utilizado (purgeCSS, UnCSS)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Seção 5: Boas Práticas de Performance CSS -->
+        <section class="secao">
+            <h2>✨ 5. Boas Práticas de Performance CSS</h2>
+            <ul>
+                <li>Evite seletores complexos e aninhados</li>
+                <li>Prefira classes diretas para estilização</li>
+                <li>Use shorthand para propriedades CSS</li>
+                <li>Teste o site em conexões lentas (modo "Slow 3G" no DevTools)</li>
+                <li>Evite grandes arquivos únicos; prefira modularização</li>
+                <li>Carregue fontes e ícones de forma assíncrona</li>
+                <li>Utilize ferramentas de análise como Lighthouse e WebPageTest</li>
+            </ul>
+        </section>
+
+        <!-- Exercício Prático -->
+        <section class="secao">
+            <h2>💪 Exercício Prático</h2>
+            <div class="exercicio">
+                <h4>Otimizar o CSS de um Projeto</h4>
+                <p>
+                    Escolha um site ou projeto seu e aplique pelo menos 3 técnicas de otimização de CSS vistas nesta aula. Meça o tempo de carregamento antes e depois usando o Google Lighthouse.
+                </p>
+            </div>
+        </section>
+
+        <!-- Recursos Adicionais -->
+        <section class="secao">
+            <h2>📚 Recursos Adicionais</h2>
+            <div class="recursos">
+                <div class="recurso-card">
+                    <h4>Google Lighthouse</h4>
+                    <p>Ferramenta gratuita para medir performance e boas práticas.</p>
+                    <a href="https://developers.google.com/web/tools/lighthouse" class="recurso-link" target="_blank" rel="noopener">Acessar →</a>
+                </div>
+                <div class="recurso-card">
+                    <h4>CSS Tricks: Critical CSS</h4>
+                    <p>Artigo detalhado sobre Critical CSS e exemplos práticos.</p>
+                    <a href="https://css-tricks.com/critical-css/" class="recurso-link" target="_blank" rel="noopener">Acessar →</a>
+                </div>
+                <div class="recurso-card">
+                    <h4>PurgeCSS</h4>
+                    <p>Ferramenta para remover CSS não utilizado.</p>
+                    <a href="https://purgecss.com/" class="recurso-link" target="_blank" rel="noopener">Acessar →</a>
+                </div>
+                <div class="recurso-card">
+                    <h4>WebPageTest</h4>
+                    <p>Teste de performance detalhado para sites.</p>
+                    <a href="https://www.webpagetest.org/" class="recurso-link" target="_blank" rel="noopener">Acessar →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Checklist -->
+        <section class="secao">
+            <h2>✅ Checklist de Aprendizado</h2>
+            <div class="checklist">
+                <h4>Verifique seu progresso nesta aula:</h4>
+                <ul>
+                    <li><input type="checkbox" id="check1"><label for="check1">Compreendo o impacto do CSS na performance do site</label></li>
+                    <li><input type="checkbox" id="check2"><label for="check2">Sei implementar Critical CSS</label></li>
+                    <li><input type="checkbox" id="check3"><label for="check3">Consigo aplicar lazy loading de CSS</label></li>
+                    <li><input type="checkbox" id="check4"><label for="check4">Minifico e organizo meus arquivos CSS</label></li>
+                    <li><input type="checkbox" id="check5"><label for="check5">Utilizo ferramentas para medir performance</label></li>
+                    <li><input type="checkbox" id="check6"><label for="check6">Removo CSS não utilizado</label></li>
+                    <li><input type="checkbox" id="check7"><label for="check7">Testo o site em diferentes dispositivos e conexões</label></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Conclusão da Aula -->
+        <footer class="aula-footer">
+            <h3>🎉 Parabéns! Você domina performance CSS!</h3>
+            <p>
+                Agora seu CSS está otimizado para sites rápidos e eficientes. Na próxima aula, vamos aplicar todos os conhecimentos em um projeto final completo!
+            </p>
+            <a href="aula-14-projeto-final.html" class="proxima-aula">
+                Continue para a próxima aula →
+            </a>
+        </footer>
+
+        <!-- Navegação do Curso -->
+        <nav class="course-navigation">
+            <div class="nav-buttons">
+                <a href="aula-12-metodologias.html" class="nav-btn secondary">
+                    ← Aula Anterior: Metodologias CSS
+                </a>
+                <a href="aula-14-projeto-final.html" class="nav-btn primary">
+                    Próxima Aula: Projeto Final →
+                </a>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>

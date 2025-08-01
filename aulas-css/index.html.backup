@@ -2,7 +2,17 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-wid                <!-- Aula 6 -->
+                <div class="recurso-card">
+                    <h4>📱 Aula 6: Responsividade</h4>
+                    <p>Design responsivo, mobile-first e adaptação de layouts para diferentes dispositivos.</p>
+                    <div class="course-meta-spacing">
+                        <small><strong>⏱️ Duração:</strong> 65 min | <strong>🎯 Nível:</strong> Intermediário</small>
+                    </div>
+                    <a href="aula-06-responsividade.html" class="recurso-link">
+                        Iniciar Aula 📱
+                    </a>
+                </div>-scale=1.0">
     <title>🎨 Curso CSS Fundamentals - Aulas Práticas</title>
     <meta name="description" content="Curso completo de CSS com aulas práticas e exemplos reais. Aprenda desde o básico até técnicas avançadas de estilização web.">
     <link rel="stylesheet" href="assets/style-aulas.css">
@@ -149,49 +159,49 @@
 
                 <!-- Aula 8 -->
                 <div class="recurso-card">
-                    <h4>🎬 Aula 8: Animações CSS</h4>
-                    <p>Keyframes, animações complexas, performance e melhores práticas.</p>
+                    <h4>📱 Aula 8: Design Responsivo</h4>
+                    <p>Mobile-first, media queries, breakpoints e técnicas de adaptação.</p>
                     <div class="course-meta-spacing">
-                        <small><strong>⏱️ Duração:</strong> 60 min | <strong>🎯 Nível:</strong> Avançado</small>
+                        <small><strong>⏱️ Duração:</strong> 70 min | <strong>🎯 Nível:</strong> Avançado</small>
                     </div>
-                    <a href="aula-08-animacoes.html" class="recurso-link">
-                        Iniciar Aula 🎬
+                    <a href="aula-08-responsivo.html" class="recurso-link">
+                        Iniciar Aula 📱
                     </a>
                 </div>
 
                 <!-- Aula 9 -->
                 <div class="recurso-card">
-                    <h4>🔮 Aula 9: CSS Moderno</h4>
-                    <p>Custom properties, calc(), CSS functions e recursos mais recentes.</p>
+                    <h4>✨ Aula 9: Transforms e Transitions</h4>
+                    <p>Transformações 2D/3D, transições suaves e efeitos visuais.</p>
                     <div class="course-meta-spacing">
-                        <small><strong>⏱️ Duração:</strong> 55 min | <strong>🎯 Nível:</strong> Avançado</small>
+                        <small><strong>⏱️ Duração:</strong> 50 min | <strong>🎯 Nível:</strong> Intermediário</small>
                     </div>
-                    <a href="aula-09-css-moderno.html" class="recurso-link">
-                        Iniciar Aula 🔮
+                    <a href="aula-09-transforms-transitions.html" class="recurso-link">
+                        Iniciar Aula ✨
                     </a>
                 </div>
 
                 <!-- Aula 10 -->
                 <div class="recurso-card">
-                    <h4>⚙️ Aula 10: Pré-processadores CSS</h4>
-                    <p>Sass, SCSS, variáveis, mixins, funções e organização de código.</p>
+                    <h4>🎬 Aula 10: Animações CSS</h4>
+                    <p>Keyframes, animações complexas, performance e melhores práticas.</p>
                     <div class="course-meta-spacing">
-                        <small><strong>⏱️ Duração:</strong> 65 min | <strong>🎯 Nível:</strong> Avançado</small>
+                        <small><strong>⏱️ Duração:</strong> 60 min | <strong>🎯 Nível:</strong> Avançado</small>
                     </div>
-                    <a href="aula-10-preprocessadores.html" class="recurso-link">
-                        Iniciar Aula ⚙️
+                    <a href="aula-10-animacoes.html" class="recurso-link">
+                        Iniciar Aula 🎬
                     </a>
                 </div>
 
                 <!-- Aula 11 -->
                 <div class="recurso-card">
-                    <h4>🌐 Aula 11: CSS e JavaScript</h4>
-                    <p>Integração CSS-JS, manipulação dinâmica de estilos e bibliotecas.</p>
+                    <h4>🔮 Aula 11: CSS Moderno</h4>
+                    <p>Custom properties, calc(), CSS functions e recursos mais recentes.</p>
                     <div class="course-meta-spacing">
                         <small><strong>⏱️ Duração:</strong> 55 min | <strong>🎯 Nível:</strong> Avançado</small>
                     </div>
-                    <a href="aula-11-css-javascript.html" class="recurso-link">
-                        Iniciar Aula 🌐
+                    <a href="aula-11-css-moderno.html" class="recurso-link">
+                        Iniciar Aula 🔮
                     </a>
                 </div>
 

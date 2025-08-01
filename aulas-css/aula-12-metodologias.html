@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏷️ Aula 12: Metodologias CSS</title>
+    <meta name="description" content="Aprenda metodologias modernas para organizar, escalar e manter seu CSS: BEM, OOCSS, SMACSS e dicas práticas para projetos profissionais.">
+    <link rel="stylesheet" href="assets/style-aulas.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏷️</text></svg>">
+</head>
+<body>
+    <div class="aula-container">
+        <!-- Header da Aula -->
+        <header class="aula-header">
+            <div class="aula-numero">🏷️ AULA 12</div>
+            <h1 class="aula-titulo">Metodologias CSS</h1>
+            <p class="aula-descricao">
+                Descubra como organizar seu CSS de forma profissional usando metodologias como BEM, OOCSS e SMACSS. Aprenda a evitar conflitos, facilitar manutenção e escalar projetos grandes com código limpo e previsível.
+            </p>
+            <div class="aula-meta">
+                <div class="meta-item">
+                    <span>⏱️</span> <span>50 min</span>
+                </div>
+                <div class="meta-item">
+                    <span>🎯</span> <span>Avançado</span>
+                </div>
+                <div class="meta-item">
+                    <span>🏷️</span> <span>Organização</span>
+                </div>
+                <div class="meta-item">
+                    <span>🗂️</span> <span>Arquitetura CSS</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navegação entre Aulas -->
+        <nav class="aula-nav">
+            <a href="aula-11-css-javascript.html" class="nav-btn">← Aula Anterior</a>
+            <a href="index.html" class="nav-btn">Índice</a>
+            <a href="aula-13-performance.html" class="nav-btn">Próxima Aula →</a>
+        </nav>
+
+        <!-- Objetivos da Aula -->
+        <section class="secao">
+            <h2>🎯 Objetivos de Aprendizagem</h2>
+            <div class="objetivos">
+                <div class="objetivo">
+                    <h4>🏷️ Compreender Metodologias CSS</h4>
+                    <p>Entender os principais métodos para organizar e estruturar CSS em projetos reais.</p>
+                </div>
+                <div class="objetivo">
+                    <h4>🗂️ Aplicar BEM, OOCSS e SMACSS</h4>
+                    <p>Aprender a usar cada metodologia, suas vantagens e como escolher a melhor para cada projeto.</p>
+                </div>
+                <div class="objetivo">
+                    <h4>🔧 Evitar Conflitos e Facilitar Manutenção</h4>
+                    <p>Descobrir técnicas para evitar conflitos de estilos, facilitar manutenção e escalar projetos grandes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 1: Por que Metodologias? -->
+        <section class="secao">
+            <h2>🧩 1. Por que Usar Metodologias CSS?</h2>
+            <p>
+                Em projetos pequenos, o CSS pode ser simples. Mas conforme o site cresce, manter o código organizado, evitar conflitos e garantir escalabilidade se torna um desafio. Metodologias ajudam a criar padrões, facilitar manutenção e colaboração.
+            </p>
+            <div class="destaque info">
+                <h4>💡 Benefícios das Metodologias</h4>
+                <ul>
+                    <li><strong>Previsibilidade:</strong> Classes seguem padrões claros</li>
+                    <li><strong>Reutilização:</strong> Componentes podem ser reaproveitados</li>
+                    <li><strong>Manutenção:</strong> Facilita encontrar e corrigir problemas</li>
+                    <li><strong>Colaboração:</strong> Equipes trabalham com o mesmo padrão</li>
+                    <li><strong>Escalabilidade:</strong> Projetos grandes não viram "espaguete"</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Seção 2: BEM (Block Element Modifier) -->
+        <section class="secao">
+            <h2>🏷️ 2. BEM: Block Element Modifier</h2>
+            <p>
+                BEM é uma metodologia popular que usa nomes de classes padronizados para evitar conflitos e facilitar a leitura do código.
+            </p>
+            <h3>Estrutura de Classes BEM</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;div class="card card--destaque"&gt;
+    &lt;h2 class="card__titulo"&gt;Título&lt;/h2&gt;
+    &lt;p class="card__descricao"&gt;Descrição do card&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div class="codigo" data-lang="CSS">
+<pre><code>.card { /* Block */ }
+.card__titulo { /* Element */ }
+.card__descricao { /* Element */ }
+.card--destaque { /* Modifier */ }</code></pre>
+            </div>
+            <div class="destaque tip">
+                <h4>🔍 Padrão de Nomenclatura</h4>
+                <ul>
+                    <li><code>.bloco</code> - componente principal</li>
+                    <li><code>.bloco__elemento</code> - parte do componente</li>
+                    <li><code>.bloco--modificador</code> - variação do componente</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Seção 3: OOCSS (Object Oriented CSS) -->
+        <section class="secao">
+            <h2>🧱 3. OOCSS: CSS Orientado a Objetos</h2>
+            <p>
+                OOCSS incentiva separar estrutura (layout) de aparência (skin), criando classes reutilizáveis e flexíveis.
+            </p>
+            <h3>Exemplo de OOCSS</h3>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;div class="media media--avatar"&gt;
+    &lt;img class="media__img" src="avatar.jpg" alt="Avatar"&gt;
+    &lt;div class="media__body"&gt;Conteúdo&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div class="codigo" data-lang="CSS">
+<pre><code>.media { display: flex; }
+.media__img { border-radius: 50%; }
+.media--avatar { background: #f5f5f5; }</code></pre>
+            </div>
+            <div class="destaque tip">
+                <h4>🔧 Separação de Responsabilidades</h4>
+                <ul>
+                    <li><strong>Estrutura:</strong> Layout, espaçamento, posicionamento</li>
+                    <li><strong>Aparência:</strong> Cores, bordas, fontes</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Seção 4: SMACSS (Scalable and Modular Architecture for CSS) -->
+        <section class="secao">
+            <h2>📚 4. SMACSS: Arquitetura Modular e Escalável</h2>
+            <p>
+                SMACSS propõe dividir o CSS em categorias: Base, Layout, Module, State e Theme. Cada categoria tem um papel claro, facilitando organização e manutenção.
+            </p>
+            <h3>Categorias SMACSS</h3>
+            <ul>
+                <li><strong>Base:</strong> Estilos globais (reset, tipografia)</li>
+                <li><strong>Layout:</strong> Estrutura da página (header, footer, grid)</li>
+                <li><strong>Module:</strong> Componentes reutilizáveis (cards, botões)</li>
+                <li><strong>State:</strong> Variações de componentes (<code>.is-active</code>, <code>.is-hidden</code>)</li>
+                <li><strong>Theme:</strong> Estilos de tema (cores, fontes)</li>
+            </ul>
+            <div class="codigo" data-lang="CSS">
+<pre><code>/* Exemplo de State */
+.button {
+    background: #5222d0;
+    color: white;
+}
+.button.is-active {
+    background: #ec615b;
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Seção 5: Dicas Práticas de Organização -->
+        <section class="secao">
+            <h2>🛠️ 5. Dicas Práticas para Organizar CSS</h2>
+            <ul>
+                <li>Use nomes de classes claros e descritivos</li>
+                <li>Evite seletores genéricos (<code>div</code>, <code>span</code>)</li>
+                <li>Prefira classes a IDs para estilização</li>
+                <li>Divida o CSS em arquivos menores por componente ou categoria</li>
+                <li>Documente padrões e convenções no projeto</li>
+                <li>Use comentários para explicar partes complexas</li>
+                <li>Padronize a ordem das propriedades CSS</li>
+            </ul>
+        </section>
+
+        <!-- Exercício Prático -->
+        <section class="secao">
+            <h2>💪 Exercício Prático</h2>
+            <div class="exercicio">
+                <h4>Refatore um Componente com BEM</h4>
+                <p>
+                    Pegue um componente do seu projeto (ex: card, botão, menu) e reescreva suas classes usando o padrão BEM. Documente a estrutura e explique as vantagens.
+                </p>
+                <div class="codigo" data-lang="HTML">
+<pre><code>&lt;div class="menu menu--mobile"&gt;
+    &lt;button class="menu__toggle"&gt;☰&lt;/button&gt;
+    &lt;nav class="menu__nav"&gt;
+        &lt;a class="menu__item menu__item--active" href="#"&gt;Home&lt;/a&gt;
+        &lt;a class="menu__item" href="#"&gt;Sobre&lt;/a&gt;
+        &lt;a class="menu__item" href="#"&gt;Contato&lt;/a&gt;
+    &lt;/nav&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recursos Adicionais -->
+        <section class="secao">
+            <h2>📚 Recursos Adicionais</h2>
+            <div class="recursos">
+                <div class="recurso-card">
+                    <h4>BEM Official</h4>
+                    <p>Documentação oficial da metodologia BEM.</p>
+                    <a href="https://en.bem.info/methodology/" class="recurso-link" target="_blank" rel="noopener">Acessar →</a>
+                </div>
+                <div class="recurso-card">
+                    <h4>OOCSS Guide</h4>
+                    <p>Guia prático para aplicar OOCSS em projetos reais.</p>
+                    <a href="https://github.com/stubbornella/oocss/wiki" class="recurso-link" target="_blank" rel="noopener">Acessar →</a>
+                </div>
+                <div class="recurso-card">
+                    <h4>SMACSS Book</h4>
+                    <p>Livro completo sobre SMACSS e arquitetura CSS escalável.</p>
+                    <a href="https://smacss.com/book/" class="recurso-link" target="_blank" rel="noopener">Acessar →</a>
+                </div>
+                <div class="recurso-card">
+                    <h4>CSS Guidelines</h4>
+                    <p>Guia de boas práticas para CSS moderno.</p>
+                    <a href="https://cssguidelin.es/" class="recurso-link" target="_blank" rel="noopener">Acessar →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Checklist -->
+        <section class="secao">
+            <h2>✅ Checklist de Aprendizado</h2>
+            <div class="checklist">
+                <h4>Verifique seu progresso nesta aula:</h4>
+                <ul>
+                    <li><input type="checkbox" id="check1"><label for="check1">Compreendo por que metodologias CSS são importantes</label></li>
+                    <li><input type="checkbox" id="check2"><label for="check2">Sei aplicar o padrão BEM em componentes</label></li>
+                    <li><input type="checkbox" id="check3"><label for="check3">Entendo a separação de estrutura e aparência (OOCSS)</label></li>
+                    <li><input type="checkbox" id="check4"><label for="check4">Consigo dividir meu CSS em categorias SMACSS</label></li>
+                    <li><input type="checkbox" id="check5"><label for="check5">Uso nomes de classes claros e descritivos</label></li>
+                    <li><input type="checkbox" id="check6"><label for="check6">Evito conflitos de estilos em projetos grandes</label></li>
+                    <li><input type="checkbox" id="check7"><label for="check7">Documentei padrões e convenções no projeto</label></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Conclusão da Aula -->
+        <footer class="aula-footer">
+            <h3>🎉 Parabéns! Você domina metodologias CSS!</h3>
+            <p>
+                Agora você está pronto para organizar e escalar seu CSS como um profissional. Na próxima aula, vamos aprender como otimizar a performance do CSS para sites rápidos e eficientes.
+            </p>
+            <a href="aula-13-performance.html" class="proxima-aula">
+                Continue para a próxima aula →
+            </a>
+        </footer>
+
+        <!-- Navegação do Curso -->
+        <nav class="course-navigation">
+            <div class="nav-buttons">
+                <a href="aula-11-css-javascript.html" class="nav-btn secondary">
+                    ← Aula Anterior: CSS & JavaScript
+                </a>
+                <a href="aula-13-performance.html" class="nav-btn primary">
+                    Próxima Aula: Performance CSS →
+                </a>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>

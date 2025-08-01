@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📱 Aula 6: Responsividade</title>
+    <meta name="description" content="Aprenda a criar sites que se adaptam perfeitamente a qualquer tamanho de tela, desde celulares até monitores grandes, usando técnicas modernas de design responsivo.">
+    <link rel="stylesheet" href="assets/style-aulas.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📱</text></svg>">
+</head>
+<body>
+    <div class="aula-container">
+        <!-- Header da Aula -->
+        <header class="aula-header">
+            <div class="aula-numero">📱 AULA 6</div>
+            <h1 class="aula-titulo">Responsividade</h1>
+            <p class="aula-descricao">
+                Domine as técnicas essenciais de design responsivo para criar interfaces que se adaptam a qualquer dispositivo. 
+                Aprenda abordagens mobile-first, media queries e estratégias flexíveis para uma web verdadeiramente universal.
+            </p>
+            <div class="aula-meta">
+                <div class="meta-item">
+                    <span>⏱️</span> <span>65 min</span>
+                </div>
+                <div class="meta-item">
+                    <span>🎯</span> <span>Intermediário</span>
+                </div>
+                <div class="meta-item">
+                    <span>📱</span> <span>Responsividade</span>
+                </div>
+                <div class="meta-item">
+                    <span>🖥️</span> <span>UX/UI</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navegação entre Aulas -->
+        <nav class="aula-nav">
+            <a href="aula-05-flexbox-grid.html" class="nav-btn">← Aula Anterior</a>
+            <a href="index.html" class="nav-btn">Índice</a>
+            <a href="aula-07-transforms-transitions.html" class="nav-btn">Próxima Aula →</a>
+        </nav>
+
+        <!-- Objetivos da Aula -->
+        <section class="secao">
+            <h2>🎯 Objetivos de Aprendizagem</h2>
+            <div class="objetivos">
+                <div class="objetivo">
+                    <h4>📱 Compreender Design Responsivo</h4>
+                    <p>Entender os princípios fundamentais do design responsivo e sua importância na web moderna.</p>
+                </div>
+                <div class="objetivo">
+                    <h4>📐 Dominar Media Queries</h4>
+                    <p>Aprender a usar media queries para adaptar seu layout a diferentes tamanhos de tela e dispositivos.</p>
+                </div>
+                <div class="objetivo">
+                    <h4>🏗️ Aplicar Mobile-First</h4>
+                    <p>Implementar a abordagem mobile-first no desenvolvimento de interfaces e compreender seus benefícios.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 1: Introdução ao Design Responsivo -->
+        <section class="secao">
+            <h2>📱 1. Design Responsivo: O Que É e Por Que É Importante</h2>
+            <p>
+                Design Responsivo é uma abordagem de desenvolvimento web que faz com que as páginas se adaptem automaticamente ao tamanho da tela e às características do dispositivo onde estão sendo visualizadas. Não se trata apenas de encolher ou expandir elementos, mas de proporcionar a melhor experiência de usuário possível em qualquer contexto.
+            </p>
+            
+            <div class="destaque info">
+                <h4>💡 Por que o Design Responsivo é Essencial?</h4>
+                <ul>
+                    <li><strong>Diversidade de Dispositivos:</strong> Usuários acessam sites em smartphones, tablets, laptops, desktops, smart TVs e mais</li>
+                    <li><strong>SEO:</strong> O Google prioriza sites responsivos em seus resultados de pesquisa</li>
+                    <li><strong>Experiência do Usuário:</strong> Sites não-responsivos frustram usuários e aumentam a taxa de abandono</li>
+                    <li><strong>Manutenção:</strong> É mais fácil manter um site responsivo do que versões separadas para mobile/desktop</li>
+                    <li><strong>Conversões:</strong> Sites responsivos têm taxas de conversão significativamente maiores</li>
+                </ul>
+            </div>
+            
+            <h3>Evolução do Design Responsivo</h3>
+            <div class="tabela-container">
+                <table>
+                    <tr>
+                        <th>Era</th>
+                        <th>Abordagem</th>
+                        <th>Problemas</th>
+                    </tr>
+                    <tr>
+                        <td>Início da Web</td>
+                        <td>Design fixo (não-responsivo)</td>
+                        <td>Sites otimizados apenas para telas de desktop</td>
+                    </tr>
+                    <tr>
+                        <td>Surgimento dos Smartphones</td>
+                        <td>Sites mobile separados (m.exemplo.com)</td>
+                        <td>Duplicação de conteúdo, manutenção dupla, problemas de SEO</td>
+                    </tr>
+                    <tr>
+                        <td>2010+</td>
+                        <td>Design responsivo (adaptável)</td>
+                        <td>Curva de aprendizado, desafios de performance</td>
+                    </tr>
+                    <tr>
+                        <td>Hoje</td>
+                        <td>Design responsivo + abordagem mobile-first</td>
+                        <td>Complexidade crescente, mas ferramentas melhores</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <h3>Os Três Pilares do Design Responsivo</h3>
+            <div class="recursos">
+                <div class="recurso-card">
+                    <h4>🧮 Layout Fluido</h4>
+                    <p>Uso de unidades relativas (%, em, rem) em vez de unidades absolutas (px) para que o layout se expanda e contraia naturalmente.</p>
+                </div>
+                <div class="recurso-card">
+                    <h4>🖼️ Imagens Flexíveis</h4>
+                    <p>Imagens que se redimensionam dentro de seus elementos contêineres, mantendo a proporção e otimizando para diferentes resoluções.</p>
+                </div>
+                <div class="recurso-card">
+                    <h4>📏 Media Queries</h4>
+                    <p>Regras CSS que são aplicadas apenas quando determinadas condições de mídia são atendidas, como largura da tela ou orientação do dispositivo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 2: Media Queries -->
+        <section class="secao">
+            <h2>📐 2. Media Queries: O Coração do Design Responsivo</h2>
+            <p>
+                Media queries são a ferramenta mais poderosa do CSS para implementar design responsivo. Elas permitem aplicar estilos condicionalmente com base em características do dispositivo, como largura da tela, altura, resolução, orientação e muito mais.
+            </p>
+            
+            <h3>Sintaxe Básica de Media Queries</h3>
+            <div class="codigo" data-lang="CSS">
+<pre><code>@media tipo-de-midia and (caracteristica: valor) {
+    /* Regras CSS que serão aplicadas quando a condição for verdadeira */
+    seletor {
+        propriedade: valor;
+    }
+}</code></pre>
+            </div>
+            
+            <div class="destaque tip">
+                <h4>🔍 Tipos Comuns de Media Types</h4>
+                <ul>
+                    <li><code>all</code> - Para todos os dispositivos (padrão)</li>
+                    <li><code>screen</code> - Para telas de computador, tablet, smartphone, etc.</li>
+                    <li><code>print</code> - Para documentos a serem impressos</li>
+                    <li><code>speech</code> - Para leitores de tela</li>
+                </ul>
+            </div>
+            
+            <h3>Características de Media (Media Features)</h3>
+            <div class="tabela-container">
+                <table>
+                    <tr>
+                        <th>Característica</th>
+                        <th>Descrição</th>
+                        <th>Exemplo</th>
+                    </tr>
+                    <tr>
+                        <td>width</td>
+                        <td>Largura da viewport</td>
+                        <td><code>@media (width: 768px) {...}</code></td>
+                    </tr>
+                    <tr>
+                        <td>min-width</td>
+                        <td>Largura mínima da viewport</td>
+                        <td><code>@media (min-width: 768px) {...}</code></td>
+                    </tr>
+                    <tr>
+                        <td>max-width</td>
+                        <td>Largura máxima da viewport</td>
+                        <td><code>@media (max-width: 767px) {...}</code></td>
+                    </tr>
+                    <tr>
+                        <td>height</td>
+                        <td>Altura da viewport</td>
+                        <td><code>@media (height: 480px) {...}</code></td>
+                    </tr>
+                    <tr>
+                        <td>orientation</td>
+                        <td>Orientação do dispositivo</td>
+                        <td><code>@media (orientation: landscape) {...}</code></td>
+                    </tr>
+                    <tr>
+                        <td>aspect-ratio</td>
+                        <td>Proporção da viewport</td>
+                        <td><code>@media (aspect-ratio: 16/9) {...}</code></td>
+                    </tr>
+                    <tr>
+                        <td>resolution</td>
+                        <td>Densidade de pixels</td>
+                        <td><code>@media (min-resolution: 192dpi) {...}</code></td>
+                    </tr>
+                </table>
+            </div>
+            
+            <h3>Operadores Lógicos em Media Queries</h3>
+            <div class="codigo" data-lang="CSS">
+<pre><code>/* AND: Ambas as condições devem ser verdadeiras */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    /* Estilos para tablets */
+}
+
+/* OR: Pelo menos uma condição deve ser verdadeira (use vírgulas) */
+@media screen and (max-width: 767px), screen and (orientation: portrait) {
+    /* Estilos para dispositivos pequenos OU em orientação retrato */
+}
+
+/* NOT: Inverte a condição */
+@media not screen and (min-width: 1024px) {
+    /* Estilos para todos os dispositivos EXCETO desktops grandes */
+}
+
+/* ONLY: Previne navegadores antigos de aplicarem os estilos */
+@media only screen and (min-width: 768px) {
+    /* Estilos para navegadores modernos */
+}</code></pre>
+            </div>
+            
+            <h3>Breakpoints Comuns</h3>
+            <p>
+                Breakpoints são os pontos de largura onde o layout muda significativamente. Embora não existam breakpoints universais (pois dependem do seu design), alguns valores são comumente usados:
+            </p>
+            <div class="codigo" data-lang="CSS">
+<pre><code>/* Mobile pequeno (até 320px) */
+@media (max-width: 320px) {
+    /* Estilos para smartphones muito pequenos */
+}
+
+/* Mobile (até 480px) */
+@media (max-width: 480px) {
+    /* Estilos para smartphones */
+}
+
+/* Mobile grande / Tablet pequeno (até 767px) */
+@media (max-width: 767px) {
+    /* Estilos para smartphones grandes ou tablets pequenos */
+}
+
+/* Tablets (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* Estilos para tablets */
+}
+
+/* Laptops / Desktops pequenos (1024px - 1199px) */
+@media (min-width: 1024px) and (max-width: 1199px) {
+    /* Estilos para laptops e desktops pequenos */
+}
+
+/* Desktops grandes (1200px+) */
+@media (min-width: 1200px) {
+    /* Estilos para telas grandes */
+}</code></pre>
+            </div>
+            
+            <div class="destaque warning">
+                <h4>⚠️ Cuidado com Breakpoints Muito Específicos</h4>
+                <p>
+                    Em vez de tentar acomodar cada dispositivo específico, concentre-se em onde seu design naturalmente "quebra" e precisa de ajustes. Isso torna seu código mais sustentável diante da constante evolução dos dispositivos.
+                </p>
+            </div>
+        </section>
+
+        <!-- Seção 3: Mobile-First -->
+        <section class="secao">
+            <h2>🏗️ 3. Abordagem Mobile-First: Começando pelo Pequeno</h2>
+            <p>
+                Mobile-First é uma estratégia de design e desenvolvimento onde você cria primeiro a versão móvel do site (para telas menores) e depois progressivamente adiciona complexidade e recursos para telas maiores. É o oposto da abordagem tradicional Desktop-First.
+            </p>
+            
+            <div class="destaque success">
+                <h4>✅ Vantagens da Abordagem Mobile-First</h4>
+                <ul>
+                    <li><strong>Foco no Essencial:</strong> Força a priorizar o conteúdo e as funcionalidades mais importantes</li>
+                    <li><strong>Performance Melhorada:</strong> Começa com uma base leve e otimizada para conexões móveis</li>
+                    <li><strong>Progressão Natural:</strong> Alinha-se com o fluxo natural do CSS (cascata)</li>
+                    <li><strong>Futuro-Proof:</strong> Adapta-se melhor ao crescente uso de dispositivos móveis</li>
+                    <li><strong>Alinhado com o Google:</strong> Indexação mobile-first do Google beneficia sites desenvolvidos com esta abordagem</li>
+                </ul>
+            </div>
+            
+            <h3>Desktop-First vs. Mobile-First: Comparação de Código</h3>
+            
+            <div class="tabela-container">
+                <table>
+                    <tr>
+                        <th>Abordagem Desktop-First</th>
+                        <th>Abordagem Mobile-First</th>
+                    </tr>
+                    <tr>
+                        <td>
+<pre><code>/* Estilo base (desktop) */
+.container {
+    width: 1140px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.column {
+    width: 25%;
+    padding: 20px;
+}
+
+/* Media query para tablet */
+@media (max-width: 1023px) {
+    .container {
+        width: 100%;
+    }
+    .column {
+        width: 50%;
+    }
+}
+
+/* Media query para mobile */
+@media (max-width: 767px) {
+    .column {
+        width: 100%;
+        padding: 10px;
+    }
+}</code></pre>
+                        </td>
+                        <td>
+<pre><code>/* Estilo base (mobile) */
+.container {
+    width: 100%;
+}
+
+.column {
+    width: 100%;
+    padding: 10px;
+}
+
+/* Media query para tablet */
+@media (min-width: 768px) {
+    .column {
+        width: 50%;
+        padding: 15px;
+    }
+}
+
+/* Media query para desktop */
+@media (min-width: 1024px) {
+    .container {
+        width: 1140px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .column {
+        width: 25%;
+        padding: 20px;
+    }
+}</code></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            
+            <h3>Implementando Mobile-First na Prática</h3>
+            <div class="implementacao-mobile-first">
+                <div class="passo">
+                    <h4><strong>1. Comece com o Meta Viewport</strong></h4>
+                    <p>Garanta que a página seja exibida corretamente em dispositivos móveis.</p>
+                    <div class="codigo" data-lang="HTML">
+<pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+                    </div>
+                </div>
+                
+                <div class="passo">
+                    <h4><strong>2. Use Unidades Relativas</strong></h4>
+                    <p>Prefira rem, em, % ao invés de pixels fixos.</p>
+                    <div class="codigo" data-lang="CSS">
+<pre><code>/* Evite isso */
+p {
+    font-size: 16px;
+    margin-bottom: 24px;
+}
+
+/* Prefira isso */
+html {
+    font-size: 16px; /* Base para cálculos rem */
+}
+
+p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}</code></pre>
+                    </div>
+                </div>
+                
+                <div class="passo">
+                    <h4><strong>3. Estruture seu CSS para Mobile-First</strong></h4>
+                    <p>Comece com estilos base para mobile e use <code>min-width</code> para telas maiores.</p>
+                    <div class="codigo" data-lang="CSS">
+<pre><code>/* Estilos base (mobile) */
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tablet em diante */
+@media (min-width: 768px) {
+    .nav-menu {
+        flex-direction: row;
+    }
+}</code></pre>
+                    </div>
+                </div>
+                
+                <div class="passo">
+                    <h4><strong>4. Simplifique a Navegação</strong></h4>
+                    <p>Use padrões como menus hamburger em telas pequenas.</p>
+                </div>
+                
+                <div class="passo">
+                    <h4><strong>5. Otimize Imagens</strong></h4>
+                    <p>Use técnicas como imagens responsivas e estratégias de carregamento lazy.</p>
+                    <div class="codigo" data-lang="HTML">
+<pre><code>&lt;img 
+    srcset="imagem-pequena.jpg 480w,
+           imagem-media.jpg 768w,
+           imagem-grande.jpg 1200w"
+    sizes="(max-width: 480px) 100vw,
+           (max-width: 768px) 50vw,
+           33vw"
+    src="imagem-fallback.jpg"
+    alt="Descrição da imagem"
+    loading="lazy"
+&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 4: Unidades Responsivas -->
+        <section class="secao">
+            <h2>📏 4. Unidades Responsivas em CSS</h2>
+            <p>
+                Usar as unidades corretas é fundamental para criar layouts verdadeiramente responsivos. Unidades relativas permitem que seu layout se adapte e dimensione proporcionalmente em diferentes tamanhos de tela.
+            </p>
+            
+            <h3>Unidades Estáticas vs. Unidades Relativas</h3>
+            <div class="tabela-container">
+                <table>
+                    <tr>
+                        <th>Unidades Estáticas</th>
+                        <th>Unidades Relativas</th>
+                    </tr>
+                    <tr>
+                        <td><code>px</code> - Pixels absolutos</td>
+                        <td><code>%</code> - Porcentagem relativa ao elemento pai</td>
+                    </tr>
+                    <tr>
+                        <td><code>pt</code> - Pontos (usado para impressão)</td>
+                        <td><code>em</code> - Relativo ao tamanho da fonte do elemento</td>
+                    </tr>
+                    <tr>
+                        <td><code>cm</code>, <code>mm</code> - Medidas físicas</td>
+                        <td><code>rem</code> - Relativo ao tamanho da fonte do elemento raiz (html)</td>
+                    </tr>
+                    <tr>
+                        <td><code>pc</code>, <code>in</code> - Picas, polegadas</td>
+                        <td><code>vw</code>, <code>vh</code> - Percentual da largura/altura da viewport</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <h3>Quando Usar Cada Unidade</h3>
+            <div class="recursos">
+                <div class="recurso-card">
+                    <h4>px</h4>
+                    <p><strong>Melhor para:</strong> Bordas, sombras, pequenos detalhes visuais que não precisam escalar.</p>
+                    <div class="codigo" data-lang="CSS">
+<pre><code>border: 1px solid #ccc;
+box-shadow: 0 2px 4px rgba(0,0,0,0.1);</code></pre>
+                    </div>
+                </div>
+                <div class="recurso-card">
+                    <h4>rem</h4>
+                    <p><strong>Melhor para:</strong> Tipografia, margens, padding, manter consistência em todo o site.</p>
+                    <div class="codigo" data-lang="CSS">
+<pre><code>html { font-size: 16px; }
+h1 { font-size: 2rem; }  /* 32px */
+p { font-size: 1rem; margin: 1.5rem 0; }</code></pre>
+                    </div>
+                </div>
+                <div class="recurso-card">
+                    <h4>em</h4>
+                    <p><strong>Melhor para:</strong> Elementos que devem escalar em relação ao seu contexto direto.</p>
+                    <div class="codigo" data-lang="CSS">
+<pre><code>.card { font-size: 1.1rem; }
+.card .title { 
+    font-size: 1.4em; /* Relativo a 1.1rem */
+}
+.card small { 
+    font-size: 0.8em; /* Relativo a 1.1rem */ 
+}</code></pre>
+                    </div>
+                </div>
+                <div class="recurso-card">
+                    <h4>%</h4>
+                    <p><strong>Melhor para:</strong> Layouts, larguras de colunas e elementos que precisam se redimensionar com o contêiner.</p>
+                    <div class="codigo" data-lang="CSS">
+<pre><code>.container { width: 100%; max-width: 1200px; }
+.sidebar { width: 30%; }
+.content { width: 70%; }</code></pre>
+                    </div>
+                </div>
+                <div class="recurso-card">
+                    <h4>vw/vh</h4>
+                    <p><strong>Melhor para:</strong> Elementos de página inteira, heroes, banners que ocupam porcentagem da viewport.</p>
+                    <div class="codigo" data-lang="CSS">
+<pre><code>.hero {
+    height: 100vh; /* Altura total da viewport */
+}
+.large-text {
+    font-size: 5vw; /* 5% da largura da viewport */
+}</code></pre>
+                    </div>
+                </div>
+                <div class="recurso-card">
+                    <h4>calc()</h4>
+                    <p><strong>Melhor para:</strong> Combinação de unidades diferentes ou valores dinâmicos.</p>
+                    <div class="codigo" data-lang="CSS">
+<pre><code>.sidebar {
+    width: calc(100% - 2rem); /* 100% menos 2rem */
+}
+.hero-title {
+    font-size: calc(1.5rem + 3vw); /* Base + escala */
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="destaque info">
+                <h4>💡 Dica para Tipografia Responsiva</h4>
+                <p>Combinando <code>calc()</code> com unidades relativas, você pode criar uma escala de fonte que aumenta suavemente conforme o tamanho da tela:</p>
+                <div class="codigo" data-lang="CSS">
+<pre><code>:root {
+    /* Tamanho base: 16px em mobile, escalando até ~18px em desktop */
+    --fs-base: calc(1rem + 0.25vw);
+    
+    /* Escala de tipografia usando a base */
+    --fs-small: calc(var(--fs-base) * 0.8);
+    --fs-body: var(--fs-base);
+    --fs-h3: calc(var(--fs-base) * 1.2);
+    --fs-h2: calc(var(--fs-base) * 1.5);
+    --fs-h1: calc(var(--fs-base) * 2.5);
+}
+
+body { font-size: var(--fs-body); }
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+/* etc. */</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 5: Padrões Responsivos -->
+        <section class="secao">
+            <h2>🧩 5. Padrões de Design Responsivo</h2>
+            <p>
+                Ao longo dos anos, certos padrões de design provaram ser eficazes para resolver problemas comuns de responsividade. Conhecer esses padrões pode acelerar seu desenvolvimento e melhorar a experiência do usuário.
+            </p>
+            
+            <h3>Padrão 1: Layout Fluido com Largura Máxima</h3>
+            <div class="codigo" data-lang="CSS">
+<pre><code>.container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}</code></pre>
+            </div>
+            <p>Este padrão permite que o conteúdo use toda a largura disponível em telas pequenas, mas impede que fique muito largo em telas grandes, melhorando a legibilidade.</p>
+            
+            <h3>Padrão 2: Sistema de Grade Responsiva</h3>
+            <div class="codigo" data-lang="CSS">
+<pre><code>.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}</code></pre>
+            </div>
+            <p>Este padrão moderno usa CSS Grid para criar uma grade que automaticamente se ajusta ao número de colunas com base no espaço disponível. Cada item tem no mínimo 300px de largura e compartilha o espaço igualmente.</p>
+            
+            <h3>Padrão 3: Menu de Hambúrguer</h3>
+            <div class="codigo" data-lang="CSS">
+<pre><code>/* Estilo base - menu escondido em mobile */
+.nav-menu {
+    display: none;
+}
+
+.menu-toggle {
+    display: block; /* Botão de hambúrguer visível */
+}
+
+/* Menu visível em desktop */
+@media (min-width: 768px) {
+    .nav-menu {
+        display: flex;
+    }
+    
+    .menu-toggle {
+        display: none; /* Oculta o botão em desktop */
+    }
+}</code></pre>
+            </div>
+            <div class="codigo" data-lang="JavaScript">
+<pre><code>document.querySelector('.menu-toggle').addEventListener('click', function() {
+    document.querySelector('.nav-menu').classList.toggle('is-active');
+});</code></pre>
+            </div>
+            
+            <h3>Padrão 4: Imagens Responsivas</h3>
+            <h4>Usando apenas CSS:</h4>
+            <div class="codigo" data-lang="CSS">
+<pre><code>img {
+    max-width: 100%;
+    height: auto;
+}</code></pre>
+            </div>
+            
+            <h4>Usando HTML moderno para diferentes resoluções:</h4>
+            <div class="codigo" data-lang="HTML">
+<pre><code>&lt;picture&gt;
+    &lt;source media="(min-width: 1200px)" srcset="imagem-grande.jpg"&gt;
+    &lt;source media="(min-width: 768px)" srcset="imagem-media.jpg"&gt;
+    &lt;img src="imagem-pequena.jpg" alt="Descrição"&gt;
+&lt;/picture&gt;</code></pre>
+            </div>
+            
+            <h3>Padrão 5: Layout em Colunas Reordenáveis</h3>
+            <div class="codigo" data-lang="CSS">
+<pre><code>.content-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    order: 2;
+}
+
+.sidebar {
+    order: 1;
+}
+
+@media (min-width: 768px) {
+    .content-container {
+        flex-direction: row;
+    }
+    
+    .main-content {
+        order: 1;
+        flex: 3;
+    }
+    
+    .sidebar {
+        order: 2;
+        flex: 1;
+    }
+}</code></pre>
+            </div>
+            <p>Este padrão permite que você reordene visualmente elementos sem alterar o HTML, ideal para casos onde o sidebar deve aparecer acima do conteúdo principal em mobile, mas ao lado em desktop.</p>
+        </section>
+
+        <!-- Seção 6: Boas Práticas -->
+        <section class="secao">
+            <h2>✨ 6. Boas Práticas de Design Responsivo</h2>
+            
+            <div class="destaque success">
+                <h4>✅ Do's</h4>
+                <ul>
+                    <li><strong>Teste em Dispositivos Reais:</strong> Além de emuladores, teste em smartphones, tablets e desktops reais quando possível.</li>
+                    <li><strong>Simplifique em Telas Menores:</strong> Remova elementos não essenciais em telas pequenas; priorize o conteúdo mais importante.</li>
+                    <li><strong>Otimize Imagens:</strong> Use formatos modernos (WebP), tamanhos adequados e lazy loading.</li>
+                    <li><strong>Considere Diferentes Inputs:</strong> Lembre-se que em móveis usamos dedos (toque), não mouse - botões devem ser maiores.</li>
+                    <li><strong>Mantenha a Performance:</strong> Sites responsivos devem ser rápidos em todos os dispositivos, especialmente em mobile com conexões mais lentas.</li>
+                </ul>
+            </div>
+            
+            <div class="destaque error">
+                <h4>❌ Don'ts</h4>
+                <ul>
+                    <li><strong>Não Esconda Conteúdo Importante:</strong> Usuários móveis merecem o mesmo conteúdo que desktop, apenas reorganizado.</li>
+                    <li><strong>Evite Depender de Hover:</strong> Interações hover não funcionam bem em dispositivos de toque.</li>
+                    <li><strong>Não Force Zoom:</strong> Texto deve ser legível sem precisar de zoom (16px é um bom tamanho base).</li>
+                    <li><strong>Não Sobrecarregue com Media Queries:</strong> Simplifique usando layouts fluidos que naturalmente se adaptam.</li>
+                    <li><strong>Evite Arquivos CSS Muito Grandes:</strong> Considere dividir seu CSS em arquivos menores e carregá-los condicionalmente.</li>
+                </ul>
+            </div>
+            
+            <h3>Checklist de Responsividade</h3>
+            <div class="checklist">
+                <ul>
+                    <li><input type="checkbox" id="resp-check1"><label for="resp-check1">Meta viewport está configurado corretamente</label></li>
+                    <li><input type="checkbox" id="resp-check2"><label for="resp-check2">Textos são legíveis sem zoom (mínimo 16px para corpo de texto)</label></li>
+                    <li><input type="checkbox" id="resp-check3"><label for="resp-check3">Elementos de toque têm pelo menos 44x44px em dispositivos móveis</label></li>
+                    <li><input type="checkbox" id="resp-check4"><label for="resp-check4">Imagens estão otimizadas e são responsivas</label></li>
+                    <li><input type="checkbox" id="resp-check5"><label for="resp-check5">Layout funciona em orientação retrato e paisagem</label></li>
+                    <li><input type="checkbox" id="resp-check6"><label for="resp-check6">Formulários são usáveis em telas pequenas</label></li>
+                    <li><input type="checkbox" id="resp-check7"><label for="resp-check7">Tabelas são acessíveis em dispositivos móveis</label></li>
+                    <li><input type="checkbox" id="resp-check8"><label for="resp-check8">Navegação funciona em todos os tamanhos de tela</label></li>
+                    <li><input type="checkbox" id="resp-check9"><label for="resp-check9">CSS usa uma abordagem mobile-first</label></li>
+                    <li><input type="checkbox" id="resp-check10"><label for="resp-check10">Site foi testado em vários dispositivos e navegadores</label></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Exercício Prático -->
+        <section class="secao">
+            <h2>💪 Exercício Prático</h2>
+            <div class="exercicio">
+                <h4>Criar um Site de Portfólio Responsivo</h4>
+                <p>
+                    Vamos aplicar os conceitos aprendidos criando um site de portfólio simples, mas totalmente responsivo. O site deve incluir:
+                </p>
+                <ul>
+                    <li>Cabeçalho com navegação responsiva (menu hamburger em mobile)</li>
+                    <li>Seção hero com imagem e texto de apresentação</li>
+                    <li>Grid de projetos que se adapta a diferentes tamanhos de tela</li>
+                    <li>Formulário de contato responsivo</li>
+                    <li>Footer com links de redes sociais</li>
+                </ul>
+                
+                <div class="exercicio-resultado">
+                    <div class="codigo" data-lang="HTML">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Meu Portfólio&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header class="header"&gt;
+        &lt;div class="container"&gt;
+            &lt;a href="#" class="logo"&gt;MeuPortfólio&lt;/a&gt;
+            &lt;button class="menu-toggle" aria-label="Menu"&gt;
+                &lt;span&gt;&lt;/span&gt;
+                &lt;span&gt;&lt;/span&gt;
+                &lt;span&gt;&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;nav class="nav-menu"&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#projetos"&gt;Projetos&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#sobre"&gt;Sobre&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#contato"&gt;Contato&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/nav&gt;
+        &lt;/div&gt;
+    &lt;/header&gt;
+    
+    &lt;section class="hero"&gt;
+        &lt;div class="container"&gt;
+            &lt;div class="hero-content"&gt;
+                &lt;h1&gt;Olá, eu sou &lt;span&gt;Designer &amp; Desenvolvedor&lt;/span&gt;&lt;/h1&gt;
+                &lt;p&gt;Crio interfaces intuitivas e experiências digitais memoráveis&lt;/p&gt;
+                &lt;a href="#contato" class="btn"&gt;Entre em contato&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class="hero-image"&gt;
+                &lt;img src="profile.jpg" alt="Minha foto" loading="lazy"&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    
+    &lt;section id="projetos" class="projetos"&gt;
+        &lt;div class="container"&gt;
+            &lt;h2&gt;Meus Projetos&lt;/h2&gt;
+            &lt;div class="projetos-grid"&gt;
+                &lt;div class="projeto-card"&gt;
+                    &lt;img src="projeto1.jpg" alt="Projeto 1"&gt;
+                    &lt;h3&gt;Website Corporativo&lt;/h3&gt;
+                    &lt;p&gt;Design responsivo e desenvolvimento frontend&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class="projeto-card"&gt;
+                    &lt;img src="projeto2.jpg" alt="Projeto 2"&gt;
+                    &lt;h3&gt;App Mobile&lt;/h3&gt;
+                    &lt;p&gt;Design de interface e prototipagem&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class="projeto-card"&gt;
+                    &lt;img src="projeto3.jpg" alt="Projeto 3"&gt;
+                    &lt;h3&gt;E-commerce&lt;/h3&gt;
+                    &lt;p&gt;UX/UI e desenvolvimento responsivo&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class="projeto-card"&gt;
+                    &lt;img src="projeto4.jpg" alt="Projeto 4"&gt;
+                    &lt;h3&gt;Blog Pessoal&lt;/h3&gt;
+                    &lt;p&gt;Design minimalista e SEO&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    
+    &lt;section id="contato" class="contato"&gt;
+        &lt;div class="container"&gt;
+            &lt;h2&gt;Entre em Contato&lt;/h2&gt;
+            &lt;div class="contato-container"&gt;
+                &lt;div class="contato-info"&gt;
+                    &lt;p&gt;Estou disponível para projetos freelance, oportunidades de trabalho ou apenas para trocar ideias.&lt;/p&gt;
+                    &lt;div class="contato-dados"&gt;
+                        &lt;div&gt;&lt;strong&gt;Email:&lt;/strong&gt; seuemail@exemplo.com&lt;/div&gt;
+                        &lt;div&gt;&lt;strong&gt;Telefone:&lt;/strong&gt; (00) 12345-6789&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;form class="contato-form"&gt;
+                    &lt;div class="form-group"&gt;
+                        &lt;label for="nome"&gt;Nome&lt;/label&gt;
+                        &lt;input type="text" id="nome" required&gt;
+                    &lt;/div&gt;
+                    &lt;div class="form-group"&gt;
+                        &lt;label for="email"&gt;Email&lt;/label&gt;
+                        &lt;input type="email" id="email" required&gt;
+                    &lt;/div&gt;
+                    &lt;div class="form-group full-width"&gt;
+                        &lt;label for="mensagem"&gt;Mensagem&lt;/label&gt;
+                        &lt;textarea id="mensagem" rows="5" required&gt;&lt;/textarea&gt;
+                    &lt;/div&gt;
+                    &lt;button type="submit" class="btn"&gt;Enviar Mensagem&lt;/button&gt;
+                &lt;/form&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    
+    &lt;footer class="footer"&gt;
+        &lt;div class="container"&gt;
+            &lt;div class="redes-sociais"&gt;
+                &lt;a href="#" aria-label="LinkedIn"&gt;LinkedIn&lt;/a&gt;
+                &lt;a href="#" aria-label="GitHub"&gt;GitHub&lt;/a&gt;
+                &lt;a href="#" aria-label="Behance"&gt;Behance&lt;/a&gt;
+                &lt;a href="#" aria-label="Instagram"&gt;Instagram&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;p&gt;&copy; 2025 Meu Portfólio. Todos os direitos reservados.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+    
+    &lt;script&gt;
+        // Toggle menu mobile
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('is-active');
+            this.classList.toggle('is-active');
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                    <div class="codigo" data-lang="CSS">
+<pre><code>/* Base e Reset */
+:root {
+    --color-primary: #5222d0;
+    --color-secondary: #ec615b;
+    --color-dark: #333;
+    --color-light: #f5f5f5;
+    --color-gray: #888;
+    --font-base: 16px;
+    --spacing-base: 1rem;
+    --border-radius: 4px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: var(--font-base);
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-dark);
+    background: white;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-base);
+}
+
+.btn {
+    display: inline-block;
+    background: var(--color-primary);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: var(--border-radius);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.875rem;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: var(--color-secondary);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Header e Navegação */
+.header {
+    position: sticky;
+    top: 0;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--color-dark);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--color-dark);
+    margin: 5px 0;
+    transition: var(--transition);
+}
+
+.nav-menu ul {
+    display: flex;
+}
+
+.nav-menu li {
+    margin-left: 2rem;
+}
+
+.nav-menu a {
+    color: var(--color-dark);
+    font-weight: 500;
+}
+
+.nav-menu a:hover {
+    color: var(--color-primary);
+}
+
+/* Hero Section */
+.hero {
+    padding: 5rem 0;
+    background: var(--color-light);
+}
+
+.hero .container {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero-content span {
+    color: var(--color-primary);
+    display: block;
+    font-size: 3rem;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    color: var(--color-gray);
+    margin-bottom: 2rem;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.hero-image img {
+    max-width: 80%;
+    border-radius: 50%;
+    border: 10px solid white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin: 0 auto;
+}
+
+/* Projetos */
+.projetos {
+    padding: 5rem 0;
+}
+
+.projetos h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+}
+
+.projetos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.projeto-card {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: var(--transition);
+}
+
+.projeto-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.projeto-card img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.projeto-card h3, .projeto-card p {
+    padding: 0 1.5rem;
+}
+
+.projeto-card h3 {
+    margin: 1.5rem 0 0.5rem;
+}
+
+.projeto-card p {
+    color: var(--color-gray);
+    margin-bottom: 1.5rem;
+}
+
+/* Contato */
+.contato {
+    padding: 5rem 0;
+    background: var(--color-light);
+}
+
+.contato h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+}
+
+.contato-container {
+    display: flex;
+    gap: 3rem;
+}
+
+.contato-info, .contato-form {
+    flex: 1;
+}
+
+.contato-dados {
+    margin-top: 1.5rem;
+}
+
+.contato-dados div {
+    margin-bottom: 0.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.full-width {
+    grid-column: span 2;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(82, 34, 208, 0.1);
+}
+
+/* Footer */
+.footer {
+    padding: 3rem 0;
+    background: var(--color-dark);
+    color: white;
+    text-align: center;
+}
+
+.redes-sociais {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.redes-sociais a {
+    color: white;
+}
+
+.redes-sociais a:hover {
+    color: var(--color-secondary);
+}
+
+.footer p {
+    font-size: 0.875rem;
+    opacity: 0.7;
+}
+
+/* Media Queries */
+@media (max-width: 900px) {
+    .hero .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-content {
+        order: 2;
+    }
+    
+    .hero-image {
+        order: 1;
+        margin-bottom: 2rem;
+    }
+    
+    .contato-container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: white;
+        height: 0;
+        overflow: hidden;
+        transition: var(--transition);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+    
+    .nav-menu.is-active {
+        height: auto;
+        padding: 1rem 0;
+    }
+    
+    .nav-menu ul {
+        flex-direction: column;
+        padding: 0 var(--spacing-base);
+    }
+    
+    .nav-menu li {
+        margin: 1rem 0;
+        margin-left: 0;
+    }
+    
+    .menu-toggle.is-active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+    
+    .menu-toggle.is-active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .menu-toggle.is-active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content span {
+        font-size: 2.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --font-base: 14px;
+    }
+    
+    .hero {
+        padding: 3rem 0;
+    }
+    
+    .projetos, .contato {
+        padding: 3rem 0;
+    }
+    
+    .projetos-grid {
+        grid-template-columns: 1fr;
+    }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recursos Adicionais -->
+        <section class="secao">
+            <h2>📚 Recursos Adicionais</h2>
+            <div class="recursos">
+                <div class="recurso-card">
+                    <h4>A Complete Guide to CSS Media Queries</h4>
+                    <p>Guia completo sobre media queries com exemplos práticos e casos de uso.</p>
+                    <a href="https://css-tricks.com/a-complete-guide-to-css-media-queries/" class="recurso-link" target="_blank" rel="noopener">Acessar →</a>
+                </div>
+                <div class="recurso-card">
+                    <h4>Responsive Web Design Fundamentals</h4>
+                    <p>Curso gratuito do Google sobre os fundamentos do design responsivo.</p>
+                    <a href="https://web.dev/responsive-web-design-basics/" class="recurso-link" target="_blank" rel="noopener">Acessar →</a>
+                </div>
+                <div class="recurso-card">
+                    <h4>Responsive Images</h4>
+                    <p>Tutorial sobre implementação correta de imagens responsivas no MDN.</p>
+                    <a href="https://developer.mozilla.org/pt-BR/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images" class="recurso-link" target="_blank" rel="noopener">Acessar →</a>
+                </div>
+                <div class="recurso-card">
+                    <h4>Am I Responsive?</h4>
+                    <p>Ferramenta para visualizar seu site em diferentes tamanhos de dispositivos.</p>
+                    <a href="http://ami.responsivedesign.is/" class="recurso-link" target="_blank" rel="noopener">Acessar →</a>
+                </div>
+                <div class="recurso-card">
+                    <h4>What's My Browser Size?</h4>
+                    <p>Ferramenta simples que mostra as dimensões do seu navegador em tempo real.</p>
+                    <a href="https://www.webfx.com/tools/whats-my-browser-size/" class="recurso-link" target="_blank" rel="noopener">Acessar →</a>
+                </div>
+                <div class="recurso-card">
+                    <h4>Responsive Design Cheatsheet</h4>
+                    <p>Resumo das principais técnicas e valores comuns para design responsivo.</p>
+                    <a href="https://www.responsive-web.design" class="recurso-link" target="_blank" rel="noopener">Acessar →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Checklist -->
+        <section class="secao">
+            <h2>✅ Checklist de Aprendizado</h2>
+            <div class="checklist">
+                <h4>Verifique seu progresso nesta aula:</h4>
+                <ul>
+                    <li><input type="checkbox" id="check1"><label for="check1">Compreendo o que é design responsivo e por que é importante</label></li>
+                    <li><input type="checkbox" id="check2"><label for="check2">Sei escrever media queries para adaptar meu layout a diferentes tamanhos de tela</label></li>
+                    <li><input type="checkbox" id="check3"><label for="check3">Entendo a abordagem mobile-first e seus benefícios</label></li>
+                    <li><input type="checkbox" id="check4"><label for="check4">Sei quando usar diferentes unidades relativas (rem, em, %, vw/vh)</label></li>
+                    <li><input type="checkbox" id="check5"><label for="check5">Posso implementar imagens responsivas usando max-width ou srcset/sizes</label></li>
+                    <li><input type="checkbox" id="check6"><label for="check6">Sei criar layouts fluidos que se adaptam naturalmente</label></li>
+                    <li><input type="checkbox" id="check7"><label for="check7">Posso criar menus responsivos com padrão hamburger para mobile</label></li>
+                    <li><input type="checkbox" id="check8"><label for="check8">Conheço as melhores práticas de design responsivo</label></li>
+                    <li><input type="checkbox" id="check9"><label for="check9">Sei como testar meus layouts responsivos</label></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Conclusão da Aula -->
+        <footer class="aula-footer">
+            <h3>🎉 Parabéns! Você domina design responsivo!</h3>
+            <p>
+                Com o conhecimento adquirido nesta aula, você está preparado para criar sites que funcionam perfeitamente em qualquer dispositivo. Na próxima aula, vamos explorar o mundo das transformações e transições em CSS para adicionar animações sutis e interessantes aos seus layouts.
+            </p>
+            <a href="aula-07-transforms-transitions.html" class="proxima-aula">
+                Continue para a próxima aula →
+            </a>
+        </footer>
+
+        <!-- Navegação do Curso -->
+        <nav class="course-navigation">
+            <div class="nav-buttons">
+                <a href="aula-05-flexbox-grid.html" class="nav-btn secondary">
+                    ← Aula Anterior: Flexbox e Grid
+                </a>
+                <a href="aula-07-transforms-transitions.html" class="nav-btn primary">
+                    Próxima Aula: Transforms e Transitions →
+                </a>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>

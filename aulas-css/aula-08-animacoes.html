@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎬 Aula 8: Animações CSS</title>
+    <meta name="description" content="Aprenda a criar animações impressionantes com CSS usando keyframes, propriedades de animação e técnicas avançadas para efeitos visuais dinâmicos.">
+    <link rel="stylesheet" href="assets/style-aulas.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+    <style>
+        /* Estilos específicos para exemplos desta aula */
+        .demo-animation {
+            margin: 1.5rem auto;
+            padding: 1rem;
+            max-width: 500px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+            overflow: hidden;
+        }
+
+        /* Exemplos de Animações */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes slideIn {
+            from { 
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to { 
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes colorChange {
+            0% { background-color: #6d28d9; }
+            25% { background-color: #2563eb; }
+            50% { background-color: #059669; }
+            75% { background-color: #d97706; }
+            100% { background-color: #dc2626; }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+            20%, 40%, 60%, 80% { transform: translateX(10px); }
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        /* Objetos para demonstração */
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #6d28d9;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .pulse-box {
+            animation: pulse 2s infinite;
+        }
+
+        .slide-box {
+            animation: slideIn 1s forwards;
+        }
+
+        .rotate-box {
+            animation: rotate 4s linear infinite;
+        }
+
+        .bounce-box {
+            animation: bounce 1s ease infinite;
+        }
+
+        .color-box {
+            animation: colorChange 8s linear infinite;
+        }
+
+        .shake-box {
+            animation: shake 0.5s ease-in-out infinite;
+            animation-play-state: paused;
+        }
+        
+        .shake-box:hover {
+            animation-play-state: running;
+        }
+
+        .fade-box {
+            animation: fadeInOut 3s ease-in-out infinite;
+        }
+
+        .stagger-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .stagger-item {
+            width: 40px;
+            height: 40px;
+            background-color: #6d28d9;
+            animation: bounce 1s ease infinite;
+        }
+
+        .stagger-item:nth-child(1) { animation-delay: 0s; }
+        .stagger-item:nth-child(2) { animation-delay: 0.1s; }
+        .stagger-item:nth-child(3) { animation-delay: 0.2s; }
+        .stagger-item:nth-child(4) { animation-delay: 0.3s; }
+        .stagger-item:nth-child(5) { animation-delay: 0.4s; }
+
+        .interaction-demo {
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interaction-demo:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.3);
+            transition: 0.5s;
+            transform: skewX(-15deg);
+        }
+
+        .interaction-demo:hover:before {
+            animation: shine 1s;
+        }
+
+        @keyframes shine {
+            100% {
+                left: 100%;
+            }
+        }
+
+        /* Formulário estilizado para o exemplo de animações em interfaces */
+        .animated-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #6d28d9;
+            box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.2);
+            animation: pulse 0.5s;
+        }
+
+        .submit-btn {
+            background-color: #6d28d9;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #5b21b6;
+            transform: translateY(-2px);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Animação de carregamento */
+        .loading {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .loading-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #6d28d9;
+            margin: 0 5px;
+            animation: loading 1.5s infinite ease-in-out;
+        }
+
+        .loading-dot:nth-child(1) { animation-delay: 0s; }
+        .loading-dot:nth-child(2) { animation-delay: 0.2s; }
+        .loading-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes loading {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(0.5); opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+    <div class="aula-container">
+        <!-- Header da Aula -->
+        <header class="aula-header">
+            <div class="aula-numero">🎬 AULA 8</div>
+            <h1>Animações CSS</h1>
+            <p class="aula-meta">
+                <span>⏱️ Duração: 60 minutos</span>
+                <span>🎯 Nível: Avançado</span>
+                <span>👨‍💻 Prática: Sim</span>
+            </p>
+        </header>
+
+        <!-- Progresso da Aula -->
+        <div class="progresso-aula">
+            <div class="progresso-titulo">Seu progresso nesta aula</div>
+            <div class="progresso-barra">
+                <div class="progresso-concluido" style="width: 0%"></div>
+            </div>
+            <div class="progresso-porcentagem">0%</div>
+        </div>
+
+        <!-- Navegação -->
+        <div class="aula-navegacao">
+            <a href="aula-07-transforms-transitions.html" class="aula-anterior">
+                ⬅️ Aula anterior: Transforms e Transitions
+            </a>
+            <a href="aula-09-css-moderno.html" class="aula-proxima">
+                Próxima aula: CSS Moderno ➡️
+            </a>
+        </div>
+
+        <!-- Objetivos de Aprendizado -->
+        <section class="secao objetivos" id="objetivos">
+            <h2>🎯 Objetivos de Aprendizado</h2>
+            <p>Ao final desta aula, você será capaz de:</p>
+            
+            <div class="lista-objetivos">
+                <div class="objetivo">
+                    <input type="checkbox" id="obj1" class="objetivo-checkbox">
+                    <label for="obj1">Compreender o conceito de animações CSS e como elas diferem das transições</label>
+                </div>
+                <div class="objetivo">
+                    <input type="checkbox" id="obj2" class="objetivo-checkbox">
+                    <label for="obj2">Criar e implementar animações usando a regra @keyframes</label>
+                </div>
+                <div class="objetivo">
+                    <input type="checkbox" id="obj3" class="objetivo-checkbox">
+                    <label for="obj3">Controlar animações com propriedades como duração, atraso, contagem, direção e função de tempo</label>
+                </div>
+                <div class="objetivo">
+                    <input type="checkbox" id="obj4" class="objetivo-checkbox">
+                    <label for="obj4">Aplicar animações em diferentes elementos de interface para melhorar a experiência do usuário</label>
+                </div>
+                <div class="objetivo">
+                    <input type="checkbox" id="obj5" class="objetivo-checkbox">
+                    <label for="obj5">Otimizar animações para melhor performance e acessibilidade</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Introdução -->
+        <section class="secao" id="introducao">
+            <h2>🎭 O Poder das Animações CSS</h2>
+            
+            <p>As <strong>animações CSS</strong> representam um avanço em relação às transições, permitindo criar efeitos visuais mais complexos e controlados. Enquanto as transições são limitadas a mudanças de estado entre início e fim, as animações permitem definir múltiplos pontos intermediários e sequências de alterações de estilo.</p>
+            
+            <p>Com animações CSS, você consegue:</p>
+            <ul>
+                <li>Criar sequências complexas de movimentos e transformações</li>
+                <li>Definir mudanças de estilo em múltiplos pontos percentuais</li>
+                <li>Controlar com precisão a repetição, direção e temporização</li>
+                <li>Melhorar a experiência do usuário e fornecer feedback visual</li>
+                <li>Tornar interfaces mais dinâmicas e envolventes</li>
+            </ul>
+
+            <div class="destaque tip">
+                <h4>💡 Dica</h4>
+                <p>As animações CSS são renderizadas diretamente pelo navegador, sem necessidade de JavaScript, o que geralmente resulta em melhor performance, especialmente em dispositivos móveis.</p>
+            </div>
+        </section>
+
+        <!-- Fundamentos de Animações -->
+        <section class="secao" id="keyframes">
+            <h2>🔑 Keyframes: A Base das Animações</h2>
+            
+            <p>O coração das animações CSS é a regra <code>@keyframes</code>, que permite definir os estados da animação em diferentes pontos percentuais do seu tempo total de execução.</p>
+
+            <div class="codigo-exemplo">
+                <pre><code>@keyframes nomeDaAnimacao {
+    0% {
+        /* Estado inicial */
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        /* Estado intermediário */
+        opacity: 0.5;
+        transform: scale(0.75);
+    }
+    100% {
+        /* Estado final */
+        opacity: 1;
+        transform: scale(1);
+    }
+}</code></pre>
+            </div>
+
+            <p>Após definir os keyframes, você aplica a animação a um elemento usando a propriedade <code>animation</code> ou suas propriedades individuais:</p>
+
+            <div class="codigo-exemplo">
+                <pre><code>.elemento {
+    animation-name: nomeDaAnimacao;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0.5s;
+    animation-iteration-count: 3;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}</code></pre>
+            </div>
+
+            <p>Ou usando a forma abreviada:</p>
+
+            <div class="codigo-exemplo">
+                <pre><code>.elemento {
+    /* nome duração timing-func atraso iterações direção fill-mode */
+    animation: nomeDaAnimacao 2s ease-in-out 0.5s 3 alternate forwards;
+}</code></pre>
+            </div>
+
+            <div class="demo-animation">
+                <h4>Demonstração: Animação de Pulsação</h4>
+                <div class="box pulse-box">Pulse</div>
+            </div>
+        </section>
+
+        <!-- Propriedades de Animação -->
+        <section class="secao" id="propriedades">
+            <h2>⚙️ Propriedades de Animação</h2>
+            
+            <p>O CSS oferece diversas propriedades para controlar com precisão como as animações são executadas:</p>
+
+            <div class="tabela-container">
+                <table class="tabela-comparacao">
+                    <thead>
+                        <tr>
+                            <th>Propriedade</th>
+                            <th>Descrição</th>
+                            <th>Valores</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>animation-name</code></td>
+                            <td>Define qual animação @keyframes aplicar</td>
+                            <td>nome da animação</td>
+                        </tr>
+                        <tr>
+                            <td><code>animation-duration</code></td>
+                            <td>Tempo que a animação leva para completar um ciclo</td>
+                            <td>tempo em s ou ms</td>
+                        </tr>
+                        <tr>
+                            <td><code>animation-timing-function</code></td>
+                            <td>Como a animação progride ao longo do tempo</td>
+                            <td>ease, linear, ease-in, ease-out, ease-in-out, cubic-bezier()</td>
+                        </tr>
+                        <tr>
+                            <td><code>animation-delay</code></td>
+                            <td>Atraso antes da animação começar</td>
+                            <td>tempo em s ou ms</td>
+                        </tr>
+                        <tr>
+                            <td><code>animation-iteration-count</code></td>
+                            <td>Quantas vezes a animação se repete</td>
+                            <td>número ou infinite</td>
+                        </tr>
+                        <tr>
+                            <td><code>animation-direction</code></td>
+                            <td>Se a animação alterna direção a cada ciclo</td>
+                            <td>normal, reverse, alternate, alternate-reverse</td>
+                        </tr>
+                        <tr>
+                            <td><code>animation-fill-mode</code></td>
+                            <td>Como aplicar estilos antes/depois da animação</td>
+                            <td>none, forwards, backwards, both</td>
+                        </tr>
+                        <tr>
+                            <td><code>animation-play-state</code></td>
+                            <td>Se a animação está em execução ou pausada</td>
+                            <td>running, paused</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="destaque important">
+                <h4>⚠️ Importante</h4>
+                <p>O <code>animation-fill-mode</code> é crucial para determinar se o elemento manterá o estado final da animação (<code>forwards</code>) ou voltará ao estado inicial (<code>none</code>).</p>
+            </div>
+        </section>
+
+        <!-- Exemplos de Animações -->
+        <section class="secao" id="exemplos-animacoes">
+            <h2>🎨 Exemplos de Animações Comuns</h2>
+            
+            <div class="grid-exemplos">
+                <div class="exemplo-item">
+                    <h4>Slide In</h4>
+                    <div class="demo-animation">
+                        <div class="box slide-box">Slide</div>
+                    </div>
+                    <div class="codigo-exemplo">
+                        <pre><code>@keyframes slideIn {
+    from { 
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to { 
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.elemento {
+    animation: slideIn 1s forwards;
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="exemplo-item">
+                    <h4>Rotação</h4>
+                    <div class="demo-animation">
+                        <div class="box rotate-box">Rotate</div>
+                    </div>
+                    <div class="codigo-exemplo">
+                        <pre><code>@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.elemento {
+    animation: rotate 4s linear infinite;
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="exemplo-item">
+                    <h4>Salto (Bounce)</h4>
+                    <div class="demo-animation">
+                        <div class="box bounce-box">Bounce</div>
+                    </div>
+                    <div class="codigo-exemplo">
+                        <pre><code>@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.elemento {
+    animation: bounce 1s ease infinite;
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="exemplo-item">
+                    <h4>Mudança de Cor</h4>
+                    <div class="demo-animation">
+                        <div class="box color-box">Colors</div>
+                    </div>
+                    <div class="codigo-exemplo">
+                        <pre><code>@keyframes colorChange {
+    0% { background-color: #6d28d9; }
+    25% { background-color: #2563eb; }
+    50% { background-color: #059669; }
+    75% { background-color: #d97706; }
+    100% { background-color: #dc2626; }
+}
+
+.elemento {
+    animation: colorChange 8s linear infinite;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="destaque example">
+                <h4>✨ Experimente</h4>
+                <p>Tente combinar múltiplas animações! É possível aplicar várias animações ao mesmo elemento separando-as por vírgulas:</p>
+                <div class="codigo-exemplo">
+                    <pre><code>.elemento {
+    animation: 
+        bounce 2s infinite,
+        colorChange 5s linear infinite;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Animações e Interatividade -->
+        <section class="secao" id="interatividade">
+            <h2>👆 Animações e Interatividade</h2>
+            
+            <p>As animações podem ser iniciadas ou alteradas por interações do usuário, combinando-as com pseudoclasses como <code>:hover</code>, <code>:focus</code>, ou <code>:active</code>.</p>
+
+            <div class="demo-animation">
+                <h4>Animação no Hover (Passe o mouse)</h4>
+                <div class="box shake-box interaction-demo">Hover me</div>
+            </div>
+
+            <div class="codigo-exemplo">
+                <pre><code>.shake-box {
+    animation: shake 0.5s ease-in-out infinite;
+    animation-play-state: paused;
+}
+
+.shake-box:hover {
+    animation-play-state: running;
+}</code></pre>
+            </div>
+
+            <p>Você também pode usar animações para fornecer feedback de interação em elementos como botões:</p>
+
+            <div class="demo-animation">
+                <button class="submit-btn interaction-demo">Clique em mim</button>
+            </div>
+
+            <p>Um exemplo comum é a aplicação de animações em formulários para melhorar o feedback ao usuário:</p>
+
+            <div class="demo-animation">
+                <form class="animated-form">
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" placeholder="Seu nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="seu@email.com">
+                    </div>
+                    <button type="button" class="submit-btn interaction-demo">Enviar</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Animações Sequenciais e em Cascata -->
+        <section class="secao" id="sequenciais">
+            <h2>📝 Animações Sequenciais e em Cascata</h2>
+            
+            <p>Você pode criar animações sequenciais aplicando atrasos (<code>animation-delay</code>) a elementos semelhantes:</p>
+
+            <div class="demo-animation">
+                <div class="stagger-container">
+                    <div class="stagger-item"></div>
+                    <div class="stagger-item"></div>
+                    <div class="stagger-item"></div>
+                    <div class="stagger-item"></div>
+                    <div class="stagger-item"></div>
+                </div>
+            </div>
+
+            <div class="codigo-exemplo">
+                <pre><code>.stagger-item {
+    animation: bounce 1s ease infinite;
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0s; }
+.stagger-item:nth-child(2) { animation-delay: 0.1s; }
+.stagger-item:nth-child(3) { animation-delay: 0.2s; }
+.stagger-item:nth-child(4) { animation-delay: 0.3s; }
+.stagger-item:nth-child(5) { animation-delay: 0.4s; }</code></pre>
+            </div>
+
+            <p>Esse efeito de cascata é comum em interfaces modernas, especialmente ao carregar listas de itens ou revelar conteúdo.</p>
+
+            <div class="demo-animation">
+                <h4>Indicador de Carregamento Animado</h4>
+                <div class="loading">
+                    <div class="loading-dot"></div>
+                    <div class="loading-dot"></div>
+                    <div class="loading-dot"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Otimização de Performance -->
+        <section class="secao" id="performance">
+            <h2>⚡ Otimização de Performance</h2>
+            
+            <p>Animações podem impactar significativamente a performance de um site, especialmente em dispositivos móveis. Aqui estão algumas dicas para otimização:</p>
+
+            <div class="destaque warning">
+                <h4>💡 Dicas de Performance</h4>
+                <ul>
+                    <li><strong>Anime propriedades GPU-friendly:</strong> Prefira <code>transform</code> e <code>opacity</code> que são aceleradas por GPU</li>
+                    <li><strong>Evite animar propriedades que causam reflow:</strong> Como <code>width</code>, <code>height</code>, <code>padding</code>, <code>margin</code>, <code>position</code></li>
+                    <li><strong>Use <code>will-change</code>:</strong> Avisa o navegador sobre elementos que serão animados</li>
+                    <li><strong>Considere <code>requestAnimationFrame</code>:</strong> Para animações complexas controladas por JavaScript</li>
+                    <li><strong>Teste em dispositivos reais:</strong> A performance pode variar significativamente entre dispositivos</li>
+                </ul>
+            </div>
+
+            <div class="codigo-exemplo">
+                <pre><code>/* Otimizando uma animação */
+.elemento-otimizado {
+    will-change: transform, opacity;
+    animation: minhaAnimacao 0.5s ease;
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Acessibilidade -->
+        <section class="secao" id="acessibilidade">
+            <h2>♿ Acessibilidade e Animações</h2>
+            
+            <p>As animações podem causar problemas para usuários com distúrbios vestibulares, sensibilidade a movimento, epilepsia ou outras condições. Sempre considere:</p>
+
+            <ul>
+                <li><strong>Respeite preferências de movimento reduzido:</strong> Use a media query <code>prefers-reduced-motion</code></li>
+                <li><strong>Evite flashes rápidos:</strong> Animações com alternância rápida de cores podem desencadear convulsões</li>
+                <li><strong>Forneça alternativas:</strong> Ofereça opções para desativar ou reduzir animações</li>
+                <li><strong>Teste com tecnologias assistivas:</strong> Verifique se as animações não interferem na navegação por teclado ou leitores de tela</li>
+            </ul>
+
+            <div class="codigo-exemplo">
+                <pre><code>/* Respeitando preferência de redução de movimento */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.001s !important;
+        transition-duration: 0.001s !important;
+    }
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Casos de Uso -->
+        <section class="secao" id="casos-uso">
+            <h2>🌟 Casos de Uso Práticos</h2>
+            
+            <p>As animações CSS têm diversos usos práticos que melhoram significativamente a experiência do usuário:</p>
+
+            <div class="grid-exemplos">
+                <div class="exemplo-caso">
+                    <h4>1. Feedback de Interação</h4>
+                    <p>Animações breves que confirmam ações do usuário, como botões que pulsam quando clicados ou formulários que mostram feedback visual.</p>
+                </div>
+
+                <div class="exemplo-caso">
+                    <h4>2. Estados de Carregamento</h4>
+                    <p>Spinners, barras de progresso e outros indicadores que informam o usuário que algo está sendo processado.</p>
+                </div>
+
+                <div class="exemplo-caso">
+                    <h4>3. Transições de Estado</h4>
+                    <p>Animações que mostram mudanças de estado em componentes de interface, como expansão de painéis, aberturas de menus ou alterações de visualização.</p>
+                </div>
+
+                <div class="exemplo-caso">
+                    <h4>4. Revelação de Conteúdo</h4>
+                    <p>Animações que revelam gradualmente conteúdo à medida que o usuário rola a página ou navega por seções diferentes.</p>
+                </div>
+
+                <div class="exemplo-caso">
+                    <h4>5. Notificações</h4>
+                    <p>Alertas ou mensagens que chamam a atenção do usuário de forma não intrusiva, como toasts ou badges animados.</p>
+                </div>
+
+                <div class="exemplo-caso">
+                    <h4>6. Storytelling</h4>
+                    <p>Animações que ajudam a contar uma história ou explicar um conceito, guiando o foco do usuário de um elemento para outro.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exercícios Práticos -->
+        <section class="secao exercicios" id="exercicios">
+            <h2>✏️ Exercícios Práticos</h2>
+            
+            <div class="exercicio">
+                <h3>Exercício 1: Animação de Entrada</h3>
+                <p>Crie uma animação de "fade in" que revele gradualmente um elemento ao entrar na página. O elemento deve começar invisível e fora da tela, e animar para sua posição final com opacidade total.</p>
+                <div class="exercicio-dica">
+                    <p><strong>Dica:</strong> Use uma combinação de <code>opacity</code> e <code>transform: translateY()</code> nos seus keyframes.</p>
+                </div>
+            </div>
+
+            <div class="exercicio">
+                <h3>Exercício 2: Animação de Carregamento</h3>
+                <p>Crie um indicador de carregamento animado (spinner ou barra de progresso) usando apenas CSS. Deve repetir continuamente até ser removido.</p>
+                <div class="exercicio-dica">
+                    <p><strong>Dica:</strong> Pense em usar <code>animation-iteration-count: infinite</code> e transformações como <code>rotate</code> ou <code>scale</code>.</p>
+                </div>
+            </div>
+
+            <div class="exercicio">
+                <h3>Exercício 3: Interface com Feedback</h3>
+                <p>Implemente animações sutis para um formulário de login, incluindo:</p>
+                <ul>
+                    <li>Efeito de foco nos campos de entrada</li>
+                    <li>Animação no botão de envio quando clicado</li>
+                    <li>Feedback visual de validação (sucesso/erro)</li>
+                </ul>
+                <div class="exercicio-dica">
+                    <p><strong>Dica:</strong> Combine pseudo-classes como <code>:focus</code>, <code>:valid</code>, <code>:invalid</code> com animações específicas.</p>
+                </div>
+            </div>
+
+            <div class="exercicio">
+                <h3>Desafio: Sequência de Animações</h3>
+                <p>Crie uma sequência de animações que conte uma história simples com 3-4 elementos na página. Os elementos devem animar em ordem, com cada animação começando apenas quando a anterior terminar.</p>
+                <div class="exercicio-dica">
+                    <p><strong>Dica:</strong> Use <code>animation-delay</code> cuidadosamente e calcule o timing total de cada animação.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ferramentas e Recursos -->
+        <section class="secao recursos-adicionais">
+            <h2>🔧 Ferramentas e Recursos</h2>
+            
+            <div class="recursos-lista">
+                <div class="recurso-item">
+                    <h4>Geradores de Animação</h4>
+                    <ul>
+                        <li><a href="https://animista.net/" target="_blank">Animista</a> - Biblioteca de animações CSS pré-criadas</li>
+                        <li><a href="https://keyframes.app/" target="_blank">Keyframes App</a> - Editor visual de animações CSS</li>
+                        <li><a href="https://animate.style/" target="_blank">Animate.css</a> - Biblioteca de animações prontas para usar</li>
+                    </ul>
+                </div>
+
+                <div class="recurso-item">
+                    <h4>Documentação</h4>
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS/CSS_Animations/Using_CSS_animations" target="_blank">MDN: Usando Animações CSS</a></li>
+                        <li><a href="https://css-tricks.com/almanac/properties/a/animation/" target="_blank">CSS-Tricks: Animation</a></li>
+                        <li><a href="https://web.dev/animations-guide/" target="_blank">Web.dev: Guia de Animações</a></li>
+                    </ul>
+                </div>
+
+                <div class="recurso-item">
+                    <h4>Tutoriais Avançados</h4>
+                    <ul>
+                        <li><a href="https://tympanus.net/codrops/css_reference/keyframes/" target="_blank">Codrops: Referência @keyframes</a></li>
+                        <li><a href="https://www.smashingmagazine.com/2011/09/the-guide-to-css-animation-principles-and-examples/" target="_blank">Smashing Magazine: Guia de Princípios de Animação</a></li>
+                        <li><a href="https://cssanimation.rocks/" target="_blank">CSS Animation Rocks</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resumo -->
+        <section class="secao resumo">
+            <h2>📝 Resumo</h2>
+            
+            <div class="destaque tip">
+                <h4>Pontos-chave desta aula</h4>
+                <ul>
+                    <li>Animações CSS usam a regra <code>@keyframes</code> para definir múltiplos estados ao longo do tempo</li>
+                    <li>Diferentemente das transições, animações podem ter múltiplos pontos intermediários e executar sem gatilhos</li>
+                    <li>Propriedades como <code>animation-duration</code>, <code>animation-timing-function</code> e <code>animation-iteration-count</code> controlam o comportamento</li>
+                    <li>Animações podem ser usadas para feedback de interação, indicadores de status e transições de interface</li>
+                    <li>Para melhor performance, anime propriedades aceleradas por GPU como <code>transform</code> e <code>opacity</code></li>
+                    <li>Sempre considere acessibilidade ao implementar animações, respeitando <code>prefers-reduced-motion</code></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Próximos Passos -->
+        <section class="secao proximos-passos">
+            <h2>🚀 Próximos Passos</h2>
+            
+            <p>Agora que você domina animações CSS, explore:</p>
+            <ul>
+                <li>Integração de animações CSS com JavaScript para controle dinâmico</li>
+                <li>Bibliotecas como GSAP para animações mais complexas e com melhor suporte</li>
+                <li>Animações específicas para web apps, como transições de estado em SPAs</li>
+                <li>Técnicas de microinteração para melhorar significativamente UX</li>
+            </ul>
+
+            <p>Na próxima aula, exploraremos o CSS moderno com Custom Properties, funções avançadas e recursos mais recentes!</p>
+        </section>
+
+        <!-- Navegação -->
+        <div class="aula-navegacao">
+            <a href="aula-07-transforms-transitions.html" class="aula-anterior">
+                ⬅️ Aula anterior: Transforms e Transitions
+            </a>
+            <a href="aula-09-css-moderno.html" class="aula-proxima">
+                Próxima aula: CSS Moderno ➡️
+            </a>
+        </div>
+
+        <!-- Rodapé -->
+        <footer class="aula-footer">
+            <p>© 2023 Curso CSS Fundamentals | Criado com 💜 e muito CSS</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Script para atualizar a barra de progresso
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.objetivo-checkbox');
+            const progressBar = document.querySelector('.progresso-concluido');
+            const progressText = document.querySelector('.progresso-porcentagem');
+            
+            function updateProgress() {
+                const total = checkboxes.length;
+                let checked = 0;
+                
+                checkboxes.forEach(checkbox => {
+                    if (checkbox.checked) checked++;
+                });
+                
+                const percentage = Math.round((checked / total) * 100);
+                progressBar.style.width = percentage + '%';
+                progressText.textContent = percentage + '%';
+                
+                // Salvar progresso no localStorage
+                localStorage.setItem('progressoAula8', JSON.stringify({
+                    total: total,
+                    completed: checked,
+                    objectives: [...checkboxes].map(cb => cb.checked)
+                }));
+            }
+            
+            // Carregar progresso salvo
+            const savedProgress = localStorage.getItem('progressoAula8');
+            if (savedProgress) {
+                const progress = JSON.parse(savedProgress);
+                if (progress.objectives && progress.objectives.length === checkboxes.length) {
+                    progress.objectives.forEach((checked, i) => {
+                        checkboxes[i].checked = checked;
+                    });
+                    updateProgress();
+                }
+            }
+            
+            // Atualizar quando os checkboxes mudarem
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updateProgress);
+            });
+        });
+    </script>
+</body>
+</html>
